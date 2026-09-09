@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+<title id="title">Pranay Kadu — Neo Terminal Editorial</title>
+<desc id="desc">A continuous premium developer profile with expressive typography, Linux terminal syntax, subtle motion, tactile texture, open-source proof and featured systems.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0A0B0F"/>
+    <stop offset="0.55" stop-color="#07080B"/>
+    <stop offset="1" stop-color="#050609"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#6F8CFF"/>
+    <stop offset="0.55" stop-color="#8B7CFF"/>
+    <stop offset="1" stop-color="#B69CFF"/>
+    <animateTransform attributeName="gradientTransform" type="translate" values="-0.12 0;0.12 0;-0.12 0" dur="10s" repeatCount="indefinite"/>
+  </linearGradient>
+  <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#7B84FF" stop-opacity="0.18"/>
+    <stop offset="0.45" stop-color="#8B7CFF" stop-opacity="0.06"/>
+    <stop offset="1" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+    <path d="M42 0H0V42" fill="none" stroke="#F2EFE8" stroke-opacity="0.022" stroke-width="1"/>
+  </pattern>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" seed="31"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 .06"/></feComponentTransfer>
+  </filter>
+  <clipPath id="frame"><rect x="36" y="36" width="1128" height="1428" rx="28"/></clipPath>
+</defs>
+
+<rect width="1200" height="1500" fill="url(#bg)"/>
+<rect width="1200" height="1500" fill="url(#grid)"/>
+<circle cx="1000" cy="120" r="360" fill="url(#halo)">
+  <animate attributeName="cx" values="1000;920;1040;1000" dur="15s" repeatCount="indefinite"/>
+</circle>
+<rect width="1200" height="1500" filter="url(#grain)" opacity=".24"/>
+<rect x="36" y="36" width="1128" height="1428" rx="28" fill="none" stroke="#F2EFE8" stroke-opacity=".10"/>
+
+<g clip-path="url(#frame)">
+  <!-- editorial hero -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="96" fill="#8D93A1" font-size="14" font-weight="700" letter-spacing="4">BACKENDARCHITECTX / SYSTEMS ENGINEERING</text>
+    <text x="64" y="192" fill="#F2EFE8" font-size="84" font-weight="900" letter-spacing="-5">PRANAY KADU</text>
+    <text x="64" y="244" fill="url(#accent)" font-size="29" font-weight="800" letter-spacing="1">BACKEND &amp; DISTRIBUTED SYSTEMS ENGINEER</text>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="64" y="292" fill="#B9BDC7" font-size="18">java-first / concurrency / reliability / production systems / open source</text>
+    <text x="64" y="332" fill="#6F8CFF" font-size="18">$ whoami</text>
+    <text x="178" y="332" fill="#E7E2D8" font-size="18">engineer who follows failure boundaries to their root cause_</text>
+    <rect x="776" y="314" width="12" height="22" fill="#9C8EFF">
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.45;.5;.95;1" dur="1.05s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <path d="M64 370 H1136" stroke="#F2EFE8" stroke-opacity=".09"/>
+  <path d="M64 370 H500" stroke="url(#accent)" stroke-width="2.2" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" values="60 400;280 180;60 400" dur="8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- 01 core technologies -->
+  <text x="62" y="442" fill="#F2EFE8" font-size="34" font-weight="900" font-family="Arial, Helvetica, sans-serif">CORE TECHNOLOGIES</text>
+  <text x="1070" y="438" fill="#272A33" font-size="86" font-weight="900" font-family="Arial, Helvetica, sans-serif">01</text>
+  <text x="64" y="476" fill="#6F8CFF" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$ cat /etc/backendarchitectx/core-stack</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="900">
+    <text x="64" y="540" fill="#F2EFE8" font-size="44">JAVA</text>
+    <text x="240" y="540" fill="#F2EFE8" font-size="44">SPRING BOOT</text>
+    <text x="568" y="540" fill="url(#accent)" font-size="44">DISTRIBUTED SYSTEMS</text>
+    <text x="64" y="596" fill="#D8D4CD" font-size="31">KAFKA</text>
+    <text x="190" y="596" fill="#D8D4CD" font-size="31">REDIS</text>
+    <text x="305" y="596" fill="#D8D4CD" font-size="31">SQL</text>
+    <text x="390" y="596" fill="#D8D4CD" font-size="31">KUBERNETES</text>
+    <text x="625" y="596" fill="#D8D4CD" font-size="31">AWS / EKS</text>
+    <text x="827" y="596" fill="#D8D4CD" font-size="31">MICROSERVICES</text>
+  </g>
+  <text x="64" y="638" fill="#969BA8" font-size="19" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">Python · FastAPI · Flask · Node.js · TypeScript · C++ · Docker · Jenkins · JFR</text>
+
+  <!-- 02 production impact -->
+  <path d="M64 684 H1136" stroke="#F2EFE8" stroke-opacity=".08"/>
+  <text x="62" y="744" fill="#F2EFE8" font-size="34" font-weight="900" font-family="Arial, Helvetica, sans-serif">PRODUCTION IMPACT</text>
+  <text x="1070" y="740" fill="#272A33" font-size="86" font-weight="900" font-family="Arial, Helvetica, sans-serif">02</text>
+  <text x="64" y="778" fill="#6F8CFF" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$ cat /proc/impact</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="850" fill="#F2EFE8" font-size="48" font-weight="900">1M+</text>
+    <text x="64" y="882" fill="#8F95A2" font-size="15" font-weight="700" letter-spacing="2">TRANSACTIONS</text>
+    <text x="306" y="850" fill="#F2EFE8" font-size="48" font-weight="900">−40%</text>
+    <text x="306" y="882" fill="#8F95A2" font-size="15" font-weight="700" letter-spacing="2">P95 LATENCY</text>
+    <text x="575" y="850" fill="#F2EFE8" font-size="48" font-weight="900">+15%</text>
+    <text x="575" y="882" fill="#8F95A2" font-size="15" font-weight="700" letter-spacing="2">THROUGHPUT</text>
+    <text x="838" y="850" fill="#F2EFE8" font-size="48" font-weight="900">99.8%</text>
+    <text x="838" y="882" fill="#8F95A2" font-size="15" font-weight="700" letter-spacing="2">UPTIME</text>
+    <text x="1054" y="850" fill="url(#accent)" font-size="34" font-weight="900">35→12m</text>
+    <text x="1054" y="882" fill="#8F95A2" font-size="13" font-weight="700">MTTR</text>
+  </g>
+
+  <!-- 03 live systems -->
+  <path d="M64 930 H1136" stroke="#F2EFE8" stroke-opacity=".08"/>
+  <text x="62" y="990" fill="#F2EFE8" font-size="34" font-weight="900" font-family="Arial, Helvetica, sans-serif">LIVE SYSTEMS</text>
+  <text x="1070" y="986" fill="#272A33" font-size="86" font-weight="900" font-family="Arial, Helvetica, sans-serif">03</text>
+  <text x="64" y="1024" fill="#6F8CFF" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$ trace --path request --live</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">
+    <text x="64" y="1085" fill="#E7E2D8">API GATEWAY</text>
+    <text x="284" y="1085" fill="#E7E2D8">SPRING</text>
+    <text x="468" y="1085" fill="#E7E2D8">REDIS</text>
+    <text x="635" y="1085" fill="#E7E2D8">KAFKA</text>
+    <text x="800" y="1085" fill="#E7E2D8">MYSQL</text>
+    <text x="958" y="1085" fill="#E7E2D8">CLOUDWATCH</text>
+  </g>
+  <path d="M64 1110 H1124" stroke="#4D5363" stroke-width="2"/>
+  <path d="M64 1110 H1124" stroke="url(#accent)" stroke-width="2.5" stroke-dasharray="18 30">
+    <animate attributeName="stroke-dashoffset" values="0;-192" dur="4s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="64" cy="1110" r="6" fill="#8B7CFF" filter="url(#glow)">
+    <animate attributeName="cx" values="64;1124;64" dur="7.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="64" y="1154" fill="#8F95A2" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">timeouts · circuit breakers · idempotency · rate limiting · async processing · autoscaling · observability</text>
+
+  <!-- 04 open source -->
+  <path d="M64 1196 H1136" stroke="#F2EFE8" stroke-opacity=".08"/>
+  <text x="62" y="1256" fill="#F2EFE8" font-size="34" font-weight="900" font-family="Arial, Helvetica, sans-serif">OPEN SOURCE CONTRIBUTIONS</text>
+  <text x="1070" y="1252" fill="#272A33" font-size="86" font-weight="900" font-family="Arial, Helvetica, sans-serif">04</text>
+  <text x="64" y="1290" fill="#6F8CFF" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$ git log --oneline upstream</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="64" y="1338" fill="#F2EFE8" font-size="21" font-weight="700">MERGED</text>
+    <text x="170" y="1338" fill="#B69CFF" font-size="21">AutoMQ #3493</text>
+    <text x="380" y="1338" fill="#A9AEB9" font-size="18">controller-only reporter lifecycle</text>
+    <text x="64" y="1376" fill="#8F95A2" font-size="19">REVIEW</text>
+    <text x="170" y="1376" fill="#D8D4CD" font-size="19">Trino #30973 · Fluss #4263 · AutoMQ #3579 · Fluss #4230</text>
+  </g>
+
+  <!-- featured systems compact -->
+  <text x="64" y="1424" fill="#6F8CFF" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$ ls ~/featured</text>
+  <text x="244" y="1424" fill="#F2EFE8" font-size="20" font-weight="800" font-family="Arial, Helvetica, sans-serif">Vortex CUDA</text>
+  <text x="404" y="1424" fill="#8F95A2" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">Spring → Java → JNI → CUDA</text>
+  <text x="768" y="1424" fill="#F2EFE8" font-size="20" font-weight="800" font-family="Arial, Helvetica, sans-serif">distrib-txn-db</text>
+  <text x="946" y="1424" fill="#8F95A2" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">HLC · MVCC · intents</text>
+</g>
+
+<!-- persistent editorial rails -->
+<text x="22" y="760" fill="#626875" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" transform="rotate(-90 22 760)" letter-spacing="3">OBSERVE / ISOLATE / MODEL / CHANGE / PROVE / OPERATE</text>
+<text x="1178" y="760" fill="#626875" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" transform="rotate(90 1178 760)" letter-spacing="3">LINUX / JVM / KAFKA / REDIS / KUBERNETES / AWS</text>
+</svg>
