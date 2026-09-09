@@ -1,10 +1,19 @@
 <div align="center">
 
-<img src="./assets/neon-cybernetic-atlas-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X neon cybernetic systems atlas" />
+<h1>PRANAY KADU</h1>
+<h3>BACKEND &amp; DISTRIBUTED SYSTEMS ENGINEER</h3>
+
+[**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
 <br>
 
-[**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
+<img src="./assets/neon-skills-spectrum-2026.svg" width="100%" alt="Core engineering skills — Java, Spring Boot, Distributed Systems, Kafka, Redis, Kubernetes, AWS, Python, TypeScript and C++" />
+
+<br>
+
+<img src="./assets/neon-cybernetic-atlas-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X neon cybernetic systems atlas" />
+
+<br>
 
 [**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
 
@@ -16,16 +25,29 @@
 <summary><b>Full resume-grounded execution surface</b></summary>
 <br>
 
-`Languages` — Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL  
-`Backend` — Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST APIs · JSP  
-`Client` — ReactJS · TypeScript · JavaScript  
-`Architecture` — Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing  
-`Performance` — Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms  
-`Data / Messaging` — MySQL · PostgreSQL · MongoDB · Redis · Kafka · Message Queues · SQL Optimization  
-`Quality` — JUnit · TDD · OOP · SOLID · Agile  
-`Cloud / DevOps` — AWS · EKS · PCF · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD  
-`Tools` — Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML  
-`AI tooling` — Claude Sonnet · Claude Opus · GitHub Copilot · AI-powered coding assistants · agent-based tools
+### Languages
+**Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL**
+
+### Backend & APIs
+**Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST APIs · JSP**
+
+### Architecture & Distributed Systems
+**Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing · Kafka · Message Queues**
+
+### Performance
+**Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms · JFR**
+
+### Data
+**MySQL · PostgreSQL · MongoDB · Redis · SQL Optimization**
+
+### Cloud & DevOps
+**AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD · CloudWatch**
+
+### Quality & Tooling
+**JUnit · TDD · OOP · SOLID · Agile · Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML**
+
+### AI Tooling
+**Claude Sonnet · Claude Opus · GitHub Copilot · AI-powered coding assistants · agent-based tools**
 
 </details>
 
