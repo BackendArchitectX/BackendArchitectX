@@ -1,108 +1,134 @@
 <div align="center">
 
-<img src="./assets/cinematic-systems-hero.svg" width="100%" alt="Pranay Kadu cinematic backend systems portfolio" />
+<img src="./assets/blacksite-linux-hero.svg" width="100%" alt="BackendArchitectX Linux engineering terminal" />
 
 <br>
 
-### `BACKEND & DISTRIBUTED SYSTEMS ENGINEER`
+### `root@backendarchitectx // BACKEND & DISTRIBUTED SYSTEMS ENGINEER`
 
 [GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
 
-<sub>Java-first systems engineering across distributed backends, multi-runtime services, performance and production reliability.</sub>
+<sub>Java-first backend systems · Linux-minded engineering · multi-runtime services · production reliability</sub>
 
 </div>
 
-<br>
+---
 
-## `01 / UPSTREAM`
+## `01 // /proc/impact`
 
-<img src="./assets/contribution-constellation.svg" width="100%" alt="Open-source contribution constellation" />
+```text
+scale        1M+ transactions
+latency      p95 -40%
+throughput   +15%
+availability 99.8%
+mttr         35 min -> 12 min
+```
+
+`Java / Spring Boot` · `Python / FastAPI / Flask` · `C++ / STL` · `Kafka` · `Redis` · `SQL` · `AWS / EKS / Kubernetes`
+
+---
+
+## `02 // ~/upstream/.git`
+
+<img src="./assets/git-ops-console.svg" width="100%" alt="Open source git operations console" />
 
 <div align="center">
 
 [**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
 
-<sub>process-role lifecycle · finalization ownership · endpoint identity · auth lifecycle · metadata mapping</sub>
+</div>
+
+<details>
+<summary><code>$ cat ~/.engineering/invariants</code></summary>
+<br>
+
+```text
+process-role  -> lifecycle follows source-system semantics
+finalization  -> one owner for terminal state transition
+identity      -> logical identity != physical location
+lifecycle     -> creator owns threads / permits / connections / native handles
+race-testing  -> force timing deterministically; never depend on luck
+```
+
+</details>
+
+---
+
+## `03 // /opt/systems`
+
+<img src="./assets/systems-lab-terminal.svg" width="100%" alt="Original systems lab terminal" />
+
+<div align="center">
+
+[**Vortex CUDA**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db**](https://github.com/BackendArchitectX/distrib-txn-db)
 
 </div>
 
 <details>
-<summary><b>Engineering invariants behind the fixes</b></summary>
+<summary><code>$ ./vortex --proof</code></summary>
 <br>
 
-- Runtime lifecycle must follow source-system process-role semantics.
-- Once one path owns a terminal transition, unrelated failure cannot steal it.
-- Logical server identity must not silently imply physical endpoint location.
-- Threads, permits, connections and native handles require explicit ownership.
-- Race windows should be forced deterministically rather than found by chance.
+`v1.0.0` · `48/48 benchmark cases` · `M18 end-to-end smoke test` · architecture/security docs · packaged Windows x64 release  
+RTX 3050 6GB / 500K×128 · FP32 P50 **~1.67–1.72 ms** · **~1,641–1,662 QPS** @ batch 32 · FP16 **-50% storage** · **99.6875% Recall@10**
 
 </details>
 
-<br>
+---
 
-## `02 / ORIGINAL SYSTEMS`
+## `04 // /etc/stack.conf`
 
-<table>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/BackendArchitectX/Vortex-CUDA"><img src="./assets/vortex-project-card.svg" width="100%" alt="Vortex CUDA project card" /></a>
-<br>
-<b>Exact GPU vector search from Spring Boot to CUDA.</b><br>
-<sub>Released v1.0.0 · 48/48 benchmark matrix · M18 end-to-end smoke validation · explicit scope boundaries.</sub>
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/BackendArchitectX/distrib-txn-db"><img src="./assets/txn-project-card.svg" width="100%" alt="Distributed transaction database project card" /></a>
-<br>
-<b>Distributed state model built anomaly-first.</b><br>
-<sub>HLC · MVCC · write intents · uncertainty · read restart · serializable conflict prevention. Educational scope and AI assistance are explicit.</sub>
-</td>
-</tr>
-</table>
-
-<br>
-
-## `03 / EXECUTION SURFACE`
-
-<img src="./assets/skills-orbit.svg" width="100%" alt="Engineering skills orbit" />
-
-<div align="center">
-
-**Java / Spring Boot** · Python / FastAPI / Flask · Node.js / TypeScript / JavaScript · ReactJS · C++ / STL  
-Kafka · Redis · MySQL · PostgreSQL · MongoDB · AWS · EKS · Docker · Kubernetes · Jenkins · CloudWatch · Splunk · Dynatrace
-
-</div>
+<img src="./assets/linux-stack-map.svg" width="100%" alt="Linux engineering stack map" />
 
 <details>
-<summary><b>Full resume-grounded stack</b></summary>
+<summary><code>$ cat /etc/stack.conf --full</code></summary>
 <br>
 
-`Languages` — Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL  
-`Backend` — Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST APIs · JSP  
-`Client` — ReactJS · TypeScript · JavaScript  
-`Architecture` — Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing  
-`Performance` — Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms  
-`Data / Messaging` — MySQL · PostgreSQL · MongoDB · Redis · Kafka · Message Queues · SQL Optimization  
-`Quality` — JUnit · TDD · OOP · SOLID · Agile  
-`Cloud / DevOps` — AWS · EKS · PCF · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD  
-`Tools` — Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML  
-`AI tooling` — Claude Sonnet · Claude Opus · GitHub Copilot · AI-powered coding assistants · agent-based tools
+```text
+LANGUAGES     Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL
+BACKEND       Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST APIs · JSP
+CLIENT        ReactJS · TypeScript · JavaScript
+ARCHITECTURE  Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing
+PERFORMANCE   Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms
+DATA          MySQL · PostgreSQL · MongoDB · Redis · Kafka · Message Queues · SQL Optimization
+QUALITY       JUnit · TDD · OOP · SOLID · Agile
+PLATFORM      AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD
+OBSERVABILITY CloudWatch · Splunk · Dynatrace · JFR
+TOOLS         Git · GitHub · Bitbucket · Jira · XML
+AI TOOLING    Claude Sonnet · Claude Opus · GitHub Copilot · agent-based coding tools
+```
 
 </details>
 
-<br>
+---
 
-## `04 / ENGINEERING MODE`
+## `05 // man backendarchitectx`
+
+```text
+NAME
+    backendarchitectx - engineer systems where failure changes the rules
+
+SYNOPSIS
+    observe -> isolate -> model -> change -> prove -> measure -> operate
+
+PRINCIPLES
+    correctness before cleverness
+    explicit ownership before recovery logic
+    idempotency before retry
+    deterministic race tests before stress-test hope
+    lifecycle is part of correctness
+    operability is part of system design
+```
 
 <div align="center">
 
-### `OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE`
+`LINUX` · `BACKEND` · `DISTRIBUTED SYSTEMS` · `CONCURRENCY` · `RELIABILITY` · `PERFORMANCE`
 
-`OWNERSHIP` · `IDENTITY` · `LIFECYCLE` · `IDEMPOTENCY` · `DETERMINISTIC RACES` · `OPERABILITY`
+<br>
 
-<sub>Correctness before cleverness. Presentation never outruns validation.</sub>
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=TERMINAL%20SESSIONS&style=flat-square)
 
-<br><br>
+<br>
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20VISITS&style=flat-square)
+<sub><code>pranay@backendarchitectx:~$ _</code></sub>
 
 </div>
