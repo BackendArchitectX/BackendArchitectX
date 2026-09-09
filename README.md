@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/neo-terminal-editorial-v2-2026.svg" width="100%" alt="Pranay Kadu premium neo-terminal editorial backend systems profile" />
+<img src="./assets/premium-systems-profile-2026.svg" width="100%" alt="Pranay Kadu premium green backend and distributed systems engineering profile" />
 
 <br>
 
@@ -32,6 +32,6 @@
 
 <br>
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=PROFILE%20SESSIONS&style=flat-square&color=6F8CFF)
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=PROFILE%20SESSIONS&style=flat-square&color=39F98A)
 
 </div>
