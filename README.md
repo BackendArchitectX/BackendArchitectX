@@ -1,123 +1,92 @@
-# Hi, I'm Pranay Kadu 👋
+# Pranay Kadu
 
-📍 **India** | ⚙️ **Backend & Distributed Systems Engineer** | ☕ **Java / Spring Boot** | 🌐 **Open Source Contributor**
+**Backend & Distributed Systems Engineer** · Java · Streaming · Transactions · Reliability
 
-![Java](https://img.shields.io/badge/Java-17%2F21-000000?style=flat-square&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache%20Kafka-000000?style=flat-square&logo=apachekafka&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
+[![Java](https://img.shields.io/badge/Java-17%2F21-000?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Kafka](https://img.shields.io/badge/Kafka-000?style=flat-square&logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
 
-> I work on backend systems where correctness under concurrency, failure recovery, performance, and operability matter.
->
-> My current engineering focus is distributed systems, messaging infrastructure, RPC, transactional storage, and production-grade Java.
+I build and debug backend systems where **concurrency, failure recovery, resource lifecycle, throughput, and operability** matter.
+
+My current focus is distributed systems and production-grade Java: Kafka-compatible infrastructure, RPC, transactional state, asynchronous I/O, observability, and deterministic regression testing.
 
 ---
 
-## Open Source
+## Selected Open Source Work
 
-I contribute to infrastructure projects by reproducing failures, tracing lifecycle and concurrency bugs, implementing focused fixes, and adding regression coverage around the actual failure mode.
+### AutoMQ — Kafka-compatible streaming infrastructure
 
-### AutoMQ
+- ✅ [**#3493 — controller-only AutoBalancer reporter fix**](https://github.com/AutoMQ/automq/pull/3493) — merged
+  Prevented broker-only metrics reporter initialization from breaking controller-only nodes and added role-specific regression coverage.
 
-Kafka-compatible diskless streaming infrastructure.
+- 🔐 [**#3579 — Prometheus endpoint authentication**](https://github.com/AutoMQ/automq/pull/3579)
+  Added optional backward-compatible Basic authentication with endpoint policy, configuration validation, credential handling, and lifecycle tests.
 
-- ✅ [**#3493 — Skip AutoBalancer metrics reporter on controller-only nodes**](https://github.com/AutoMQ/automq/pull/3493) — **merged**
-  - Prevented broker-specific reporter initialization on controller-only processes.
-  - Added regression coverage across broker, controller-only, combined-role, and missing-role configurations.
+- 🔄 [**#3555 — StreamReader close/readahead race**](https://github.com/AutoMQ/automq/pull/3555)
+  Prevents asynchronous readahead from restoring block state after a reader has crossed its close lifecycle boundary.
 
-- 🔐 [**#3579 — Add optional Basic authentication to the Prometheus endpoint**](https://github.com/AutoMQ/automq/pull/3579)
-  - Adds backward-compatible authentication for `/metrics` while keeping health endpoints public.
-  - Covers authentication policy, malformed credentials, configuration validation, and exporter lifecycle.
+### Apache Fluss — streaming storage
 
-- 🔄 [**#3555 — Prevent closed StreamReader instances from restoring block state**](https://github.com/AutoMQ/automq/pull/3555)
-  - Handles in-flight and post-close readahead races around asynchronous metadata loading.
+- 🌐 [**#4263 — endpoint-aware Netty connection caching**](https://github.com/apache/fluss/pull/4263)
+  Prevents a cached RPC connection from continuing to target a stale-but-reachable TabletServer endpoint after metadata changes.
 
-- 🧹 [**#3542 — Remove redundant topic-cleanup notifications**](https://github.com/AutoMQ/automq/pull/3542)
-  - Clarifies metadata callback ownership and removes duplicate cleanup behavior.
+- 🔗 [**#4230 — custom Paimon lake paths for Spark reads**](https://github.com/apache/fluss/pull/4230)
+  Supports independent Fluss/Paimon table paths across lake-only reads, lake+log reads, and predicate pushdown.
 
-### Apache Fluss
+### Trino — distributed SQL
 
-Streaming storage and real-time analytics infrastructure.
+- ⚡ [**#30973 — transaction commit/failure race**](https://github.com/trinodb/trino/pull/30973)
+  Coordinates commit and failure ownership so unrelated failures cannot mark an autocommit query failed after commit has begun.
 
-- 🌐 [**#4263 — Handle endpoint changes for cached server connections**](https://github.com/apache/fluss/pull/4263)
-  - Makes Netty RPC connection identity endpoint-aware when the same logical server moves to a new host or port.
-  - Preserves UID-level lifecycle semantics while preventing stale reachable endpoints from being reused.
-
-- 🔗 [**#4230 — Support custom Paimon lake table paths in Spark reads**](https://github.com/apache/fluss/pull/4230)
-  - Enables lake reads when Paimon database/table mappings differ from the Fluss table path.
-  - Includes lake-only, lake+log union, predicate-pushdown, and compatibility coverage.
-
-### Trino
-
-Distributed SQL query engine.
-
-- ⚡ [**#30973 — Prevent query failure after transaction commit starts**](https://github.com/trinodb/trino/pull/30973)
-  - Fixes a race where an external failure could transition an autocommit query to `FAILED` after transaction commit had already begun.
-  - Coordinates commit and failure ownership while preserving genuine commit-failure handling.
-  - Adds deterministic regression tests for successful commit, commit failure, and delayed result consumption.
-
-**Contribution areas:** concurrency · lifecycle correctness · RPC · transaction state · asynchronous I/O · Kafka internals · Netty · regression testing · observability
+**Areas:** concurrency · asynchronous lifecycle · RPC · transactions · metadata · Kafka internals · Netty · regression testing
 
 ---
 
-## Systems Projects
+## Systems Lab
 
 ### [distrib-txn-db](https://github.com/BackendArchitectX/distrib-txn-db)
 
-A workshop-style distributed transactional key-value store built in Java, progressing from storage primitives to transactional consistency.
+A Java workshop that builds a distributed transactional key-value store from first principles:
 
-`Hybrid Logical Clocks` · `MVCC` · `distributed routing` · `transaction records` · `write intents` · `snapshot isolation` · `clock uncertainty` · `read restart` · `serializable conflict prevention`
+`HLC` → `MVCC` → `distributed routing` → `transaction records` → `write intents` → `snapshot isolation` → `clock uncertainty` → `read restart` → `serializable conflict prevention`
+
+The project intentionally demonstrates anomalies before introducing the mechanism that fixes them.
+
+---
+
+## Product Engineering
 
 ### [Aegis Insurance Decisioning Platform](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)
 
-Java 17 + Spring Boot decisioning platform covering policy servicing, claims, premium calculation, risk evaluation, renewal workflows, and auditable decisions.
-
-`Spring Boot` · `REST APIs` · `business rules` · `auditability` · `JUnit` · `Docker` · `Angular`
+Java 17 + Spring Boot decisioning platform for claims, premium calculation, risk evaluation, renewals, and auditable business decisions.
 
 ### [PragyaShield AI Intelligence Platform](https://github.com/BackendArchitectX/PragyaShield-AI-Intelligence-Platform)
 
-Production-minded AI application architecture with deterministic workflows around LLM-assisted features.
-
-`RAG` · `tool routing` · `prompt guardrails` · `PII redaction` · `audit trails` · `fallbacks` · `human-in-the-loop`
+AI-assisted insurance architecture built around deterministic workflows, RAG, tool routing, guardrails, auditability, fallbacks, and human review.
 
 ---
 
-## What I Work On
-
-- **Distributed systems** — transactions, consistency, metadata, coordination, failure modes, and lifecycle boundaries
-- **Backend engineering** — Java, Spring Boot, REST/gRPC APIs, concurrency, SQL, caching, and asynchronous processing
-- **Messaging & streaming** — Kafka internals, event-driven systems, backpressure, and reliable processing
-- **Performance & reliability** — latency, throughput, database tuning, resource lifecycle, observability, and graceful degradation
-- **Cloud-native systems** — Docker, Kubernetes, AWS, CI/CD, health checks, metrics, and production operations
-- **AI-backed applications** — using LLMs behind deterministic contracts, guardrails, auditability, and fallback paths rather than treating AI as the system of record
-
----
-
-## Engineering Principles
+## Engineering Focus
 
 ```text
-Correctness before cleverness.
-Failures are part of the design, not edge cases.
-Concurrency bugs deserve deterministic tests.
-Own resource lifecycle explicitly.
-Measure performance before optimizing it.
-Keep critical paths observable and reversible.
-Prefer boring, maintainable code over fragile sophistication.
+Java / Spring Boot        Distributed systems
+Kafka / event streaming   REST / gRPC / Netty
+Concurrency               SQL / Redis / caching
+Performance tuning        Failure recovery
+Docker / Kubernetes       AWS / CI/CD
+Observability             Production operations
 ```
+
+> Correctness before cleverness. Make failure states explicit. Test races deterministically. Own resource lifecycle.
 
 ---
 
-## GitHub Activity
+## Activity
 
 ![GitHub contribution graph](https://ghchart.rshah.org/BackendArchitectX)
 
 ---
 
-## Connect
-
-📧 **Email:** [pranayp.kadu@gmail.com](mailto:pranayp.kadu@gmail.com)  
-🔗 **GitHub:** [github.com/BackendArchitectX](https://github.com/BackendArchitectX)
+[GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
