@@ -1,20 +1,20 @@
 <div align="center">
 
-<img src="./assets/monolith-signature-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X" />
+<img src="./assets/neon-zero-day-hero-2026.svg" width="100%" alt="Pranay Kadu — neon black-site backend systems profile" />
 
 <br>
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
-<sub>Java-first backend and distributed-systems engineering across multi-runtime services, performance, reliability and production operations.</sub>
+<sub>Java-first backend & distributed-systems engineering across multi-runtime services, concurrency, performance, reliability and production operations.</sub>
 
 </div>
 
 <br>
 
-## `UPSTREAM / PROOF`
+## `UPSTREAM // SIGNAL`
 
-<img src="./assets/proof-rail-2026.svg" width="100%" alt="Upstream engineering proof rail" />
+<img src="./assets/neon-upstream-rail-2026.svg" width="100%" alt="Open-source engineering proof rail" />
 
 <div align="center">
 
@@ -24,21 +24,41 @@
 
 </div>
 
+<details>
+<summary><code>inspect --failure-invariants</code></summary>
 <br>
 
-## `ORIGINAL SYSTEMS`
+`process-role` → runtime lifecycle follows source-system semantics  
+`finalization` → one owner for terminal state transition  
+`identity` → logical identity ≠ physical location  
+`lifecycle` → creator owns threads / permits / connections / native handles  
+`race-testing` → force timing deterministically; never depend on chance
 
-<img src="./assets/systems-duet-2026.svg" width="100%" alt="Vortex CUDA and distributed transaction systems" />
-
-**[Vortex CUDA →](https://github.com/BackendArchitectX/Vortex-CUDA)** — exact GPU vector search across Spring Boot → Java → JNI → CUDA, with `v1.0.0`, `48/48` benchmark cases and M18 end-to-end smoke validation.
-
-**[distrib-txn-db →](https://github.com/BackendArchitectX/distrib-txn-db)** — anomaly-first distributed state lab covering HLC, MVCC, transaction records, write intents, uncertainty, read restart and serializable conflict prevention. Educational scope and AI assistance are explicit in the repository.
+</details>
 
 <br>
 
-## `EXECUTION SURFACE`
+## `SYSTEMS // CORE`
 
-**Java / J2EE / Spring / Spring Boot / REST** · Python / FastAPI / Flask · TypeScript / JavaScript / Node.js / Express.js / ReactJS · C++ / STL · Kafka / Netty / gRPC · MySQL / PostgreSQL / MongoDB / Redis · AWS / EKS / Docker / Kubernetes / Jenkins · CloudWatch / Splunk / Dynatrace / JFR
+<img src="./assets/neon-systems-core-2026.svg" width="100%" alt="Vortex CUDA and distributed transaction systems" />
+
+<div align="center">
+
+[**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
+
+</div>
+
+<br>
+
+## `EXECUTION // SURFACE`
+
+<div align="center">
+
+**Java / J2EE / Spring / Spring Boot / REST**  
+Python / FastAPI / Flask · TypeScript / JavaScript / Node.js / Express.js / ReactJS · C++ / STL  
+Kafka / Netty / gRPC · MySQL / PostgreSQL / MongoDB / Redis · AWS / EKS / Docker / Kubernetes / Jenkins · CloudWatch / Splunk / Dynatrace / JFR
+
+</div>
 
 <details>
 <summary><b>Full resume-grounded stack</b></summary>
@@ -67,6 +87,6 @@
 
 <br><br>
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20SESSIONS&style=flat-square)
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=BLACKSITE%20SESSIONS&style=flat-square&color=00ff88)
 
 </div>
