@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">BackendArchitectX Linux terminal session</title>
+<desc id="desc">A polished green-on-black Terminator-style terminal header showing Pranay Kadu, backend engineering focus, production impact and live shell context.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071009"/><stop offset="1" stop-color="#020503"/></linearGradient>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#39FF14" opacity=".022"/></pattern>
+</defs>
+<rect width="1200" height="360" rx="18" fill="#010301"/>
+<rect x="1" y="1" width="1198" height="358" rx="17" fill="none" stroke="#39FF14" stroke-opacity=".42"/>
+<rect x="0" y="0" width="1200" height="42" rx="18" fill="#0a100b"/>
+<rect x="0" y="28" width="1200" height="14" fill="#0a100b"/>
+<circle cx="22" cy="21" r="6" fill="#39FF14" opacity=".9"/><circle cx="42" cy="21" r="6" fill="#7CFF4F" opacity=".55"/><circle cx="62" cy="21" r="6" fill="#B6FF00" opacity=".35"/>
+<text x="92" y="26" fill="#b6c7b7" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">backendarchitectx@linux: ~ — Terminator</text>
+<text x="1080" y="26" fill="#5f755f" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">bash  |  utf-8</text>
+<line x1="770" y1="42" x2="770" y2="330" stroke="#234026" stroke-width="1"/>
+<rect x="0" y="42" width="1200" height="288" fill="url(#bg)"/>
+
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <text x="30" y="78" fill="#39FF14" font-size="18" font-weight="700">pranay@backendarchitectx:~$ whoami</text>
+  <text x="30" y="132" fill="#F1FFF0" font-size="42" font-weight="800">PRANAY KADU</text>
+  <text x="30" y="168" fill="#7CFF4F" font-size="22" font-weight="700">BACKEND &amp; DISTRIBUTED SYSTEMS ENGINEER</text>
+  <text x="30" y="210" fill="#39FF14" font-size="17">pranay@backendarchitectx:~$ printf '%s\n' "$FOCUS"</text>
+  <text x="30" y="243" fill="#cde7ce" font-size="18">Java · Spring Boot · Kafka · Redis · SQL · Kubernetes · AWS</text>
+  <text x="30" y="273" fill="#89a98b" font-size="15">Concurrency · reliability · performance · open source · production systems</text>
+  <text x="30" y="310" fill="#39FF14" font-size="16">pranay@backendarchitectx:~$ <tspan fill="#d7f7d8">observe → isolate → model → prove → operate</tspan><tspan fill="#39FF14"> █</tspan></text>
+
+  <text x="800" y="78" fill="#39FF14" font-size="16" font-weight="700">$ cat /proc/impact</text>
+  <text x="800" y="112" fill="#789379" font-size="13">transactions</text><text x="1035" y="112" fill="#F1FFF0" font-size="19" font-weight="700">1M+</text>
+  <text x="800" y="147" fill="#789379" font-size="13">p95_latency</text><text x="1035" y="147" fill="#7CFF4F" font-size="19" font-weight="700">-40%</text>
+  <text x="800" y="182" fill="#789379" font-size="13">throughput</text><text x="1035" y="182" fill="#7CFF4F" font-size="19" font-weight="700">+15%</text>
+  <text x="800" y="217" fill="#789379" font-size="13">uptime</text><text x="1035" y="217" fill="#B6FF00" font-size="19" font-weight="700">99.8%</text>
+  <text x="800" y="252" fill="#789379" font-size="13">mttr</text><text x="1035" y="252" fill="#F1FFF0" font-size="19" font-weight="700">35 → 12m</text>
+  <text x="800" y="300" fill="#39FF14" font-size="13">[system] <tspan fill="#9fb89f">session healthy / signal clean</tspan></text>
+</g>
+
+<rect x="0" y="330" width="1200" height="30" fill="#0b160d"/>
+<rect x="0" y="330" width="270" height="30" fill="#17371b"/>
+<text x="14" y="350" fill="#B6FF00" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700">0:bash*</text>
+<text x="292" y="350" fill="#7CFF4F" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">1:upstream</text>
+<text x="404" y="350" fill="#7CFF4F" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">2:systems</text>
+<text x="1060" y="350" fill="#6f8b71" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">linux 6.x</text>
+<rect width="1200" height="360" rx="18" fill="url(#scan)"/>
+</svg>
