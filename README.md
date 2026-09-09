@@ -14,73 +14,98 @@
 
 ---
 
-## `01 // ENGINEERING PROOF`
+<img src="./assets/verification-matrix-console.svg" width="100%" alt="Engineering verification matrix" />
 
-| SIGNAL | ENGINEERING PROBLEM | PROOF | STATUS |
+## `01 // VERIFIED SIGNAL`
+
+### `PRODUCTION`
+
+`1M+ transactions` · `p95 −40%` · `throughput +15%` · `99.8% uptime` · `MTTR 35 → 12 min`
+
+Production work spans Java/Spring Boot, Python/FastAPI/Flask, C++/STL, Kafka, Redis, SQL, AWS/EKS, Kubernetes and observability tooling.
+
+### `OPEN SOURCE`
+
+| SIGNAL | PROBLEM | PROOF | STATUS |
 |:--|:--|:--|:--|
-| [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) | controller-only reporter lifecycle | process-role regression tests + maintainer design review | **MERGED** |
-| [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) | commit/failure finalization race | explicit state ownership + deterministic blocking-commit tests | **UNDER REVIEW** |
-| [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) | stale physical endpoint reuse | endpoint-aware connection identity + two-server regression | **UNDER REVIEW** |
-| [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) | Prometheus endpoint authentication | configuration, policy and lifecycle coverage | **UNDER REVIEW** |
-| [**Fluss #4230**](https://github.com/apache/fluss/pull/4230) | custom Paimon table paths | lake-only + lake/log + predicate-path tests | **UNDER REVIEW** |
+| [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) | controller-only reporter lifecycle | role/lifecycle regressions + maintainer design review | **MERGED** |
+| [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) | commit/failure finalization race | explicit ownership + deterministic blocked-commit tests | **REVIEW** |
+| [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) | stale physical endpoint reuse | endpoint identity + two-live-server regression | **REVIEW** |
+| [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) | Prometheus endpoint authentication | config/policy/lifecycle tests | **REVIEW** |
+| [**Fluss #4230**](https://github.com/apache/fluss/pull/4230) | custom Paimon table paths | lake-only + lake/log + predicate coverage | **REVIEW** |
 
-**Strongest signal:** AutoMQ #3493 was refined through maintainer feedback, approved and merged. Open PRs are presented as work under review—not as equivalent external validation.
+**Credibility rule:** merged upstream ≠ open review. AutoMQ #3493 is the strongest external validation; the remaining PRs are engineering work still being evaluated upstream.
 
 <details>
-<summary><code>EXPAND // CORE INVARIANTS</code></summary>
+<summary><code>EXPAND // INVARIANTS BEHIND THE FIXES</code></summary>
 <br>
 
-- **AutoMQ:** runtime lifecycle must respect Kafka process-role semantics.
-- **Trino:** once commit owns finalization, unrelated failure cannot steal terminal state.
-- **Fluss:** logical server identity must not silently imply physical endpoint identity.
-- **Lifecycle:** threads, permits, connections and native handles require explicit ownership.
-- **Testing:** race windows should be forced deterministically, not discovered by chance.
+- **Process roles:** runtime lifecycle must follow source-system configuration semantics.
+- **Finalization:** once one path owns a terminal transition, unrelated failure cannot steal it.
+- **Connection identity:** logical identity must not silently imply physical location.
+- **Lifecycle:** creators own threads, permits, connections and native handles unless ownership is transferred.
+- **Race testing:** force timing windows deterministically rather than relying on stress-test luck.
 
 </details>
 
 ---
 
-## `02 // SYSTEMS LAB`
+## `02 // ORIGINAL SYSTEMS`
 
-### `VORTEX // GPU VECTOR ENGINE`
+### `VORTEX CUDA // REPRODUCIBLE SYSTEM`
 
 <img src="./assets/vortex-memory-pipeline.svg" width="100%" alt="Vortex Java JNI CUDA execution pipeline" />
 
-[**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA)
+[**Repository →**](https://github.com/BackendArchitectX/Vortex-CUDA)
 
 `Spring Boot → Java API → JNI → pinned host memory → CUDA streams → GPU-resident index → exact Top-K`
 
-**Documented workload:** RTX 3050 6GB Laptop GPU · 500K×128 · FP32 P50 ~**1.67–1.72 ms** · ~**1,641–1,662 QPS** @ batch 32 · FP16 **50% storage reduction** · **99.6875% Recall@10** on the specified FP16 workload.
+**Verification:** `v1.0.0` release · `48/48` benchmark cases · `M18` end-to-end production smoke test · benchmark methodology · architecture/security docs · packaged Windows x64 release.
 
-### `DISTRIB-TXN-DB // DISTRIBUTED STATE LAB`
+**RTX 3050 6GB / 500K×128:** FP32 P50 ~**1.67–1.72 ms** · ~**1,641–1,662 QPS** @ batch 32 · FP16 **50% storage reduction** · **99.6875% Recall@10** on the specified workload.
 
-[**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
+**Scope boundary:** exact single-process vector-search engine; not presented as a distributed production vector database.
+
+### `DISTRIB-TXN-DB // EDUCATIONAL SYSTEMS MODEL`
+
+[**Repository →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
 `HLC → MVCC → routing → transaction records → write intents → snapshot isolation → clock uncertainty → read restart → serializable guards`
 
-**Purpose:** expose the anomaly first, then introduce the mechanism that removes it. `EDUCATIONAL SYSTEMS MODEL`.
+Designed to expose anomalies first, then introduce the mechanism that removes them. The repository explicitly documents its teaching scope and acknowledges AI assistance.
 
 ---
 
-## `03 // ENGINEERING STACK`
+<img src="./assets/skills-evidence-map-console.svg" width="100%" alt="Skills mapped to engineering evidence" />
 
-<img src="./assets/full-stack-skills-console.svg" width="100%" alt="Resume-grounded multi-runtime engineering stack" />
+## `03 // SKILLS → EVIDENCE`
 
-```text
-PRIMARY      Java · J2EE · Spring · Spring Boot · Spring MVC · REST APIs
-PYTHON       Python 3 · FastAPI · Flask
-WEB / API    TypeScript · JavaScript · Node.js · Express.js · ReactJS · JSP
-SYSTEMS      Microservices · distributed systems · event-driven architecture · async processing
-NATIVE       C++ · STL
-DATA         MySQL · PostgreSQL · MongoDB · Redis · Kafka · message queues · SQL optimization
-PERFORMANCE  multithreading · concurrency · caching · parallel processing · JFR · connection pooling
-QUALITY      JUnit · TDD · OOP · SOLID · Agile
-PLATFORM     AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD
-OPERABILITY  CloudWatch · Splunk · Dynatrace · Git · GitHub · Bitbucket · Jira
-AI TOOLING   Claude Sonnet · Claude Opus · GitHub Copilot · agent-based coding tools
-```
+| LANE | STACK | WHERE IT SHOWS UP |
+|:--|:--|:--|
+| **Primary backend** | Java · J2EE · Spring · Spring Boot · Spring MVC · REST | production systems · AutoMQ · Trino · Fluss · Vortex API layer |
+| **Python services** | Python 3 · FastAPI · Flask | professional backend and integration work |
+| **Web / integration** | TypeScript · JavaScript · Node.js · Express.js · ReactJS · JSP | job-feed/full-stack delivery and API integration |
+| **Native / performance** | C++ · STL · JNI · CUDA | professional C++ work + Vortex native/device boundary |
+| **Distributed / data** | Kafka · queues · MySQL · PostgreSQL · MongoDB · Redis | event-driven systems · caching · persistence · SQL tuning |
+| **Platform / ops** | AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD | deployment · scaling · production support |
+| **Observability** | CloudWatch · Splunk · Dynatrace · JFR | incidents · RCA · profiling · performance work |
 
-**Positioning:** Java/JVM remains the primary depth. Python services, Node/TypeScript/JavaScript, ReactJS and C++/STL broaden the execution surface without diluting the backend/distributed-systems identity.
+<details>
+<summary><code>EXPAND // FULL RESUME-GROUNDED STACK</code></summary>
+<br>
+
+`Languages:` Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL  
+`Backend:` Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST APIs · JSP  
+`Client:` ReactJS · TypeScript · JavaScript  
+`Architecture:` Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing  
+`Performance:` Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms  
+`Data/Messaging:` MySQL · PostgreSQL · MongoDB · Redis · Kafka · Message Queues · SQL Optimization  
+`Quality:` JUnit · TDD · OOP · SOLID · Agile  
+`Cloud/DevOps:` AWS · EKS · PCF · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD  
+`Tools:` Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML  
+`AI tooling:` Claude Sonnet · Claude Opus · GitHub Copilot · AI-powered coding assistants · agent-based tools
+
+</details>
 
 ---
 
@@ -90,7 +115,7 @@ AI TOOLING   Claude Sonnet · Claude Opus · GitHub Copilot · agent-based codin
 OBSERVE → ISOLATE → MODEL INVARIANT → CHANGE → PROVE → MEASURE → OPERATE
 ```
 
-**Principles:** correctness before cleverness · explicit failure states · logical identity ≠ physical location · own resource lifecycle · idempotent retries · deterministic race tests · measure before/after optimization · operability is part of design.
+**Biases:** correctness before cleverness · explicit failure states · ownership before recovery logic · logical identity ≠ physical location · idempotent retries · deterministic race tests · measure before/after optimization · operability is part of design.
 
 ---
 
