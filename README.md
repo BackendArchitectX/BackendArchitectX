@@ -1,10 +1,16 @@
 <div align="center">
 
-<img src="./assets/prompt-identity-terminal-2026.svg" width="100%" alt="Pranay Kadu greater-than underscore terminal identity" />
+# Pranay Kadu
+
+### `>_ Backend & Distributed Systems Engineer`
+
+`Java` · `Spring Boot` · `Distributed Systems` · `Kafka` · `Redis` · `SQL` · `Kubernetes` · `AWS`
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
 </div>
+
+---
 
 ## `>_ impact`
 
