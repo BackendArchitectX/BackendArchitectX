@@ -30,6 +30,24 @@ METHOD        invariants / ownership / deterministic tests / observable failure 
 
 > I am most interested in backend problems where correctness depends on **who owns state, which endpoint is real, which resource must be released, and which transition is still legal after failure begins**.
 
+<img src="./assets/architecture-topology-console.svg" width="100%" alt="Animated failure-aware backend topology" />
+
+### `SYSTEM DESIGN LENS`
+
+```text
+INGRESS      → validate identity / authorization / rate limits
+COMPUTE      → keep state ownership explicit
+STATE        → distinguish hot-path cache from durable truth
+STREAMING    → make delivery / retry / idempotency semantics visible
+REMOTE RPC   → define timeout / fallback / circuit-breaker behavior
+RESOURCES    → own threads / permits / connections / native handles
+OBSERVATION  → logs / metrics / traces / profiling
+FINALIZATION → release resources before declaring terminal state complete
+PROOF        → force race windows and failure paths deterministically
+```
+
+**Operating invariant:** every asynchronous resource, state transition and remote dependency must have a clear owner and a defined failure path.
+
 ---
 
 <img src="./assets/evidence-ladder-console.svg" width="100%" alt="Engineering evidence ladder" />
@@ -68,20 +86,25 @@ STATUS      Maintainer feedback incorporated → revised → approved → merged
 
 <img src="./assets/automq-role-console.svg" width="100%" alt="AutoMQ process-role lifecycle diagnostic" />
 
-This is currently the strongest evidence on the profile because the implementation was **externally challenged, refined and accepted**.
+**Why this signal matters:** the implementation survived external design feedback. The final version became simpler, reused Kafka's own parsing semantics, retained lifecycle coverage and was then approved upstream.
 
 ### `TRINO #30973 // FINALIZATION OWNERSHIP`
 
 [**Prevent query failure after transaction commit starts →**](https://github.com/trinodb/trino/pull/30973)
+
+<img src="./assets/txn-state-machine-console.svg" width="100%" alt="Animated transaction finalization state machine" />
 
 ```text
 PROBLEM     External failure could race with autocommit finalization
 INVARIANT   Once COMMITTING owns finalization, unrelated failure cannot steal it
 MODEL       OPEN → COMMITTING → FINISHED
             OPEN → COMMITTING → FAILED   only for genuine commit failure
-PROOF       Blocking commit transaction manager + deterministic race tests
+MECHANISM   Atomic finalization-state ownership
+PROOF       Blocking transaction manager creates deterministic race windows
 STATUS      Open / under review
 ```
+
+The important part is not adding another boolean. It is modeling **who is allowed to own terminal-state transition** and proving that ownership under forced timing rather than probabilistic stress.
 
 ### `FLUSS #4263 // CONNECTION IDENTITY`
 
@@ -100,10 +123,10 @@ RISK        Maintainers may prefer stronger endpoint replacement / eviction sema
 
 ### `OTHER OPEN REVIEW CHANNELS`
 
-| SYSTEM | CHANGE | ENGINEERING BOUNDARY |
-|:--|:--|:--|
-| `AUTOMQ` | [#3579](https://github.com/AutoMQ/automq/pull/3579) | Prometheus authentication · credential validation · endpoint lifecycle |
-| `FLUSS` | [#4230](https://github.com/apache/fluss/pull/4230) | Paimon metadata mapping · Spark lake reads · predicate pushdown |
+| SYSTEM | CHANGE | ENGINEERING BOUNDARY | CURRENT PROOF |
+|:--|:--|:--|:--|
+| `AUTOMQ` | [#3579](https://github.com/AutoMQ/automq/pull/3579) | Prometheus authentication · credential validation · endpoint lifecycle | config / endpoint / lifecycle tests |
+| `FLUSS` | [#4230](https://github.com/apache/fluss/pull/4230) | Paimon metadata mapping · Spark lake reads · predicate pushdown | lake-only + lake/log test suites |
 
 ---
 
@@ -133,60 +156,77 @@ PARTIAL FAILURE?
 
 ### `FAILURE CLASSES`
 
-| CLASS | FAILURE SHAPE | RESPONSE |
-|:--|:--|:--|
-| `CONCURRENCY` | commit vs failure · cancellation · duplicate completion | atomic ownership · monotonic transitions · controlled race tests |
-| `RPC` | stale endpoint reuse · retained timeouts · reconnect ambiguity | endpoint-aware identity · explicit disconnect semantics |
-| `LIFECYCLE` | event-loop leaks · scheduler survival · callbacks after close | explicit ownership · idempotent shutdown · lifecycle verification |
-| `CONFIGURATION` | role mismatch · unsafe defaults · inconsistent parsing | reuse source-of-truth parser · validate early · preserve compatibility |
-| `METADATA` | logical/physical divergence · stale mapping | isolate mapping layer · separate identity from location |
-| `PERFORMANCE` | allocation pressure · N+1 · cache misses · sync bottlenecks | profile · measure · batch · cache · bound concurrency |
+| CLASS | FAILURE SHAPE | INVARIANT | RESPONSE |
+|:--|:--|:--|:--|
+| `CONCURRENCY` | commit vs failure · cancellation · duplicate completion | only one path owns terminal transition | atomic ownership · monotonic transitions · controlled race tests |
+| `RPC` | stale endpoint reuse · retained timeouts · reconnect ambiguity | physical route identity must be current | endpoint-aware identity · disconnect semantics · timeout cleanup |
+| `LIFECYCLE` | event-loop leaks · scheduler survival · callbacks after close | creator owns shutdown unless ownership is transferred | idempotent close · permit/thread/connection release verification |
+| `CONFIGURATION` | role mismatch · unsafe defaults · inconsistent parsing | semantics must match the source system | reuse source-of-truth parser · validate early · preserve compatibility |
+| `METADATA` | logical/physical divergence · stale mapping | logical identity cannot silently imply physical location | isolate mapping layer · explicit resolution |
+| `PERFORMANCE` | allocation pressure · N+1 · cache misses · sync bottlenecks | optimization must be measurable | profile · benchmark · batch · cache · bound concurrency |
 
 ---
 
 ## `04 // SYSTEMS LAB`
 
-<img src="./assets/vortex-telemetry-console.svg" width="100%" alt="Vortex CUDA benchmark telemetry" />
-
 ### `VORTEX // GPU VECTOR ENGINE`
 
 [**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA)
 
+<img src="./assets/vortex-memory-pipeline.svg" width="100%" alt="Animated Vortex memory and execution pipeline" />
+
+<img src="./assets/vortex-telemetry-console.svg" width="100%" alt="Vortex CUDA benchmark telemetry" />
+
 ```text
-REST → SPRING BOOT → JAVA API → JNI → CUDA → GPU-RESIDENT INDEX → EXACT TOP-K
+REQUEST → SPRING BOOT → JAVA API → JNI HANDLE → PINNED HOST MEMORY
+        → CUDA STREAMS → GPU-RESIDENT INDEX → FUSED TOP-K → RESULT
 ```
 
-**Explores:** persistent GPU indexes · exact squared-L2 search · hierarchical/fused Top-K · FP16 storage with FP32 accumulation · vectorized memory access · FMA · pinned host memory · dual CUDA streams · JNI opaque-handle ownership · health/metrics/capacity guards.
+**Systems explored:** persistent GPU indexes · exact squared-L2 search · hierarchical/fused Top-K · FP16 storage with FP32 accumulation · vectorized memory access · FMA · pinned host memory · dual CUDA streams · JNI opaque-handle ownership · health/metrics/capacity guards.
+
+**Lifecycle boundary:** Java `AutoCloseable` owns the native handle lifecycle; native ownership must eventually release GPU-resident state. The project therefore exercises correctness at the Java/native/device boundary, not only kernel speed.
 
 **Documented benchmark signal:** RTX 3050 6GB Laptop GPU · 500K×128 workload · FP32 P50 ~**1.67–1.72 ms** · ~**1,641–1,662 QPS** at batch 32 · **50%** vector-storage reduction with FP16 · **99.6875% Recall@10** on the specified FP16 workload.
 
-**Credibility guard:** the scalar CPU reference is explicitly not presented as an optimized production vector database.
+**Benchmark discipline:** latency, throughput, recall, storage and repeatability are treated as separate dimensions. The scalar CPU reference is explicitly not presented as an optimized production vector database.
 
 ### `DISTRIB-TXN-DB // DISTRIBUTED STATE LAB`
 
 [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
 ```text
+PHYSICAL TIME
+   ↓
 HLC
- ↓
-MVCC
- ↓
+   ↓
+MVCC VISIBILITY
+   ↓
 DISTRIBUTED ROUTING
- ↓
+   ↓
 TXN RECORDS
- ↓
+   ↓
 WRITE INTENTS
- ↓
+   ↓
 SNAPSHOT ISOLATION
- ↓
+   ↓
 CLOCK UNCERTAINTY
- ↓
+   ↓
 READ RESTART
- ↓
+   ↓
 SERIALIZABLE CONFLICT PREVENTION
 ```
 
-**Design rule:** expose the anomaly first, then introduce the mechanism that removes it.
+**What the project is for:** understanding why each mechanism exists by first exposing the anomaly that appears without it.
+
+```text
+ANOMALY        → MECHANISM
+stale version  → MVCC visibility rules
+partial txn    → transaction records + intents
+write conflict → isolation / conflict handling
+clock skew     → uncertainty window
+unsafe read    → read restart
+serialization  → conflict prevention
+```
 
 `EDUCATIONAL SYSTEMS MODEL // NOT PRESENTED AS PRODUCTION-COMPLETE INFRASTRUCTURE`
 
@@ -207,19 +247,21 @@ API design                 Idempotency                Connection pooling       C
 Authentication             Rate limiting              Query tuning             Production support
 ```
 
-### `SYSTEMS PRINCIPLES`
+### `ENGINEERING PRINCIPLES`
 
 ```text
 01  CORRECTNESS BEFORE CLEVERNESS
 02  MAKE FAILURE STATES EXPLICIT
-03  SEPARATE LOGICAL IDENTITY FROM PHYSICAL LOCATION
-04  ASSUME CALLBACKS CAN ARRIVE AFTER CLOSE
-05  OWN THREADS / PERMITS / CONNECTIONS YOU CREATE
-06  DESIGN RETRIES AROUND IDEMPOTENCY
-07  TEST RACES BY CONTROLLING TIME — NOT BY HOPING TO HIT THEM
-08  MEASURE PERFORMANCE BEFORE AND AFTER OPTIMIZATION
-09  TREAT OPERABILITY AS PART OF THE DESIGN
-10  DISTINGUISH EXTERNAL VALIDATION FROM WORK STILL UNDER REVIEW
+03  MODEL OWNERSHIP BEFORE WRITING RECOVERY LOGIC
+04  SEPARATE LOGICAL IDENTITY FROM PHYSICAL LOCATION
+05  ASSUME CALLBACKS CAN ARRIVE AFTER CLOSE
+06  OWN THREADS / PERMITS / CONNECTIONS / NATIVE HANDLES YOU CREATE
+07  DESIGN RETRIES AROUND IDEMPOTENCY AND BOUNDED FAILURE
+08  TEST RACES BY CONTROLLING TIME — NOT BY HOPING TO HIT THEM
+09  MEASURE PERFORMANCE BEFORE AND AFTER OPTIMIZATION
+10  TREAT OPERABILITY AS PART OF THE SYSTEM DESIGN
+11  PREFER SOURCE-OF-TRUTH PARSING OVER PARALLEL SEMANTICS
+12  DISTINGUISH EXTERNAL VALIDATION FROM WORK STILL UNDER REVIEW
 ```
 
 ---
@@ -227,14 +269,38 @@ Authentication             Rate limiting              Query tuning             P
 ## `06 // OPERATING MODEL`
 
 ```text
-OBSERVE  → logs / metrics / traces / profiling
-ISOLATE  → smallest ownership or state boundary
-MODEL    → invariants / legal transitions / failure semantics
-CHANGE   → smallest production-safe correction
-PROVE    → targeted unit / integration / deterministic regression
-MEASURE  → latency / throughput / resource behavior
-OPERATE  → alerts / dashboards / runbooks / rollback awareness
+OBSERVE
+  └─ logs / metrics / traces / profiling
+       ↓
+ISOLATE
+  └─ smallest resource, ownership or state boundary
+       ↓
+MODEL
+  └─ invariants / legal transitions / failure semantics
+       ↓
+CHANGE
+  └─ smallest production-safe correction
+       ↓
+PROVE
+  └─ unit / integration / deterministic regression
+       ↓
+MEASURE
+  └─ latency / throughput / resource behavior
+       ↓
+OPERATE
+  └─ alerts / dashboards / runbooks / rollback awareness
 ```
+
+### `WHAT I OPTIMIZE FOR`
+
+| DIMENSION | QUESTION |
+|:--|:--|
+| `CORRECTNESS` | Can two actors believe they own the same state transition? |
+| `FAILURE` | What happens after the happy path has partially completed? |
+| `LIFECYCLE` | Who shuts down the resource and what if close races with callback completion? |
+| `IDENTITY` | Is the identifier logical, physical, cached or authoritative? |
+| `PERFORMANCE` | What measurement proves the optimization actually helped? |
+| `OPERABILITY` | How will the failure be detected, diagnosed and recovered in production? |
 
 > **Engineering policy:** correctness before cleverness. Make failure states explicit. Test races deterministically. Own resource lifecycle.
 
