@@ -1,12 +1,20 @@
 <div align="center">
 
-<img src="./assets/linux-terminal-hero-2026.svg" width="100%" alt="Pranay Kadu Linux terminal profile" />
+<img src="./assets/anonymous-hacker-terminal-2026.svg" width="100%" alt="Pranay Kadu anonymous hacker Linux terminal profile" />
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
 </div>
 
-## `$ cat /proc/impact`
+```console
+[*] secure shell established
+[+] shell   : bash
+[+] kernel  : linux
+[+] mode    : backend / distributed systems / open source
+[+] status  : online
+```
+
+## `root@backendarchitectx:~# cat /proc/impact`
 
 ```console
 transactions   1M+
@@ -16,7 +24,7 @@ uptime         99.8%
 mttr           35m -> 12m
 ```
 
-## `$ cat /etc/skills.conf`
+## `root@backendarchitectx:/etc# cat skills.conf`
 
 ```ini
 PRIMARY_BACKEND = Java, J2EE, Spring, Spring Boot, Spring MVC, REST APIs
@@ -31,7 +39,7 @@ NATIVE          = C++, STL, JNI, CUDA project work
 QUALITY         = JUnit, TDD, OOP, SOLID
 ```
 
-## `$ git log --oneline upstream`
+## `root@backendarchitectx:~/upstream# git log --oneline`
 
 ```console
 MERGED  AutoMQ #3493   controller-only reporter lifecycle
@@ -43,7 +51,7 @@ REVIEW  Fluss  #4230   Paimon metadata path mapping
 
 [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
 
-## `$ tree ~/systems-lab -L 2`
+## `root@backendarchitectx:~/systems-lab# tree -L 2`
 
 ```text
 ~/systems-lab
@@ -58,7 +66,7 @@ REVIEW  Fluss  #4230   Paimon metadata path mapping
 
 [**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
-## `$ cat ~/.engineering/invariants`
+## `root@backendarchitectx:~# cat ~/.engineering/invariants`
 
 ```text
 process-role   -> lifecycle follows source-system semantics
@@ -70,7 +78,7 @@ retries        -> idempotency before replay
 operations     -> observability and recovery are part of the design
 ```
 
-## `$ man backendarchitectx`
+## `root@backendarchitectx:~# man backendarchitectx`
 
 ```text
 NAME
@@ -87,6 +95,6 @@ FOCUS
 
 ![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=TERMINAL%20SESSIONS&style=flat-square&color=39FF14)
 
-<sub><code>pranay@backendarchitectx:~$ _</code></sub>
+<sub><code>root@backendarchitectx:~# _</code></sub>
 
 </div>
