@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="t d">
+<title id="t">Pranay Kadu — Backend Architect X</title><desc id="d">Premium spectral monolith hero for a backend and distributed systems engineer.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050508"/><stop offset=".48" stop-color="#080a10"/><stop offset="1" stop-color="#030305"/></linearGradient>
+  <radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8ff8ff" stop-opacity=".34"/><stop offset=".45" stop-color="#7a5cff" stop-opacity=".14"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <linearGradient id="spectral" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8ffff"/><stop offset=".14" stop-color="#74f7ff"/><stop offset=".31" stop-color="#7868ff"/><stop offset=".48" stop-color="#ff5bc8"/><stop offset=".64" stop-color="#ffd166"/><stop offset=".82" stop-color="#6fffc2"/><stop offset="1" stop-color="#dffcff"/><animate attributeName="x1" values="0;1;0" dur="11s" repeatCount="indefinite"/><animate attributeName="y2" values="1;0;1" dur="13s" repeatCount="indefinite"/></linearGradient>
+  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="#68f4ff" stop-opacity="0"/><stop offset=".5" stop-color="#9af9ff"/><stop offset="1" stop-color="#8d6bff" stop-opacity="0"/></linearGradient>
+  <filter id="warp" x="-40%" y="-40%" width="180%" height="180%"><feTurbulence type="fractalNoise" baseFrequency=".006 .014" numOctaves="2" seed="18" result="n"><animate attributeName="baseFrequency" values=".006 .014;.009 .010;.006 .014" dur="16s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="B"/></filter>
+  <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .055"/></feComponentTransfer></filter>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="metal" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="2" result="b"/><feSpecularLighting in="b" surfaceScale="5" specularConstant="1.1" specularExponent="35" lighting-color="#ffffff" result="s"><fePointLight x="470" y="70" z="180"><animate attributeName="x" values="300;900;300" dur="12s" repeatCount="indefinite"/></fePointLight></feSpecularLighting><feComposite in="s" in2="SourceAlpha" operator="in" result="si"/><feComposite in="SourceGraphic" in2="si" operator="arithmetic" k1="1" k2="1" k3="1" k4="0"/></filter>
+  <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#94f7ff" stroke-width="1" stroke-opacity=".055"/></pattern>
+  <clipPath id="clip"><rect x="0" y="0" width="1200" height="760" rx="28"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+<rect width="1200" height="760" fill="url(#bg)"/><rect width="1200" height="760" fill="url(#grid)"/>
+<ellipse cx="670" cy="360" rx="520" ry="390" fill="url(#a)"><animate attributeName="rx" values="500;540;500" dur="12s" repeatCount="indefinite"/></ellipse>
+<g opacity=".24" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" fill="#9cecff">
+<text x="54" y="220">$ uname -sr  →  Linux / distributed-runtime</text><text x="54" y="242">$ git log --upstream  →  automq / trino / fluss</text><text x="54" y="264">$ perf focus  →  ownership / lifecycle / latency</text>
+<text x="914" y="212">0x01  COMMITTING</text><text x="914" y="232">0x02  ENDPOINT</text><text x="914" y="252">0x03  IDEMPOTENT</text><text x="914" y="272">0x04  RELEASE</text>
+</g>
+<g transform="translate(666 348) rotate(-7)">
+  <path d="M-94 -192 L126 -148 L166 150 L-90 202 L-174 12 Z" fill="url(#spectral)" opacity=".84" filter="url(#warp)"/>
+  <path d="M-94 -192 L126 -148 L166 150 L-90 202 L-174 12 Z" fill="none" stroke="url(#spectral)" stroke-width="2.4" filter="url(#metal)" opacity=".96"/>
+  <path d="M-128 -116 C-18 -146 52 -118 142 -58" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.2"/>
+  <path d="M-132 80 C-28 48 76 60 156 20" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1"/>
+  <circle cx="-28" cy="-42" r="4" fill="#dfffff" filter="url(#glow)"><animate attributeName="cy" values="-42;86;-42" dur="6.5s" repeatCount="indefinite"/></circle>
+</g>
+<path d="M238 520 C390 450 490 455 610 504 C760 565 875 520 1040 428" fill="none" stroke="url(#edge)" stroke-width="1.4" opacity=".48"/>
+<circle r="4" fill="#c7fbff" filter="url(#glow)"><animateMotion dur="7s" repeatCount="indefinite" path="M238 520 C390 450 490 455 610 504 C760 565 875 520 1040 428"/></circle>
+<g font-family="Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="54" y="64" fill="#7f98a7" font-size="11" letter-spacing="4.6">BACKEND ARCHITECT X / SYSTEMS ENGINEERING</text>
+<text x="54" y="130" fill="#f4fbff" font-size="58" font-weight="700" letter-spacing="-2">PRANAY KADU</text>
+<text x="57" y="164" fill="#9cb2bd" font-size="15" letter-spacing="2.2">BACKEND · DISTRIBUTED SYSTEMS · MULTI-RUNTIME · RELIABILITY</text>
+<text x="54" y="606" fill="#7b8e98" font-size="10" letter-spacing="3.5">PRODUCTION SIGNAL</text>
+<g transform="translate(54 626)" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"><text x="0" y="0" fill="#ecffff" font-size="17" font-weight="700">1M+</text><text x="54" y="0" fill="#718a95" font-size="11">txns</text><text x="145" y="0" fill="#7fffc8" font-size="17" font-weight="700">−40%</text><text x="201" y="0" fill="#718a95" font-size="11">p95</text><text x="286" y="0" fill="#7fffc8" font-size="17" font-weight="700">+15%</text><text x="342" y="0" fill="#718a95" font-size="11">throughput</text><text x="472" y="0" fill="#7fffc8" font-size="17" font-weight="700">99.8%</text><text x="536" y="0" fill="#718a95" font-size="11">uptime</text><text x="646" y="0" fill="#ecffff" font-size="17" font-weight="700">35→12m</text><text x="724" y="0" fill="#718a95" font-size="11">MTTR</text></g>
+<text x="54" y="690" fill="#91a7b1" font-size="12" letter-spacing="1.4">JAVA / SPRING · PYTHON / FASTAPI · NODE / TS / JS · C++ / STL · KAFKA · REDIS · K8S / AWS</text>
+</g>
+<rect width="1200" height="760" filter="url(#grain)" opacity=".9"/>
+<rect x="1" y="1" width="1198" height="758" rx="27" fill="none" stroke="#baf7ff" stroke-opacity=".12"/>
+</g></svg>
