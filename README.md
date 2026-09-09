@@ -1,19 +1,21 @@
 <div align="center">
 
-<img src="./assets/terminator-session-header-2026.svg" width="100%" alt="Pranay Kadu Terminator Linux terminal session" />
-
-[**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
-
-</div>
+<img src="./assets/terminator-livewall-2026.svg" width="100%" alt="Pranay Kadu continuous animated Linux terminal systems profile" />
 
 <br>
 
-### `>_ execution.surface`
+[**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
-<img src="./assets/terminator-skills-pane-2026.svg" width="100%" alt="BackendArchitectX skills and Linux process terminal panes" />
+<br>
+
+[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
+
+[**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
+
+</div>
 
 <details>
-<summary><code>&gt;_ cat /etc/backendarchitectx/skills.conf --full</code></summary>
+<summary><code>&gt;_ expand full execution surface</code></summary>
 <br>
 
 **Languages** — Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL  
@@ -26,36 +28,10 @@
 
 </details>
 
-<br>
-
-### `>_ upstream && systems`
-
-<img src="./assets/terminator-oss-systems-pane-2026.svg" width="100%" alt="Open source and original systems terminal panes" />
-
 <div align="center">
 
-[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
-
-[**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
-
-</div>
-
 <br>
-
-### `>_ engineering.mode`
-
-```text
-correctness  > cleverness
-ownership    > implicit lifecycle
-idempotency  > blind retry
-race control > stress-test luck
-operability  = part of system design
-```
-
-<div align="center">
 
 ![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=TERMINAL%20SESSIONS&style=flat-square&color=39FF14)
-
-<sub><code>pranay@backendarchitectx:~$ █</code></sub>
 
 </div>
