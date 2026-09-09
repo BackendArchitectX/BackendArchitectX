@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/premium-systems-profile-2026.svg" width="100%" alt="Pranay Kadu graphite and emerald backend systems engineering profile" />
+<img src="./assets/graphite-emerald-systems-profile-v3.svg" width="100%" alt="Pranay Kadu graphite and emerald backend systems engineering profile" />
 
 <br>
 
