@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+<title id="title">Original systems — Vortex CUDA and distributed transaction lab</title><desc id="desc">An asymmetric neon editorial systems scene showing GPU vector search and transaction state mechanisms without card UI.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#05070b"/><stop offset="1" stop-color="#090b13"/></linearGradient>
+  <linearGradient id="cyanMag" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00f5ff"/><stop offset=".55" stop-color="#7c5cff"/><stop offset="1" stop-color="#ff2bd6"/></linearGradient>
+  <linearGradient id="limeCyan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8ff2c"/><stop offset="1" stop-color="#00f5ff"/></linearGradient>
+  <filter id="glow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="2" seed="31"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .035"/></feComponentTransfer></filter>
+  <style>.sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}</style>
+</defs>
+<rect width="1200" height="520" rx="26" fill="url(#bg)"/><rect width="1200" height="520" rx="26" filter="url(#grain)" opacity=".9"/><rect x="1" y="1" width="1198" height="518" rx="25" fill="none" stroke="#1b2636"/>
+
+<!-- left: Vortex -->
+<g transform="translate(48 52)">
+  <text class="sans" x="0" y="0" fill="#f8fbff" font-size="12" letter-spacing="3">01 / VORTEX CUDA</text>
+  <text class="sans" x="0" y="58" fill="#f8fbff" font-size="42" font-weight="760" letter-spacing="-1.5">GPU VECTOR SEARCH</text>
+  <text class="mono" x="0" y="88" fill="#738198" font-size="11">Spring Boot → Java → JNI → CUDA → GPU-resident Top-K</text>
+
+  <g transform="translate(0 128)" class="sans">
+    <text x="0" y="0" fill="#5f6d81" font-size="10" letter-spacing="2">VERIFIED</text>
+    <text x="0" y="38" fill="#00f5ff" font-size="28" font-weight="700">1.67–1.72 ms</text>
+    <text x="0" y="58" fill="#66758b" font-size="10">FP32 P50 / 500K×128</text>
+    <text x="190" y="38" fill="#b8ff2c" font-size="28" font-weight="700">1,641–1,662</text>
+    <text x="190" y="58" fill="#66758b" font-size="10">QPS / batch 32</text>
+  </g>
+
+  <!-- GPU flow -->
+  <g transform="translate(0 235)" class="mono" font-size="10">
+    <path d="M10 62 H470" stroke="#243143" stroke-width="2"/>
+    <path d="M10 62 C90 20 150 95 230 52 S380 35 470 62" fill="none" stroke="url(#cyanMag)" stroke-width="2"/>
+    <circle r="4" fill="#00f5ff" filter="url(#glow)"><animateMotion dur="4.8s" repeatCount="indefinite" path="M10 62 C90 20 150 95 230 52 S380 35 470 62"/></circle>
+    <text x="8" y="96" fill="#66758b">index:create</text><text x="120" y="96" fill="#66758b">pin</text><text x="205" y="96" fill="#66758b">stream</text><text x="295" y="96" fill="#66758b">distance</text><text x="405" y="96" fill="#66758b">top-k</text>
+  </g>
+  <text class="mono" x="0" y="400" fill="#7f8ba0" font-size="10">v1.0.0 / 48-of-48 benchmark cases / M18 smoke validation</text>
+</g>
+
+<!-- vertical split -->
+<line x1="610" y1="42" x2="610" y2="478" stroke="#202c3d"/>
+<line x1="610" y1="80" x2="610" y2="230" stroke="#7c5cff" stroke-opacity=".45"/>
+
+<!-- right: txn -->
+<g transform="translate(662 52)">
+  <text class="sans" x="0" y="0" fill="#f8fbff" font-size="12" letter-spacing="3">02 / DISTRIBUTED STATE</text>
+  <text class="sans" x="0" y="58" fill="#f8fbff" font-size="42" font-weight="760" letter-spacing="-1.5">TRANSACTION MODEL</text>
+  <text class="mono" x="0" y="88" fill="#738198" font-size="11">HLC → MVCC → intents → uncertainty → read restart → serializable guards</text>
+
+  <!-- state machine -->
+  <g transform="translate(0 138)" class="sans">
+    <g transform="translate(0 0)"><circle cx="36" cy="36" r="34" fill="#071017" stroke="#00f5ff"/><text x="17" y="41" fill="#dffbff" font-size="12">HLC</text></g>
+    <g transform="translate(105 0)"><circle cx="36" cy="36" r="34" fill="#090b17" stroke="#7c5cff"/><text x="14" y="41" fill="#e7e1ff" font-size="12">MVCC</text></g>
+    <g transform="translate(210 0)"><circle cx="36" cy="36" r="34" fill="#120916" stroke="#ff2bd6"/><text x="10" y="41" fill="#ffe2f9" font-size="11">INTENTS</text></g>
+    <g transform="translate(315 0)"><circle cx="36" cy="36" r="34" fill="#0d1208" stroke="#b8ff2c"/><text x="10" y="41" fill="#f2ffd7" font-size="11">RESTART</text></g>
+    <path d="M70 36H105M175 36H210M280 36H315" stroke="url(#limeCyan)" stroke-width="1.6"/>
+    <circle r="3.5" fill="#b8ff2c" filter="url(#glow)"><animateMotion dur="5.2s" repeatCount="indefinite" path="M70 36H315"/></circle>
+  </g>
+
+  <g transform="translate(0 250)" class="mono" font-size="10">
+    <text x="0" y="0" fill="#ff63e5">anomaly:</text><text x="78" y="0" fill="#7f8ba0">write skew / uncertain read / partial visibility</text>
+    <text x="0" y="24" fill="#00f5ff">mechanism:</text><text x="78" y="24" fill="#7f8ba0">version rules / txn records / restart / conflict prevention</text>
+    <text x="0" y="48" fill="#b8ff2c">proof:</text><text x="78" y="48" fill="#7f8ba0">module tests + explicit educational scope</text>
+  </g>
+  <text class="mono" x="0" y="400" fill="#7f8ba0" font-size="10">anomaly-first learning model / AI assistance explicitly documented</text>
+</g>
+</svg>
