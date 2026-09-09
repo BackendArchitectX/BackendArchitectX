@@ -2,6 +2,8 @@
 
 **Backend & Distributed Systems Engineer** · Java · Streaming · Transactions · Reliability
 
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=Profile%20views&style=flat-square)
+
 I work on backend and infrastructure systems where **concurrency, failure recovery, resource lifecycle, throughput, and operability** matter.
 
 `Java` · `Spring Boot` · `Kafka` · `Netty` · `REST/gRPC` · `SQL` · `Redis` · `Docker` · `Kubernetes` · `AWS`
