@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/terminator-livewall-v2-2026.svg" width="100%" alt="Pranay Kadu continuous animated Linux terminal profile with professional section headings" />
+<img src="./assets/neo-terminal-editorial-v2-2026.svg" width="100%" alt="Pranay Kadu premium neo-terminal editorial backend systems profile" />
 
 <br>
 
@@ -15,7 +15,7 @@
 </div>
 
 <details>
-<summary><code>&gt;_ Full Technology Stack</code></summary>
+<summary><b>Full Technology Stack</b></summary>
 <br>
 
 **Languages** — Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL  
@@ -32,6 +32,6 @@
 
 <br>
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=TERMINAL%20SESSIONS&style=flat-square&color=39FF14)
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=PROFILE%20SESSIONS&style=flat-square&color=6F8CFF)
 
 </div>
