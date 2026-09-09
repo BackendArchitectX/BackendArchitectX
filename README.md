@@ -10,7 +10,7 @@
 
 [GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
 
-<sub>Engineering for correctness under concurrency, failure recovery, resource lifecycle, throughput and operability.</sub>
+<sub>Correctness under concurrency · failure recovery · resource lifecycle · performance · operability</sub>
 
 </div>
 
@@ -26,10 +26,10 @@ SYSTEMS       Kafka / Netty / gRPC / transactions / streaming
 DATA          SQL / Redis / metadata / durable state
 RUNTIME       Docker / Kubernetes / AWS / CI-CD
 FOCUS         concurrency / correctness / failure recovery / performance
-METHOD        explicit state ownership / deterministic tests / observable failure boundaries
+METHOD        explicit ownership / deterministic tests / observable failure boundaries
 ```
 
-> I am most interested in the points where systems stop being simple: concurrent finalization, stale endpoints, process-role mismatches, resource ownership, asynchronous shutdown, metadata indirection and state transitions that must remain correct under failure.
+> I focus on the points where systems stop being simple: concurrent finalization, stale endpoints, process-role mismatches, resource ownership, asynchronous shutdown, metadata indirection and state transitions that must remain correct under failure.
 
 ---
 
@@ -37,11 +37,11 @@ METHOD        explicit state ownership / deterministic tests / observable failur
 
 ## `01 // UPSTREAM SIGNAL`
 
+<img src="./assets/automq-role-console.svg" width="100%" alt="Animated AutoMQ process-role lifecycle diagnostic" />
+
 ### `MERGED // EXTERNALLY VALIDATED`
 
 #### [AutoMQ #3493 — controller-only AutoBalancer reporter fix](https://github.com/AutoMQ/automq/pull/3493)
-
-**Merged after maintainer review and approval.**
 
 ```text
 FAULT       Broker-only metrics reporter initialized on controller-only process
@@ -49,16 +49,16 @@ BOUNDARY    Kafka process-role configuration / reporter lifecycle
 CHANGE      Skip reporter initialization for controller-only nodes
 DETAIL      Reuse Kafka ConfigDef LIST parsing semantics for real role inputs
 TESTING     Focused process-role + lifecycle regression coverage
-SIGNAL      Maintainer feedback incorporated → approved → merged
+SIGNAL      Maintainer feedback incorporated → revised → approved → merged
 ```
 
-This is the strongest external engineering signal on the profile because the implementation was not only submitted — it went through maintainer design feedback, revision and approval.
+**Why this signal matters:** the implementation survived external design feedback. The final shape became simpler and more aligned with Kafka's own parsing semantics before maintainer approval.
 
 ### `OPEN REVIEW CHANNELS`
 
-| SYSTEM | TRACE | PROBLEM CLASS | VALIDATION PATH |
+| SYSTEM | TRACE | FAILURE / DESIGN BOUNDARY | VALIDATION PATH |
 |:--|:--|:--|:--|
-| `AUTOMQ` | [#3579](https://github.com/AutoMQ/automq/pull/3579) | Prometheus endpoint authentication · credential policy · lifecycle | configuration validation · endpoint policy · lifecycle tests |
+| `AUTOMQ` | [#3579](https://github.com/AutoMQ/automq/pull/3579) | Prometheus authentication · credential policy · endpoint lifecycle | configuration validation · endpoint policy · lifecycle tests |
 | `FLUSS` | [#4263](https://github.com/apache/fluss/pull/4263) | stale TabletServer endpoint reuse · RPC connection identity | two live Netty servers · same UID / different endpoint regression |
 | `FLUSS` | [#4230](https://github.com/apache/fluss/pull/4230) | custom Paimon path mapping · Spark lake reads | lake-only + lake/log suites · predicate pushdown coverage |
 | `TRINO` | [#30973](https://github.com/trinodb/trino/pull/30973) | autocommit commit/failure race · finalization ownership | deterministic blocking commit manager · race-path tests |
@@ -67,147 +67,125 @@ This is the strongest external engineering signal on the profile because the imp
 <summary><code>EXPAND // TECHNICAL TRACE BUFFER</code></summary>
 <br>
 
-**AutoMQ #3579** proposes opt-in Basic authentication for the built-in Prometheus endpoint while preserving unauthenticated defaults. The change isolates endpoint policy, validates configuration and credentials, covers lifecycle behavior and includes the OpenTelemetry compatibility change required by the authenticator API.
+**AutoMQ #3579** — opt-in Basic authentication for the built-in Prometheus endpoint while preserving unauthenticated defaults. The proposal isolates endpoint policy, validates configuration and credentials, covers lifecycle behavior and includes the OpenTelemetry compatibility change required by the authenticator API.
 
-**Fluss #4263** changes physical RPC connection identity from logical server UID alone to `UID + host + port`. The target failure is a stale-but-still-reachable TabletServer endpoint being reused after a server moves. Regression coverage uses separate live endpoints sharing the same logical UID.
+**Fluss #4263** — physical RPC connection identity changes from logical UID alone to `UID + host + port`. The target failure is a stale-but-reachable TabletServer endpoint being reused after a server moves. Regression coverage uses separate live endpoints sharing the same logical UID.
 
-**Fluss #4230** separates configured Paimon table-path resolution from Fluss table identity so custom mappings work across lake-only reads, lake+log reads and predicate pushdown paths.
+**Fluss #4230** — configured Paimon table-path resolution is separated from Fluss table identity so custom mappings work across lake-only reads, lake+log reads and predicate pushdown paths.
 
-**Trino #30973** introduces explicit finalization ownership between commit and failure paths so unrelated failures cannot mark an autocommit query failed after commit has begun, while true commit failures remain reportable. Tests deliberately block commit to force otherwise timing-sensitive race windows.
+**Trino #30973** — explicit finalization ownership separates commit and failure paths so unrelated failures cannot mark an autocommit query failed after commit begins while genuine commit failures remain reportable. Tests deliberately block commit to force otherwise timing-sensitive race windows.
 
 </details>
 
 ---
 
+<img src="./assets/oss-race-console.svg" width="100%" alt="Animated Trino finalization and Fluss endpoint identity diagnostics" />
+
+## `02 // REAL FAILURE SHAPES`
+
+The profile is intentionally organized around **failure boundaries**, not a list of frameworks.
+
+### `TRINO // FINALIZATION OWNERSHIP`
+
+```text
+NORMAL
+OPEN ─────────────→ COMMITTING ─────────────→ FINISHED
+                         │
+                         └── external failure arrives
+                                  ↓
+                              REJECTED
+
+COMMIT FAILURE
+OPEN ─────────────→ COMMITTING ─────────────→ FAILED
+```
+
+**Invariant:** once the commit path owns finalization, an unrelated failure must not steal terminal state. A genuine commit failure still needs a legal path to `FAILED`.
+
+### `FLUSS // LOGICAL IDENTITY ≠ PHYSICAL LOCATION`
+
+```text
+BEFORE
+connectionKey = serverUid
+UID-42 ─────────→ host-A:9000
+server moves
+UID-42 ─────────→ host-B:9000
+cache can still resolve the old physical connection
+
+PROPOSED
+connectionKey = UID + host + port
+UID-42@host-A:9000  ≠  UID-42@host-B:9000
+```
+
+**Invariant:** logical server identity can remain stable while the physical endpoint changes. Connection identity must represent the physical route actually being reused.
+
+---
+
 <img src="./assets/failure-trace-console.svg" width="100%" alt="Animated failure boundary and recovery trace" />
 
-## `02 // FAILURE MODEL`
-
-My preferred way to reason about backend systems is not feature-first. It is boundary-first:
+## `03 // FAILURE MODEL`
 
 ```text
 REQUEST
   ↓
-VALIDATE INPUT / AUTH / RATE LIMIT
+VALIDATE / AUTH / RATE LIMIT
   ↓
 CLAIM STATE OWNERSHIP
   ↓
-PERFORM REMOTE / STORAGE / STREAMING WORK
+REMOTE / STORAGE / STREAMING WORK
   ↓
-HANDLE PARTIAL FAILURE
+PARTIAL FAILURE ? ─── yes ──→ CONTAIN / RETRY / FALLBACK / ABORT
+  ↓ no                                  ↓
+FINALIZE                         RELEASE OWNED RESOURCES
+  ↓                                  ↓
+EMIT / PERSIST TERMINAL STATE ←──────┘
   ↓
-RELEASE RESOURCES / PERMITS / THREADS / CONNECTIONS
-  ↓
-PERSIST OR EMIT FINAL STATE
-  ↓
-VERIFY WITH DETERMINISTIC REGRESSION TESTS
+DETERMINISTIC REGRESSION PROOF
 ```
 
-### `FAILURE CLASSES I CARE ABOUT`
-
-| CLASS | EXAMPLES | ENGINEERING RESPONSE |
+| CLASS | EXAMPLES | RESPONSE |
 |:--|:--|:--|
-| `CONCURRENCY` | commit vs failure · cancellation races · duplicate completion | atomic ownership · monotonic state transitions · deterministic race tests |
-| `RPC` | stale endpoint reuse · timeout retention · reconnect ambiguity | endpoint-aware identity · explicit disconnect semantics · timeout cleanup |
-| `LIFECYCLE` | leaked event loops · scheduler survival · post-close callbacks | clear ownership · idempotent close · shutdown verification |
-| `CONFIGURATION` | process-role mismatch · unsafe defaults · ambiguous parsing | source-of-truth parsing · validation · backwards-compatible guards |
-| `METADATA` | identity/path divergence · stale mapping · wrong table resolution | explicit mapping layer · isolation of physical vs logical identity |
-| `PERFORMANCE` | hot-path allocation · N+1 access · cache misses · sync bottlenecks | profiling · batching · caching · bounded concurrency · measured benchmarks |
+| `CONCURRENCY` | commit vs failure · cancellation · duplicate completion | atomic ownership · monotonic transitions · controlled race tests |
+| `RPC` | stale endpoints · timeout retention · reconnect ambiguity | endpoint-aware identity · explicit disconnect · timeout cleanup |
+| `LIFECYCLE` | leaked event loops · surviving schedulers · post-close callbacks | ownership · idempotent close · shutdown verification |
+| `CONFIGURATION` | role mismatch · unsafe defaults · ambiguous parsing | source-of-truth parsing · validation · compatible guards |
+| `METADATA` | identity/path divergence · stale mapping | explicit mapping · logical/physical separation |
+| `PERFORMANCE` | hot allocations · N+1 · cache misses · sync bottlenecks | profiling · batching · caching · bounded concurrency · measurement |
 
 ---
 
-<img src="./assets/systems-lab-console.svg" width="100%" alt="Animated systems lab execution paths" />
+<img src="./assets/vortex-telemetry-console.svg" width="100%" alt="Animated Vortex CUDA benchmark telemetry" />
 
-## `03 // SYSTEMS LAB`
-
-<table>
-<tr>
-<td width="50%" valign="top">
+## `04 // SYSTEMS LAB`
 
 ### `VORTEX // GPU VECTOR ENGINE`
 
-[**Repository →**](https://github.com/BackendArchitectX/Vortex-CUDA)
+[**Open Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA)
 
 ```text
-REST REQUEST
-    ↓
-SPRING BOOT
-    ↓
-JAVA API
-    ↓
-JNI OWNERSHIP
-    ↓
-CUDA KERNELS
-    ↓
-GPU-RESIDENT INDEX
-    ↓
-EXACT TOP-K
+REST → SPRING BOOT → JAVA API → JNI → CUDA → GPU-RESIDENT INDEX → EXACT TOP-K
 ```
 
-**What it explores**
+**Systems explored:** persistent GPU indexes · exact squared-L2 · hierarchical/fused Top-K · FP16 storage with FP32 accumulation · vectorized access · FMA · pinned host memory · dual CUDA streams · JNI opaque-handle ownership · health/metrics/capacity guards.
 
-- persistent GPU-resident vector indexes
-- exact squared-L2 search
-- hierarchical + fused GPU Top-K
-- FP16 storage with FP32 accumulation
-- vectorized access and FMA paths
-- pinned host memory + dual CUDA streams
-- JNI opaque-handle lifecycle with `AutoCloseable`
-- benchmark harness for latency, throughput, storage and recall
-- Spring Boot health, metrics, validation and capacity guards
-
-**Why it matters:** it forces performance work across language/runtime boundaries rather than stopping at application code.
-
-</td>
-<td width="50%" valign="top">
+**Benchmark discipline:** RTX 3050 6GB Laptop GPU; documented workload and repeatability; FP32 P50 around **1.67–1.72 ms** on 500K×128; around **1,641–1,662 QPS** at batch 32; FP16 provides **50% vector-storage reduction**; documented workload reports **99.6875% Recall@10**. The scalar CPU baseline is explicitly not presented as an optimized production vector database.
 
 ### `TXN-DB // DISTRIBUTED STATE LAB`
 
-[**Repository →**](https://github.com/BackendArchitectX/distrib-txn-db)
+[**Open distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
 ```text
-HLC
- ↓
-MVCC
- ↓
-DISTRIBUTED ROUTING
- ↓
-TXN RECORDS
- ↓
-WRITE INTENTS
- ↓
-SNAPSHOT ISOLATION
- ↓
-CLOCK UNCERTAINTY
- ↓
-READ RESTART
- ↓
-SERIALIZABLE GUARDS
+HLC → MVCC → ROUTING → TXN RECORDS → WRITE INTENTS
+    → SNAPSHOT ISOLATION → CLOCK UNCERTAINTY
+    → READ RESTART → SERIALIZABLE CONFLICT PREVENTION
 ```
 
-**What it explores**
-
-- logical time and hybrid clocks
-- MVCC visibility
-- transaction records and write intents
-- snapshot-isolation anomalies
-- uncertainty windows and restart semantics
-- distributed routing
-- conflict prevention
-
-**Design rule:** expose the anomaly first, then introduce the mechanism that removes it.
-
-`EDUCATIONAL SYSTEMS MODEL // NOT PRESENTED AS PRODUCTION-COMPLETE`
-
-</td>
-</tr>
-</table>
+**Design rule:** expose the anomaly first, then introduce the mechanism that removes it. The project is an educational systems model, not production-complete infrastructure.
 
 ---
 
 <img src="./assets/engineering-matrix-console.svg" width="100%" alt="Animated engineering capability matrix" />
 
-## `04 // ENGINEERING MATRIX`
+## `05 // ENGINEERING MATRIX`
 
 ```text
 RUNTIME / BACKEND          DISTRIBUTED SYSTEMS        PERFORMANCE              OPERABILITY
@@ -237,16 +215,16 @@ Authentication             Rate limiting              Query tuning             P
 
 ---
 
-## `05 // OPERATING MODEL`
+## `06 // OPERATING MODEL`
 
 ```text
-OBSERVE       logs / metrics / traces / profiling
-ISOLATE       reduce failure to smallest ownership or state boundary
-MODEL         define invariants and legal transitions
-CHANGE        smallest production-safe correction
-PROVE         targeted unit / integration / deterministic regression tests
-MEASURE       latency / throughput / resource behavior where relevant
-OPERATE       alerts / dashboards / runbooks / rollback awareness
+OBSERVE  ──→ logs / metrics / traces / profiling
+ISOLATE  ──→ smallest ownership or state boundary
+MODEL    ──→ invariants / legal transitions / failure semantics
+CHANGE   ──→ smallest production-safe correction
+PROVE    ──→ unit / integration / deterministic regression tests
+MEASURE  ──→ latency / throughput / resource behavior
+OPERATE  ──→ alerts / dashboards / runbooks / rollback awareness
 ```
 
 > **Engineering policy:** correctness before cleverness. Make failure states explicit. Test races deterministically. Own resource lifecycle.
@@ -255,7 +233,7 @@ OPERATE       alerts / dashboards / runbooks / rollback awareness
 
 <img src="./assets/current-vector-console.svg" width="100%" alt="Animated current engineering vector" />
 
-## `06 // CURRENT VECTOR`
+## `07 // CURRENT VECTOR`
 
 <div align="center">
 
@@ -265,9 +243,9 @@ OPERATE       alerts / dashboards / runbooks / rollback awareness
 
 <br><br>
 
-`BACKEND ARCHITECT X // SYSTEM CONSOLE ONLINE`
+<img src="./assets/telemetry-footer.svg" width="100%" alt="Animated systems telemetry footer" />
 
-<br><br>
+<br>
 
 ![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20VISITS&style=flat-square)
 
