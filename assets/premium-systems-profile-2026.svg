@@ -1,0 +1,394 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1800" viewBox="0 0 1200 1800" role="img" aria-labelledby="title desc">
+  <title id="title">Pranay Kadu — Backend and Distributed Systems Engineer</title>
+  <desc id="desc">A premium green systems-console profile highlighting production impact, backend technologies, live service topology, open-source contributions, and featured distributed-systems projects.</desc>
+
+  <style>
+    .sans { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .mono { font-family: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace; }
+    .caps { letter-spacing: 2.4px; }
+    .hairline { vector-effect: non-scaling-stroke; }
+    .flow { animation: flow 2.1s linear infinite; }
+    .flow-fast { animation: flow 1.35s linear infinite; }
+    .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-in-out infinite; }
+    .pulse-delay { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s .8s ease-in-out infinite; }
+    .orbit { transform-box: view-box; transform-origin: 1017px 229px; animation: orbit 18s linear infinite; }
+    .cursor { animation: blink 1.15s steps(1, end) infinite; }
+    .scan { animation: scan 12s ease-in-out infinite; }
+    @keyframes flow { to { stroke-dashoffset: -48; } }
+    @keyframes pulse { 0%, 100% { opacity: .3; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.14); } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes blink { 0%, 52% { opacity: 1; } 53%, 100% { opacity: 0; } }
+    @keyframes scan { 0%, 100% { transform: translateY(-140px); opacity: 0; } 15% { opacity: .18; } 50% { opacity: .08; } 85% { opacity: .18; } 99% { transform: translateY(1660px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .flow, .flow-fast, .pulse, .pulse-delay, .orbit, .cursor, .scan { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020806"/>
+      <stop offset=".48" stop-color="#06100A"/>
+      <stop offset="1" stop-color="#020705"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B1A11" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#061009" stop-opacity=".92"/>
+    </linearGradient>
+    <linearGradient id="panelBright" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10261A" stop-opacity=".98"/>
+      <stop offset="1" stop-color="#07110B" stop-opacity=".95"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#39F98A"/>
+      <stop offset=".55" stop-color="#8AFFB3"/>
+      <stop offset="1" stop-color="#C5FFD7"/>
+    </linearGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#37F28A" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#37F28A" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="auraTop" cx="16%" cy="8%" r="62%">
+      <stop offset="0" stop-color="#35F087" stop-opacity=".17"/>
+      <stop offset=".42" stop-color="#1FB768" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#1FB768" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraRight" cx="92%" cy="37%" r="55%">
+      <stop offset="0" stop-color="#73FFA5" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#73FFA5" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="microGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#75FFAB" stroke-opacity=".025" class="hairline"/>
+      <circle cx="1" cy="1" r=".8" fill="#8AFFB3" opacity=".09"/>
+    </pattern>
+    <pattern id="scanlines" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="1" fill="#9AFFBC" opacity=".014"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="13" result="shadowBlur"/>
+      <feOffset in="shadowBlur" dx="0" dy="10" result="shadowOffset"/>
+      <feFlood flood-color="#000000" flood-opacity=".58" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="shadowOffset" operator="in" result="shadowShape"/>
+      <feMerge><feMergeNode in="shadowShape"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="halo" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L8 4L0 8Z" fill="#54EF91" opacity=".8"/>
+    </marker>
+    <clipPath id="frameClip"><rect x="14" y="14" width="1172" height="1772" rx="28"/></clipPath>
+  </defs>
+
+  <!-- FRAME / ATMOSPHERE -->
+  <rect width="1200" height="1800" rx="34" fill="#010403"/>
+  <rect x="14" y="14" width="1172" height="1772" rx="28" fill="url(#bg)"/>
+  <g clip-path="url(#frameClip)">
+    <rect x="14" y="14" width="1172" height="1772" fill="url(#microGrid)"/>
+    <rect x="14" y="14" width="1172" height="1772" fill="url(#scanlines)"/>
+    <rect x="14" y="14" width="1172" height="1772" fill="url(#auraTop)"/>
+    <rect x="14" y="14" width="1172" height="1772" fill="url(#auraRight)"/>
+    <rect class="scan" x="20" y="0" width="1160" height="90" fill="url(#accentFade)" opacity=".12" filter="url(#softGlow)"/>
+  </g>
+  <rect x="14.5" y="14.5" width="1171" height="1771" rx="27.5" fill="none" stroke="#6CFFA0" stroke-opacity=".22"/>
+  <path d="M42 15H278" stroke="url(#accent)" stroke-width="2"/>
+  <path d="M922 1785H1158" stroke="url(#accent)" stroke-width="2" opacity=".55"/>
+
+  <!-- WINDOW CHROME -->
+  <g class="mono">
+    <circle cx="54" cy="50" r="6" fill="#54F394"/>
+    <circle cx="78" cy="50" r="6" fill="#54F394" opacity=".34"/>
+    <circle cx="102" cy="50" r="6" fill="#54F394" opacity=".14"/>
+    <text x="136" y="56" fill="#7AAE89" font-size="14" letter-spacing=".4">backendarchitectx@linux  /  engineering-profile</text>
+    <text x="1000" y="56" fill="#5F8A6C" font-size="13">TTY-01</text>
+    <circle cx="1071" cy="50" r="4" fill="#49EC8A" class="pulse"/>
+    <text x="1083" y="56" fill="#85C89B" font-size="13">ONLINE</text>
+  </g>
+  <line x1="34" y1="80" x2="1166" y2="80" stroke="#82FFA9" stroke-opacity=".12"/>
+
+  <!-- HERO -->
+  <g>
+    <text x="58" y="124" class="mono caps" fill="#54EF91" font-size="13" font-weight="700">BACKENDARCHITECTX  /  ENGINEERING PROFILE</text>
+    <g transform="translate(58 148)">
+      <rect width="221" height="30" rx="15" fill="#10251A" stroke="#65F69A" stroke-opacity=".24"/>
+      <circle cx="17" cy="15" r="4" fill="#55F294" filter="url(#halo)"/>
+      <text x="31" y="20" class="mono" fill="#BDFCCF" font-size="12" font-weight="700" letter-spacing="1.15">PRODUCTION SYSTEMS</text>
+    </g>
+
+    <text x="54" y="246" class="sans" fill="url(#accent)" font-size="76" font-weight="850" letter-spacing="-2.8">PRANAY KADU</text>
+    <text x="58" y="293" class="sans" fill="#F2FFF6" font-size="29" font-weight="720" letter-spacing="-.25">Backend &amp; Distributed Systems Engineer</text>
+    <rect x="58" y="319" width="4" height="45" rx="2" fill="#4CF18E"/>
+    <text x="78" y="335" class="sans" fill="#A8CDB3" font-size="17">Java-first engineering for concurrent, reliable and observable services.</text>
+    <text x="78" y="360" class="sans" fill="#789B84" font-size="16">From design invariants to production telemetry and upstream review.</text>
+
+    <g class="mono" font-size="11" font-weight="700" letter-spacing="1">
+      <g transform="translate(58 382)"><rect width="129" height="28" rx="5" fill="#0A1C12" stroke="#4A9F69" stroke-opacity=".4"/><text x="14" y="19" fill="#9DEFB6">JAVA / JVM</text></g>
+      <g transform="translate(199 382)"><rect width="151" height="28" rx="5" fill="#0A1C12" stroke="#4A9F69" stroke-opacity=".4"/><text x="14" y="19" fill="#9DEFB6">DISTRIBUTED</text></g>
+      <g transform="translate(362 382)"><rect width="139" height="28" rx="5" fill="#0A1C12" stroke="#4A9F69" stroke-opacity=".4"/><text x="14" y="19" fill="#9DEFB6">RELIABILITY</text></g>
+      <g transform="translate(513 382)"><rect width="143" height="28" rx="5" fill="#0A1C12" stroke="#4A9F69" stroke-opacity=".4"/><text x="14" y="19" fill="#9DEFB6">OPEN SOURCE</text></g>
+    </g>
+
+    <!-- SYSTEMS MONOGRAM -->
+    <g>
+      <circle cx="1017" cy="244" r="116" fill="#07130C" stroke="#67F79B" stroke-opacity=".1"/>
+      <circle cx="1017" cy="244" r="91" fill="none" stroke="#6CFCA0" stroke-opacity=".1" stroke-dasharray="2 11"/>
+      <circle cx="1017" cy="244" r="64" fill="#0A1D12" stroke="#67F79B" stroke-opacity=".25"/>
+      <circle cx="1017" cy="244" r="52" fill="none" stroke="#89FFAF" stroke-opacity=".08"/>
+      <text x="1017" y="258" text-anchor="middle" class="sans" fill="url(#accent)" font-size="42" font-weight="850" letter-spacing="-1">PK</text>
+      <g class="orbit">
+        <circle cx="1017" cy="128" r="5" fill="#66F79B" filter="url(#halo)"/>
+        <circle cx="1100" cy="325" r="4" fill="#9AFFB8" opacity=".65"/>
+        <circle cx="925" cy="314" r="3" fill="#54EF91" opacity=".45"/>
+      </g>
+      <path d="M901 244H947M1087 244H1133M1017 128V180M1017 308V360" stroke="#6CFCA0" stroke-opacity=".2" stroke-dasharray="3 8"/>
+      <rect x="918" y="369" width="198" height="30" rx="15" fill="#0A1B11" stroke="#62F698" stroke-opacity=".18"/>
+      <text x="1017" y="389" text-anchor="middle" class="mono caps" fill="#84C99A" font-size="10">DESIGN · VERIFY · OPERATE</text>
+    </g>
+  </g>
+
+  <!-- PRODUCTION SIGNALS -->
+  <g>
+    <text x="58" y="455" class="mono caps" fill="#59F293" font-size="13" font-weight="700">01  /  PRODUCTION SIGNALS</text>
+    <line x1="309" y1="450" x2="1142" y2="450" stroke="#68F99A" stroke-opacity=".11"/>
+
+    <g>
+      <g transform="translate(58 476)">
+        <rect width="259" height="138" rx="12" fill="url(#panel)" stroke="#66F79B" stroke-opacity=".15"/>
+        <rect width="92" height="2" rx="1" fill="url(#accent)"/>
+        <text x="22" y="31" class="mono caps" fill="#71947C" font-size="10">SCALE / 01</text>
+        <text x="22" y="80" class="sans" fill="#EDFFF3" font-size="43" font-weight="820" letter-spacing="-1.5">1M+</text>
+        <text x="22" y="105" class="mono" fill="#8DE4A9" font-size="13" font-weight="700">TRANSACTIONS</text>
+        <text x="22" y="124" class="mono" fill="#5F7E68" font-size="10">production volume</text>
+        <path d="M172 108l13-10 12 5 13-24 13 7 14-29" fill="none" stroke="#56F092" stroke-width="2" opacity=".65"/>
+      </g>
+      <g transform="translate(331 476)">
+        <rect width="259" height="138" rx="12" fill="url(#panel)" stroke="#66F79B" stroke-opacity=".15"/>
+        <rect width="135" height="2" rx="1" fill="url(#accent)"/>
+        <text x="22" y="31" class="mono caps" fill="#71947C" font-size="10">LATENCY / 02</text>
+        <text x="22" y="80" class="sans" fill="#EDFFF3" font-size="43" font-weight="820" letter-spacing="-1.5">−40%</text>
+        <text x="22" y="105" class="mono" fill="#8DE4A9" font-size="13" font-weight="700">P95 LATENCY</text>
+        <text x="22" y="124" class="mono" fill="#5F7E68" font-size="10">profiled and tuned</text>
+        <g fill="#55EC90"><rect x="184" y="59" width="7" height="39" opacity=".24"/><rect x="197" y="69" width="7" height="29" opacity=".34"/><rect x="210" y="78" width="7" height="20" opacity=".5"/><rect x="223" y="85" width="7" height="13" opacity=".85"/></g>
+      </g>
+      <g transform="translate(604 476)">
+        <rect width="259" height="138" rx="12" fill="url(#panel)" stroke="#66F79B" stroke-opacity=".15"/>
+        <rect width="172" height="2" rx="1" fill="url(#accent)"/>
+        <text x="22" y="31" class="mono caps" fill="#71947C" font-size="10">CAPACITY / 03</text>
+        <text x="22" y="80" class="sans" fill="#EDFFF3" font-size="43" font-weight="820" letter-spacing="-1.5">+15%</text>
+        <text x="22" y="105" class="mono" fill="#8DE4A9" font-size="13" font-weight="700">THROUGHPUT</text>
+        <text x="22" y="124" class="mono" fill="#5F7E68" font-size="10">measured uplift</text>
+        <path d="M181 94V75h11v19h9V61h11v33h9V44h11v50" fill="none" stroke="#5EF498" stroke-width="3" opacity=".6"/>
+      </g>
+      <g transform="translate(877 476)">
+        <rect width="265" height="138" rx="12" fill="url(#panelBright)" stroke="#72FFA3" stroke-opacity=".22"/>
+        <rect width="222" height="2" rx="1" fill="url(#accent)"/>
+        <text x="22" y="31" class="mono caps" fill="#71947C" font-size="10">RELIABILITY / 04</text>
+        <text x="22" y="80" class="sans" fill="#EDFFF3" font-size="43" font-weight="820" letter-spacing="-1.5">99.8%</text>
+        <text x="22" y="105" class="mono" fill="#8DE4A9" font-size="13" font-weight="700">UPTIME</text>
+        <text x="22" y="124" class="mono" fill="#5F7E68" font-size="10">MTTR 35m → 12m</text>
+        <circle cx="222" cy="76" r="17" fill="none" stroke="#284D35" stroke-width="4"/>
+        <path d="M222 59a17 17 0 1 1-14.4 26" fill="none" stroke="#5AF295" stroke-width="4" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- TOOLCHAIN / ENGINEERING MODE -->
+  <g>
+    <text x="58" y="659" class="mono caps" fill="#59F293" font-size="13" font-weight="700">02  /  SYSTEMS TOOLCHAIN</text>
+    <line x1="296" y1="654" x2="1142" y2="654" stroke="#68F99A" stroke-opacity=".11"/>
+
+    <g>
+      <rect x="58" y="681" width="707" height="221" rx="14" fill="url(#panel)" stroke="#66F79B" stroke-opacity=".14"/>
+      <rect x="785" y="681" width="357" height="221" rx="14" fill="url(#panelBright)" stroke="#66F79B" stroke-opacity=".16"/>
+    </g>
+
+    <g class="mono">
+      <text x="84" y="713" class="caps" fill="#72937B" font-size="10">CORE RUNTIME MATRIX</text>
+      <line x1="84" y1="728" x2="739" y2="728" stroke="#79FAA3" stroke-opacity=".08"/>
+      <text x="84" y="756" class="caps" fill="#65DC8A" font-size="10" font-weight="700">LANGUAGE</text>
+      <text x="196" y="757" fill="#E4F8EA" font-size="15" font-weight="700">Java 8—21</text>
+      <text x="302" y="757" fill="#80AA8B" font-size="13">JVM · concurrency · streams · JFR</text>
+      <line x1="84" y1="770" x2="739" y2="770" stroke="#79FAA3" stroke-opacity=".07"/>
+
+      <text x="84" y="798" class="caps" fill="#65DC8A" font-size="10" font-weight="700">SERVICES</text>
+      <text x="196" y="799" fill="#E4F8EA" font-size="15" font-weight="700">Spring Boot</text>
+      <text x="318" y="799" fill="#80AA8B" font-size="13">REST · gRPC · Kafka · event-driven</text>
+      <line x1="84" y1="812" x2="739" y2="812" stroke="#79FAA3" stroke-opacity=".07"/>
+
+      <text x="84" y="840" class="caps" fill="#65DC8A" font-size="10" font-weight="700">DATA</text>
+      <text x="196" y="841" fill="#E4F8EA" font-size="15" font-weight="700">SQL · Redis</text>
+      <text x="302" y="841" fill="#80AA8B" font-size="13">PostgreSQL · MySQL · MongoDB</text>
+      <line x1="84" y1="854" x2="739" y2="854" stroke="#79FAA3" stroke-opacity=".07"/>
+
+      <text x="84" y="882" class="caps" fill="#65DC8A" font-size="10" font-weight="700">PLATFORM</text>
+      <text x="196" y="883" fill="#E4F8EA" font-size="15" font-weight="700">K8s · AWS EKS</text>
+      <text x="340" y="883" fill="#80AA8B" font-size="12">Docker · Jenkins · CloudWatch · Splunk</text>
+    </g>
+
+    <g>
+      <text x="811" y="713" class="mono caps" fill="#72937B" font-size="10">ENGINEERING MODE</text>
+      <text x="811" y="751" class="sans" fill="#F0FFF4" font-size="19" font-weight="750">Build for the failure path.</text>
+      <g class="mono" font-size="12">
+        <circle cx="817" cy="782" r="6" fill="#102B1C" stroke="#58EC90"/><path d="M814 782l2 2 4-5" fill="none" stroke="#7BFFA8" stroke-width="1.5"/><text x="834" y="786" fill="#9DC8A9">Explicit ownership and lifecycle</text>
+        <circle cx="817" cy="812" r="6" fill="#102B1C" stroke="#58EC90"/><path d="M814 812l2 2 4-5" fill="none" stroke="#7BFFA8" stroke-width="1.5"/><text x="834" y="816" fill="#9DC8A9">Deterministic race validation</text>
+        <circle cx="817" cy="842" r="6" fill="#102B1C" stroke="#58EC90"/><path d="M814 842l2 2 4-5" fill="none" stroke="#7BFFA8" stroke-width="1.5"/><text x="834" y="846" fill="#9DC8A9">Telemetry before optimization</text>
+        <circle cx="817" cy="872" r="6" fill="#102B1C" stroke="#58EC90"/><path d="M814 872l2 2 4-5" fill="none" stroke="#7BFFA8" stroke-width="1.5"/><text x="834" y="876" fill="#9DC8A9">Runbooks, RCA and on-call</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- LIVE SYSTEM MAP -->
+  <g>
+    <text x="58" y="947" class="mono caps" fill="#59F293" font-size="13" font-weight="700">03  /  LIVE SYSTEM MAP</text>
+    <line x1="271" y1="942" x2="1142" y2="942" stroke="#68F99A" stroke-opacity=".11"/>
+    <rect x="58" y="969" width="1084" height="278" rx="14" fill="url(#panel)" stroke="#66F79B" stroke-opacity=".15"/>
+    <path d="M59 1008H1141" stroke="#65F498" stroke-opacity=".08"/>
+
+    <text x="84" y="997" class="mono caps" fill="#769A80" font-size="10">REQUEST → DECISION → EVENT</text>
+    <circle cx="969" cy="990" r="4" fill="#4CF18E" class="pulse-delay"/>
+    <text x="982" y="995" class="mono" fill="#84C99A" font-size="11">500+ TPS</text>
+    <text x="1053" y="995" class="mono" fill="#5F876B" font-size="11">/ HEALTHY</text>
+
+    <!-- network links -->
+    <path d="M238 1083H304" fill="none" stroke="#49E98A" stroke-width="2" stroke-dasharray="7 9" marker-end="url(#arrow)" class="flow"/>
+    <path d="M500 1083H568" fill="none" stroke="#49E98A" stroke-width="2" stroke-dasharray="7 9" marker-end="url(#arrow)" class="flow-fast"/>
+    <path d="M764 1083H832" fill="none" stroke="#49E98A" stroke-width="2" stroke-dasharray="7 9" marker-end="url(#arrow)" class="flow"/>
+    <path d="M402 1114V1151" fill="none" stroke="#49E98A" stroke-opacity=".55" stroke-dasharray="3 6"/>
+    <path d="M666 1114V1151" fill="none" stroke="#49E98A" stroke-opacity=".55" stroke-dasharray="3 6"/>
+    <path d="M945 1114V1151" fill="none" stroke="#49E98A" stroke-opacity=".55" stroke-dasharray="3 6"/>
+
+    <!-- main nodes -->
+    <g>
+      <g transform="translate(84 1052)">
+        <rect width="154" height="62" rx="9" fill="#0B1E13" stroke="#5BED94" stroke-opacity=".24"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#3DE983"/>
+        <text x="20" y="25" class="mono" fill="#E9FFF0" font-size="14" font-weight="700">API GATEWAY</text>
+        <text x="20" y="46" class="mono caps" fill="#61916F" font-size="9">INGRESS / RBAC</text>
+      </g>
+      <g transform="translate(304 1052)">
+        <rect width="196" height="62" rx="9" fill="#0D2417" stroke="#67F79B" stroke-opacity=".33"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#5AFF96"/>
+        <text x="20" y="25" class="mono" fill="#F1FFF5" font-size="14" font-weight="700">SPRING SERVICE</text>
+        <text x="20" y="46" class="mono caps" fill="#6FA77E" font-size="9">STATELESS / ASYNC</text>
+        <circle cx="173" cy="19" r="4" fill="#56F293" class="pulse"/>
+      </g>
+      <g transform="translate(568 1052)">
+        <rect width="196" height="62" rx="9" fill="#0D2417" stroke="#67F79B" stroke-opacity=".33"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#5AFF96"/>
+        <text x="20" y="25" class="mono" fill="#F1FFF5" font-size="14" font-weight="700">DECISION CORE</text>
+        <text x="20" y="46" class="mono caps" fill="#6FA77E" font-size="9">RULES / IDEMPOTENT</text>
+        <circle cx="173" cy="19" r="4" fill="#56F293" class="pulse-delay"/>
+      </g>
+      <g transform="translate(832 1052)">
+        <rect width="226" height="62" rx="9" fill="#0B1E13" stroke="#5BED94" stroke-opacity=".24"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#3DE983"/>
+        <text x="20" y="25" class="mono" fill="#E9FFF0" font-size="14" font-weight="700">KAFKA EVENT LOG</text>
+        <text x="20" y="46" class="mono caps" fill="#61916F" font-size="9">DURABLE / AUDITABLE</text>
+      </g>
+    </g>
+
+    <!-- supporting nodes -->
+    <g class="mono">
+      <g transform="translate(304 1151)">
+        <rect width="196" height="48" rx="8" fill="#07150D" stroke="#4BA96A" stroke-opacity=".28"/>
+        <text x="16" y="21" fill="#BCE9C8" font-size="12" font-weight="700">REDIS RISK CACHE</text>
+        <text x="16" y="38" fill="#527861" font-size="9" letter-spacing="1">LOW LATENCY</text>
+      </g>
+      <g transform="translate(568 1151)">
+        <rect width="196" height="48" rx="8" fill="#07150D" stroke="#4BA96A" stroke-opacity=".28"/>
+        <text x="16" y="21" fill="#BCE9C8" font-size="12" font-weight="700">RISK PROVIDER</text>
+        <text x="16" y="38" fill="#527861" font-size="9" letter-spacing="1">CIRCUIT PROTECTED</text>
+      </g>
+      <g transform="translate(832 1151)">
+        <rect width="226" height="48" rx="8" fill="#07150D" stroke="#4BA96A" stroke-opacity=".28"/>
+        <text x="16" y="21" fill="#BCE9C8" font-size="12" font-weight="700">OBSERVABILITY</text>
+        <text x="16" y="38" fill="#527861" font-size="9" letter-spacing="1">METRICS / LOGS / ALERTS</text>
+      </g>
+      <text x="84" y="1170" fill="#5C8166" font-size="10">RESILIENCE</text>
+      <text x="84" y="1189" fill="#99D1A8" font-size="12">rate limiting</text>
+      <text x="84" y="1208" fill="#99D1A8" font-size="12">retry + backoff</text>
+      <text x="84" y="1227" fill="#99D1A8" font-size="12">fallback policy</text>
+    </g>
+  </g>
+
+  <!-- OPEN SOURCE -->
+  <g>
+    <text x="58" y="1292" class="mono caps" fill="#59F293" font-size="13" font-weight="700">04  /  OPEN-SOURCE SIGNAL</text>
+    <line x1="302" y1="1287" x2="1142" y2="1287" stroke="#68F99A" stroke-opacity=".11"/>
+    <rect x="58" y="1314" width="1084" height="226" rx="14" fill="url(#panel)" stroke="#66F79B" stroke-opacity=".15"/>
+
+    <g class="mono">
+      <text x="84" y="1347" class="caps" fill="#66836F" font-size="9">STATUS</text>
+      <text x="222" y="1347" class="caps" fill="#66836F" font-size="9">UPSTREAM</text>
+      <text x="400" y="1347" class="caps" fill="#66836F" font-size="9">ENGINEERING INVARIANT</text>
+      <text x="1042" y="1347" text-anchor="end" class="caps" fill="#66836F" font-size="9">EVIDENCE</text>
+      <line x1="84" y1="1361" x2="1116" y2="1361" stroke="#6BF69B" stroke-opacity=".09"/>
+
+      <g transform="translate(84 1374)">
+        <rect width="100" height="24" rx="12" fill="#163922" stroke="#72FFA3" stroke-opacity=".34"/>
+        <circle cx="15" cy="12" r="3.5" fill="#6BFFA0" filter="url(#halo)"/>
+        <text x="27" y="16" fill="#BFFFD1" font-size="10" font-weight="700" letter-spacing="1">MERGED</text>
+      </g>
+      <text x="222" y="1392" fill="#F0FFF4" font-size="14" font-weight="700">AutoMQ</text>
+      <text x="400" y="1392" fill="#A8CEB3" font-size="13">controller-only reporter lifecycle</text>
+      <text x="1042" y="1392" text-anchor="end" fill="#7DDB99" font-size="12">PR #3493</text>
+
+      <line x1="84" y1="1410" x2="1116" y2="1410" stroke="#6BF69B" stroke-opacity=".065"/>
+      <g transform="translate(84 1421)"><rect width="100" height="24" rx="12" fill="#0C2115" stroke="#55C77B" stroke-opacity=".25"/><circle cx="15" cy="12" r="3.5" fill="#4AD984"/><text x="27" y="16" fill="#94D9A8" font-size="10" font-weight="700" letter-spacing="1">REVIEW</text></g>
+      <text x="222" y="1439" fill="#E3F6E9" font-size="14" font-weight="700">Trino</text>
+      <text x="400" y="1439" fill="#91B49B" font-size="13">transaction finalization ownership</text>
+      <text x="1042" y="1439" text-anchor="end" fill="#71B98A" font-size="12">PR #30973</text>
+
+      <line x1="84" y1="1457" x2="1116" y2="1457" stroke="#6BF69B" stroke-opacity=".065"/>
+      <g transform="translate(84 1468)"><rect width="100" height="24" rx="12" fill="#0C2115" stroke="#55C77B" stroke-opacity=".25"/><circle cx="15" cy="12" r="3.5" fill="#4AD984"/><text x="27" y="16" fill="#94D9A8" font-size="10" font-weight="700" letter-spacing="1">REVIEW</text></g>
+      <text x="222" y="1486" fill="#E3F6E9" font-size="14" font-weight="700">Fluss</text>
+      <text x="400" y="1486" fill="#91B49B" font-size="13">endpoint identity and registration</text>
+      <text x="1042" y="1486" text-anchor="end" fill="#71B98A" font-size="12">PR #4263</text>
+
+      <line x1="84" y1="1504" x2="1116" y2="1504" stroke="#6BF69B" stroke-opacity=".065"/>
+      <g transform="translate(84 1510)"><rect width="100" height="24" rx="12" fill="#0C2115" stroke="#55C77B" stroke-opacity=".25"/><circle cx="15" cy="12" r="3.5" fill="#4AD984"/><text x="27" y="16" fill="#94D9A8" font-size="10" font-weight="700" letter-spacing="1">REVIEW</text></g>
+      <text x="222" y="1528" fill="#E3F6E9" font-size="14" font-weight="700">AutoMQ</text>
+      <text x="400" y="1528" fill="#91B49B" font-size="13">Prometheus authentication lifecycle</text>
+      <text x="1042" y="1528" text-anchor="end" fill="#71B98A" font-size="12">PR #3579</text>
+    </g>
+  </g>
+
+  <!-- FEATURED BUILDS -->
+  <g>
+    <text x="58" y="1583" class="mono caps" fill="#59F293" font-size="13" font-weight="700">05  /  FEATURED BUILDS</text>
+    <line x1="270" y1="1578" x2="1142" y2="1578" stroke="#68F99A" stroke-opacity=".11"/>
+
+    <g>
+      <rect x="58" y="1605" width="526" height="139" rx="14" fill="url(#panelBright)" stroke="#67F79B" stroke-opacity=".18"/>
+      <rect x="616" y="1605" width="526" height="139" rx="14" fill="url(#panel)" stroke="#67F79B" stroke-opacity=".15"/>
+    </g>
+    <g>
+      <text x="82" y="1634" class="mono caps" fill="#63B87D" font-size="9">BUILD / 01</text>
+      <text x="82" y="1666" class="sans" fill="#F0FFF4" font-size="23" font-weight="800">Vortex—CUDA</text>
+      <text x="82" y="1692" class="mono" fill="#9FC9AA" font-size="12">Spring Boot → Java → JNI → CUDA → GPU exact Top-K</text>
+      <rect x="82" y="1710" width="217" height="22" rx="5" fill="#10291A" stroke="#5FEF93" stroke-opacity=".2"/>
+      <text x="94" y="1725" class="mono" fill="#88EEA6" font-size="10" font-weight="700">v1.0.0  ·  48/48 BENCHMARKS</text>
+      <path d="M484 1637h58v58" fill="none" stroke="#61F196" stroke-opacity=".18"/>
+      <path d="M496 1683l11-15 10 7 15-24" fill="none" stroke="#62F399" stroke-width="2"/>
+    </g>
+    <g>
+      <text x="640" y="1634" class="mono caps" fill="#63B87D" font-size="9">BUILD / 02</text>
+      <text x="640" y="1666" class="sans" fill="#F0FFF4" font-size="23" font-weight="800">Distributed Transaction DB</text>
+      <text x="640" y="1692" class="mono" fill="#9FC9AA" font-size="12">HLC · MVCC · intents · uncertainty · read restart</text>
+      <rect x="640" y="1710" width="275" height="22" rx="5" fill="#0C2115" stroke="#5FEF93" stroke-opacity=".16"/>
+      <text x="652" y="1725" class="mono" fill="#7ED599" font-size="10" font-weight="700">SERIALIZABLE CONFLICT PREVENTION</text>
+      <g transform="translate(1051 1648)" fill="none" stroke="#66F59A" stroke-opacity=".35"><ellipse rx="23" ry="8"/><path d="M-23 0v30c0 4 10 8 23 8s23-4 23-8V0M-23 15c0 4 10 8 23 8s23-4 23-8"/></g>
+    </g>
+  </g>
+
+  <!-- STATUS BAR -->
+  <rect x="14" y="1760" width="1172" height="26" rx="0 0 27 27" fill="#0B1D12"/>
+  <rect x="14" y="1760" width="190" height="26" fill="#48E88A"/>
+  <text x="30" y="1778" class="mono" fill="#031109" font-size="10" font-weight="900" letter-spacing="1">ENGINEERING PRINCIPLES</text>
+  <text x="222" y="1778" class="mono" fill="#8BBE99" font-size="10">correctness &gt; cleverness   ·   ownership &gt; implicit lifecycle   ·   operability = design</text>
+  <text x="1126" y="1778" text-anchor="end" class="mono" fill="#6CEB98" font-size="10">backendarchitectx</text>
+  <rect x="1140" y="1769" width="7" height="10" fill="#64F69A" class="cursor"/>
+</svg>
