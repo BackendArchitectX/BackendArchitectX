@@ -1,60 +1,92 @@
 <div align="center">
 
-<h1>PRANAY KADU</h1>
-<h3>BACKEND &amp; DISTRIBUTED SYSTEMS ENGINEER</h3>
+<img src="./assets/linux-terminal-hero-2026.svg" width="100%" alt="Pranay Kadu Linux terminal profile" />
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
-<br>
+</div>
 
-<img src="./assets/neon-skills-spectrum-2026.svg" width="100%" alt="Core engineering skills — Java, Spring Boot, Distributed Systems, Kafka, Redis, Kubernetes, AWS, Python, TypeScript and C++" />
+## `$ cat /proc/impact`
 
-<br>
+```console
+transactions   1M+
+p95_latency    -40%
+throughput     +15%
+uptime         99.8%
+mttr           35m -> 12m
+```
 
-<img src="./assets/green-neon-systems-atlas-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X green neon systems atlas" />
+## `$ cat /etc/skills.conf`
 
-<br>
+```ini
+PRIMARY_BACKEND = Java, J2EE, Spring, Spring Boot, Spring MVC, REST APIs
+DISTRIBUTED     = Microservices, Kafka, Event-Driven Architecture, Async Processing
+CONCURRENCY     = Multithreading, Concurrency, Caching, Parallel Processing
+DATA            = MySQL, PostgreSQL, MongoDB, Redis, SQL Optimization
+PLATFORM        = AWS, EKS, Docker, Kubernetes, Jenkins, CI/CD, PCF
+OBSERVABILITY   = CloudWatch, Splunk, Dynatrace, JFR
+PYTHON          = Python 3, FastAPI, Flask
+WEB_API         = Node.js, Express.js, TypeScript, JavaScript, ReactJS
+NATIVE          = C++, STL, JNI, CUDA project work
+QUALITY         = JUnit, TDD, OOP, SOLID
+```
 
-[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
+## `$ git log --oneline upstream`
+
+```console
+MERGED  AutoMQ #3493   controller-only reporter lifecycle
+REVIEW  Trino  #30973  commit / failure finalization ownership
+REVIEW  Fluss  #4263   logical UID / physical endpoint identity
+REVIEW  AutoMQ #3579   Prometheus authentication lifecycle
+REVIEW  Fluss  #4230   Paimon metadata path mapping
+```
+
+[**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
+
+## `$ tree ~/systems-lab -L 2`
+
+```text
+~/systems-lab
+├── Vortex-CUDA
+│   ├── Spring Boot -> Java -> JNI -> CUDA -> GPU Top-K
+│   └── v1.0.0 | 48/48 benchmark cases | M18 smoke validation
+│
+└── distrib-txn-db
+    ├── HLC -> MVCC -> transaction records -> write intents
+    └── uncertainty -> read restart -> serializable conflict prevention
+```
 
 [**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
-</div>
+## `$ cat ~/.engineering/invariants`
 
-<details>
-<summary><b>Full resume-grounded execution surface</b></summary>
-<br>
+```text
+process-role   -> lifecycle follows source-system semantics
+finalization   -> one owner for a terminal state transition
+identity       -> logical identity != physical location
+lifecycle      -> threads / permits / connections / handles need explicit ownership
+race-testing   -> control timing deterministically; do not depend on luck
+retries        -> idempotency before replay
+operations     -> observability and recovery are part of the design
+```
 
-### Languages
-**Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL**
+## `$ man backendarchitectx`
 
-### Backend & APIs
-**Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST APIs · JSP**
+```text
+NAME
+    backendarchitectx - Java-first backend and distributed-systems engineer
 
-### Architecture & Distributed Systems
-**Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing · Kafka · Message Queues**
+SYNOPSIS
+    observe -> isolate -> model -> change -> prove -> measure -> operate
 
-### Performance
-**Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms · JFR**
-
-### Data
-**MySQL · PostgreSQL · MongoDB · Redis · SQL Optimization**
-
-### Cloud & DevOps
-**AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD · CloudWatch**
-
-### Quality & Tooling
-**JUnit · TDD · OOP · SOLID · Agile · Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML**
-
-### AI Tooling
-**Claude Sonnet · Claude Opus · GitHub Copilot · AI-powered coding assistants · agent-based tools**
-
-</details>
+FOCUS
+    distributed systems / concurrency / reliability / performance / open source
+```
 
 <div align="center">
 
-<br>
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=TERMINAL%20SESSIONS&style=flat-square&color=39FF14)
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20SESSIONS&style=flat-square&color=39FF14)
+<sub><code>pranay@backendarchitectx:~$ _</code></sub>
 
 </div>
