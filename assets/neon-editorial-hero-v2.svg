@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Pranay Kadu — Backend Architect X</title>
+<desc id="desc">Premium neon editorial hero combining large typography, a spectral X monolith, Linux code texture, and verified production engineering metrics.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#05070b"/><stop offset="0.55" stop-color="#070a11"/><stop offset="1" stop-color="#030407"/>
+  </linearGradient>
+  <radialGradient id="cyanGlow" cx="70%" cy="38%" r="55%">
+    <stop offset="0" stop-color="#00f5ff" stop-opacity=".28"/><stop offset=".45" stop-color="#00f5ff" stop-opacity=".07"/><stop offset="1" stop-color="#00f5ff" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="magGlow" cx="80%" cy="62%" r="48%">
+    <stop offset="0" stop-color="#ff2bd6" stop-opacity=".20"/><stop offset=".5" stop-color="#ff2bd6" stop-opacity=".05"/><stop offset="1" stop-color="#ff2bd6" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="spectral" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#00f5ff"/>
+    <stop offset=".32" stop-color="#7c5cff"/>
+    <stop offset=".62" stop-color="#ff2bd6"/>
+    <stop offset=".82" stop-color="#b8ff2c"/>
+    <stop offset="1" stop-color="#00f5ff"/>
+    <animate attributeName="x1" values="0;1;0" dur="11s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="1;0;1" dur="13s" repeatCount="indefinite"/>
+  </linearGradient>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+    <stop offset=".16" stop-color="#54faff" stop-opacity=".8"/>
+    <stop offset=".34" stop-color="#0b1019"/>
+    <stop offset=".55" stop-color="#9d7cff" stop-opacity=".95"/>
+    <stop offset=".73" stop-color="#ff3adf" stop-opacity=".85"/>
+    <stop offset=".92" stop-color="#c5ff52" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#111722"/>
+  </linearGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+    <path d="M48 0H0V48" fill="none" stroke="#8cf8ff" stroke-opacity=".055" stroke-width="1"/>
+  </pattern>
+  <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="24" stitchTiles="stitch" result="n"/>
+    <feColorMatrix in="n" type="saturate" values="0" result="mono"/>
+    <feComponentTransfer in="mono"><feFuncA type="table" tableValues="0 .055"/></feComponentTransfer>
+  </filter>
+  <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="warp" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.06" numOctaves="2" seed="8" result="noise">
+      <animate attributeName="baseFrequency" values="0.012 0.06;0.018 0.045;0.012 0.06" dur="14s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="B"/>
+  </filter>
+  <clipPath id="xClip"><path d="M720 114 L804 114 L920 278 L1035 114 L1120 114 L964 342 L1137 604 L1045 604 L920 421 L794 604 L702 604 L876 343 Z"/></clipPath>
+  <style>
+    .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}
+    @media (prefers-color-scheme: light){.theme-bg{fill:#f7f8fb}.theme-text{fill:#0b0e14}.muted{fill:#5d6678}.line{stroke:#111827}.panel{fill:#ffffff;stroke:#d8dee9}.code{fill:#596273}}
+  </style>
+</defs>
+<rect class="theme-bg" width="1200" height="760" rx="28" fill="url(#bg)"/>
+<rect width="1200" height="760" rx="28" fill="url(#cyanGlow)"/>
+<rect width="1200" height="760" rx="28" fill="url(#magGlow)"/>
+<rect width="1200" height="760" rx="28" fill="url(#grid)"/>
+<rect width="1200" height="760" rx="28" filter="url(#grain)" opacity=".9"/>
+<rect x="1" y="1" width="1198" height="758" rx="27" fill="none" stroke="url(#spectral)" stroke-opacity=".34"/>
+
+<!-- atmospheric streaks -->
+<g opacity=".55" filter="url(#softGlow)">
+  <path d="M560 80 C790 140 950 75 1180 125" fill="none" stroke="#00f5ff" stroke-width="8"/>
+  <path d="M520 655 C770 580 970 680 1180 610" fill="none" stroke="#ff2bd6" stroke-width="9"/>
+</g>
+
+<!-- editorial copy -->
+<g class="sans">
+  <text x="58" y="58" fill="#86f8ff" font-size="12" letter-spacing="4">PRANAY KADU / BACKEND SYSTEMS / 2026</text>
+  <text x="58" y="148" class="theme-text" fill="#f8fbff" font-size="74" font-weight="760" letter-spacing="-3">BACKEND</text>
+  <text x="58" y="226" fill="none" stroke="#84f7ff" stroke-width="1.2" font-size="74" font-weight="760" letter-spacing="-3">ARCHITECT</text>
+  <text x="58" y="300" fill="#f8fbff" class="theme-text" font-size="74" font-weight="760" letter-spacing="-3">X</text>
+  <text x="58" y="345" class="muted" fill="#91a0b8" font-size="14" letter-spacing="1.3">DISTRIBUTED SYSTEMS · CONCURRENCY · RELIABILITY · PERFORMANCE</text>
+  <text x="58" y="376" fill="#68e9f1" font-size="13">Java / Spring Boot</text>
+  <text x="190" y="376" fill="#9c85ff" font-size="13">Python / FastAPI</text>
+  <text x="320" y="376" fill="#ff5de3" font-size="13">Node / TS / JS</text>
+  <text x="452" y="376" fill="#c9ff61" font-size="13">C++ / STL</text>
+</g>
+
+<!-- code texture -->
+<g class="mono code" fill="#627086" font-size="9" opacity=".58">
+  <text x="58" y="432">finalization.compareAndSet(OPEN, COMMITTING)</text>
+  <text x="58" y="449">connectionKey = uid + host + port</text>
+  <text x="58" y="466">if (roles.contains(CONTROLLER) &amp;&amp; !roles.contains(BROKER)) return;</text>
+  <text x="58" y="483">retry = bounded &amp;&amp; idempotent</text>
+  <text x="58" y="500">shutdown(): drain → release → terminate</text>
+</g>
+
+<!-- spectral X monolith -->
+<g clip-path="url(#xClip)" filter="url(#warp)">
+  <rect x="680" y="90" width="470" height="540" fill="url(#metal)"/>
+  <g opacity=".22">
+    <path d="M680 170H1140M680 250H1140M680 330H1140M680 410H1140M680 490H1140M680 570H1140" stroke="#fff" stroke-width="1"/>
+    <path d="M760 90V630M850 90V630M940 90V630M1030 90V630" stroke="#fff" stroke-width="1"/>
+  </g>
+  <rect x="680" y="90" width="90" height="540" fill="#00f5ff" opacity=".11">
+    <animate attributeName="x" values="680;1080;680" dur="8s" repeatCount="indefinite"/>
+  </rect>
+</g>
+<path d="M720 114 L804 114 L920 278 L1035 114 L1120 114 L964 342 L1137 604 L1045 604 L920 421 L794 604 L702 604 L876 343 Z" fill="none" stroke="url(#spectral)" stroke-width="2.2" opacity=".95" filter="url(#glow)"/>
+
+<!-- telemetry line -->
+<g class="mono" font-size="10">
+  <path d="M644 644 H1134" stroke="#243042" stroke-width="1"/>
+  <path d="M644 644 C700 620 750 670 808 636 S920 620 980 646 S1082 618 1134 633" fill="none" stroke="#00f5ff" stroke-width="1.8" opacity=".9"/>
+  <circle r="3.5" fill="#b8ff2c" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" path="M644 644 C700 620 750 670 808 636 S920 620 980 646 S1082 618 1134 633"/></circle>
+  <text x="644" y="672" fill="#6c7a8f">telemetry / request-path / failure-boundary</text>
+</g>
+
+<!-- metrics -->
+<g transform="translate(58 566)" class="sans">
+  <g><text y="0" fill="#69778b" font-size="10" letter-spacing="2">SCALE</text><text y="34" fill="#f8fbff" class="theme-text" font-size="28" font-weight="700">1M+</text><text x="72" y="33" fill="#78869b" font-size="11">transactions</text></g>
+  <g transform="translate(175 0)"><text y="0" fill="#69778b" font-size="10" letter-spacing="2">P95</text><text y="34" fill="#00f5ff" font-size="28" font-weight="700">−40%</text></g>
+  <g transform="translate(315 0)"><text y="0" fill="#69778b" font-size="10" letter-spacing="2">THROUGHPUT</text><text y="34" fill="#b8ff2c" font-size="28" font-weight="700">+15%</text></g>
+  <g transform="translate(500 0)"><text y="0" fill="#69778b" font-size="10" letter-spacing="2">UPTIME</text><text y="34" fill="#f8fbff" class="theme-text" font-size="28" font-weight="700">99.8%</text></g>
+</g>
+
+<!-- scan beam -->
+<rect x="0" y="0" width="1200" height="2" fill="url(#spectral)" opacity=".32" filter="url(#glow)">
+  <animate attributeName="y" values="24;736;24" dur="12s" repeatCount="indefinite"/>
+</rect>
+</svg>
