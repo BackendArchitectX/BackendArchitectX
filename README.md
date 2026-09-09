@@ -1,14 +1,16 @@
 <div align="center">
 
-<img src="./assets/anonymous-hacker-terminal-2026.svg" width="100%" alt="Pranay Kadu Linux terminal engineering profile" />
+<img src="./assets/prompt-identity-terminal-2026.svg" width="100%" alt="Pranay Kadu greater-than underscore terminal identity" />
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
 </div>
 
-## `root@backendarchitectx:~# cat /proc/impact`
+## `>_ impact`
 
 ```console
+>_ cat /proc/impact
+
 transactions   1M+
 p95_latency    -40%
 throughput     +15%
@@ -16,9 +18,11 @@ uptime         99.8%
 mttr           35m -> 12m
 ```
 
-## `root@backendarchitectx:/etc# cat stack.conf`
+## `>_ stack`
 
 ```ini
+>_ cat /etc/backendarchitectx/stack.conf
+
 PRIMARY_BACKEND = Java, J2EE, Spring, Spring Boot, Spring MVC, REST APIs
 DISTRIBUTED     = Microservices, Kafka, Event-Driven Architecture, Async Processing
 CONCURRENCY     = Multithreading, Concurrency, Caching, Parallel Processing
@@ -31,9 +35,11 @@ NATIVE          = C++, STL, JNI, CUDA project work
 QUALITY         = JUnit, TDD, OOP, SOLID
 ```
 
-## `root@backendarchitectx:~/upstream# git log --oneline`
+## `>_ upstream`
 
 ```console
+>_ git log --oneline upstream
+
 MERGED  AutoMQ #3493   controller-only reporter lifecycle
 REVIEW  Trino  #30973  commit / failure finalization ownership
 REVIEW  Fluss  #4263   logical UID / physical endpoint identity
@@ -43,9 +49,11 @@ REVIEW  Fluss  #4230   Paimon metadata path mapping
 
 [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
 
-## `root@backendarchitectx:~/systems# tree -L 2`
+## `>_ systems`
 
 ```text
+>_ tree ~/systems -L 2
+
 ~/systems
 ├── Vortex-CUDA
 │   ├── Spring Boot -> Java -> JNI -> CUDA -> GPU Top-K
@@ -58,9 +66,11 @@ REVIEW  Fluss  #4230   Paimon metadata path mapping
 
 [**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
-## `root@backendarchitectx:~# cat ~/.engineering/invariants`
+## `>_ invariants`
 
 ```text
+>_ cat ~/.engineering/invariants
+
 process-role   -> lifecycle follows source-system semantics
 finalization   -> one owner for a terminal state transition
 identity       -> logical identity != physical location
@@ -70,7 +80,7 @@ retries        -> idempotency before replay
 operations     -> observability and recovery are part of the design
 ```
 
-## `root@backendarchitectx:~# man backendarchitectx`
+## `>_ man backendarchitectx`
 
 ```text
 NAME
@@ -85,8 +95,12 @@ FOCUS
 
 <div align="center">
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=TERMINAL%20SESSIONS&style=flat-square&color=39FF14)
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=%3E_%20SESSIONS&style=flat-square&color=39FF14)
 
-<sub><code>root@backendarchitectx:~# _</code></sub>
+<br>
+
+### `>_`
+
+<sub><code>cursor active_</code></sub>
 
 </div>
