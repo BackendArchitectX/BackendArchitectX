@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1120" viewBox="0 0 1200 1120" role="img" aria-labelledby="title desc">
+<title id="title">Backend Architect X — Green Neon Systems Atlas</title>
+<desc id="desc">A premium green neon systems atlas for Java backend, distributed systems, open source work and GPU systems.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#020403"/><stop offset=".5" stop-color="#071009"/><stop offset="1" stop-color="#010302"/></linearGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#39FF14"/><stop offset=".30" stop-color="#7CFF4F"/><stop offset=".58" stop-color="#B6FF00"/><stop offset=".82" stop-color="#00C853"/><stop offset="1" stop-color="#39FF14"/><animateTransform attributeName="gradientTransform" type="translate" values="-0.4 0;0.4 0;-0.4 0" dur="10s" repeatCount="indefinite"/></linearGradient>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2FFF3"/><stop offset=".16" stop-color="#39FF14"/><stop offset=".34" stop-color="#0B160D"/><stop offset=".52" stop-color="#B6FF00"/><stop offset=".72" stop-color="#0A140B"/><stop offset=".88" stop-color="#7CFF4F"/><stop offset="1" stop-color="#F2FFF3"/></linearGradient>
+  <radialGradient id="aura"><stop offset="0" stop-color="#39FF14" stop-opacity=".22"/><stop offset=".55" stop-color="#00C853" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#7CFF4F" stroke-opacity=".05" stroke-width="1"/></pattern>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="30"/></filter>
+  <filter id="distort" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".006 .016" numOctaves="2" seed="21" result="n"><animate attributeName="baseFrequency" values=".006 .016;.010 .012;.006 .016" dur="14s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="B"/></filter>
+  <filter id="grain" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="3" seed="11"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .055"/></feComponentTransfer></filter>
+</defs>
+<rect width="1200" height="1120" rx="32" fill="url(#bg)"/>
+<rect width="1200" height="1120" rx="32" fill="url(#grid)"/>
+<circle cx="930" cy="170" r="390" fill="url(#aura)" filter="url(#soft)"><animate attributeName="cx" values="930;820;960;930" dur="15s" repeatCount="indefinite"/></circle>
+<circle cx="240" cy="820" r="360" fill="url(#aura)" opacity=".65" filter="url(#soft)"><animate attributeName="cy" values="820;740;850;820" dur="18s" repeatCount="indefinite"/></circle>
+<rect x="1" y="1" width="1198" height="1118" rx="31" fill="none" stroke="url(#green)" stroke-width="1.5" opacity=".7"/>
+<rect width="1200" height="1120" filter="url(#grain)" opacity=".18"/>
+
+<!-- HERO -->
+<g font-family="Arial, Helvetica, sans-serif">
+  <text x="58" y="72" fill="#7F9C83" font-size="13" font-weight="700" letter-spacing="4">BACKEND ARCHITECT X / GREEN SYSTEMS EDITION</text>
+  <text x="56" y="162" fill="#F3FFF4" font-size="74" font-weight="900" letter-spacing="-4">BACKEND</text>
+  <text x="56" y="232" fill="url(#green)" font-size="74" font-weight="900" letter-spacing="-4" filter="url(#glow)">SYSTEMS ENGINEER</text>
+  <text x="58" y="276" fill="#A7B9AA" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" letter-spacing="2">JAVA-FIRST · DISTRIBUTED SYSTEMS · PRODUCTION RELIABILITY</text>
+</g>
+<g transform="translate(835 74)" filter="url(#distort)"><path d="M0 0 L76 0 L130 82 L184 0 L260 0 L168 136 L268 294 L192 294 L130 196 L68 294 L-8 294 L92 136 Z" fill="url(#metal)" opacity=".95"/><path d="M14 20 L66 20 L130 116 L194 20 L246 20" fill="none" stroke="#F3FFF4" stroke-opacity=".48" stroke-width="2"/></g>
+<path d="M58 322 H760" stroke="#143019" stroke-width="2"/><path d="M58 322 H760" stroke="#39FF14" stroke-width="2" stroke-dasharray="28 26" filter="url(#glow)"><animate attributeName="stroke-dashoffset" values="0;-216" dur="7s" repeatCount="indefinite"/></path>
+
+<!-- METRICS -->
+<g transform="translate(58 360)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <g><rect width="200" height="96" rx="20" fill="#071009" stroke="#39FF14" stroke-opacity=".46"/><text x="20" y="32" fill="#7F9C83" font-size="11">TRANSACTIONS</text><text x="20" y="70" fill="#F3FFF4" font-size="28" font-weight="800">1M+</text></g>
+  <g transform="translate(218 0)"><rect width="200" height="96" rx="20" fill="#071009" stroke="#7CFF4F" stroke-opacity=".42"/><text x="20" y="32" fill="#7F9C83" font-size="11">P95 LATENCY</text><text x="20" y="70" fill="#7CFF4F" font-size="28" font-weight="800">−40%</text></g>
+  <g transform="translate(436 0)"><rect width="200" height="96" rx="20" fill="#071009" stroke="#B6FF00" stroke-opacity=".42"/><text x="20" y="32" fill="#7F9C83" font-size="11">THROUGHPUT</text><text x="20" y="70" fill="#B6FF00" font-size="28" font-weight="800">+15%</text></g>
+  <g transform="translate(654 0)"><rect width="200" height="96" rx="20" fill="#071009" stroke="#00C853" stroke-opacity=".42"/><text x="20" y="32" fill="#7F9C83" font-size="11">UPTIME</text><text x="20" y="70" fill="#39FF14" font-size="28" font-weight="800">99.8%</text></g>
+  <g transform="translate(872 0)"><rect width="200" height="96" rx="20" fill="#071009" stroke="#39FF14" stroke-opacity=".42"/><text x="20" y="32" fill="#7F9C83" font-size="11">MTTR</text><text x="20" y="70" fill="#F3FFF4" font-size="23" font-weight="800">35→12 min</text></g>
+</g>
+
+<!-- UPSTREAM -->
+<g transform="translate(58 535)" font-family="Arial, Helvetica, sans-serif">
+  <text x="0" y="0" fill="#F3FFF4" font-size="42" font-weight="900" letter-spacing="-2">UPSTREAM PROOF</text>
+  <text x="0" y="32" fill="#7F9C83" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" letter-spacing="2">EXTERNAL VALIDATION / REVIEW-STAGE ENGINEERING</text>
+  <path d="M0 88 H1084" stroke="#17301A" stroke-width="2"/><path d="M0 88 H1084" stroke="url(#green)" stroke-width="2" stroke-dasharray="6 20" filter="url(#glow)"><animate attributeName="stroke-dashoffset" values="0;-156" dur="7s" repeatCount="indefinite"/></path>
+</g>
+<g transform="translate(90 623)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <g><circle r="10" fill="#B6FF00" filter="url(#glow)"/><text x="-30" y="42" fill="#F3FFF4" font-size="15" font-weight="700">AutoMQ</text><text x="-38" y="64" fill="#B6FF00" font-size="11">#3493 MERGED</text></g>
+  <g transform="translate(250 0)"><circle r="8" fill="#39FF14"/><text x="-24" y="42" fill="#F3FFF4" font-size="15">Trino</text><text x="-36" y="64" fill="#7CFF4F" font-size="11">#30973 REVIEW</text></g>
+  <g transform="translate(500 0)"><circle r="8" fill="#7CFF4F"/><text x="-24" y="42" fill="#F3FFF4" font-size="15">Fluss</text><text x="-34" y="64" fill="#7CFF4F" font-size="11">#4263 REVIEW</text></g>
+  <g transform="translate(750 0)"><circle r="8" fill="#00C853"/><text x="-30" y="42" fill="#F3FFF4" font-size="15">AutoMQ</text><text x="-34" y="64" fill="#39FF14" font-size="11">#3579 REVIEW</text></g>
+  <g transform="translate(1000 0)"><circle r="8" fill="#39FF14"/><text x="-24" y="42" fill="#F3FFF4" font-size="15">Fluss</text><text x="-34" y="64" fill="#7CFF4F" font-size="11">#4230 REVIEW</text></g>
+</g>
+
+<!-- SYSTEMS -->
+<g transform="translate(58 760)" font-family="Arial, Helvetica, sans-serif">
+  <text x="0" y="0" fill="#F3FFF4" font-size="42" font-weight="900" letter-spacing="-2">SYSTEMS CORE</text>
+  <text x="0" y="32" fill="#7F9C83" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" letter-spacing="2">VORTEX CUDA / TRANSACTION STATE / FAILURE SEMANTICS</text>
+</g>
+<g transform="translate(58 825)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <rect width="660" height="230" rx="26" fill="#071009" stroke="#39FF14" stroke-opacity=".32"/>
+  <text x="28" y="42" fill="#39FF14" font-size="13" letter-spacing="2">VORTEX CUDA / v1.0.0</text>
+  <text x="28" y="86" fill="#F3FFF4" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="800">Spring → Java → JNI → CUDA</text>
+  <text x="28" y="120" fill="#93A897" font-size="13">GPU-resident exact Top-K · pinned memory · streams · FP16 storage</text>
+  <path d="M30 166 H590" stroke="#17301A" stroke-width="3"/><path d="M30 166 H590" stroke="#39FF14" stroke-width="3" stroke-dasharray="30 24" filter="url(#glow)"><animate attributeName="stroke-dashoffset" values="0;-216" dur="6s" repeatCount="indefinite"/></path>
+  <text x="28" y="208" fill="#7CFF4F" font-size="13">48/48 benchmarks · M18 smoke · ~1.67–1.72 ms P50 · ~1,641–1,662 QPS</text>
+
+  <g transform="translate(690 0)"><rect width="394" height="230" rx="26" fill="#071009" stroke="#7CFF4F" stroke-opacity=".30"/><text x="26" y="42" fill="#7CFF4F" font-size="13" letter-spacing="2">DISTRIB-TXN-DB</text><text x="26" y="82" fill="#F3FFF4" font-size="25" font-family="Arial, Helvetica, sans-serif" font-weight="800">HLC → MVCC → INTENTS</text><text x="26" y="118" fill="#93A897" font-size="13">uncertainty · read restart · serializable guards</text><text x="26" y="158" fill="#39FF14" font-size="13">ownership / identity / lifecycle</text><text x="26" y="190" fill="#7CFF4F" font-size="13">deterministic race testing</text></g>
+</g>
+<text x="58" y="1090" fill="#7F9C83" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" letter-spacing="2">OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE</text>
+</svg>
