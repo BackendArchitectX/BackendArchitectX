@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
+<title id="t">Engineering Proof Bento</title><desc id="d">Asymmetric premium systems proof grid for open source, production impact, and Vortex CUDA verification.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#04060b"/><stop offset="1" stop-color="#080b12"/></linearGradient>
+  <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#72f5ff"/><stop offset=".35" stop-color="#7087ff"/><stop offset=".68" stop-color="#b86cff"/><stop offset="1" stop-color="#6fffcf"/></linearGradient>
+  <linearGradient id="glass"><stop offset="0" stop-color="#fff" stop-opacity=".085"/><stop offset="1" stop-color="#fff" stop-opacity=".025"/></linearGradient>
+  <radialGradient id="g1"><stop offset="0" stop-color="#00e5ff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <radialGradient id="g2"><stop offset="0" stop-color="#9c5cff" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="2" seed="33"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .025 0"/></filter>
+  <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="clip"><rect width="1200" height="560" rx="24"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+  <rect width="1200" height="560" rx="24" fill="url(#bg)"/>
+  <ellipse cx="150" cy="80" rx="320" ry="220" fill="url(#g1)"/><ellipse cx="1040" cy="430" rx="360" ry="230" fill="url(#g2)"/>
+  <rect width="1200" height="560" filter="url(#noise)"/>
+  <g font-family="Inter,Segoe UI,system-ui,sans-serif">
+    <text x="42" y="42" font-size="12" letter-spacing="3.2" fill="#78899a">PROOF LAYER / SIGNAL > CLAIM</text>
+    <text x="996" y="42" font-size="10" fill="#617181">MERGED · REVIEW · REPRODUCIBLE</text>
+
+    <g transform="translate(40 70)">
+      <rect width="525" height="210" rx="24" fill="url(#glass)" stroke="url(#edge)" stroke-opacity=".48"/>
+      <text x="24" y="34" font-size="11" letter-spacing="2" fill="#7cf8db">UPSTREAM / MERGED</text>
+      <text x="24" y="72" font-size="26" font-weight="700" fill="#f6fbff">AutoMQ #3493</text>
+      <text x="24" y="99" font-size="12" fill="#8da0b2">controller-only reporter lifecycle</text>
+      <rect x="24" y="125" width="150" height="24" rx="12" fill="#0d251d" stroke="#54e5ad" stroke-opacity=".35"/><text x="40" y="142" font-size="10" font-weight="700" fill="#77f0c0">MERGED / REVIEWED</text>
+      <text x="24" y="178" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#7f91a2">+ ConfigDef LIST parsing</text>
+      <text x="270" y="178" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#7f91a2">+ lifecycle regression</text>
+      <path d="M24 191 H500" stroke="#29414b"/><circle r="4" fill="#6fffcf" filter="url(#glow)"><animateMotion dur="5s" repeatCount="indefinite" path="M24 191 H500"/></circle>
+    </g>
+
+    <g transform="translate(590 70)">
+      <rect width="255" height="210" rx="24" fill="url(#glass)" stroke="#7d79ff" stroke-opacity=".32"/>
+      <text x="22" y="34" font-size="10" letter-spacing="1.7" fill="#aaa6ff">STATE / REVIEW</text>
+      <text x="22" y="68" font-size="19" font-weight="700" fill="#f3f7ff">Trino #30973</text>
+      <text x="22" y="94" font-size="11" fill="#8495a6">finalization ownership</text>
+      <g transform="translate(22 125)" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10">
+        <rect width="54" height="25" rx="12" fill="#121925" stroke="#5c6b83"/><text x="12" y="17" fill="#a9b4c2">OPEN</text>
+        <path d="M58 12H95" stroke="#707d93"/><rect x="99" width="88" height="25" rx="12" fill="#151527" stroke="#8275ff"/><text x="112" y="17" fill="#c3bcff">COMMITTING</text>
+        <path d="M187 12H213" stroke="#707d93"/><circle cx="217" cy="12" r="6" fill="#6fffcf"><animate attributeName="opacity" values=".25;1;.25" dur="1.8s" repeatCount="indefinite"/></circle>
+      </g>
+    </g>
+
+    <g transform="translate(870 70)">
+      <rect width="290" height="210" rx="24" fill="url(#glass)" stroke="#ff6ac8" stroke-opacity=".28"/>
+      <text x="22" y="34" font-size="10" letter-spacing="1.7" fill="#ff9ddd">NETWORK / REVIEW</text>
+      <text x="22" y="68" font-size="19" font-weight="700" fill="#f3f7ff">Fluss #4263</text>
+      <text x="22" y="94" font-size="11" fill="#8495a6">logical UID ≠ endpoint</text>
+      <g transform="translate(22 125)"><rect width="84" height="30" rx="15" fill="#15131f" stroke="#5f6074"/><text x="18" y="19" font-size="10" fill="#9ca8b5">UID-42</text><path d="M90 15H154" stroke="#ff6ac8" stroke-width="1.5"/><circle r="4" fill="#ff75ce"><animateMotion dur="2.5s" repeatCount="indefinite" path="M90 15H154"/></circle><rect x="160" width="92" height="30" rx="15" fill="#101b20" stroke="#53d5c4"/><text x="175" y="19" font-size="9" fill="#9df3df">HOST-B:9000</text></g>
+    </g>
+
+    <g transform="translate(40 310)">
+      <rect width="735" height="205" rx="24" fill="url(#glass)" stroke="url(#edge)" stroke-opacity=".38"/>
+      <text x="24" y="34" font-size="10" letter-spacing="1.8" fill="#7aefff">ORIGINAL SYSTEM / REPRODUCIBLE</text>
+      <text x="24" y="70" font-size="23" font-weight="700" fill="#f6fbff">Vortex CUDA v1.0.0</text>
+      <text x="24" y="96" font-size="11" fill="#879aab">Spring Boot → Java → JNI → CUDA → exact Top-K</text>
+      <text x="24" y="132" font-size="30" font-weight="700" fill="#7ff0cd">1.67–1.72 ms</text><text x="24" y="153" font-size="9" fill="#718497">FP32 P50 / 500K×128</text>
+      <text x="245" y="132" font-size="30" font-weight="700" fill="#f4f8ff">1,641–1,662</text><text x="245" y="153" font-size="9" fill="#718497">QPS @ BATCH 32</text>
+      <text x="480" y="132" font-size="30" font-weight="700" fill="#f4f8ff">48/48</text><text x="480" y="153" font-size="9" fill="#718497">BENCHMARK CASES</text>
+      <path d="M24 181 C100 171 125 188 180 169 S278 186 332 160 S425 180 492 152 S595 166 700 140" fill="none" stroke="url(#edge)" stroke-width="2"/><circle r="4.2" fill="#7ff8db" filter="url(#glow)"><animateMotion dur="4.4s" repeatCount="indefinite" path="M24 181 C100 171 125 188 180 169 S278 186 332 160 S425 180 492 152 S595 166 700 140"/></circle>
+    </g>
+
+    <g transform="translate(800 310)">
+      <rect width="360" height="205" rx="24" fill="url(#glass)" stroke="#61dfb5" stroke-opacity=".28"/>
+      <text x="24" y="34" font-size="10" letter-spacing="1.8" fill="#78e8c3">PRODUCTION / OPERABILITY</text>
+      <text x="24" y="74" font-size="36" font-weight="700" fill="#f7fbff">1M+</text><text x="24" y="94" font-size="9" fill="#738696">TRANSACTIONS</text>
+      <text x="190" y="74" font-size="36" font-weight="700" fill="#7ff0cd">99.8%</text><text x="190" y="94" font-size="9" fill="#738696">UPTIME</text>
+      <text x="24" y="145" font-size="29" font-weight="700" fill="#f7fbff">35 → 12 min</text><text x="24" y="167" font-size="9" fill="#738696">MTTR</text>
+      <rect x="190" y="125" width="132" height="42" rx="21" fill="#0d201b" stroke="#58e4b0" stroke-opacity=".25"/><text x="213" y="151" font-size="11" font-weight="700" fill="#78ecc0">p95 -40%</text>
+    </g>
+  </g>
+  <rect width="1200" height="560" rx="24" fill="none" stroke="#fff" stroke-opacity=".06"/>
+</g></svg>
