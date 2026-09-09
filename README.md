@@ -6,7 +6,7 @@
 
 **`BACKEND ARCHITECT X // DISTRIBUTED SYSTEMS ENGINEER`**
 
-`JAVA` · `SPRING BOOT` · `KAFKA` · `NETTY` · `REST/gRPC` · `SQL` · `REDIS` · `KUBERNETES` · `AWS`
+`JAVA` · `SPRING BOOT` · `PYTHON` · `FASTAPI` · `FLASK` · `KAFKA` · `NETTY` · `NODE.JS` · `TYPESCRIPT` · `JAVASCRIPT` · `SQL` · `REDIS` · `KUBERNETES` · `AWS`
 
 [GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
 
@@ -22,9 +22,13 @@
 OPERATOR      Pranay Kadu / BackendArchitectX
 ROLE          Backend & Distributed Systems Engineer
 PRIMARY       Java / JVM / Spring Boot
+PYTHON        Python 3 / FastAPI / Flask
+WEB           TypeScript / JavaScript / Node.js / Express.js / ReactJS
 SYSTEMS       Kafka / Netty / gRPC / transactions / streaming
-DATA          SQL / Redis / metadata / durable state
-RUNTIME       Docker / Kubernetes / AWS / CI-CD
+NATIVE        C++ / STL
+DATA          MySQL / PostgreSQL / MongoDB / Redis / SQL
+RUNTIME       Docker / Kubernetes / AWS / EKS / PCF / CI-CD
+OBSERVABILITY CloudWatch / Splunk / Dynatrace
 METHOD        invariants / ownership / deterministic tests / observable failure boundaries
 ```
 
@@ -50,9 +54,53 @@ PROOF        → force race windows and failure paths deterministically
 
 ---
 
+<img src="./assets/full-stack-skills-console.svg" width="100%" alt="Resume-grounded engineering skills console" />
+
+## `01 // TECHNICAL STACK`
+
+### `LANGUAGES`
+
+`Java` · `J2EE` · `Python 3` · `C++` · `TypeScript` · `JavaScript` · `SQL`
+
+### `BACKEND + APIs`
+
+`Spring` · `Spring Boot` · `Spring MVC` · `FastAPI` · `Flask` · `Node.js` · `Express.js` · `REST APIs` · `JSP`
+
+### `FRONTEND / CLIENT`
+
+`ReactJS` · `TypeScript` · `JavaScript` · API-driven frontend integration
+
+### `ARCHITECTURE + CONCURRENCY`
+
+`Microservices` · `Distributed Systems` · `Event-Driven Architecture` · `Asynchronous Processing` · `Multithreading` · `Concurrency` · `Caching` · `Functional Programming` · `Parallel Processing` · `Algorithms`
+
+### `MESSAGING + DATA`
+
+`Apache Kafka` · `Message Queues` · `MySQL` · `PostgreSQL` · `MongoDB` · `Redis` · `SQL Query Optimization`
+
+### `TESTING + ENGINEERING PRACTICES`
+
+`JUnit` · `TDD` · `OOP` · `SOLID Principles` · `Agile`
+
+### `CLOUD + DEVOPS`
+
+`AWS` · `EKS` · `PCF` · `CloudWatch` · `Docker` · `Kubernetes` · `Jenkins` · `CI/CD`
+
+### `TOOLS + MONITORING`
+
+`Git` · `GitHub` · `Bitbucket` · `Jira` · `Splunk` · `Dynatrace` · `XML`
+
+### `AI-ASSISTED ENGINEERING`
+
+`Claude Sonnet` · `Claude Opus` · `GitHub Copilot` · `AI-Powered Coding Assistants` · `Agent-Based Tools`
+
+> **Positioning:** Java/JVM and distributed backend engineering remain the core. Python, Node.js, TypeScript/JavaScript, ReactJS and C++/STL extend the profile into integration, automation, service development, full-stack delivery and systems experimentation rather than replacing the backend-first identity.
+
+---
+
 <img src="./assets/evidence-ladder-console.svg" width="100%" alt="Engineering evidence ladder" />
 
-## `01 // EVIDENCE POLICY`
+## `02 // EVIDENCE POLICY`
 
 This profile deliberately separates four levels of proof:
 
@@ -69,7 +117,7 @@ LEVEL 01  DESIGN INTENT         → architecture / invariants / implementation d
 
 <img src="./assets/systems-dossier-console.svg" width="100%" alt="Unified systems engineering dossier" />
 
-## `02 // PRIMARY ENGINEERING SIGNALS`
+## `03 // PRIMARY ENGINEERING SIGNALS`
 
 ### `AUTOMQ #3493 // EXTERNALLY VALIDATED`
 
@@ -130,7 +178,7 @@ RISK        Maintainers may prefer stronger endpoint replacement / eviction sema
 
 ---
 
-## `03 // FAILURE MODEL`
+## `04 // FAILURE MODEL`
 
 <img src="./assets/failure-trace-console.svg" width="100%" alt="Animated failure boundary and recovery trace" />
 
@@ -167,7 +215,7 @@ PARTIAL FAILURE?
 
 ---
 
-## `04 // SYSTEMS LAB`
+## `05 // SYSTEMS LAB`
 
 ### `VORTEX // GPU VECTOR ENGINE`
 
@@ -234,17 +282,25 @@ serialization  → conflict prevention
 
 <img src="./assets/engineering-matrix-console.svg" width="100%" alt="Engineering capability matrix" />
 
-## `05 // ENGINEERING MATRIX`
+## `06 // ENGINEERING MATRIX`
 
 ```text
-RUNTIME / BACKEND          DISTRIBUTED SYSTEMS        PERFORMANCE              OPERABILITY
-────────────────────       ─────────────────────      ───────────────────      ───────────────────
-Java / Spring Boot         Kafka / streaming          JFR / profiling          Observability
-REST / gRPC / Netty        Transactions               Concurrency              Docker / Kubernetes
-SQL / Redis / caching      Consistency                Resource lifecycle       AWS / CI-CD
-JPA / Hibernate            Failure recovery           Async execution          Jenkins
-API design                 Idempotency                Connection pooling       Cloud monitoring
-Authentication             Rate limiting              Query tuning             Production support
+LANGUAGES / WEB            BACKEND / APIs             DISTRIBUTED SYSTEMS        PERFORMANCE
+────────────────────       ─────────────────────      ─────────────────────      ───────────────────
+Java / J2EE                Spring / Spring Boot       Kafka / streaming          JFR / profiling
+Python 3                   Spring MVC                 Transactions               Concurrency
+C++ / STL                  FastAPI / Flask            Consistency                Resource lifecycle
+TypeScript / JavaScript    Node.js / Express.js       Failure recovery           Async execution
+ReactJS                    REST APIs / JSP            Idempotency                 Parallel processing
+SQL                        JPA / Hibernate            Rate limiting               Query tuning
+
+DATA / MESSAGING           CLOUD / DEVOPS             QUALITY / PRACTICES        OPERABILITY
+────────────────────       ─────────────────────      ─────────────────────      ───────────────────
+MySQL / PostgreSQL         AWS / EKS                  JUnit / TDD                CloudWatch
+MongoDB / Redis            Docker / Kubernetes        OOP / SOLID                Splunk / Dynatrace
+Kafka / Message Queues     PCF / Jenkins              Agile                      Git / GitHub
+SQL optimization           CI/CD                      Algorithms                 Bitbucket / Jira
+Caching                    Cloud deployment           Functional programming     Production support
 ```
 
 ### `ENGINEERING PRINCIPLES`
@@ -266,7 +322,7 @@ Authentication             Rate limiting              Query tuning             P
 
 ---
 
-## `06 // OPERATING MODEL`
+## `07 // OPERATING MODEL`
 
 ```text
 OBSERVE
@@ -308,7 +364,7 @@ OPERATE
 
 <img src="./assets/current-vector-console.svg" width="100%" alt="Current engineering vector" />
 
-## `07 // CURRENT VECTOR`
+## `08 // CURRENT VECTOR`
 
 <div align="center">
 
