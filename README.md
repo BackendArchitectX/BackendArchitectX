@@ -2,91 +2,67 @@
 
 **Backend & Distributed Systems Engineer** · Java · Streaming · Transactions · Reliability
 
-[![Java](https://img.shields.io/badge/Java-17%2F21-000?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![Kafka](https://img.shields.io/badge/Kafka-000?style=flat-square&logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
-[![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
+I work on systems where **concurrency, lifecycle boundaries, failure recovery, throughput, and operability** matter.
 
-I build and debug backend systems where **concurrency, failure recovery, resource lifecycle, throughput, and operability** matter.
-
-My current focus is distributed systems and production-grade Java: Kafka-compatible infrastructure, RPC, transactional state, asynchronous I/O, observability, and deterministic regression testing.
+`Java 17/21` · `Spring Boot` · `Kafka` · `Netty/gRPC` · `SQL/Redis` · `Docker/Kubernetes` · `AWS`
 
 ---
 
-## Selected Open Source Work
+## Open Source — Selected Work
 
-### AutoMQ — Kafka-compatible streaming infrastructure
+| Project | Work | Status |
+|---|---|---|
+| **AutoMQ** | [#3493 — Skip AutoBalancer metrics reporter on controller-only nodes](https://github.com/AutoMQ/automq/pull/3493) | **Merged** |
+| **AutoMQ** | [#3579 — Optional Basic auth for Prometheus metrics](https://github.com/AutoMQ/automq/pull/3579) | Open PR |
+| **AutoMQ** | [#3555 — Prevent closed StreamReader from restoring block state](https://github.com/AutoMQ/automq/pull/3555) | Open PR |
+| **Apache Fluss** | [#4263 — Endpoint-aware Netty connection caching](https://github.com/apache/fluss/pull/4263) | Open PR |
+| **Apache Fluss** | [#4230 — Custom Paimon lake paths for Spark reads](https://github.com/apache/fluss/pull/4230) | Open PR |
+| **Trino** | [#30973 — Prevent query failure after transaction commit starts](https://github.com/trinodb/trino/pull/30973) | Open PR |
 
-- ✅ [**#3493 — controller-only AutoBalancer reporter fix**](https://github.com/AutoMQ/automq/pull/3493) — merged
-  Prevented broker-only metrics reporter initialization from breaking controller-only nodes and added role-specific regression coverage.
-
-- 🔐 [**#3579 — Prometheus endpoint authentication**](https://github.com/AutoMQ/automq/pull/3579)
-  Added optional backward-compatible Basic authentication with endpoint policy, configuration validation, credential handling, and lifecycle tests.
-
-- 🔄 [**#3555 — StreamReader close/readahead race**](https://github.com/AutoMQ/automq/pull/3555)
-  Prevents asynchronous readahead from restoring block state after a reader has crossed its close lifecycle boundary.
-
-### Apache Fluss — streaming storage
-
-- 🌐 [**#4263 — endpoint-aware Netty connection caching**](https://github.com/apache/fluss/pull/4263)
-  Prevents a cached RPC connection from continuing to target a stale-but-reachable TabletServer endpoint after metadata changes.
-
-- 🔗 [**#4230 — custom Paimon lake paths for Spark reads**](https://github.com/apache/fluss/pull/4230)
-  Supports independent Fluss/Paimon table paths across lake-only reads, lake+log reads, and predicate pushdown.
-
-### Trino — distributed SQL
-
-- ⚡ [**#30973 — transaction commit/failure race**](https://github.com/trinodb/trino/pull/30973)
-  Coordinates commit and failure ownership so unrelated failures cannot mark an autocommit query failed after commit has begun.
-
-**Areas:** concurrency · asynchronous lifecycle · RPC · transactions · metadata · Kafka internals · Netty · regression testing
+The recurring themes are **race conditions, asynchronous lifecycle, RPC identity, transaction state, metadata ownership, and regression tests that reproduce the failure mode deterministically**.
 
 ---
 
-## Systems Lab
+## Original Systems Work
+
+### [Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)
+
+GPU-accelerated exact vector search built across **CUDA → C++20 → JNI → Java → Spring Boot**.
+
+- Persistent GPU-resident FP32/FP16 indexes
+- Hierarchical/fused Top-K kernels and query-tiled batched search
+- Pinned memory and asynchronous CUDA streams
+- JNI lifecycle management with `AutoCloseable`
+- Reproducible latency, throughput, storage, and recall benchmarks
+- REST API with validation, health, metrics, request IDs, and capacity guards
+
+Validated on an RTX 3050 with a documented benchmark harness; the repository explicitly separates measured results from broader performance claims.
 
 ### [distrib-txn-db](https://github.com/BackendArchitectX/distrib-txn-db)
 
-A Java workshop that builds a distributed transactional key-value store from first principles:
+A workshop-style Java transactional key-value store that builds the mechanisms in stages:
 
 `HLC` → `MVCC` → `distributed routing` → `transaction records` → `write intents` → `snapshot isolation` → `clock uncertainty` → `read restart` → `serializable conflict prevention`
 
-The project intentionally demonstrates anomalies before introducing the mechanism that fixes them.
-
----
-
-## Product Engineering
-
-### [Aegis Insurance Decisioning Platform](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)
-
-Java 17 + Spring Boot decisioning platform for claims, premium calculation, risk evaluation, renewals, and auditable business decisions.
-
-### [PragyaShield AI Intelligence Platform](https://github.com/BackendArchitectX/PragyaShield-AI-Intelligence-Platform)
-
-AI-assisted insurance architecture built around deterministic workflows, RAG, tool routing, guardrails, auditability, fallbacks, and human review.
+The project demonstrates anomalies first, then introduces the mechanism that prevents them.
 
 ---
 
 ## Engineering Focus
 
 ```text
-Java / Spring Boot        Distributed systems
-Kafka / event streaming   REST / gRPC / Netty
-Concurrency               SQL / Redis / caching
-Performance tuning        Failure recovery
-Docker / Kubernetes       AWS / CI/CD
-Observability             Production operations
+Distributed systems      Concurrency & async lifecycle
+Kafka / streaming        RPC / Netty / gRPC
+Transactions & MVCC      Java / Spring Boot
+Performance engineering  SQL / Redis / caching
+Observability            Docker / Kubernetes / AWS
+Production operations    Deterministic regression testing
 ```
 
-> Correctness before cleverness. Make failure states explicit. Test races deterministically. Own resource lifecycle.
+> Correctness before cleverness. Make failure states explicit. Own resource lifecycle. Test races deterministically.
 
 ---
-
-## Activity
 
 ![GitHub contribution graph](https://ghchart.rshah.org/BackendArchitectX)
-
----
 
 [GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
