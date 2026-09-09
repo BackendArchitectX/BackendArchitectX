@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/premium-systems-profile-2026.svg" width="100%" alt="Pranay Kadu premium green backend and distributed systems engineering profile" />
+<img src="./assets/premium-systems-profile-2026.svg" width="100%" alt="Pranay Kadu graphite and emerald backend systems engineering profile" />
 
 <br>
 
