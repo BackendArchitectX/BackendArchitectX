@@ -1,63 +1,44 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/apex-spatial-hero-dark-2026.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/apex-spatial-hero-light-2026.svg">
-  <img src="./assets/apex-spatial-hero-dark-2026.svg" width="100%" alt="Pranay Kadu — backend and distributed systems engineer" />
-</picture>
+<img src="./assets/monolith-signature-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X" />
 
 <br>
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
-`JAVA / SPRING` · `PYTHON / FASTAPI / FLASK` · `NODE / TYPESCRIPT / JAVASCRIPT` · `C++ / STL` · `KAFKA` · `REDIS` · `KUBERNETES / AWS`
+<sub>Java-first backend and distributed-systems engineering across multi-runtime services, performance, reliability and production operations.</sub>
 
 </div>
 
 <br>
 
-## `01 / PROOF`
+## `UPSTREAM / PROOF`
 
-<img src="./assets/apex-proof-bento-2026.svg" width="100%" alt="Engineering proof bento" />
+<img src="./assets/proof-rail-2026.svg" width="100%" alt="Upstream engineering proof rail" />
 
 <div align="center">
 
-[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
+[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
 
-<sub>External validation is kept separate from work still under review.</sub>
+<sub>Process-role lifecycle · finalization ownership · endpoint identity · auth lifecycle · metadata mapping</sub>
 
 </div>
 
 <br>
 
-## `02 / SYSTEMS`
+## `ORIGINAL SYSTEMS`
 
-### **Vortex CUDA**
+<img src="./assets/systems-duet-2026.svg" width="100%" alt="Vortex CUDA and distributed transaction systems" />
 
-[**Open repository →**](https://github.com/BackendArchitectX/Vortex-CUDA)  
-Exact GPU vector search across **Spring Boot → Java → JNI → CUDA → GPU-resident Top-K**.
+**[Vortex CUDA →](https://github.com/BackendArchitectX/Vortex-CUDA)** — exact GPU vector search across Spring Boot → Java → JNI → CUDA, with `v1.0.0`, `48/48` benchmark cases and M18 end-to-end smoke validation.
 
-`v1.0.0` · `48/48 benchmark cases` · `M18 end-to-end smoke validation` · RTX 3050 6GB · FP32 P50 **~1.67–1.72 ms** · **~1,641–1,662 QPS** @ batch 32 · FP16 **−50% storage** · **99.6875% Recall@10**
-
-### **distrib-txn-db**
-
-[**Open repository →**](https://github.com/BackendArchitectX/distrib-txn-db)  
-An anomaly-first distributed state lab exploring **HLC → MVCC → transaction records → write intents → uncertainty → read restart → serializable conflict prevention**.
-
-<sub>Educational systems model; scope and AI assistance are explicitly documented in the repository.</sub>
+**[distrib-txn-db →](https://github.com/BackendArchitectX/distrib-txn-db)** — anomaly-first distributed state lab covering HLC, MVCC, transaction records, write intents, uncertainty, read restart and serializable conflict prevention. Educational scope and AI assistance are explicit in the repository.
 
 <br>
 
-## `03 / EXECUTION SURFACE`
+## `EXECUTION SURFACE`
 
-**Primary** — Java · J2EE · Spring · Spring Boot · Spring MVC · REST APIs  
-**Python** — Python 3 · FastAPI · Flask  
-**Web / API** — TypeScript · JavaScript · Node.js · Express.js · ReactJS · JSP  
-**Systems** — Kafka · Netty · gRPC · Microservices · Event-Driven Architecture · Async Processing  
-**Native** — C++ · STL · JNI / CUDA project work  
-**Data** — MySQL · PostgreSQL · MongoDB · Redis · Message Queues · SQL Optimization  
-**Platform** — AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD  
-**Observe** — CloudWatch · Splunk · Dynatrace · JFR
+**Java / J2EE / Spring / Spring Boot / REST** · Python / FastAPI / Flask · TypeScript / JavaScript / Node.js / Express.js / ReactJS · C++ / STL · Kafka / Netty / gRPC · MySQL / PostgreSQL / MongoDB / Redis · AWS / EKS / Docker / Kubernetes / Jenkins · CloudWatch / Splunk / Dynatrace / JFR
 
 <details>
 <summary><b>Full resume-grounded stack</b></summary>
@@ -78,15 +59,11 @@ An anomaly-first distributed state lab exploring **HLC → MVCC → transaction 
 
 <br>
 
-## `04 / ENGINEERING MODE`
-
 <div align="center">
 
-### `OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE`
+`OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE`
 
-`OWNERSHIP` · `IDENTITY` · `LIFECYCLE` · `IDEMPOTENCY` · `DETERMINISTIC RACES` · `OPERABILITY`
-
-<sub>Correctness before cleverness. Presentation never outruns validation.</sub>
+<sub>Ownership · identity · lifecycle · idempotency · deterministic races · operability</sub>
 
 <br><br>
 
