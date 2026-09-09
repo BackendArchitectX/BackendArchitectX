@@ -11,7 +11,7 @@
 
 <br>
 
-<img src="./assets/neon-cybernetic-atlas-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X neon cybernetic systems atlas" />
+<img src="./assets/green-neon-systems-atlas-2026.svg" width="100%" alt="Pranay Kadu — Backend Architect X green neon systems atlas" />
 
 <br>
 
@@ -55,6 +55,6 @@
 
 <br>
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20SESSIONS&style=flat-square&color=00F5FF)
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20SESSIONS&style=flat-square&color=39FF14)
 
 </div>
