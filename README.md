@@ -1,18 +1,29 @@
 <div align="center">
 
-# Pranay Kadu
+# `>_ PRANAY KADU`
 
-### `>_ Backend & Distributed Systems Engineer`
+### `BACKEND & DISTRIBUTED SYSTEMS ENGINEER`
 
 `Java` · `Spring Boot` · `Distributed Systems` · `Kafka` · `Redis` · `SQL` · `Kubernetes` · `AWS`
 
-[**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
+[GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
 
 </div>
 
+```console
+>_ whoami
+Pranay Kadu
+
+>_ role
+Backend & Distributed Systems Engineer
+
+>_ focus
+concurrency / reliability / performance / open source / production systems
+```
+
 ---
 
-## `>_ impact`
+## `>_ /proc/impact`
 
 ```console
 >_ cat /proc/impact
@@ -24,7 +35,9 @@ uptime         99.8%
 mttr           35m -> 12m
 ```
 
-## `>_ stack`
+---
+
+## `>_ /etc/stack.conf`
 
 ```ini
 >_ cat /etc/backendarchitectx/stack.conf
@@ -41,21 +54,25 @@ NATIVE          = C++, STL, JNI, CUDA project work
 QUALITY         = JUnit, TDD, OOP, SOLID
 ```
 
-## `>_ upstream`
+---
+
+## `>_ ~/upstream/.git`
 
 ```console
->_ git log --oneline upstream
+>_ git log --oneline --decorate upstream
 
-MERGED  AutoMQ #3493   controller-only reporter lifecycle
-REVIEW  Trino  #30973  commit / failure finalization ownership
-REVIEW  Fluss  #4263   logical UID / physical endpoint identity
-REVIEW  AutoMQ #3579   Prometheus authentication lifecycle
-REVIEW  Fluss  #4230   Paimon metadata path mapping
+[MERGED] AutoMQ #3493   controller-only reporter lifecycle
+[REVIEW] Trino  #30973  commit / failure finalization ownership
+[REVIEW] Fluss  #4263   logical UID / physical endpoint identity
+[REVIEW] AutoMQ #3579   Prometheus authentication lifecycle
+[REVIEW] Fluss  #4230   Paimon metadata path mapping
 ```
 
-[**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
+[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
 
-## `>_ systems`
+---
+
+## `>_ ~/systems`
 
 ```text
 >_ tree ~/systems -L 2
@@ -72,7 +89,9 @@ REVIEW  Fluss  #4230   Paimon metadata path mapping
 
 [**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
-## `>_ invariants`
+---
+
+## `>_ ~/.engineering/invariants`
 
 ```text
 >_ cat ~/.engineering/invariants
@@ -85,6 +104,8 @@ race-testing   -> control timing deterministically; do not depend on luck
 retries        -> idempotency before replay
 operations     -> observability and recovery are part of the design
 ```
+
+---
 
 ## `>_ man backendarchitectx`
 
