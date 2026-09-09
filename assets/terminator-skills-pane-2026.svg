@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
+<title id="title">BackendArchitectX terminal skills pane</title><desc id="desc">A Terminator-style split terminal showing large backend skills, Linux processes and system configuration.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#061008"/><stop offset="1" stop-color="#020503"/></linearGradient><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#39FF14" opacity=".02"/></pattern><filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1200" height="470" rx="18" fill="#010301"/><rect x="1" y="1" width="1198" height="468" rx="17" fill="none" stroke="#39FF14" stroke-opacity=".38"/><rect width="1200" height="36" rx="18" fill="#0a100b"/><rect y="22" width="1200" height="14" fill="#0a100b"/><text x="18" y="24" fill="#a9baa9" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">skills.conf — vim   |   htop   |   systemctl</text>
+<rect y="36" width="1200" height="404" fill="url(#bg)"/><line x1="730" y1="36" x2="730" y2="440" stroke="#234026"/><line x1="730" y1="248" x2="1200" y2="248" stroke="#234026"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+<text x="28" y="72" fill="#39FF14" font-size="16" font-weight="700">$ cat /etc/backendarchitectx/skills.conf</text>
+<text x="28" y="126" fill="#F3FFF2" font-size="34" font-weight="800">JAVA · SPRING BOOT · DISTRIBUTED SYSTEMS</text>
+<text x="28" y="172" fill="#7CFF4F" font-size="27" font-weight="800">KAFKA · REDIS · SQL · KUBERNETES · AWS</text>
+<text x="28" y="216" fill="#d7ead8" font-size="20" font-weight="700">Microservices · REST APIs · Concurrency · Async Processing</text>
+<text x="28" y="258" fill="#9fba9f" font-size="18">Python · FastAPI · Flask · Node.js · TypeScript · JavaScript</text>
+<text x="28" y="294" fill="#9fba9f" font-size="18">C++ · STL · MySQL · PostgreSQL · MongoDB · Docker · Jenkins</text>
+<text x="28" y="342" fill="#39FF14" font-size="14"># observability</text>
+<text x="28" y="372" fill="#cbe0cc" font-size="17">CloudWatch · Splunk · Dynatrace · JFR · CI/CD</text>
+<text x="28" y="414" fill="#39FF14" font-size="15">$ echo $ENGINEERING_MODE <tspan fill="#B6FF00">production-first</tspan></text>
+
+<text x="754" y="70" fill="#39FF14" font-size="14" font-weight="700">$ ps -eo pid,comm,%cpu,%mem --sort=-%cpu</text>
+<text x="754" y="101" fill="#6f8c71" font-size="12"> PID  COMMAND            CPU   MEM</text>
+<text x="754" y="128" fill="#dff2df" font-size="13"> 117  java               31.4  12.8</text>
+<text x="754" y="153" fill="#dff2df" font-size="13"> 204  kafka              18.9   8.2</text>
+<text x="754" y="178" fill="#dff2df" font-size="13"> 332  redis-server        7.4   2.6</text>
+<text x="754" y="203" fill="#dff2df" font-size="13"> 411  kubelet             5.8   3.1</text>
+<text x="754" y="228" fill="#B6FF00" font-size="12">[OK] critical services healthy</text>
+
+<text x="754" y="280" fill="#39FF14" font-size="14" font-weight="700">$ systemctl status backendarchitectx.service</text>
+<circle cx="763" cy="314" r="5" fill="#B6FF00" filter="url(#glow)"/>
+<text x="778" y="318" fill="#dff2df" font-size="13">Active: active (running)</text>
+<text x="754" y="347" fill="#759276" font-size="12">Loaded: /etc/systemd/system/backendarchitectx.service</text>
+<text x="754" y="374" fill="#759276" font-size="12">Mode: distributed / concurrent / observable</text>
+<text x="754" y="401" fill="#759276" font-size="12">Restart: idempotent / bounded retry / fail-safe</text>
+</g>
+<rect y="440" width="1200" height="30" fill="#0b160d"/><rect y="440" width="235" height="30" fill="#17371b"/><text x="14" y="460" fill="#B6FF00" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">1:skills*</text><text x="1045" y="460" fill="#668067" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">pane 1/3</text><rect width="1200" height="470" rx="18" fill="url(#scan)"/>
+</svg>
