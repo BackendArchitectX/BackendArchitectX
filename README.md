@@ -1,64 +1,44 @@
 <div align="center">
 
-<img src="./assets/neon-zero-day-hero-2026.svg" width="100%" alt="Pranay Kadu — neon black-site backend systems profile" />
+<img src="./assets/neon-editorial-hero-v2.svg" width="100%" alt="Pranay Kadu — Backend Architect X" />
 
 <br>
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
-<sub>Java-first backend & distributed-systems engineering across multi-runtime services, concurrency, performance, reliability and production operations.</sub>
+<sub>Java-first backend and distributed-systems engineering across concurrency, reliability, performance and multi-runtime production systems.</sub>
 
 </div>
 
 <br>
 
-## `UPSTREAM // SIGNAL`
+## `UPSTREAM / PROOF`
 
-<img src="./assets/neon-upstream-rail-2026.svg" width="100%" alt="Open-source engineering proof rail" />
+<img src="./assets/neon-proof-rail-v2.svg" width="100%" alt="Upstream engineering proof rail" />
 
 <div align="center">
 
 [**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
 
-<sub>Process-role lifecycle · finalization ownership · endpoint identity · auth lifecycle · metadata mapping</sub>
-
-</div>
-
-<details>
-<summary><code>inspect --failure-invariants</code></summary>
-<br>
-
-`process-role` → runtime lifecycle follows source-system semantics  
-`finalization` → one owner for terminal state transition  
-`identity` → logical identity ≠ physical location  
-`lifecycle` → creator owns threads / permits / connections / native handles  
-`race-testing` → force timing deterministically; never depend on chance
-
-</details>
-
-<br>
-
-## `SYSTEMS // CORE`
-
-<img src="./assets/neon-systems-core-2026.svg" width="100%" alt="Vortex CUDA and distributed transaction systems" />
-
-<div align="center">
-
-[**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
+<sub>process-role lifecycle · finalization ownership · endpoint identity · authentication lifecycle · metadata mapping</sub>
 
 </div>
 
 <br>
 
-## `EXECUTION // SURFACE`
+## `ORIGINAL SYSTEMS`
 
-<div align="center">
+<img src="./assets/neon-systems-scene-v2.svg" width="100%" alt="Vortex CUDA and distributed transaction systems" />
 
-**Java / J2EE / Spring / Spring Boot / REST**  
-Python / FastAPI / Flask · TypeScript / JavaScript / Node.js / Express.js / ReactJS · C++ / STL  
-Kafka / Netty / gRPC · MySQL / PostgreSQL / MongoDB / Redis · AWS / EKS / Docker / Kubernetes / Jenkins · CloudWatch / Splunk / Dynatrace / JFR
+**[Vortex CUDA →](https://github.com/BackendArchitectX/Vortex-CUDA)** — exact GPU vector search across **Spring Boot → Java → JNI → CUDA → GPU-resident Top-K**. `v1.0.0` · `48/48 benchmark cases` · `M18 end-to-end smoke validation`.
 
-</div>
+**[distrib-txn-db →](https://github.com/BackendArchitectX/distrib-txn-db)** — anomaly-first distributed state lab covering **HLC · MVCC · transaction records · write intents · uncertainty · read restart · serializable conflict prevention**. Educational scope and AI assistance are explicit in the repository.
+
+<br>
+
+## `EXECUTION SURFACE`
+
+**Java / J2EE / Spring / Spring Boot / REST** · Python / FastAPI / Flask · TypeScript / JavaScript / Node.js / Express.js / ReactJS · C++ / STL · Kafka / Netty / gRPC · MySQL / PostgreSQL / MongoDB / Redis · AWS / EKS / Docker / Kubernetes / Jenkins · CloudWatch / Splunk / Dynatrace / JFR
 
 <details>
 <summary><b>Full resume-grounded stack</b></summary>
@@ -81,12 +61,14 @@ Kafka / Netty / gRPC · MySQL / PostgreSQL / MongoDB / Redis · AWS / EKS / Dock
 
 <div align="center">
 
-`OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE`
+### `OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE`
 
-<sub>Ownership · identity · lifecycle · idempotency · deterministic races · operability</sub>
+`OWNERSHIP` · `IDENTITY` · `LIFECYCLE` · `IDEMPOTENCY` · `DETERMINISTIC RACES` · `OPERABILITY`
+
+<sub>Correctness before cleverness. Presentation never outruns validation.</sub>
 
 <br><br>
 
-![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=BLACKSITE%20SESSIONS&style=flat-square&color=00ff88)
+![Profile views](https://komarev.com/ghpvc/?username=BackendArchitectX&label=SYSTEM%20SESSIONS&style=flat-square&color=00F5FF)
 
 </div>
