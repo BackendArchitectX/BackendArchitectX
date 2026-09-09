@@ -1,18 +1,10 @@
 <div align="center">
 
-<img src="./assets/anonymous-hacker-terminal-2026.svg" width="100%" alt="Pranay Kadu anonymous hacker Linux terminal profile" />
+<img src="./assets/anonymous-hacker-terminal-2026.svg" width="100%" alt="Pranay Kadu Linux terminal engineering profile" />
 
 [**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
 </div>
-
-```console
-[*] secure shell established
-[+] shell   : bash
-[+] kernel  : linux
-[+] mode    : backend / distributed systems / open source
-[+] status  : online
-```
 
 ## `root@backendarchitectx:~# cat /proc/impact`
 
@@ -24,7 +16,7 @@ uptime         99.8%
 mttr           35m -> 12m
 ```
 
-## `root@backendarchitectx:/etc# cat skills.conf`
+## `root@backendarchitectx:/etc# cat stack.conf`
 
 ```ini
 PRIMARY_BACKEND = Java, J2EE, Spring, Spring Boot, Spring MVC, REST APIs
@@ -51,10 +43,10 @@ REVIEW  Fluss  #4230   Paimon metadata path mapping
 
 [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
 
-## `root@backendarchitectx:~/systems-lab# tree -L 2`
+## `root@backendarchitectx:~/systems# tree -L 2`
 
 ```text
-~/systems-lab
+~/systems
 ├── Vortex-CUDA
 │   ├── Spring Boot -> Java -> JNI -> CUDA -> GPU Top-K
 │   └── v1.0.0 | 48/48 benchmark cases | M18 smoke validation
