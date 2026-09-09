@@ -1,76 +1,66 @@
 <div align="center">
 
-<img src="./assets/quantum-linux-hero.svg" width="100%" alt="BackendArchitectX quantum Linux engineering interface" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/apex-spatial-hero-dark-2026.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/apex-spatial-hero-light-2026.svg">
+  <img src="./assets/apex-spatial-hero-dark-2026.svg" width="100%" alt="Pranay Kadu — backend and distributed systems engineer" />
+</picture>
 
 <br>
 
-### `BACKEND ARCHITECT X // DISTRIBUTED SYSTEMS ENGINEER`
-
-[GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
+[**GitHub**](https://github.com/BackendArchitectX) · [**Email**](mailto:pranayp.kadu@gmail.com)
 
 `JAVA / SPRING` · `PYTHON / FASTAPI / FLASK` · `NODE / TYPESCRIPT / JAVASCRIPT` · `C++ / STL` · `KAFKA` · `REDIS` · `KUBERNETES / AWS`
 
-<sub>Correctness under concurrency · distributed state · lifecycle ownership · performance · operability</sub>
+</div>
+
+<br>
+
+## `01 / PROOF`
+
+<img src="./assets/apex-proof-bento-2026.svg" width="100%" alt="Engineering proof bento" />
+
+<div align="center">
+
+[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) · [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) · [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) · [**Fluss #4230**](https://github.com/apache/fluss/pull/4230)
+
+<sub>External validation is kept separate from work still under review.</sub>
 
 </div>
 
 <br>
 
-## `01 // UPSTREAM SIGNAL`
+## `02 / SYSTEMS`
 
-<img src="./assets/upstream-neural-lattice.svg" width="100%" alt="Animated upstream contribution neural lattice" />
+### **Vortex CUDA**
 
-<div align="center">
+[**Open repository →**](https://github.com/BackendArchitectX/Vortex-CUDA)  
+Exact GPU vector search across **Spring Boot → Java → JNI → CUDA → GPU-resident Top-K**.
 
-[**AutoMQ #3493 · MERGED**](https://github.com/AutoMQ/automq/pull/3493) · [Trino #30973](https://github.com/trinodb/trino/pull/30973) · [Fluss #4263](https://github.com/apache/fluss/pull/4263) · [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) · [Fluss #4230](https://github.com/apache/fluss/pull/4230)
+`v1.0.0` · `48/48 benchmark cases` · `M18 end-to-end smoke validation` · RTX 3050 6GB · FP32 P50 **~1.67–1.72 ms** · **~1,641–1,662 QPS** @ batch 32 · FP16 **−50% storage** · **99.6875% Recall@10**
 
-</div>
+### **distrib-txn-db**
+
+[**Open repository →**](https://github.com/BackendArchitectX/distrib-txn-db)  
+An anomaly-first distributed state lab exploring **HLC → MVCC → transaction records → write intents → uncertainty → read restart → serializable conflict prevention**.
+
+<sub>Educational systems model; scope and AI assistance are explicitly documented in the repository.</sub>
+
+<br>
+
+## `03 / EXECUTION SURFACE`
+
+**Primary** — Java · J2EE · Spring · Spring Boot · Spring MVC · REST APIs  
+**Python** — Python 3 · FastAPI · Flask  
+**Web / API** — TypeScript · JavaScript · Node.js · Express.js · ReactJS · JSP  
+**Systems** — Kafka · Netty · gRPC · Microservices · Event-Driven Architecture · Async Processing  
+**Native** — C++ · STL · JNI / CUDA project work  
+**Data** — MySQL · PostgreSQL · MongoDB · Redis · Message Queues · SQL Optimization  
+**Platform** — AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD  
+**Observe** — CloudWatch · Splunk · Dynatrace · JFR
 
 <details>
-<summary><code>inspect --engineering-invariants</code></summary>
-<br>
-
-```text
-process-role   runtime lifecycle follows source-system semantics
-finalization   one owner for terminal state transition
-identity       logical identity != physical location
-lifecycle      creator owns threads / permits / connections / native handles
-race-testing   force timing deterministically; never depend on luck
-```
-
-</details>
-
-<br>
-
-## `02 // SYSTEMS LAB`
-
-<img src="./assets/systems-holographic-bento.svg" width="100%" alt="Holographic systems engineering bento" />
-
-<div align="center">
-
-[**Vortex CUDA →**](https://github.com/BackendArchitectX/Vortex-CUDA) · [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
-
-</div>
-
-<br>
-
-## `03 // EXECUTION SURFACE`
-
-<div align="center">
-
-**PRIMARY** — Java · J2EE · Spring · Spring Boot · Spring MVC · REST APIs  
-**PYTHON** — Python 3 · FastAPI · Flask  
-**WEB / API** — TypeScript · JavaScript · Node.js · Express.js · ReactJS · JSP  
-**SYSTEMS** — Kafka · Netty · gRPC · Microservices · Event-Driven Architecture · Async Processing  
-**NATIVE** — C++ · STL · JNI / CUDA project work  
-**DATA** — MySQL · PostgreSQL · MongoDB · Redis · Message Queues · SQL Optimization  
-**PLATFORM** — AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD  
-**OBSERVE** — CloudWatch · Splunk · Dynatrace · JFR
-
-</div>
-
-<details>
-<summary><code>cat /etc/backendarchitectx/stack.conf --full</code></summary>
+<summary><b>Full resume-grounded stack</b></summary>
 <br>
 
 `Languages` — Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL  
@@ -88,13 +78,11 @@ race-testing   force timing deterministically; never depend on luck
 
 <br>
 
-## `04 // ENGINEERING DOCTRINE`
-
-```text
-OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE
-```
+## `04 / ENGINEERING MODE`
 
 <div align="center">
+
+### `OBSERVE → ISOLATE → MODEL → CHANGE → PROVE → MEASURE → OPERATE`
 
 `OWNERSHIP` · `IDENTITY` · `LIFECYCLE` · `IDEMPOTENCY` · `DETERMINISTIC RACES` · `OPERABILITY`
 
