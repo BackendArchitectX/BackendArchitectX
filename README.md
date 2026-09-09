@@ -1,69 +1,46 @@
 <div align="center">
 
-<img src="./assets/distributed-systems-command-center.svg" width="100%" alt="Animated distributed systems command center" />
+<img src="./assets/distributed-systems-command-center.svg" width="100%" alt="Production systems command center" />
 
 <br>
 
 **`BACKEND ARCHITECT X // BACKEND & DISTRIBUTED SYSTEMS ENGINEER`**
 
-`JAVA / SPRING` · `PYTHON / FASTAPI / FLASK` · `NODE / TYPESCRIPT / JAVASCRIPT` · `C++ / STL` · `KAFKA` · `NETTY` · `SQL / REDIS` · `KUBERNETES / AWS`
-
 [GitHub](https://github.com/BackendArchitectX) · [Email](mailto:pranayp.kadu@gmail.com)
 
-<sub>Correctness · concurrency · distributed state · failure recovery · performance · operability</sub>
+<sub>Java-first backend engineering across distributed systems, multi-runtime services, performance and production reliability.</sub>
 
 </div>
 
 ---
 
-## `01 // SYSTEMS PROFILE`
+## `01 // ENGINEERING PROOF`
 
-<img src="./assets/architecture-topology-console.svg" width="100%" alt="Failure-aware multi-runtime backend topology" />
-
-**Java/JVM is the primary systems surface.** Python/FastAPI/Flask, Node.js/Express.js, TypeScript/JavaScript, ReactJS and C++/STL extend that core across APIs, integrations, full-stack delivery and native-performance boundaries.
-
-```text
-CLIENT / INTEGRATION     ReactJS · TypeScript · JavaScript · Node.js · Express.js
-SERVICE RUNTIMES         Java / Spring Boot · Python / FastAPI / Flask
-DISTRIBUTED CORE         Kafka · Netty · gRPC · transactions · async processing
-STATE                    MySQL · PostgreSQL · MongoDB · Redis · SQL optimization
-NATIVE / PERFORMANCE     C++ · STL · JNI / CUDA project work · JFR · concurrency
-OPERABILITY              AWS · EKS · Docker · Kubernetes · Jenkins · CloudWatch · Splunk · Dynatrace
-```
-
-> I focus on systems where correctness depends on **ownership, identity, lifecycle and legal state transitions under failure**.
-
----
-
-## `02 // ENGINEERING EVIDENCE`
-
-<img src="./assets/evidence-ladder-console.svg" width="100%" alt="Engineering evidence hierarchy" />
-
-| SIGNAL | PROBLEM | PROOF | STATUS |
+| SIGNAL | ENGINEERING PROBLEM | PROOF | STATUS |
 |:--|:--|:--|:--|
-| [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) | controller-only reporter lifecycle | process-role regression tests + maintainer review | **MERGED** |
-| [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) | commit/failure finalization race | atomic ownership + deterministic blocking-commit tests | **UNDER REVIEW** |
+| [**AutoMQ #3493**](https://github.com/AutoMQ/automq/pull/3493) | controller-only reporter lifecycle | process-role regression tests + maintainer design review | **MERGED** |
+| [**Trino #30973**](https://github.com/trinodb/trino/pull/30973) | commit/failure finalization race | explicit state ownership + deterministic blocking-commit tests | **UNDER REVIEW** |
 | [**Fluss #4263**](https://github.com/apache/fluss/pull/4263) | stale physical endpoint reuse | endpoint-aware connection identity + two-server regression | **UNDER REVIEW** |
-| [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) | Prometheus endpoint authentication | config, policy and lifecycle coverage | **UNDER REVIEW** |
-| [**Fluss #4230**](https://github.com/apache/fluss/pull/4230) | custom Paimon table paths | lake-only + lake/log + predicate tests | **UNDER REVIEW** |
+| [**AutoMQ #3579**](https://github.com/AutoMQ/automq/pull/3579) | Prometheus endpoint authentication | configuration, policy and lifecycle coverage | **UNDER REVIEW** |
+| [**Fluss #4230**](https://github.com/apache/fluss/pull/4230) | custom Paimon table paths | lake-only + lake/log + predicate-path tests | **UNDER REVIEW** |
 
-**Evidence policy:** merged upstream > reviewed proposal > reproducible test/benchmark > design intent.
+**Strongest signal:** AutoMQ #3493 was refined through maintainer feedback, approved and merged. Open PRs are presented as work under review—not as equivalent external validation.
 
 <details>
-<summary><code>EXPAND // FAILURE INVARIANTS</code></summary>
+<summary><code>EXPAND // CORE INVARIANTS</code></summary>
 <br>
 
-- **AutoMQ:** reporter lifecycle must follow Kafka process-role semantics.
+- **AutoMQ:** runtime lifecycle must respect Kafka process-role semantics.
 - **Trino:** once commit owns finalization, unrelated failure cannot steal terminal state.
-- **Fluss:** logical server identity must not be confused with physical endpoint identity.
-- **Lifecycle:** creators own threads, permits, connections and native handles unless ownership is explicitly transferred.
-- **Testing:** race windows should be forced deterministically rather than discovered probabilistically.
+- **Fluss:** logical server identity must not silently imply physical endpoint identity.
+- **Lifecycle:** threads, permits, connections and native handles require explicit ownership.
+- **Testing:** race windows should be forced deterministically, not discovered by chance.
 
 </details>
 
 ---
 
-## `03 // SYSTEMS LAB`
+## `02 // SYSTEMS LAB`
 
 ### `VORTEX // GPU VECTOR ENGINE`
 
@@ -79,32 +56,35 @@ OPERABILITY              AWS · EKS · Docker · Kubernetes · Jenkins · CloudW
 
 [**distrib-txn-db →**](https://github.com/BackendArchitectX/distrib-txn-db)
 
-`HLC → MVCC → routing → txn records → write intents → snapshot isolation → clock uncertainty → read restart → serializable guards`
+`HLC → MVCC → routing → transaction records → write intents → snapshot isolation → clock uncertainty → read restart → serializable guards`
 
-**Design rule:** expose the anomaly first, then introduce the mechanism that removes it. `EDUCATIONAL SYSTEMS MODEL`.
+**Purpose:** expose the anomaly first, then introduce the mechanism that removes it. `EDUCATIONAL SYSTEMS MODEL`.
 
 ---
 
-## `04 // STACK`
+## `03 // ENGINEERING STACK`
 
-<img src="./assets/full-stack-skills-console.svg" width="100%" alt="Resume-grounded engineering stack" />
+<img src="./assets/full-stack-skills-console.svg" width="100%" alt="Resume-grounded multi-runtime engineering stack" />
 
 ```text
-LANGUAGES     Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL
-BACKEND       Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · REST · JSP
-CLIENT        ReactJS · TypeScript · JavaScript
-SYSTEMS       Microservices · distributed systems · event-driven architecture · async processing
-DATA          MySQL · PostgreSQL · MongoDB · Redis · Kafka · message queues · SQL optimization
-PERFORMANCE   multithreading · concurrency · caching · parallel processing · JFR · connection pooling
-QUALITY       JUnit · TDD · OOP · SOLID · Agile
-CLOUD         AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD
-OBSERVABILITY CloudWatch · Splunk · Dynatrace
-AI TOOLING    Claude Sonnet · Claude Opus · GitHub Copilot · agent-based coding tools
+PRIMARY      Java · J2EE · Spring · Spring Boot · Spring MVC · REST APIs
+PYTHON       Python 3 · FastAPI · Flask
+WEB / API    TypeScript · JavaScript · Node.js · Express.js · ReactJS · JSP
+SYSTEMS      Microservices · distributed systems · event-driven architecture · async processing
+NATIVE       C++ · STL
+DATA         MySQL · PostgreSQL · MongoDB · Redis · Kafka · message queues · SQL optimization
+PERFORMANCE  multithreading · concurrency · caching · parallel processing · JFR · connection pooling
+QUALITY      JUnit · TDD · OOP · SOLID · Agile
+PLATFORM     AWS · EKS · PCF · Docker · Kubernetes · Jenkins · CI/CD
+OPERABILITY  CloudWatch · Splunk · Dynatrace · Git · GitHub · Bitbucket · Jira
+AI TOOLING   Claude Sonnet · Claude Opus · GitHub Copilot · agent-based coding tools
 ```
+
+**Positioning:** Java/JVM remains the primary depth. Python services, Node/TypeScript/JavaScript, ReactJS and C++/STL broaden the execution surface without diluting the backend/distributed-systems identity.
 
 ---
 
-## `05 // ENGINEERING MODEL`
+## `04 // ENGINEERING MODEL`
 
 ```text
 OBSERVE → ISOLATE → MODEL INVARIANT → CHANGE → PROVE → MEASURE → OPERATE
@@ -115,10 +95,6 @@ OBSERVE → ISOLATE → MODEL INVARIANT → CHANGE → PROVE → MEASURE → OPE
 ---
 
 <div align="center">
-
-<img src="./assets/current-vector-console.svg" width="100%" alt="Current engineering vector" />
-
-<br>
 
 **`DISTRIBUTED SYSTEMS · STORAGE · STREAMING · CONCURRENCY · RELIABILITY · PERFORMANCE`**
 
