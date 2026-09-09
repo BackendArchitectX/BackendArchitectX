@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230">
+<style>
+text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.h{fill:#7ee7ff;font-size:18px;font-weight:700}.t{fill:#b7c9d3;font-size:14px}.s{fill:#70f0b1;font-size:13px}.m{fill:#58717d;font-size:12px}.line{stroke:#173d49;stroke-width:2}.pulse{fill:#70f0b1;animation:p 1.8s ease-in-out infinite}.packet{fill:#7ee7ff;filter:url(#g)}@keyframes p{0%,100%{opacity:.35}50%{opacity:1}}
+</style><defs><filter id="g"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1200" height="230" rx="14" fill="#050b10" stroke="#163641"/><text x="32" y="38" class="h">01 // UPSTREAM TELEMETRY</text><text x="1000" y="38" class="s">● LIVE</text>
+<line x1="55" y1="108" x2="1140" y2="108" class="line"/>
+<g><circle cx="150" cy="108" r="7" class="pulse"/><text x="98" y="82" class="t">AutoMQ</text><text x="96" y="142" class="s">#3493 MERGED</text></g>
+<g><circle cx="420" cy="108" r="6" fill="#7ee7ff"/><text x="365" y="82" class="t">AutoMQ</text><text x="350" y="142" class="m">#3579 REVIEW</text></g>
+<g><circle cx="690" cy="108" r="6" fill="#7ee7ff"/><text x="650" y="82" class="t">Fluss</text><text x="620" y="142" class="m">#4263 / #4230</text></g>
+<g><circle cx="960" cy="108" r="6" fill="#7ee7ff"/><text x="925" y="82" class="t">Trino</text><text x="910" y="142" class="m">#30973 REVIEW</text></g>
+<circle r="5" class="packet"><animateMotion dur="5s" repeatCount="indefinite" path="M55 108 H1140"/></circle>
+<text x="32" y="198" class="m">SIGNAL // concurrency · lifecycle · RPC · transactions · metadata · regression testing</text></svg>
