@@ -1,49 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
-<title id="title">Backend Architect X — Core Engineering Skills</title>
-<desc id="desc">Large neon skill typography highlighting Java, Spring Boot, distributed systems, Kafka, Redis, Kubernetes, AWS, Python, TypeScript and C++.</desc>
+<title id="title">Backend Architect X — Green Neon Core Engineering Skills</title>
+<desc id="desc">Large green neon skill typography highlighting Java, Spring Boot, distributed systems, Kafka, Redis, Kubernetes, AWS, Python, TypeScript and C++.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#020408"/><stop offset=".48" stop-color="#070611"/><stop offset="1" stop-color="#020305"/>
-  </linearGradient>
-  <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#00F5FF"/><stop offset=".28" stop-color="#7C5CFF"/><stop offset=".52" stop-color="#FF2BD6"/><stop offset=".76" stop-color="#B8FF2C"/><stop offset="1" stop-color="#00F5FF"/>
-    <animateTransform attributeName="gradientTransform" type="translate" values="-0.35 0;0.35 0;-0.35 0" dur="9s" repeatCount="indefinite"/>
-  </linearGradient>
-  <radialGradient id="cyanAura"><stop offset="0" stop-color="#00F5FF" stop-opacity=".23"/><stop offset="1" stop-color="#00F5FF" stop-opacity="0"/></radialGradient>
-  <radialGradient id="magAura"><stop offset="0" stop-color="#FF2BD6" stop-opacity=".18"/><stop offset="1" stop-color="#FF2BD6" stop-opacity="0"/></radialGradient>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#030604"/><stop offset=".50" stop-color="#071009"/><stop offset="1" stop-color="#020403"/></linearGradient>
+  <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#39FF14"/><stop offset=".28" stop-color="#7CFF4F"/><stop offset=".52" stop-color="#B6FF00"/><stop offset=".76" stop-color="#00C853"/><stop offset="1" stop-color="#39FF14"/><animateTransform attributeName="gradientTransform" type="translate" values="-0.35 0;0.35 0;-0.35 0" dur="9s" repeatCount="indefinite"/></linearGradient>
+  <radialGradient id="greenAura"><stop offset="0" stop-color="#39FF14" stop-opacity=".24"/><stop offset="1" stop-color="#39FF14" stop-opacity="0"/></radialGradient>
+  <radialGradient id="limeAura"><stop offset="0" stop-color="#B6FF00" stop-opacity=".14"/><stop offset="1" stop-color="#B6FF00" stop-opacity="0"/></radialGradient>
   <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="22"/></filter>
-  <filter id="grain" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="13"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .07"/></feComponentTransfer></filter>
-  <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#8ef8ff" stroke-opacity=".045" stroke-width="1"/></pattern>
+  <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+  <filter id="grain" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="13"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .065"/></feComponentTransfer></filter>
+  <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#7CFF4F" stroke-opacity=".05" stroke-width="1"/></pattern>
 </defs>
 <rect width="1200" height="430" rx="30" fill="url(#bg)"/>
 <rect width="1200" height="430" rx="30" fill="url(#grid)"/>
-<circle cx="180" cy="110" r="260" fill="url(#cyanAura)" filter="url(#soft)"><animate attributeName="cx" values="180;260;180" dur="12s" repeatCount="indefinite"/></circle>
-<circle cx="970" cy="315" r="300" fill="url(#magAura)" filter="url(#soft)"><animate attributeName="cy" values="315;245;315" dur="14s" repeatCount="indefinite"/></circle>
-<rect x="1" y="1" width="1198" height="428" rx="29" fill="none" stroke="url(#neon)" stroke-width="1.5" opacity=".75"/>
-<rect width="1200" height="430" filter="url(#grain)" opacity=".22"/>
-
+<circle cx="190" cy="105" r="270" fill="url(#greenAura)" filter="url(#soft)"><animate attributeName="cx" values="190;270;190" dur="12s" repeatCount="indefinite"/></circle>
+<circle cx="990" cy="310" r="300" fill="url(#limeAura)" filter="url(#soft)"><animate attributeName="cy" values="310;245;310" dur="14s" repeatCount="indefinite"/></circle>
+<rect x="1" y="1" width="1198" height="428" rx="29" fill="none" stroke="url(#neon)" stroke-width="1.8" opacity=".82"/>
+<rect width="1200" height="430" filter="url(#grain)" opacity=".20"/>
 <g font-family="Arial, Helvetica, sans-serif">
-  <text x="54" y="62" fill="#7c899a" font-size="13" font-weight="700" letter-spacing="4">CORE EXECUTION SURFACE / SKILL SIGNAL</text>
-  <text x="54" y="132" fill="#ffffff" font-size="54" font-weight="900" letter-spacing="-2">JAVA</text>
+  <text x="54" y="62" fill="#89A98D" font-size="13" font-weight="700" letter-spacing="4">CORE EXECUTION SURFACE / GREEN SIGNAL</text>
+  <text x="54" y="132" fill="#F3FFF4" font-size="54" font-weight="900" letter-spacing="-2">JAVA</text>
   <text x="225" y="132" fill="url(#neon)" font-size="54" font-weight="900" letter-spacing="-2" filter="url(#glow)">SPRING BOOT</text>
-  <text x="610" y="132" fill="#ffffff" font-size="54" font-weight="900" letter-spacing="-2">DISTRIBUTED SYSTEMS</text>
-
-  <text x="54" y="206" fill="#00F5FF" font-size="38" font-weight="800" letter-spacing="-1">KAFKA</text>
-  <text x="205" y="206" fill="#B8FF2C" font-size="38" font-weight="800" letter-spacing="-1">REDIS</text>
-  <text x="340" y="206" fill="#FF2BD6" font-size="38" font-weight="800" letter-spacing="-1">KUBERNETES</text>
-  <text x="585" y="206" fill="#7C5CFF" font-size="38" font-weight="800" letter-spacing="-1">AWS / EKS</text>
-  <text x="810" y="206" fill="#00F5FF" font-size="38" font-weight="800" letter-spacing="-1">SQL</text>
-  <text x="915" y="206" fill="#ffffff" font-size="38" font-weight="800" letter-spacing="-1">MICROSERVICES</text>
-
-  <text x="54" y="275" fill="#ffffff" font-size="29" font-weight="700">PYTHON · FASTAPI · FLASK</text>
-  <text x="438" y="275" fill="#bfc8d6" font-size="29" font-weight="700">NODE.JS · TYPESCRIPT · JAVASCRIPT</text>
-  <text x="955" y="275" fill="#ffffff" font-size="29" font-weight="700">C++ / STL</text>
-
-  <text x="54" y="337" fill="#8290a0" font-size="22" font-weight="600" letter-spacing=".2">Concurrency · Event-Driven Architecture · Async Processing · REST APIs · PostgreSQL · MongoDB · Docker · Jenkins</text>
-  <text x="54" y="380" fill="#8290a0" font-size="22" font-weight="600" letter-spacing=".2">CloudWatch · Splunk · Dynatrace · JFR · CI/CD · JUnit · TDD · OOP · SOLID</text>
+  <text x="610" y="132" fill="#F3FFF4" font-size="54" font-weight="900" letter-spacing="-2">DISTRIBUTED SYSTEMS</text>
+  <text x="54" y="206" fill="#39FF14" font-size="38" font-weight="800" letter-spacing="-1">KAFKA</text>
+  <text x="205" y="206" fill="#7CFF4F" font-size="38" font-weight="800" letter-spacing="-1">REDIS</text>
+  <text x="340" y="206" fill="#B6FF00" font-size="38" font-weight="800" letter-spacing="-1">KUBERNETES</text>
+  <text x="585" y="206" fill="#00C853" font-size="38" font-weight="800" letter-spacing="-1">AWS / EKS</text>
+  <text x="810" y="206" fill="#39FF14" font-size="38" font-weight="800" letter-spacing="-1">SQL</text>
+  <text x="915" y="206" fill="#F3FFF4" font-size="38" font-weight="800" letter-spacing="-1">MICROSERVICES</text>
+  <text x="54" y="275" fill="#F3FFF4" font-size="29" font-weight="700">PYTHON · FASTAPI · FLASK</text>
+  <text x="438" y="275" fill="#C7D8C9" font-size="29" font-weight="700">NODE.JS · TYPESCRIPT · JAVASCRIPT</text>
+  <text x="955" y="275" fill="#F3FFF4" font-size="29" font-weight="700">C++ / STL</text>
+  <text x="54" y="337" fill="#89A98D" font-size="22" font-weight="600">Concurrency · Event-Driven Architecture · Async Processing · REST APIs · PostgreSQL · MongoDB · Docker · Jenkins</text>
+  <text x="54" y="380" fill="#89A98D" font-size="22" font-weight="600">CloudWatch · Splunk · Dynatrace · JFR · CI/CD · JUnit · TDD · OOP · SOLID</text>
 </g>
-
-<path d="M54 404 H1146" stroke="#14242d" stroke-width="2"/>
-<path d="M54 404 H1146" stroke="url(#neon)" stroke-width="2" stroke-dasharray="24 34" opacity=".8"><animate attributeName="stroke-dashoffset" values="0;-232" dur="8s" repeatCount="indefinite"/></path>
+<path d="M54 404 H1146" stroke="#122017" stroke-width="2"/>
+<path d="M54 404 H1146" stroke="url(#neon)" stroke-width="2" stroke-dasharray="24 34" opacity=".9"><animate attributeName="stroke-dashoffset" values="0;-232" dur="8s" repeatCount="indefinite"/></path>
 </svg>
