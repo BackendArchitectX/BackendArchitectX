@@ -1,20 +1,21 @@
 # Hi, I'm Pranay 👋
 
-## 📍 **India** · ⚙️ **Java Backend Engineer** · 🧠 **Distributed Systems & Performance Engineering**
+## 📍 **India** · ⚙️ **Backend Software Engineer** · 🧠 **Distributed Systems & Performance Engineering**
 
 ![Java](https://img.shields.io/badge/Java-000000?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
 
 ## Building reliable backend systems that stay understandable under load, failure, and change.
 
-### **Focused on Java, distributed systems, production reliability, and measurable performance.**
+### **Focused on distributed systems, event-driven architecture, concurrency, performance, and production reliability.**
 
 ---
 
@@ -66,11 +67,11 @@ Spring Boot decisioning system for policy servicing, claims, premium calculation
 
 ## Building backend-first systems
 
-Java and Spring Boot services with resilient APIs, transaction boundaries, caching, asynchronous workflows, and production-oriented failure handling.
+Java and Spring Boot services with resilient APIs, transaction boundaries, caching, asynchronous workflows, messaging, and production-oriented failure handling.
 
 ## Studying distributed systems deeply
 
-MVCC, transaction coordination, clock uncertainty, leader/follower behavior, RPC identity, consistency, and failure modes.
+MVCC, transaction coordination, clock uncertainty, leader/follower behavior, RPC identity, consistency, concurrency, and failure modes.
 
 ## Contributing upstream
 
@@ -78,27 +79,47 @@ Working on real bugs in distributed infrastructure instead of limiting engineeri
 
 ## Measuring before optimizing
 
-Using profiling, benchmarks, SQL analysis, production telemetry, and regression tests to validate performance changes.
+Using profiling, benchmarks, SQL analysis, production telemetry, parallel processing, and regression tests to validate performance changes.
 
 ---
 
-# Engineering Range
+# Skills
+
+## Languages
+
+### **Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL**
 
 ## Backend & APIs
 
-### **Java · J2EE · Spring · Spring Boot · Spring MVC · Spring Data JPA · Hibernate/JPA · REST APIs · Maven · Tomcat**
+### **Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · STL · REST APIs · JSP · ReactJS**
 
-## Data & Performance
+## Architecture
 
-### **MySQL · PostgreSQL · Oracle · Redis · SQL/JPQL · Composite Indexing · HikariCP · Transaction Management · Optimistic Locking · Java Flight Recorder**
+### **Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing**
 
-## Cloud & Delivery
+## Performance
 
-### **AWS EC2 · RDS · S3 · EKS · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD**
+### **Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms**
 
-## Quality & Operations
+## Messaging & Data
 
-### **JUnit · Mockito · Code Review · Structured Logging · Alerting · Runbooks · Incident Triage · RCA**
+### **MySQL · PostgreSQL · MongoDB · Redis · Apache Kafka · Message Queues · SQL Query Optimization**
+
+## Testing & Practices
+
+### **JUnit · TDD · OOP · SOLID Principles · Agile**
+
+## Cloud & DevOps
+
+### **AWS · EKS · PCF · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD**
+
+## Tools & Monitoring
+
+### **Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML**
+
+## AI Tools
+
+### **Claude Sonnet · Claude Opus · GitHub Copilot · AI-Powered Coding Assistants · Agent-Based Tools**
 
 ---
 
@@ -112,6 +133,6 @@ Using profiling, benchmarks, SQL analysis, production telemetry, and regression 
 
 # Connect
 
-## 📧 [kadupranay15@gmail.com](mailto:kadupranay15@gmail.com)
+## 📧 [pranaykadu.softwareengineer@gmail.com](mailto:pranaykadu.softwareengineer@gmail.com)
 ## 🔗 [linkedin.com/in/pranaykadu](https://www.linkedin.com/in/pranaykadu)
 ## 💻 [github.com/BackendArchitectX](https://github.com/BackendArchitectX)
