@@ -1,43 +1,82 @@
-<div align="center">
+# Hi, I'm Pranay 👋
 
-<img src="./assets/pranay-editorial-masthead-v4.svg" width="100%" alt="Pranay Kadu — Backend and Distributed Systems Engineer" />
+📍 **India** | ⚙️ **Java Backend Engineer** | 🧠 **Distributed Systems & Performance Engineering**
 
-</div>
+![Java](https://img.shields.io/badge/Java-000000?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white)
 
-## Selected systems
-
-### [Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)
-
-An exact vector-search engine built from the CUDA kernel upward through C++20, Java JNI and a hardened Spring Boot API. The system keeps indexes resident on the GPU, supports FP32 and FP16-storage modes and includes a reproducible benchmark harness.
-
-**Measured evidence:** 16.7× lower P50 latency than the project’s scalar CPU reference on `500K × 128` vectors · 1,641–1,662 FP32 QPS at batch 32 · 48/48 benchmark cases passed
-
-[Architecture](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/ARCHITECTURE.md) · [Benchmark methodology](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/BENCHMARKS.md) · [v1.0.0 release](https://github.com/BackendArchitectX/Vortex-CUDA/releases/tag/v1.0.0)
-
-### [distrib-txn-db](https://github.com/BackendArchitectX/distrib-txn-db)
-
-A Java workshop that develops a distributed transactional key-value store in six deliberate stages: hybrid logical clocks, MVCC, distributed routing, transaction records and intents, clock-uncertainty restarts and serializable conflict prevention.
-
-**Engineering focus:** transaction ownership · snapshot isolation · write skew · uncertainty windows · read restart · intent resolution
-
-## Upstream engineering
-
-| Project | Engineering problem | Status |
-|---|---|---:|
-| [AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493) | Prevent the metrics reporter from starting on controller-only nodes | **Merged** |
-| [Trino #30973](https://github.com/trinodb/trino/pull/30973) | Coordinate query failure with transaction-commit ownership | Review |
-| [Fluss #4263](https://github.com/apache/fluss/pull/4263) | Make cached RPC connection identity endpoint-aware | Review |
-| [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) | Add optional authentication to the built-in Prometheus endpoint | Review |
-| [Fluss #4230](https://github.com/apache/fluss/pull/4230) | Support custom Paimon lake-table paths in Spark reads | Review |
-
-## Engineering range
-
-**Backend** — Java 8–21 · Spring Boot · REST · gRPC · concurrency · asynchronous processing  
-**Data and messaging** — PostgreSQL · MySQL · MongoDB · Redis · Kafka · event-driven systems  
-**Reliability and performance** — idempotency · rate limiting · circuit breakers · caching · SQL tuning · JFR  
-**Platform and operations** — Docker · Kubernetes · AWS EKS · Jenkins · CI/CD · CloudWatch · Splunk · Dynatrace  
-**Validation** — JUnit · Mockito · deterministic race tests · benchmark design · production telemetry
+> Building reliable backend systems that stay understandable under load, failure, and change.  
+> Focused on Java, distributed systems, production reliability, and measurable performance.
 
 ---
 
-[Email](mailto:pranayp.kadu@gmail.com) · [GitHub](https://github.com/BackendArchitectX)
+## Current Projects
+
+- ⚡ [**Vortex CUDA**](https://github.com/BackendArchitectX/Vortex-CUDA) – Exact GPU vector-search engine built from CUDA kernels through C++20, Java JNI, and a Spring Boot API. Includes persistent GPU indexes, FP16 storage, production hardening, and reproducible benchmarks.
+- 🗄️ [**distrib-txn-db**](https://github.com/BackendArchitectX/distrib-txn-db) – Java workshop for distributed transactions, progressing through hybrid logical clocks, MVCC, routing, intents, clock uncertainty, read restarts, and serializable conflict prevention.
+- 🛡️ [**Aegis Insurance Decisioning Platform**](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform) – Spring Boot decisioning system for policy servicing, claims, premium calculation, risk evaluation, renewals, and auditable business decisions.
+
+---
+
+## Open Source
+
+I contribute to infrastructure projects where correctness depends on lifecycle, concurrency, RPC behavior, transaction ownership, and failure recovery.
+
+- [**AutoMQ**](https://github.com/AutoMQ/automq) – [Merged fix](https://github.com/AutoMQ/automq/pull/3493) preventing the metrics reporter from starting on controller-only nodes.
+- [**Trino**](https://github.com/trinodb/trino) – [PR #30973](https://github.com/trinodb/trino/pull/30973) coordinating query failure with transaction-commit ownership to address an autocommit race.
+- [**Apache Fluss**](https://github.com/apache/fluss) – [PR #4263](https://github.com/apache/fluss/pull/4263) making cached RPC connection identity endpoint-aware when a server UID moves to a different host or port.
+
+Contribution focus:
+
+- Distributed systems correctness
+- Concurrency and deterministic race testing
+- RPC, connection lifecycle, and failure recovery
+- Performance and reliability improvements
+- Regression tests that preserve system invariants
+
+---
+
+## GitHub Activity
+
+![GitHub contribution chart](https://ghchart.rshah.org/BackendArchitectX)
+
+---
+
+## What I'm Doing
+
+- **Building backend-first systems** – Java and Spring Boot services with resilient APIs, transaction boundaries, caching, asynchronous workflows, and production-oriented failure handling.
+- **Studying distributed systems deeply** – MVCC, transaction coordination, clock uncertainty, leader/follower behavior, RPC identity, consistency, and failure modes.
+- **Contributing upstream** – Working on real bugs in distributed infrastructure instead of limiting engineering work to personal repositories.
+- **Measuring before optimizing** – Using profiling, benchmarks, SQL analysis, production telemetry, and regression tests to validate performance changes.
+
+---
+
+## Engineering Range
+
+**Backend & APIs** – Java · J2EE · Spring · Spring Boot · Spring MVC · Spring Data JPA · Hibernate/JPA · REST APIs · Maven · Tomcat  
+**Data & performance** – MySQL · PostgreSQL · Oracle · Redis · SQL/JPQL · composite indexing · HikariCP · transaction management · optimistic locking · Java Flight Recorder  
+**Cloud & delivery** – AWS EC2 · RDS · S3 · EKS · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD  
+**Quality & operations** – JUnit · Mockito · code review · structured logging · alerting · runbooks · incident triage · RCA
+
+---
+
+## Principles
+
+> **Build for failure. Measure before optimizing. Preserve the invariant.**
+
+I prefer simple designs with explicit ownership, observable behavior, reproducible tests, and clear failure semantics.
+
+---
+
+## Connect
+
+📧 **Email:** [kadupranay15@gmail.com](mailto:kadupranay15@gmail.com)  
+🔗 **LinkedIn:** [linkedin.com/in/pranaykadu](https://www.linkedin.com/in/pranaykadu)  
+💻 **GitHub:** [github.com/BackendArchitectX](https://github.com/BackendArchitectX)
