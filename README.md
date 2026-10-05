@@ -135,4 +135,5 @@ Using profiling, benchmarks, SQL analysis, production telemetry, parallel proces
 
 ## 📧 [pranaykadu.softwareengineer@gmail.com](mailto:pranaykadu.softwareengineer@gmail.com)
 ## 🔗 [linkedin.com/in/pranaykadu](https://www.linkedin.com/in/pranaykadu)
+## 🌐 [backendarchitectx.github.io](https://backendarchitectx.github.io/)
 ## 💻 [github.com/BackendArchitectX](https://github.com/BackendArchitectX)
