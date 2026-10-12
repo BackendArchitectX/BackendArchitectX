@@ -1,139 +1,79 @@
-# Hi, I'm Pranay 👋
+<!-- GitHub profile README · BackendArchitectX · October 2026 -->
 
-## 📍 **India** · ⚙️ **Backend Software Engineer** · 🧠 **Distributed Systems & Performance Engineering**
+<div align="center">
+  <img src="./assets/pranay-editorial-masthead-v4.svg" alt="Pranay Kadu — Backend and Distributed Systems Engineer" width="100%" />
+</div>
 
-![Java](https://img.shields.io/badge/Java-000000?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+<p align="center">
+  <a href="https://www.linkedin.com/in/pranaykadu">LinkedIn</a> ·
+  <a href="https://backendarchitectx.github.io/">Portfolio</a> ·
+  <a href="mailto:pranaykadu.softwareengineer@gmail.com">Email</a> ·
+  <a href="https://github.com/BackendArchitectX?tab=repositories">Repositories</a>
+</p>
 
-## Building reliable backend systems that stay understandable under load, failure, and change.
+### Hi, I'm Pranay 👋
 
-### **Focused on distributed systems, event-driven architecture, concurrency, performance, and production reliability.**
+I'm a software engineer based in India, focused on **Java, Spring Boot, distributed systems, and production reliability**. I enjoy problems where the difficult part is not writing the happy path, but making concurrency, recovery, performance, and operational behavior predictable.
 
----
+**What I work on:** transactional APIs · event-driven services · Kafka and Redis · SQL performance · JVM diagnostics · fault tolerance · repeatable tests.
 
-# Current Projects
+## Selected engineering projects
 
-## ⚡ [Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)
+| Project | What I'm building |
+| --- | --- |
+| **[Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)** | Exact GPU vector search with **CUDA, C++20, JNI, and Spring Boot**. Persistent indexes, FP16 storage, Top-K kernels, and documented benchmarks. |
+| **[NUMEN](https://github.com/BackendArchitectX/NUMEN)** | Data-intelligence workflow with a **Java backend**, permitted-source collection, provenance, validation, and a web interface. |
+| **[Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)** | Full-stack insurance workflows for policies, premiums, claims, renewals, and auditable decisions. |
+| **[BedRock](https://github.com/BackendArchitectX/BedRock)** | **Early-stage Go prototype** for local-first AI-assisted software-engineering workflows with bounded edits, verification, and rollback. |
+| **[CHAIN//REACTION](https://github.com/BackendArchitectX/CHAIN-REACTION)** | Synthetic infrastructure-resilience simulation with causal dependencies, counterfactual comparisons, and deterministic safety checks. |
 
-Exact GPU vector-search engine built from CUDA kernels through C++20, Java JNI, and a Spring Boot API. Includes persistent GPU indexes, FP16 storage, production hardening, and reproducible benchmarks.
+Also exploring [distributed transaction internals](https://github.com/BackendArchitectX/distrib-txn-db): hybrid logical clocks, MVCC, transaction conflicts, and deterministic failure scenarios.
 
-## 🗄️ [distrib-txn-db](https://github.com/BackendArchitectX/distrib-txn-db)
+## Open-source contributions
 
-Java workshop for distributed transactions, progressing through hybrid logical clocks, MVCC, routing, intents, clock uncertainty, read restarts, and serializable conflict prevention.
+I work on reproducible bugs, lifecycle boundaries, race conditions, RPC behavior, and reliable CI—not just code that passes the happy path.
 
-## 🛡️ [Aegis Insurance Decisioning Platform](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)
+**Merged upstream**
 
-Spring Boot decisioning system for policy servicing, claims, premium calculation, risk evaluation, renewals, and auditable business decisions.
+- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented the metrics reporter from starting on controller-only nodes.
+- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback ownership and removed redundant topic cleanup logic.
 
----
+**Under review**
 
-# Open Source
+- **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Proposed changes to prevent query failure after transaction commit begins.
+- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Proposed endpoint-aware identity handling for cached RPC connections.
+- **[AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579)** — Proposed optional Basic authentication for the Prometheus metrics endpoint.
+- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Proposed guard against restoring blocks after a stream reader closes.
 
-## I contribute to infrastructure projects where correctness depends on lifecycle, concurrency, RPC behavior, transaction ownership, and failure recovery.
+**Investigations and upstream impact**
 
-## [AutoMQ](https://github.com/AutoMQ/automq)
+- **[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search, built regression tests and GUI evidence, and identified a PR workflow that could pass without running tests. The maintainer acknowledged the CI finding and independently implemented smaller search and workflow fixes on `main`. **My PR was closed without merging.**
 
-[Merged fix](https://github.com/AutoMQ/automq/pull/3493) preventing the metrics reporter from starting on controller-only nodes.
+## Toolbox
 
-## [Trino](https://github.com/trinodb/trino)
+| Area | Technologies and practices |
+| --- | --- |
+| **Backend** | Java 8/11/17, Spring Boot, Spring MVC, JPA/Hibernate, REST APIs, SQL |
+| **Distributed systems** | Kafka, Redis, messaging, transactions, idempotency, retries, circuit breakers |
+| **Data & performance** | PostgreSQL, MySQL, query tuning, caching, JVM profiling, concurrency |
+| **Cloud & delivery** | AWS, Docker, Kubernetes, Jenkins, GitHub Actions, CI/CD |
+| **Testing & observability** | JUnit 5, Mockito, regression testing, structured logs, Splunk, Dynatrace |
+| **Additional languages** | Python, C++, TypeScript/JavaScript, Go |
 
-[PR #30973](https://github.com/trinodb/trino/pull/30973) coordinating query failure with transaction-commit ownership to address an autocommit race.
+## How I approach engineering
 
-## [Apache Fluss](https://github.com/apache/fluss)
+> **Build for failure. Measure before optimizing. Preserve the invariant.**
 
-[PR #4263](https://github.com/apache/fluss/pull/4263) making cached RPC connection identity endpoint-aware when a server UID moves to a different host or port.
+I prefer the smallest design that solves the verified problem, with explicit ownership, meaningful regression tests, clear failure semantics, and evidence that survives code review.
 
-## Contribution focus
+## GitHub activity
 
-### **Distributed systems correctness** · **Concurrency and deterministic race testing** · **RPC and connection lifecycle** · **Failure recovery** · **Performance and reliability** · **Invariant-preserving regression tests**
-
----
-
-# GitHub Activity
-
-![GitHub contribution chart](https://ghchart.rshah.org/BackendArchitectX)
-
----
-
-# What I'm Doing
-
-## Building backend-first systems
-
-Java and Spring Boot services with resilient APIs, transaction boundaries, caching, asynchronous workflows, messaging, and production-oriented failure handling.
-
-## Studying distributed systems deeply
-
-MVCC, transaction coordination, clock uncertainty, leader/follower behavior, RPC identity, consistency, concurrency, and failure modes.
-
-## Contributing upstream
-
-Working on real bugs in distributed infrastructure instead of limiting engineering work to personal repositories.
-
-## Measuring before optimizing
-
-Using profiling, benchmarks, SQL analysis, production telemetry, parallel processing, and regression tests to validate performance changes.
+![Contribution activity for BackendArchitectX](https://ghchart.rshah.org/BackendArchitectX)
 
 ---
 
-# Skills
-
-## Languages
-
-### **Java · J2EE · Python 3 · C++ · TypeScript · JavaScript · SQL**
-
-## Backend & APIs
-
-### **Spring · Spring Boot · Spring MVC · FastAPI · Flask · Node.js · Express.js · STL · REST APIs · JSP · ReactJS**
-
-## Architecture
-
-### **Microservices · Distributed Systems · Event-Driven Architecture · Asynchronous Processing**
-
-## Performance
-
-### **Multithreading · Concurrency · Caching · Functional Programming · Parallel Processing · Algorithms**
-
-## Messaging & Data
-
-### **MySQL · PostgreSQL · MongoDB · Redis · Apache Kafka · Message Queues · SQL Query Optimization**
-
-## Testing & Practices
-
-### **JUnit · TDD · OOP · SOLID Principles · Agile**
-
-## Cloud & DevOps
-
-### **AWS · EKS · PCF · CloudWatch · Docker · Kubernetes · Jenkins · CI/CD**
-
-## Tools & Monitoring
-
-### **Git · GitHub · Bitbucket · Jira · Splunk · Dynatrace · XML**
-
-## AI Tools
-
-### **Claude Sonnet · Claude Opus · GitHub Copilot · AI-Powered Coding Assistants · Agent-Based Tools**
-
----
-
-# Principles
-
-## > Build for failure. Measure before optimizing. Preserve the invariant.
-
-### **I prefer simple designs with explicit ownership, observable behavior, reproducible tests, and clear failure semantics.**
-
----
-
-# Connect
-
-## 📧 [pranaykadu.softwareengineer@gmail.com](mailto:pranaykadu.softwareengineer@gmail.com)
-## 🔗 [linkedin.com/in/pranaykadu](https://www.linkedin.com/in/pranaykadu)
-## 🌐 [backendarchitectx.github.io](https://backendarchitectx.github.io/)
-## 💻 [github.com/BackendArchitectX](https://github.com/BackendArchitectX)
+<p align="center">
+  <strong>Open to thoughtful engineering collaboration and open-source reviews.</strong><br/>
+  <a href="https://www.linkedin.com/in/pranaykadu">Connect on LinkedIn</a> ·
+  <a href="mailto:pranaykadu.softwareengineer@gmail.com">Get in touch</a>
+</p>
