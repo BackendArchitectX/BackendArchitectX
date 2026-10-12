@@ -1,106 +1,72 @@
-<!-- GitHub profile · BackendArchitectX · October 2026 -->
+<!-- GitHub profile · BackendArchitectX -->
 
 # Pranay Kadu
 
-**Backend & Distributed Systems Engineer**
+**Backend Software Engineer | Java · Spring Boot · Distributed Systems · AWS**
 
-**Java 8/11/17 · Spring Boot · Distributed Systems · AWS**
+I build and troubleshoot backend systems where **transaction correctness, concurrency, performance, and failure recovery** matter. My primary work spans Spring Boot services, event-driven architecture, data-intensive APIs, and AWS-based delivery. I also build across the full stack when the problem calls for it.
 
-I build reliable, Java-first backend systems with a focus on **scalable APIs, microservices, event-driven architecture, database performance, and fault tolerance**. I work across the software delivery lifecycle—from system design and implementation to testing, observability, CI/CD, and production troubleshooting.
+[LinkedIn](https://www.linkedin.com/in/pranaykadu) · [Engineering portfolio](https://backendarchitectx.github.io/) · [Email](mailto:pranaykadu.softwareengineer@gmail.com) · [All repositories](https://github.com/BackendArchitectX?tab=repositories)
 
-**Primary expertise:** Java, Spring Boot, distributed systems, AWS, Kafka, SQL, Redis, Docker, and Kubernetes.
+## Professional engineering
 
-**Broader engineering stack:** React, TypeScript/JavaScript, Python, C++, messaging systems, data engineering foundations, cloud-native delivery, and AI-assisted development.
+**Software Engineer at Linux Socials (Apr 2025–present)** · Previously, **Merkle Inspire** (2021–2024).
 
-[LinkedIn](https://www.linkedin.com/in/pranaykadu) · [Portfolio](https://backendarchitectx.github.io/) · [Email](mailto:pranaykadu.softwareengineer@gmail.com) · [Repositories](https://github.com/BackendArchitectX?tab=repositories)
+Selected backend engineering case studies from my [portfolio](https://backendarchitectx.github.io/):
 
-## Selected engineering work
+- **[Fraud screening microservice](https://github.com/BackendArchitectX/BackendArchitectX.github.io/blob/main/work/fraud-screening.html)** — Java/Spring Boot, idempotent request handling, Redis lookups, bounded rate limiting, circuit breakers, and incident observability.
+- **[Financial transaction workflows](https://github.com/BackendArchitectX/BackendArchitectX.github.io/blob/main/work/financial-workflow.html)** — Spring transactions, isolation levels, optimistic locking, SQL/index tuning, cursor pagination, and caching.
+- **[Job-feed integration portal](https://github.com/BackendArchitectX/BackendArchitectX.github.io/blob/main/work/job-feed.html)** — React + Spring Boot, parallel external API calls, bounded retries, batch persistence, and cache-backed refreshes.
 
-- **[Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)** — Exact GPU vector search built with CUDA, C++20, Java JNI, and Spring Boot. Includes persistent indexes, batched Top-K kernels, FP16 storage, and reproducible benchmarks.
-- **[NUMEN](https://github.com/BackendArchitectX/NUMEN)** — Java-backed data-intelligence workflows covering permitted-source collection, record validation, provenance, and a web interface.
-- **[Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)** — Full-stack insurance workflows for policy servicing, premium rating, claims, renewals, and auditable decisions.
-- **[BedRock](https://github.com/BackendArchitectX/BedRock)** — *Early Go prototype* for local-first AI-assisted software engineering with bounded changes, explicit verification, and rollback; not production-ready.
-- **[CHAIN//REACTION](https://github.com/BackendArchitectX/CHAIN-REACTION)** — Local-first, **synthetic** infrastructure-resilience simulation with causal dependencies, counterfactual scenarios, and deterministic safety checks.
+**Selected outcomes documented in my portfolio:** 40% lower p95 latency from profiling and persistence-path tuning, and mean time to recovery reduced from 35 to 12 minutes through operational improvements. These describe specific production work, not general benchmarks.
 
-**Systems learning:** [Distributed transaction lab (fork)](https://github.com/BackendArchitectX/distrib-txn-db) — experimenting with MVCC, hybrid logical clocks, conflicts, and failure interleavings.
+## Selected public projects
 
-### Measured work, with context
+- **[NUMEN](https://github.com/BackendArchitectX/NUMEN)** — Java-backed data-intelligence workflows that collect from **explicitly permitted public sources**, preserve provenance, validate records, and run via Docker Compose. Focus: auditable data flow, failure visibility, and one-step startup.
+- **[Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)** — Simulated insurance operations with a **Java/Spring Boot backend**, **Angular frontend**, risk-rule decisions, and audit trails. The documented demo uses an in-memory data store.
+- **[Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)** — Exact GPU vector search spanning CUDA, C++20, Java JNI, and Spring Boot. On the documented RTX 3050 workload, the project reports **48/48 benchmark validations**, **50% less FP16 vector storage**, and **~16.7× lower p50 latency vs its own scalar CPU reference**—not a production vector database. [Methodology](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/BENCHMARKS.md) · [Hardware and repeated-run evidence](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/LIVE_BENCHMARK_RTX3050.md).
 
-Vortex CUDA's documented RTX 3050 laptop GPU experiments on **500,000 × 128-dimensional vectors** report:
+**More engineering experiments:** [BedRock](https://github.com/BackendArchitectX/BedRock) (early Go orchestration prototype with verification and rollback) · [CHAIN//REACTION](https://github.com/BackendArchitectX/CHAIN-REACTION) (synthetic causal-resilience simulation) · [Distributed transaction lab](https://github.com/BackendArchitectX/distrib-txn-db) (fork; MVCC and clock/conflict experiments).
 
-| Result | What was measured |
-| --- | --- |
-| **48/48** | Benchmark validation cases passed |
-| **50%** | FP16 vector-storage reduction relative to FP32 |
-| **~16.7× lower P50 latency** | Fused exact GPU Top-K vs **this project's scalar CPU reference**, not a production vector database |
+## Open-source contributions
 
-[Benchmark methodology](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/BENCHMARKS.md) · [Hardware and repeated-run results](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/LIVE_BENCHMARK_RTX3050.md). Results are workload- and hardware-specific; FP16 is not universally faster.
-
-## Technical expertise
-
-**Java · Spring Boot · Distributed Systems · AWS** are my main areas of focus. I also work across the broader backend, full-stack, infrastructure, and software engineering ecosystem.
-
-| Engineering focus | Technologies and practices |
-| --- | --- |
-| **Java & JVM** | **Java 8/11/17**, Core Java, J2EE, Collections, Streams, OOP, functional programming, multithreading, concurrency, exception handling |
-| **Spring & backend development** | **Spring Boot**, Spring MVC, Spring Data JPA, Hibernate/JPA, Spring Security, RESTful services, JSP/Servlets, DTO mapping, validation, OpenAPI/Swagger |
-| **Distributed systems & messaging** | **Microservices**, **Apache Kafka**, Redis, IBM MQ, RabbitMQ, event-driven architecture, asynchronous processing, idempotency, retries, circuit breakers |
-| **AWS & cloud-native engineering** | **AWS EC2, EKS, RDS, S3, CloudWatch**, **Docker**, **Kubernetes**, Pivotal Cloud Foundry (PCF), containerized services |
-| **Databases & persistence** | **MySQL**, PostgreSQL, Oracle SQL, **Redis**, SQL optimization, indexing, transactions, isolation levels, optimistic locking; MongoDB exposure |
-| **System design & architecture** | Distributed architecture, SOLID, design patterns, caching, rate limiting, fault tolerance, pagination, transaction boundaries, failure recovery |
-| **Frontend & full-stack** | **React**, TypeScript, JavaScript, HTML5, CSS3, JSP, Spring Boot API integration; Angular fundamentals |
-| **Additional programming & frameworks** | SQL, Python, C++; FastAPI, Flask, Node.js/Express (working exposure); Go (currently exploring) |
-| **Testing & quality engineering** | **JUnit 5**, Mockito, TDD, unit and integration testing, regression tests, negative-path testing, deterministic failure scenarios, code review |
-| **Security & API practices** | Spring Security, OAuth2, JWT, REST API authentication and authorization, input validation, structured error handling |
-| **CI/CD & development tools** | Maven, Gradle, Jenkins, GitHub Actions, CI/CD pipelines, Git, GitHub, GitLab, Bitbucket, Postman |
-| **Performance & observability** | **Java Flight Recorder (JFR)**, JVM profiling, Splunk, Dynatrace, Grafana, metrics, tracing, logging, alerts, root-cause analysis, p95 latency and throughput tuning |
-| **Engineering collaboration** | Agile/Scrum, Jira, Confluence, technical documentation, code reviews, incident investigation, production debugging |
-| **AI-assisted engineering** | GitHub Copilot, Cursor, Claude, coding assistants and agent-based development, with human review and test-based verification |
-
-### Engineering work I deliver
-
-- **Backend and distributed services:** Spring Boot APIs, Kafka-based messaging, resilient service integrations, caching, and transaction-heavy workflows.
-- **Cloud and delivery:** AWS-based deployments, Docker/Kubernetes workflows, CI/CD automation, configuration and operational troubleshooting.
-- **End-to-end features:** React frontends integrated with Java backend services, data persistence, validation, and automated tests.
-- **Reliability and performance:** SQL tuning, concurrency debugging, latency analysis, observability, incident response, and regression prevention.
-
-## Open-source engineering
-
-I contribute fixes and investigations around concurrency, lifecycle boundaries, RPC identity, transaction ownership, and CI correctness.
+I focus on focused, testable changes around **lifecycle correctness, concurrency, RPC behavior, and CI reliability**.
 
 ### Merged upstream
 
 - **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented metrics reporting from starting on controller-only nodes.
-- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback responsibility and removed redundant topic cleanup logic.
+- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback ownership and removed redundant cleanup logic.
 
 ### Open proposals
 
-- **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Commit/failure ownership around autocommit query completion.
-- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Endpoint-aware caching for RPC connections when tablet-server addresses change.
+- **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Coordinating query failure with autocommit transaction-commit ownership.
+- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Endpoint-aware RPC connection caching during server address changes.
 - **[AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579)** — Optional Basic authentication for the Prometheus metrics endpoint.
-- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Guarding stream-reader state against late asynchronous block restoration.
-- **[Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343)** — Avoiding false queue-write failure reports on Windows.
 
-*PR statuses checked on October 12, 2026; follow each link for its current state.*
+Also open: [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555) (reader-close lifecycle) · [Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343) (Windows queue-write reporting). *PR statuses checked October 13, 2026; individual links show their latest status.*
 
-### Investigation adopted independently upstream
+### Documented investigation
 
-**[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search, wrote regression tests and GUI evidence, and identified a PR workflow that could pass without executing tests. The maintainer [acknowledged the CI finding](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336) and implemented [a smaller search change](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) plus [the workflow fix](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) directly on `main`. **PR #919 was closed without merging.**
+**[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search and [identified a PR CI test-discovery gap](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336). The maintainer independently applied [search](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) and [workflow](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) updates. **My PR was closed without merging.**
 
-## Engineering principle
+## Technical expertise
+
+**Core strengths:** Java 8/11/17 · Spring Boot · Microservices · Distributed Systems · AWS · Kafka · SQL · Redis
+
+- **Java & backend:** Java/J2EE, Collections, Streams, multithreading, Spring MVC, Spring Data JPA, Hibernate/JPA, Spring Security, JSP/Servlets, REST APIs, DTOs, validation, OpenAPI/Swagger, Postman.
+- **Architecture & messaging:** Kafka, IBM MQ, RabbitMQ, asynchronous processing, transactional boundaries, idempotency, rate limiting, retries/backoff, circuit breakers, caching, SOLID, design patterns.
+- **AWS & DevOps:** EC2, EKS, RDS, S3, CloudWatch, Docker, Kubernetes, PCF, Jenkins, GitHub Actions, Maven, Gradle, Git, GitHub/GitLab/Bitbucket.
+- **Data & observability:** MySQL, PostgreSQL, Oracle SQL, Redis, SQL tuning, indexing, pagination, optimistic locking, JFR/JVM profiling, Splunk, Dynatrace, Grafana, logging, metrics, incident investigation.
+- **Full-stack:** React, TypeScript, JavaScript, HTML5, CSS3, JSP, Angular (project experience), and Java-to-frontend API integration.
+- **Security & quality:** OAuth2/JWT, authentication/authorization, JUnit 5, Mockito, TDD, unit/integration testing, regression tests, negative-path tests, CI/CD and code reviews.
+- **Additional tools & languages:** Python, C++; FastAPI/Flask, Node.js/Express and MongoDB (working exposure); Go (learning through prototypes); GitHub Copilot, Cursor, Claude and AI-assisted workflows with human review.
+
+## Engineering approach
 
 > **Build for failure. Measure before optimizing. Preserve the invariant.**
 
-I prefer focused changes, explicit ownership, realistic failure tests, and claims supported by reproducible evidence.
+I favor explicit ownership, simple designs, reproducible tests, and performance claims supported by workload-specific evidence.
 
-## GitHub activity
+**Open to backend engineering opportunities and thoughtful open-source collaboration.**
 
-[![GitHub contribution chart for BackendArchitectX](https://ghchart.rshah.org/BackendArchitectX)](https://github.com/BackendArchitectX)
-
-[View activity directly on GitHub](https://github.com/BackendArchitectX) if the external chart does not load.
-
----
-
-**Open to backend engineering collaboration and thoughtful open-source reviews.**
-
-[LinkedIn](https://www.linkedin.com/in/pranaykadu) · [Portfolio](https://backendarchitectx.github.io/) · [Email](mailto:pranaykadu.softwareengineer@gmail.com)
+[GitHub contribution activity](https://github.com/BackendArchitectX) · [Portfolio](https://backendarchitectx.github.io/) · [LinkedIn](https://www.linkedin.com/in/pranaykadu) · [Contact](mailto:pranaykadu.softwareengineer@gmail.com)
