@@ -62,16 +62,33 @@ I contribute fixes and investigations around concurrency, lifecycle boundaries, 
 
 **[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search, wrote regression tests and GUI evidence, and identified a PR workflow that could pass without executing tests. The maintainer [acknowledged the CI finding](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336) and implemented [a smaller search change](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) plus [the workflow fix](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) directly on `main`. **PR #919 was closed without merging.**
 
-## Technical toolkit
+## Technical expertise
 
-| Focus | Tools and practices |
+**Core stack:** Java 8/11/17 · Spring Boot · Spring MVC · Microservices · REST APIs · Kafka · SQL · Redis · AWS · Docker · Kubernetes
+
+| Engineering area | Technologies, frameworks and practices |
 | --- | --- |
-| **Core backend** | Java 8/11/17, Spring Boot, Spring MVC, JPA/Hibernate, REST, SQL |
-| **Distributed systems** | Kafka, asynchronous messaging, idempotency, retries, circuit breakers, transactions |
-| **Data and performance** | MySQL, PostgreSQL, Redis, query tuning, JVM profiling, concurrency |
-| **Cloud and delivery** | AWS, Docker, Kubernetes, Jenkins, GitHub Actions |
-| **Testing and operations** | JUnit 5, Mockito, deterministic regression tests, Splunk, Dynatrace |
-| **Also work with** | Python, C++, TypeScript/JavaScript; learning Go through systems prototypes |
+| **Programming languages** | **Java**, SQL, Python, C++, JavaScript, TypeScript; Go (currently exploring) |
+| **Java & JVM ecosystem** | Core Java, J2EE, OOP, Collections, Streams, multithreading, concurrency, functional programming, exception handling, Java 8/11/17 |
+| **Backend frameworks** | **Spring Boot**, Spring MVC, Spring Data JPA, Hibernate/JPA, Spring Security (OAuth2/JWT), JSP/Servlets; FastAPI, Flask and Node.js/Express (working exposure) |
+| **Frontend & full-stack** | **React**, JavaScript, TypeScript, HTML5, CSS3, JSP; Angular fundamentals; integrating React applications with Java/Spring Boot APIs |
+| **APIs & integration** | RESTful APIs, HTTP, JSON, XML, DTOs, validation, exception handling, Swagger/OpenAPI, Postman, service integration |
+| **Microservices & messaging** | Microservices, event-driven architecture, **Apache Kafka**, IBM MQ, RabbitMQ, asynchronous workflows, message processing |
+| **Databases & persistence** | **MySQL**, PostgreSQL, Oracle SQL, **Redis**, SQL optimization, indexing, transactions, isolation levels, optimistic locking; MongoDB exposure |
+| **System design & reliability** | Distributed systems, SOLID, design patterns, idempotency, retry/backoff, circuit breakers, caching, rate limiting, pagination, fault tolerance, concurrency control |
+| **Cloud & infrastructure** | **AWS** (EC2, EKS, S3, RDS, CloudWatch), **Docker**, **Kubernetes**, Pivotal Cloud Foundry (PCF), containerized application delivery |
+| **Build, CI/CD & version control** | **Maven**, Gradle, Jenkins, GitHub Actions, CI/CD pipelines, Git, GitHub, GitLab, Bitbucket |
+| **Testing & code quality** | **JUnit 5**, Mockito, unit/integration tests, TDD, regression and negative-path testing, code review, reproducible test cases |
+| **Monitoring & performance** | JVM profiling, **Java Flight Recorder (JFR)**, Splunk, Dynatrace, Grafana, structured logging, metrics, alerts, root-cause analysis, p95 latency and throughput tuning |
+| **Engineering collaboration** | Jira, Confluence, Agile/Scrum, API documentation, production debugging, incident investigation, technical documentation |
+| **AI-assisted development** | GitHub Copilot, Cursor, Claude and other coding assistants for research, implementation and code review—with tests and manual verification |
+
+### What I build and troubleshoot
+
+- **Backend platforms:** Spring Boot APIs, microservices, transactional workflows, message-driven processing, caching and database-intensive services.
+- **Production systems:** Performance bottlenecks, concurrency issues, integration failures, reliability improvements, observability and incident recovery.
+- **End-to-end features:** React-based interfaces connected to Java APIs, data persistence, validation, automated tests and CI/CD delivery.
+- **Engineering fundamentals:** Clear architecture, maintainable code, secure API patterns, deterministic regression tests and evidence-based optimization.
 
 ## Engineering principle
 
