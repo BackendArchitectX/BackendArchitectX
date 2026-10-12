@@ -1,21 +1,18 @@
-<!-- GitHub profile · BackendArchitectX · verified October 2026 -->
+<!-- GitHub profile · BackendArchitectX · October 2026 -->
 
-<div align="center">
-  <img src="./assets/pranay-editorial-masthead-v4.svg" alt="Pranay Kadu — backend and distributed systems engineer" width="100%" />
-</div>
+# Pranay Kadu
 
-# Hi, I'm Pranay Kadu 👋
+**Backend & Distributed Systems Engineer**
 
-**Backend Software Engineer · Java & Spring Boot · Distributed Systems · Reliability**
+**Java 8/11/17 · Spring Boot · Distributed Systems · AWS**
 
-I build backend services where **correctness under concurrency, predictable failure recovery, and measurable performance** matter as much as the happy path. My interests include transactional workflows, event-driven services, JVM tuning, and fault-tolerant infrastructure.
+I build reliable, Java-first backend systems with a focus on **scalable APIs, microservices, event-driven architecture, database performance, and fault tolerance**. I work across the software delivery lifecycle—from system design and implementation to testing, observability, CI/CD, and production troubleshooting.
 
-<p>
-  <a href="https://www.linkedin.com/in/pranaykadu">LinkedIn</a> ·
-  <a href="https://backendarchitectx.github.io/">Portfolio</a> ·
-  <a href="mailto:pranaykadu.softwareengineer@gmail.com">Email</a> ·
-  <a href="https://github.com/BackendArchitectX?tab=repositories">All repositories</a>
-</p>
+**Primary expertise:** Java, Spring Boot, distributed systems, AWS, Kafka, SQL, Redis, Docker, and Kubernetes.
+
+**Broader engineering stack:** React, TypeScript/JavaScript, Python, C++, messaging systems, data engineering foundations, cloud-native delivery, and AI-assisted development.
+
+[LinkedIn](https://www.linkedin.com/in/pranaykadu) · [Portfolio](https://backendarchitectx.github.io/) · [Email](mailto:pranaykadu.softwareengineer@gmail.com) · [Repositories](https://github.com/BackendArchitectX?tab=repositories)
 
 ## Selected engineering work
 
@@ -39,6 +36,34 @@ Vortex CUDA's documented RTX 3050 laptop GPU experiments on **500,000 × 128-dim
 
 [Benchmark methodology](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/BENCHMARKS.md) · [Hardware and repeated-run results](https://github.com/BackendArchitectX/Vortex-CUDA/blob/main/docs/LIVE_BENCHMARK_RTX3050.md). Results are workload- and hardware-specific; FP16 is not universally faster.
 
+## Technical expertise
+
+**Java · Spring Boot · Distributed Systems · AWS** are my main areas of focus. I also work across the broader backend, full-stack, infrastructure, and software engineering ecosystem.
+
+| Engineering focus | Technologies and practices |
+| --- | --- |
+| **Java & JVM** | **Java 8/11/17**, Core Java, J2EE, Collections, Streams, OOP, functional programming, multithreading, concurrency, exception handling |
+| **Spring & backend development** | **Spring Boot**, Spring MVC, Spring Data JPA, Hibernate/JPA, Spring Security, RESTful services, JSP/Servlets, DTO mapping, validation, OpenAPI/Swagger |
+| **Distributed systems & messaging** | **Microservices**, **Apache Kafka**, Redis, IBM MQ, RabbitMQ, event-driven architecture, asynchronous processing, idempotency, retries, circuit breakers |
+| **AWS & cloud-native engineering** | **AWS EC2, EKS, RDS, S3, CloudWatch**, **Docker**, **Kubernetes**, Pivotal Cloud Foundry (PCF), containerized services |
+| **Databases & persistence** | **MySQL**, PostgreSQL, Oracle SQL, **Redis**, SQL optimization, indexing, transactions, isolation levels, optimistic locking; MongoDB exposure |
+| **System design & architecture** | Distributed architecture, SOLID, design patterns, caching, rate limiting, fault tolerance, pagination, transaction boundaries, failure recovery |
+| **Frontend & full-stack** | **React**, TypeScript, JavaScript, HTML5, CSS3, JSP, Spring Boot API integration; Angular fundamentals |
+| **Additional programming & frameworks** | SQL, Python, C++; FastAPI, Flask, Node.js/Express (working exposure); Go (currently exploring) |
+| **Testing & quality engineering** | **JUnit 5**, Mockito, TDD, unit and integration testing, regression tests, negative-path testing, deterministic failure scenarios, code review |
+| **Security & API practices** | Spring Security, OAuth2, JWT, REST API authentication and authorization, input validation, structured error handling |
+| **CI/CD & development tools** | Maven, Gradle, Jenkins, GitHub Actions, CI/CD pipelines, Git, GitHub, GitLab, Bitbucket, Postman |
+| **Performance & observability** | **Java Flight Recorder (JFR)**, JVM profiling, Splunk, Dynatrace, Grafana, metrics, tracing, logging, alerts, root-cause analysis, p95 latency and throughput tuning |
+| **Engineering collaboration** | Agile/Scrum, Jira, Confluence, technical documentation, code reviews, incident investigation, production debugging |
+| **AI-assisted engineering** | GitHub Copilot, Cursor, Claude, coding assistants and agent-based development, with human review and test-based verification |
+
+### Engineering work I deliver
+
+- **Backend and distributed services:** Spring Boot APIs, Kafka-based messaging, resilient service integrations, caching, and transaction-heavy workflows.
+- **Cloud and delivery:** AWS-based deployments, Docker/Kubernetes workflows, CI/CD automation, configuration and operational troubleshooting.
+- **End-to-end features:** React frontends integrated with Java backend services, data persistence, validation, and automated tests.
+- **Reliability and performance:** SQL tuning, concurrency debugging, latency analysis, observability, incident response, and regression prevention.
+
 ## Open-source engineering
 
 I contribute fixes and investigations around concurrency, lifecycle boundaries, RPC identity, transaction ownership, and CI correctness.
@@ -61,34 +86,6 @@ I contribute fixes and investigations around concurrency, lifecycle boundaries, 
 ### Investigation adopted independently upstream
 
 **[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search, wrote regression tests and GUI evidence, and identified a PR workflow that could pass without executing tests. The maintainer [acknowledged the CI finding](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336) and implemented [a smaller search change](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) plus [the workflow fix](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) directly on `main`. **PR #919 was closed without merging.**
-
-## Technical expertise
-
-**Core stack:** Java 8/11/17 · Spring Boot · Spring MVC · Microservices · REST APIs · Kafka · SQL · Redis · AWS · Docker · Kubernetes
-
-| Engineering area | Technologies, frameworks and practices |
-| --- | --- |
-| **Programming languages** | **Java**, SQL, Python, C++, JavaScript, TypeScript; Go (currently exploring) |
-| **Java & JVM ecosystem** | Core Java, J2EE, OOP, Collections, Streams, multithreading, concurrency, functional programming, exception handling, Java 8/11/17 |
-| **Backend frameworks** | **Spring Boot**, Spring MVC, Spring Data JPA, Hibernate/JPA, Spring Security (OAuth2/JWT), JSP/Servlets; FastAPI, Flask and Node.js/Express (working exposure) |
-| **Frontend & full-stack** | **React**, JavaScript, TypeScript, HTML5, CSS3, JSP; Angular fundamentals; integrating React applications with Java/Spring Boot APIs |
-| **APIs & integration** | RESTful APIs, HTTP, JSON, XML, DTOs, validation, exception handling, Swagger/OpenAPI, Postman, service integration |
-| **Microservices & messaging** | Microservices, event-driven architecture, **Apache Kafka**, IBM MQ, RabbitMQ, asynchronous workflows, message processing |
-| **Databases & persistence** | **MySQL**, PostgreSQL, Oracle SQL, **Redis**, SQL optimization, indexing, transactions, isolation levels, optimistic locking; MongoDB exposure |
-| **System design & reliability** | Distributed systems, SOLID, design patterns, idempotency, retry/backoff, circuit breakers, caching, rate limiting, pagination, fault tolerance, concurrency control |
-| **Cloud & infrastructure** | **AWS** (EC2, EKS, S3, RDS, CloudWatch), **Docker**, **Kubernetes**, Pivotal Cloud Foundry (PCF), containerized application delivery |
-| **Build, CI/CD & version control** | **Maven**, Gradle, Jenkins, GitHub Actions, CI/CD pipelines, Git, GitHub, GitLab, Bitbucket |
-| **Testing & code quality** | **JUnit 5**, Mockito, unit/integration tests, TDD, regression and negative-path testing, code review, reproducible test cases |
-| **Monitoring & performance** | JVM profiling, **Java Flight Recorder (JFR)**, Splunk, Dynatrace, Grafana, structured logging, metrics, alerts, root-cause analysis, p95 latency and throughput tuning |
-| **Engineering collaboration** | Jira, Confluence, Agile/Scrum, API documentation, production debugging, incident investigation, technical documentation |
-| **AI-assisted development** | GitHub Copilot, Cursor, Claude and other coding assistants for research, implementation and code review—with tests and manual verification |
-
-### What I build and troubleshoot
-
-- **Backend platforms:** Spring Boot APIs, microservices, transactional workflows, message-driven processing, caching and database-intensive services.
-- **Production systems:** Performance bottlenecks, concurrency issues, integration failures, reliability improvements, observability and incident recovery.
-- **End-to-end features:** React-based interfaces connected to Java APIs, data persistence, validation, automated tests and CI/CD delivery.
-- **Engineering fundamentals:** Clear architecture, maintainable code, secure API patterns, deterministic regression tests and evidence-based optimization.
 
 ## Engineering principle
 
