@@ -1,7 +1,7 @@
 <!-- GitHub profile · BackendArchitectX -->
 
 <a href="https://backendarchitectx.github.io/">
-  <img src="./assets/code-companion.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. Code companion: a custom robot rapidly types, assembles floating code tiles into a module, and launches it into the terminal. The background is transparent and the text adapts to the page theme." />
+  <img src="./assets/bx-systems-robot.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. BX systems robot: an angular robot with a terminal visor and a BX monogram unfolds its own panels into API, Kafka, Redis and SQL nodes, routes a request, and folds back together. Transparent background with adaptive theme colors." />
 </a>
 
 <p align="center">
