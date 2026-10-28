@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="118" height="32" viewBox="0 0 118 32" role="img" aria-label="Portfolio">
-  <rect x=".5" y=".5" width="117" height="31" rx="5" fill="#000000" stroke="#444444"/>
-  <g transform="translate(10 7)" fill="none" stroke="#e8ba8c" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="15" height="12" rx="2"/><path d="m5 6 3 2-3 2m5 0h3"/></g>
-  <text x="36" y="20" fill="#f1e8df" font-family="'DejaVu Sans Mono','Liberation Mono',Consolas,monospace" font-size="10" font-weight="600" letter-spacing=".55">PORTFOLIO</text>
+  <style>:root { --ink:#e6edf3; --edge:#444c56; --accent:#e8ba8c; } @media (prefers-color-scheme:light) { :root { --ink:#24292f; --edge:#c5cbd2; --accent:#8e531c; } }</style>
+  <rect x=".5" y=".5" width="117" height="31" rx="5" fill="none" stroke="var(--edge)"/>
+  <g transform="translate(10 7)" fill="none" stroke="var(--accent)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="15" height="12" rx="2"/><path d="m5 6 3 2-3 2m5 0h3"/></g>
+  <text x="36" y="20" fill="var(--ink)" font-family="'DejaVu Sans Mono','Liberation Mono',Consolas,monospace" font-size="10" font-weight="600" letter-spacing=".55">PORTFOLIO</text>
 </svg>

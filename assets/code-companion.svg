@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="companion-robot-title companion-robot-description">
+  <title id="companion-robot-title">Pranay Kadu — Code companion</title>
+  <desc id="companion-robot-description">BackendArchitectX. Backend Software Engineer working with Java, Spring Boot, Distributed Systems and AWS. A custom robot quickly types, projects three floating code tiles, assembles them into a module and sends the module into the terminal. The canvas, terminal and outer edges are transparent. Build for failure. Preserve the invariant.</desc>
+  <defs>
+    <clipPath id="companion-frame"><rect x=".5" y=".5" width="1119" height="649" rx="18" /></clipPath>
+    <clipPath id="term-command-clip"><rect class="term-motion term-reveal" x="86" y="425" width="578" height="48" /></clipPath>
+    <linearGradient id="bot-metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--metal-one)" /><stop offset=".55" stop-color="var(--metal-two)" /><stop offset="1" stop-color="var(--surface)" /></linearGradient>
+  </defs>
+  <style>
+  :root {
+    --ink:#e6edf3; --muted:#a3adb9; --accent:#e8ba8c; --strong:#f6cc9b;
+    --line:#404953; --surface:#151d27; --mint:#b0e8ca;
+    --metal-one:#29313b; --metal-two:#121820; --robot-edge:#b58d65; --soft-edge:#74634e;
+  }
+
+  text { font-family: 'Segoe UI', Arial, sans-serif; fill: var(--ink); }
+  .mono { font-family: 'DejaVu Sans Mono', 'Liberation Mono', Consolas, monospace; }
+  .brand, .edition { font-size: 18px; fill: var(--muted); }
+  .edition { letter-spacing: 1.5px; }
+  .kicker { font-size: 18px; fill: var(--accent); letter-spacing: 2px; }
+  .name { font-size: 68px; font-weight: 500; letter-spacing: -2.4px; }
+  .role { font-size: 24px; }
+  .stack { font-size: 20px; fill: var(--muted); }
+  .stack-mobile { display: none; }
+  .footer { font-size: 18px; fill: var(--muted); }
+  .term-title { font-size: 17px; fill: var(--muted); }
+  .term-command { font-size: 20px; fill: var(--ink); }
+  .term-comment, .term-output { font-size: 19px; fill: var(--muted); }
+  .term-comment { fill: var(--accent); }
+  .term-prompt { fill: var(--accent); }
+  .term-ready { font-size: 18px; fill: var(--mint); }
+  .term-one { opacity: 1; animation: term-one 6s steps(1, end) infinite; }
+  .term-two { opacity: 0; animation: term-two 6s steps(1, end) infinite; }
+  .term-three { opacity: 0; animation: term-three 6s steps(1, end) infinite; }
+  .term-reveal { animation: term-reveal 2s linear infinite; }
+  .term-cursor { animation: term-cursor .6s steps(1, end) infinite; }
+  .bot-travel { animation: bot-travel 1.2s ease-in-out infinite; }
+  .bot-hop { animation: bot-hop .4s ease-in-out infinite; }
+  .bot-head { transform-origin: 114px 77px; animation: bot-head .8s ease-in-out infinite; }
+  .bot-left-arm { transform-origin: 71px 140px; animation: bot-left-arm .22s ease-in-out infinite; }
+  .bot-right-arm { transform-origin: 160px 140px; animation: bot-right-arm .22s ease-in-out infinite; }
+  .bot-left-leg { animation: bot-left-leg .32s ease-in-out infinite; }
+  .bot-right-leg { animation: bot-right-leg .32s ease-in-out infinite; }
+  .bot-eyes { transform-origin: 114px 77px; animation: bot-eyes 2.4s ease-in-out infinite; }
+  .signal-bars path { transform-origin: 330px 75px; animation: signal-amplitude 3.7s ease-in-out infinite; animation-delay: var(--signal-delay); }
+  .signal-wave-front { transform-origin: 330px 75px; animation: signal-front 5s ease-in-out infinite; }
+  .signal-wave-back { transform-origin: 330px 75px; animation: signal-back 7s ease-in-out infinite; }
+  .signal-travel { animation: signal-travel 6s linear infinite; }
+  @keyframes term-one { 0%, 33.32% { opacity: 1; } 33.33%, 100% { opacity: 0; } }
+  @keyframes term-two { 0%, 33.32% { opacity: 0; } 33.33%, 66.65% { opacity: 1; } 66.66%, 100% { opacity: 0; } }
+  @keyframes term-three { 0%, 66.65% { opacity: 0; } 66.66%, 100% { opacity: 1; } }
+  @keyframes term-reveal { 0% { width: 0px; } 34%, 96%, 100% { width: 578px; } }
+  @keyframes term-cursor { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @keyframes bot-travel { 0%, 100% { transform: translateX(-5px); } 50% { transform: translateX(5px); } }
+  @keyframes bot-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes bot-head { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(2deg); } }
+  @keyframes bot-left-arm { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(8deg); } }
+  @keyframes bot-right-arm { 0%, 100% { transform: rotate(7deg); } 50% { transform: rotate(-8deg); } }
+  @keyframes bot-left-leg { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @keyframes bot-right-leg { 0%, 100% { transform: translateY(-5px); } 50% { transform: translateY(0); } }
+  @keyframes bot-eyes { 0%, 41%, 48%, 100% { transform: scaleY(1); } 44%, 45% { transform: scaleY(.14); } }
+  @keyframes signal-amplitude { 0%, 100% { transform: scaleY(var(--signal-scale)); opacity: .3; } 50% { transform: scaleY(.9); opacity: .8; } }
+  @keyframes signal-front { 0%, 100% { transform: scaleY(.45); } 50% { transform: scaleY(.95); } }
+  @keyframes signal-back { 0%, 100% { transform: scaleY(-.8); } 50% { transform: scaleY(-.4); } }
+  @keyframes signal-travel { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  @media (max-width: 600px) {
+    .brand { font-size: 40px; }
+    .edition, .kicker, .stack-desktop, .portfolio, .term-title { display: none; }
+    .name { font-size: 92px; letter-spacing: -3px; transform: translateY(-55px); }
+    .role { font-size: 40px; transform: translateY(-49px); }
+    .stack-mobile { display: inline; font-size: 40px; transform: translateY(-58px); }
+    .footer { font-size: 40px; }
+    .term-command { font-size: 36px; }
+    .term-comment, .term-output, .term-ready { font-size: 29px; }
+    .term-cursor { transform: translateX(130px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .robot-motion, .term-motion, .signal-motion { animation: none !important; }
+    .term-one { opacity: 1; } .term-two, .term-three { opacity: 0; }
+    .term-reveal { width: 578px; }
+    .signal-bars path { transform: scaleY(.6); opacity: .55; }
+    .signal-wave-front { transform: scaleY(.65); }
+    .signal-wave-back { transform: scaleY(-.55); }
+    .signal-travel { opacity: 0; }
+  }
+
+  .bot-head { animation: companion-look 6s ease-in-out infinite; }
+  .companion-gesture { transform-origin:71px 140px; animation: companion-gesture 6s ease-in-out infinite; }
+  .code-tile rect { fill:var(--surface); fill-opacity:.55; stroke:var(--accent); stroke-width:1.3; }
+  .code-tile text { fill:var(--accent); font-size:26px; text-anchor:middle; }
+  .code-tile-one { opacity:0; animation: code-tile-one 6s ease-in-out infinite; }
+  .code-tile-two { opacity:0; animation: code-tile-two 6s ease-in-out infinite; }
+  .code-tile-three { opacity:0; animation: code-tile-three 6s ease-in-out infinite; }
+  .code-module { opacity:0; animation: code-module 6s ease-in-out infinite; }
+  .module-guide { opacity:0; animation: module-guide 6s ease-in-out infinite; }
+  .code-arrival { transform-origin:660px 455px; opacity:0; animation: code-arrival 6s ease-out infinite; }
+  @keyframes companion-look {
+    0%,12%,24%,100% { transform:rotate(-3deg); }
+    6%,18% { transform:rotate(2deg); }
+    34%,50% { transform:rotate(-11deg); }
+    68% { transform:rotate(6deg); }
+    82% { transform:rotate(0deg); }
+  }
+  @keyframes companion-gesture {
+    0%,24%,78%,100% { transform:rotate(0deg); }
+    36%,55% { transform:rotate(82deg); }
+    63% { transform:rotate(44deg); }
+  }
+  @keyframes code-tile-one {
+    0%,6% { opacity:0; transform:translate(840px,350px) rotate(-9deg); }
+    14%,24% { opacity:1; transform:translate(828px,248px) rotate(-9deg); }
+    39% { opacity:0; transform:translate(934px,290px) rotate(0deg) scale(.4); }
+    100% { opacity:0; transform:translate(934px,290px) scale(.4); }
+  }
+  @keyframes code-tile-two {
+    0%,10% { opacity:0; transform:translate(1006px,282px) rotate(8deg); }
+    18%,27% { opacity:1; transform:translate(1008px,199px) rotate(8deg); }
+    40% { opacity:0; transform:translate(934px,290px) rotate(0deg) scale(.4); }
+    100% { opacity:0; transform:translate(934px,290px) scale(.4); }
+  }
+  @keyframes code-tile-three {
+    0%,14% { opacity:0; transform:translate(1038px,386px) rotate(6deg); }
+    22%,29% { opacity:1; transform:translate(1031px,320px) rotate(6deg); }
+    41% { opacity:0; transform:translate(934px,290px) rotate(0deg) scale(.4); }
+    100% { opacity:0; transform:translate(934px,290px) scale(.4); }
+  }
+  @keyframes code-module {
+    0%,33% { opacity:0; transform:translate(934px,290px) scale(.35); }
+    42%,48% { opacity:1; transform:translate(934px,282px) scale(1); }
+    56% { opacity:1; transform:translate(857px,269px) rotate(15deg); }
+    64% { opacity:1; transform:translate(763px,305px) rotate(-9deg) scale(.9); }
+    70% { opacity:1; transform:translate(688px,374px) rotate(8deg) scale(.6); }
+    75% { opacity:0; transform:translate(660px,455px) scale(.1); }
+    100% { opacity:0; transform:translate(660px,455px) scale(.1); }
+  }
+  @keyframes module-guide { 0%,32%,80%,100% { opacity:0; } 42%,69% { opacity:.19; } }
+  @keyframes code-arrival {
+    0%,71% { opacity:0; transform:scale(.5); }
+    75% { opacity:.65; transform:scale(.7); }
+    87%,100% { opacity:0; transform:scale(3.5); }
+  }
+  @media (prefers-color-scheme:light) {
+    :root {
+      --ink:#24292f; --muted:#59636e; --accent:#8e531c; --strong:#9b5a1d;
+      --line:#c5cbd2; --surface:#edf1f5; --mint:#28744d;
+      --metal-one:#f1f3f5; --metal-two:#dce3e8; --robot-edge:#926032; --soft-edge:#b2a18d;
+    }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .code-tile-one { opacity:.8; transform:translate(828px,248px) rotate(-9deg); }
+    .code-tile-two { opacity:.8; transform:translate(1008px,199px) rotate(8deg); }
+    .code-tile-three { opacity:.8; transform:translate(1031px,320px) rotate(6deg); }
+    .code-module, .code-arrival, .module-guide { opacity:0; }
+  }
+</style>
+  <g clip-path="url(#companion-frame)">
+    <path d="M42 81H1078M42 598H1078" fill="none" stroke="var(--line)" stroke-width="1.4" />
+    <text class="mono brand" x="42" y="49">BackendArchitectX</text>
+    <text class="mono edition" x="1078" y="49" text-anchor="end">CODE · BUILD · SHIP</text>
+    <text class="mono kicker" x="42" y="154">THOUGHTFUL CODE. RELIABLE SYSTEMS.</text>
+    <text class="name" x="42" y="236">Pranay Kadu<tspan fill="var(--accent)">.</tspan></text>
+    <text class="role" x="42" y="285">Backend Software Engineer</text>
+    <text class="mono stack stack-desktop" x="42" y="324">Java · Spring Boot · Distributed Systems · AWS</text>
+    <text class="mono stack stack-mobile" x="42" y="344">Java · Spring Boot</text>
+    <text class="mono stack stack-mobile" x="42" y="394">Distributed Systems · AWS</text>
+
+    <g id="robot-terminal">
+      <rect x="42" y="354" width="665" height="219" rx="11" fill="none" stroke="var(--line)" stroke-width="1.4" />
+      <path d="M42 390H707" stroke="var(--line)" stroke-width="1.1" />
+      <g fill="#9d7955"><circle cx="62" cy="373" r="4" /><circle cx="78" cy="373" r="4" opacity=".65" /><circle cx="94" cy="373" r="4" opacity=".35" /></g>
+      <text class="mono term-title" x="374" y="379" text-anchor="middle">pranay@github:~/backend</text>
+      <text class="mono term-comment" x="66" y="419"># build. ship. repeat.</text>
+      <text class="mono term-command term-prompt" x="66" y="455">$</text>
+      <g class="term-motion term-one">
+        <text class="mono term-command" x="86" y="455" clip-path="url(#term-command-clip)">./mvnw clean package</text>
+        <text class="mono term-output" x="66" y="494">&gt; compile · test · package</text>
+      </g>
+      <g class="term-motion term-two">
+        <text class="mono term-command" x="86" y="455" clip-path="url(#term-command-clip)">docker compose up -d</text>
+        <text class="mono term-output" x="66" y="494">&gt; services · events · storage</text>
+      </g>
+      <g class="term-motion term-three">
+        <text class="mono term-command" x="86" y="455" clip-path="url(#term-command-clip)">git push origin main</text>
+        <text class="mono term-output" x="66" y="494">&gt; ship · learn · improve</text>
+      </g>
+      <text class="mono term-ready" x="66" y="548">backendarchitectx &gt;</text>
+      <rect class="term-motion term-cursor" x="285" y="532" width="10" height="19" rx="1" fill="var(--mint)" />
+    </g>
+
+    <g class="companion-wave-mini" transform="translate(772 526) scale(.45)">
+              <defs><linearGradient id="signal-wave"><stop stop-color="var(--accent)" stop-opacity="0" /><stop offset=".25" stop-color="var(--accent)" stop-opacity=".5" /><stop offset=".5" stop-color="var(--strong)" /><stop offset=".75" stop-color="var(--accent)" stop-opacity=".5" /><stop offset="1" stop-color="var(--accent)" stop-opacity="0" /></linearGradient><radialGradient id="signal-aura"><stop stop-color="var(--accent)" stop-opacity=".14" /><stop offset="1" stop-color="var(--accent)" stop-opacity="0" /></radialGradient><filter id="signal-glow" x="-10%" y="-100%" width="120%" height="300%"><feGaussianBlur stdDeviation="3" /></filter></defs>
+              <ellipse cx="330" cy="75" rx="300" ry="74" fill="url(#signal-aura)" opacity="0" />
+              <g stroke="var(--line)" stroke-opacity=".22" stroke-width=".7"><path d="M20 75H640M20 35H640M20 115H640" /><path d="M90 20V130M210 20V130M330 10V140M450 20V130M570 20V130" /></g>
+              <g fill="none" stroke="url(#signal-wave)" stroke-linecap="round">
+                <path class="signal-motion signal-wave-back" d="M10 75C60 75 65 65 95 75S130 101 153 75S181 28 205 75S233 130 254 75S282 8 303 75S331 146 352 75S381 13 402 75S430 120 452 75S480 46 503 75S537 92 562 75S608 75 650 75" stroke-width="1" stroke-opacity=".5" />
+                <path class="signal-motion signal-wave-front" d="M10 75C60 75 65 65 95 75S130 101 153 75S181 28 205 75S233 130 254 75S282 8 303 75S331 146 352 75S381 13 402 75S430 120 452 75S480 46 503 75S537 92 562 75S608 75 650 75" stroke-width="1.7" />
+                <path d="M20 75H640" stroke-width="1" />
+              </g>
+              <g class="signal-bars" stroke="var(--accent)" stroke-width="2" stroke-linecap="round">
+                <path class="signal-motion" style="--signal-delay:-.2s;--signal-scale:.3" d="M198 66V84" /><path class="signal-motion" style="--signal-delay:-.5s;--signal-scale:.6" d="M210 59V91" /><path class="signal-motion" style="--signal-delay:-.8s;--signal-scale:.2" d="M222 48V102" /><path class="signal-motion" style="--signal-delay:-1.1s;--signal-scale:.5" d="M234 55V95" /><path class="signal-motion" style="--signal-delay:-1.4s;--signal-scale:.3" d="M246 35V115" /><path class="signal-motion" style="--signal-delay:-1.7s;--signal-scale:.5" d="M258 44V106" /><path class="signal-motion" style="--signal-delay:-2s;--signal-scale:.2" d="M270 21V129" /><path class="signal-motion" style="--signal-delay:-2.3s;--signal-scale:.4" d="M282 38V112" /><path class="signal-motion" style="--signal-delay:-2.6s;--signal-scale:.25" d="M294 13V137" /><path class="signal-motion" style="--signal-delay:-2.9s;--signal-scale:.5" d="M306 30V120" /><path class="signal-motion" style="--signal-delay:-3.2s;--signal-scale:.3" d="M318 9V141" /><path class="signal-motion" style="--signal-delay:-3.5s;--signal-scale:.45" d="M330 24V126" /><path class="signal-motion" style="--signal-delay:-3.8s;--signal-scale:.2" d="M342 14V136" /><path class="signal-motion" style="--signal-delay:-.3s;--signal-scale:.5" d="M354 31V119" /><path class="signal-motion" style="--signal-delay:-.6s;--signal-scale:.3" d="M366 25V125" /><path class="signal-motion" style="--signal-delay:-.9s;--signal-scale:.6" d="M378 42V108" /><path class="signal-motion" style="--signal-delay:-1.2s;--signal-scale:.2" d="M390 33V117" /><path class="signal-motion" style="--signal-delay:-1.5s;--signal-scale:.45" d="M402 50V100" /><path class="signal-motion" style="--signal-delay:-1.8s;--signal-scale:.3" d="M414 48V102" /><path class="signal-motion" style="--signal-delay:-2.1s;--signal-scale:.6" d="M426 62V88" /><path class="signal-motion" style="--signal-delay:-2.4s;--signal-scale:.25" d="M438 64V86" />
+              </g>
+              <path class="signal-motion signal-travel" d="M20 75H640" pathLength="100" stroke="var(--strong)" stroke-width="3" stroke-dasharray="1 99" filter="url(#signal-glow)" />
+            
+    </g>
+    
+
+    <g id="code-assembly">
+  <path class="robot-motion module-guide" d="M934 282C832 236 701 297 660 455" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3 8" />
+  <g class="robot-motion code-tile code-tile-one"><rect x="-28" y="-22" width="56" height="44" rx="8" /><text class="mono" y="8">{ }</text></g>
+  <g class="robot-motion code-tile code-tile-two"><rect x="-31" y="-22" width="62" height="44" rx="8" /><text class="mono" y="8">&lt;/&gt;</text></g>
+  <g class="robot-motion code-tile code-tile-three"><rect x="-28" y="-22" width="56" height="44" rx="8" /><text class="mono" y="8">&gt;_</text></g>
+  <g class="robot-motion code-module" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M0-31L29-15V18L0 34L-29 18V-15Z" fill="var(--surface)" fill-opacity=".82" />
+    <path d="M-29-15L0 2L29-15M0 2V34" fill="none" />
+    <path d="M-14-23L15-6M14-23L-15-6" stroke-opacity=".4" fill="none" />
+    <path d="M-19 2L-10 7M-19 10L-10 15M10 7L19 2M10 15L19 10" stroke="var(--mint)" stroke-width="2.5" />
+  </g>
+  <circle class="robot-motion code-arrival" cx="660" cy="455" r="9" fill="none" stroke="var(--mint)" stroke-width="1.5" />
+</g><g id="companion-robot" transform="translate(817 344)">
+      <ellipse cx="112" cy="211" rx="82" ry="6" fill="var(--accent)" fill-opacity=".06" />
+      <g class="robot-motion bot-travel">
+        <g class="robot-motion bot-hop">
+          <g class="robot-motion bot-left-leg"><rect x="86" y="176" width="20" height="28" rx="7" fill="var(--surface)" stroke="var(--robot-edge)" stroke-width="1.5" /><rect x="74" y="197" width="38" height="12" rx="5" fill="var(--surface)" stroke="var(--strong)" stroke-width="1.5" /></g>
+          <g class="robot-motion bot-right-leg"><rect x="129" y="176" width="20" height="28" rx="7" fill="var(--surface)" stroke="var(--robot-edge)" stroke-width="1.5" /><rect x="126" y="197" width="38" height="12" rx="5" fill="var(--surface)" stroke="var(--strong)" stroke-width="1.5" /></g>
+          <rect x="104" y="108" width="23" height="19" rx="5" fill="var(--surface)" stroke="var(--robot-edge)" stroke-width="1.5" />
+          <rect x="71" y="122" width="91" height="65" rx="17" fill="url(#bot-metal)" stroke="var(--strong)" stroke-width="2" />
+          <rect x="89" y="136" width="56" height="33" rx="6" fill="var(--surface)" stroke="var(--soft-edge)" stroke-width="1.2" />
+          <path d="M100 146L107 152L100 158M114 158H126" fill="none" stroke="var(--accent)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M103 178H130" stroke="var(--soft-edge)" stroke-width="1.5" />
+          <g class="robot-motion companion-gesture"><g class="robot-motion bot-left-arm" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M73 138L45 152L33 171" stroke="var(--robot-edge)" stroke-width="14" /><path d="M73 138L45 152L33 171" stroke="var(--surface)" stroke-width="10" /><circle cx="44" cy="152" r="6" fill="var(--surface)" stroke="var(--strong)" stroke-width="1.5" /><path d="M28 175H42" stroke="var(--strong)" stroke-width="6" />
+          </g>
+          </g><g class="robot-motion bot-right-arm" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M160 139L173 157L98 175" stroke="var(--robot-edge)" stroke-width="14" /><path d="M160 139L173 157L98 175" stroke="var(--surface)" stroke-width="10" /><circle cx="173" cy="157" r="6" fill="var(--surface)" stroke="var(--strong)" stroke-width="1.5" /><path d="M91 178H107" stroke="var(--strong)" stroke-width="6" />
+          </g>
+          <g class="robot-motion bot-head">
+            <path d="M114 36V18" fill="none" stroke="var(--robot-edge)" stroke-width="2.5" /><circle cx="114" cy="14" r="5" fill="var(--accent)" />
+            <rect x="47" y="62" width="12" height="25" rx="5" fill="var(--surface)" stroke="var(--robot-edge)" stroke-width="1.5" /><rect x="169" y="62" width="12" height="25" rx="5" fill="var(--surface)" stroke="var(--robot-edge)" stroke-width="1.5" />
+            <rect x="57" y="37" width="114" height="75" rx="21" fill="url(#bot-metal)" stroke="var(--accent)" stroke-width="2" />
+            <rect x="67" y="48" width="94" height="52" rx="14" fill="var(--surface)" stroke="var(--soft-edge)" stroke-width="1" />
+            <g class="robot-motion bot-eyes" fill="var(--mint)"><rect x="82" y="65" width="18" height="11" rx="4" /><rect x="128" y="65" width="18" height="11" rx="4" /></g>
+            <path d="M104 88Q114 94 124 88" fill="none" stroke="var(--strong)" stroke-width="2" stroke-linecap="round" />
+            <path d="M82 106H96M133 106H147" stroke="var(--soft-edge)" stroke-width="2" stroke-linecap="round" />
+          </g>
+        </g>
+        <g id="robot-keyboard" transform="translate(13 180) rotate(-5)">
+          <rect width="105" height="20" rx="5" fill="var(--surface)" stroke="var(--robot-edge)" stroke-width="1.5" />
+          <path d="M9 6H95M9 12H95M20 4V14M34 4V14M48 4V14M62 4V14M76 4V14M90 4V14" stroke="var(--soft-edge)" stroke-width="1" />
+        </g>
+      </g>
+    </g>
+    <text class="mono footer" x="42" y="630">Build for failure. Preserve the invariant.</text>
+    <text class="mono footer portfolio" x="1078" y="630" text-anchor="end">backendarchitectx.github.io</text>
+  </g>
+  </svg>
