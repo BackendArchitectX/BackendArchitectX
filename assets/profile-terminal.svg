@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470" fill="none" role="img" aria-labelledby="title desc" xml:space="preserve">
+  <title id="title">Pranay Kadu — BackendArchitectX</title>
+  <desc id="desc">Terminal profile: Backend Software Engineer. Java, Spring Boot, distributed systems, AWS, Kafka, SQL and Redis. Build for failure. Measure before optimizing. Preserve the invariant.</desc>
+  <defs>
+    <clipPath id="window"><rect x="0.5" y="0.5" width="799" height="469" rx="12"/></clipPath>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#ffffff" opacity="0.018"/></pattern>
+    <linearGradient id="rack" x1="50" y1="125" x2="227" y2="294" gradientUnits="userSpaceOnUse"><stop stop-color="#7ee787"/><stop offset="1" stop-color="#56d4dd"/></linearGradient>
+  </defs>
+  <style>
+    text { font-family: 'DejaVu Sans Mono', 'Liberation Mono', Consolas, monospace; font-size: 14px; fill: #e6edf3; white-space: pre; }
+    .muted { fill: #8b949e; }
+    .green { fill: #7ee787; }
+    .cyan { fill: #79c0ff; }
+    .small { font-size: 12px; }
+    .label { fill: #7ee787; font-weight: 700; }
+    .cursor { animation: blink 1.2s steps(1, end) infinite; }
+    .packet { animation: pulse 3s ease-in-out infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 50% { opacity: 0.35; } }
+    @media (prefers-reduced-motion: reduce) { .cursor, .packet { animation: none; } }
+  </style>
+  <g clip-path="url(#window)">
+    <rect width="800" height="470" fill="#0d1117"/>
+    <rect width="800" height="36" fill="#161b22"/>
+    <path d="M0 36H800" stroke="#30363d"/>
+    <circle cx="22" cy="18" r="5.5" fill="#ff5f57"/>
+    <circle cx="42" cy="18" r="5.5" fill="#febc2e"/>
+    <circle cx="62" cy="18" r="5.5" fill="#28c840"/>
+    <text x="400" y="23" text-anchor="middle" class="muted small">pranay@github: ~ — bash</text>
+
+    <text x="24" y="68"><tspan class="green" font-weight="700">pranay@github</tspan><tspan class="muted">:</tspan><tspan class="cyan">~</tspan><tspan class="muted">$</tspan><tspan x="167">neofetch</tspan></text>
+
+    <!-- Original pixel server motif; decorative, not a system diagram. -->
+    <g transform="translate(40 114)">
+      <path d="M24 46H0V158H24M166 46H190V158H166" stroke="#30363d" stroke-width="2"/>
+      <path d="M95 174V194M39 194H151M39 194V205M151 194V205" stroke="#3b6250" stroke-width="2"/>
+      <g stroke="url(#rack)" stroke-width="2">
+        <rect x="24" y="8" width="142" height="48" rx="5" fill="#111d1c"/>
+        <rect x="24" y="67" width="142" height="48" rx="5" fill="#111d1c"/>
+        <rect x="24" y="126" width="142" height="48" rx="5" fill="#111d1c"/>
+      </g>
+      <g fill="#7ee787">
+        <rect x="38" y="23" width="9" height="18" rx="1"/><rect x="51" y="23" width="9" height="18" rx="1" opacity="0.55"/>
+        <rect x="38" y="82" width="9" height="18" rx="1"/><rect x="51" y="82" width="9" height="18" rx="1" opacity="0.55"/>
+        <rect x="38" y="141" width="9" height="18" rx="1"/><rect x="51" y="141" width="9" height="18" rx="1" opacity="0.55"/>
+      </g>
+      <g stroke="#345b47" stroke-width="2"><path d="M76 27H118M76 35H107M76 86H118M76 94H107M76 145H118M76 153H107"/></g>
+      <g fill="#56d4dd" class="packet"><rect x="140" y="28" width="8" height="8" rx="1"/><rect x="140" y="87" width="8" height="8" rx="1"/><rect x="140" y="146" width="8" height="8" rx="1"/></g>
+      <rect x="29" y="205" width="20" height="8" rx="1" fill="#7ee787"/><rect x="141" y="205" width="20" height="8" rx="1" fill="#56d4dd"/>
+      <text x="95" y="241" text-anchor="middle" class="muted small">&lt; BackendArchitectX /&gt;</text>
+    </g>
+
+    <text x="274" y="102" class="green" font-weight="700">pranay@BackendArchitectX</text>
+    <text x="274" y="122" class="muted">───────────────────────</text>
+    <text x="274" y="148"><tspan class="label">Name:</tspan><tspan x="350">Pranay Kadu</tspan></text>
+    <text x="274" y="170"><tspan class="label">Role:</tspan><tspan x="350">Backend Software Engineer</tspan></text>
+    <text x="274" y="192"><tspan class="label">Kernel:</tspan><tspan x="350">Java 8 / 11 / 17 · Spring Boot</tspan></text>
+    <text x="274" y="214"><tspan class="label">Arch:</tspan><tspan x="350">Distributed Systems · Microservices</tspan></text>
+    <text x="274" y="236"><tspan class="label">Cloud:</tspan><tspan x="350">AWS · Docker · Kubernetes</tspan></text>
+    <text x="274" y="258"><tspan class="label">Queue:</tspan><tspan x="350">Kafka · IBM MQ · RabbitMQ</tspan></text>
+    <text x="274" y="280"><tspan class="label">Data:</tspan><tspan x="350">SQL · Redis</tspan></text>
+    <text x="274" y="302"><tspan class="label">Web:</tspan><tspan x="350">backendarchitectx.github.io</tspan></text>
+    <g transform="translate(274 320)">
+      <rect width="25" height="13" fill="#ff7b72"/><rect x="25" width="25" height="13" fill="#ffa657"/><rect x="50" width="25" height="13" fill="#e3b341"/><rect x="75" width="25" height="13" fill="#7ee787"/><rect x="100" width="25" height="13" fill="#56d4dd"/><rect x="125" width="25" height="13" fill="#79c0ff"/><rect x="150" width="25" height="13" fill="#d2a8ff"/><rect x="175" width="25" height="13" fill="#e6edf3"/>
+    </g>
+
+    <text x="24" y="374"><tspan class="green" font-weight="700">pranay@github</tspan><tspan class="muted">:</tspan><tspan class="cyan">~</tspan><tspan class="muted">$</tspan><tspan x="167">cat ~/.plan</tspan></text>
+    <text x="24" y="397"><tspan class="green">[x]</tspan><tspan x="58">build reliable backends</tspan></text>
+    <text x="24" y="418"><tspan class="green">[x]</tspan><tspan x="58">measure performance · preserve correctness</tspan></text>
+    <text x="24" y="439"><tspan class="cyan">[~]</tspan><tspan x="58">contribute upstream · learn in public</tspan></text>
+    <rect x="379" y="428" width="8" height="14" fill="#7ee787" class="cursor"/>
+    <rect y="36" width="800" height="434" fill="url(#scan)" pointer-events="none"/>
+  </g>
+  <rect x="0.5" y="0.5" width="799" height="469" rx="12" stroke="#30363d"/>
+</svg>
