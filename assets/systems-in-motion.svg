@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="640" viewBox="0 0 1040 640" fill="#e7f0ed" font-size="14" role="img" aria-labelledby="title desc">
+<title id="title">Pranay Kadu — BackendArchitectX · Systems in motion</title>
+<desc id="desc">Backend Software Engineer. Java 8, 11 and 17, Spring Boot, distributed systems, microservices, AWS, Docker, Kubernetes, Kafka, IBM MQ, RabbitMQ, SQL and Redis. An illustrative 18-second architecture animation assembles a service graph, traces requests, demonstrates a transient failure and bounded retry, and verifies the one-logical-write invariant. This is an architecture simulation, not production telemetry. All profile details also appear as readable Markdown below.</desc>
+<defs>
+  <linearGradient id="background" x1="0" y1="0" x2="1040" y2="640" gradientUnits="userSpaceOnUse"><stop stop-color="#101b1f"/><stop offset=".55" stop-color="#080f14"/><stop offset="1" stop-color="#101a1b"/></linearGradient>
+  <radialGradient id="ambient"><stop stop-color="#25595a" stop-opacity=".65"/><stop offset="1" stop-color="#0b1419" stop-opacity="0"/></radialGradient>
+  <linearGradient id="tile" x1="648" y1="220" x2="812" y2="315" gradientUnits="userSpaceOnUse"><stop stop-color="#244941"/><stop offset="1" stop-color="#0e2326"/></linearGradient>
+  <linearGradient id="edge" x1="650" y1="240" x2="812" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#b6ff77"/><stop offset="1" stop-color="#5ddfe5"/></linearGradient>
+  <linearGradient id="beam"><stop stop-color="#a5ff75" stop-opacity="0"/><stop offset="1" stop-color="#a5ff75" stop-opacity=".35"/></linearGradient>
+  <linearGradient id="sweep"><stop stop-color="#b6ff77" stop-opacity="0"/><stop offset=".5" stop-color="#b6ff77" stop-opacity=".5"/><stop offset="1" stop-color="#b6ff77" stop-opacity="0"/></linearGradient>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#5b7b7f" opacity=".19"/></pattern>
+  <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 1H4" stroke="#fff" stroke-opacity=".018"/></pattern>
+  <filter id="glow" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="window"><rect x=".5" y=".5" width="1039" height="639" rx="16"/></clipPath>
+  <clipPath id="console"><rect x="37" y="483" width="966" height="68" rx="8"/></clipPath>
+</defs>
+<style>
+  text { font-family: 'DejaVu Sans Mono', 'Liberation Mono', Consolas, monospace; }
+  .sans { font-family: 'Segoe UI', Arial, sans-serif; }
+  .muted { fill: #829b9f; } .mint { fill: #b6ff77; } .cyan { fill: #68e6ed; }
+  .tiny { font-size: 10px; letter-spacing: 1.6px; } .small { font-size: 12px; }
+  .scene { opacity: 0; } .s3 { opacity: 1; }
+  .s0 { animation: phase0 18s linear infinite; }
+  .s1 { animation: phase1 18s linear infinite; }
+  .s2 { animation: phase2 18s linear infinite; }
+  .s3 { animation: phase3 18s linear infinite; }
+  @keyframes phase0 { 0%,20% { opacity: 1; } 22%,98% { opacity: 0; } 100% { opacity: 1; } }
+  @keyframes phase1 { 0%,20% { opacity: 0; } 22%,48% { opacity: 1; } 50%,100% { opacity: 0; } }
+  @keyframes phase2 { 0%,48% { opacity: 0; } 50%,70% { opacity: 1; } 72%,100% { opacity: 0; } }
+  @keyframes phase3 { 0%,70% { opacity: 0; } 72%,98% { opacity: 1; } 100% { opacity: 0; } }
+  .wire { stroke-dasharray: 420; stroke-dashoffset: 0; animation: wire 18s ease-in-out infinite; }
+  @keyframes wire { 0% { stroke-dashoffset: 420; opacity: .1; } 18%,97% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 420; opacity: .1; } }
+  .top-tier { animation: top-tier 18s ease-in-out infinite; }
+  .mid-tier { animation: mid-tier 18s ease-in-out infinite; }
+  .bottom-tier { animation: bottom-tier 18s ease-in-out infinite; }
+  @keyframes top-tier { 0% { transform: translateY(-48px); opacity: .25; } 15%,96% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-48px); opacity: .25; } }
+  @keyframes mid-tier { 0% { transform: translateX(-22px); opacity: .25; } 18%,96% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(-22px); opacity: .25; } }
+  @keyframes bottom-tier { 0% { transform: translateY(26px); opacity: .25; } 12%,96% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(26px); opacity: .25; } }
+  .signal-ring { animation: signal 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes signal { from { transform: scale(.6); opacity: .6; } to { transform: scale(1.5); opacity: 0; } }
+  .orbit { stroke-dasharray: 11 9 2 9; animation: orbit 9s linear infinite; }
+  @keyframes orbit { to { stroke-dashoffset: -248; } }
+  .halo { animation: halo 4s ease-in-out infinite; }
+  @keyframes halo { 50% { opacity: .075; } }
+  .db-frame { animation: db-frame 18s linear infinite; }
+  @keyframes db-frame { 0%,48%,74%,100% { stroke: #345a52; } 51%,70% { stroke: #ffba69; } }
+  .db-light { fill: #b6ff77; animation: db-light 18s linear infinite; }
+  @keyframes db-light { 0%,48%,74%,100% { fill: #b6ff77; } 51%,70% { fill: #ffba69; } }
+  .recovery-pulse { animation: recovery-pulse 1.5s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes recovery-pulse { from { transform: scale(.8); opacity: .8; } to { transform: scale(1.8); opacity: 0; } }
+  .traffic { animation: traffic 18s linear infinite; }
+  @keyframes traffic { 0%,19%,50%,71%,100% { opacity: 0; } 23%,47%,75%,97% { opacity: 1; } }
+  .beam { animation: beam 4s ease-in-out infinite; transform-origin: 730px 295px; }
+  @keyframes beam { 50% { opacity: .12; transform: scaleY(.85); } }
+  .cursor { animation: blink 1.1s steps(1,end) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .progress0 { animation: progress0 18s linear infinite; }
+  .progress1 { animation: progress1 18s linear infinite; }
+  .progress2 { animation: progress2 18s linear infinite; }
+  .progress3 { animation: progress3 18s linear infinite; }
+  @keyframes progress0 { 0%,100% { width: 0px; } 22%,98% { width: 230px; } }
+  @keyframes progress1 { 0%,22%,100% { width: 0px; } 50%,98% { width: 230px; } }
+  @keyframes progress2 { 0%,50%,100% { width: 0px; } 72%,98% { width: 230px; } }
+  @keyframes progress3 { 0%,72%,100% { width: 0px; } 98% { width: 230px; } }
+  .check-draw { stroke-dasharray: 40; animation: check-draw 18s ease-in-out infinite; }
+  @keyframes check-draw { 0%,70% { stroke-dashoffset: 40; } 80%,98% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 40; } }
+  .status-sweep { animation: status-sweep 3s linear infinite; }
+  @keyframes status-sweep { from { transform: translateX(-80px); } to { transform: translateX(940px); } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+    .moving, .cursor, .recovery-pulse, .status-sweep { display: none; }
+    .scene { opacity: 0; } .s3 { opacity: 1; }
+    .check-draw { stroke-dashoffset: 0; }
+  }
+</style>
+<g clip-path="url(#window)">
+<rect width="1040" height="640" fill="url(#background)"/>
+<ellipse cx="752" cy="284" rx="335" ry="240" fill="url(#ambient)"/>
+<rect y="36" width="1040" height="440" fill="url(#dots)"/>
+<rect width="1040" height="36" fill="#142126"/>
+<path d="M0 36H1040" stroke="#294047"/>
+<circle cx="23" cy="18" r="5" fill="#ff6966"/><circle cx="42" cy="18" r="5" fill="#f7c36c"/><circle cx="61" cy="18" r="5" fill="#b6ff77"/>
+<text x="520" y="22" text-anchor="middle" class="small muted">pranay@backendarchitectx — systems lab</text>
+<text x="1004" y="22" text-anchor="end" class="tiny muted">18s LOOP</text>
+
+<!-- Identity stays visible while the architecture changes. -->
+<path d="M36 75h20" stroke="#b6ff77" stroke-width="3"/>
+<text x="67" y="80" class="small mint" letter-spacing="1.5">BACKENDARCHITECTX</text>
+<text x="34" y="147" class="sans" font-size="49" font-weight="700" letter-spacing="-1.9">Pranay Kadu<tspan fill="#b6ff77">.</tspan></text>
+<text x="37" y="178" class="small muted" letter-spacing="1.3">BACKEND SOFTWARE ENGINEER</text>
+<text x="36" y="238" class="sans" font-size="27" font-weight="600">Build for failure.</text>
+<text x="36" y="272" class="sans mint" font-size="25" font-weight="600" textLength="358" lengthAdjust="spacingAndGlyphs">Preserve the invariant.</text>
+
+<rect x="36" y="306" width="148" height="29" rx="5" fill="#192d27" stroke="#37563b"/>
+<text x="49" y="325" font-size="13" fill="#c9ffac">Java 8 / 11 / 17</text>
+<rect x="194" y="306" width="124" height="29" rx="5" fill="#132b2c" stroke="#2c5154"/>
+<text x="207" y="325" font-size="13" class="cyan">Spring Boot</text>
+<text x="36" y="362" font-size="12.5" class="muted">Distributed Systems · Microservices</text>
+<text x="36" y="384" font-size="12.5" class="muted">AWS · Docker · Kubernetes</text>
+<text x="36" y="406" font-size="12.5" class="muted">Kafka · IBM MQ · RabbitMQ</text>
+<text x="36" y="428" font-size="12.5" class="muted">SQL · Redis</text>
+<text x="36" y="460" class="small cyan">↗ backendarchitectx.github.io</text>
+<path d="M432 105V460" stroke="#294047" stroke-dasharray="2 7"/>
+
+<!-- Illustrative service graph; no fabricated production counters. -->
+<text x="470" y="80" class="tiny muted">ARCHITECTURE SIMULATION</text>
+<g class="scene s0"><circle cx="887" cy="76" r="3" fill="#68e6ed"/><text x="899" y="80" class="tiny cyan">ASSEMBLING</text></g>
+<g class="scene s1"><circle cx="887" cy="76" r="3" fill="#b6ff77"/><text x="899" y="80" class="tiny mint">PROCESSING</text></g>
+<g class="scene s2"><circle cx="887" cy="76" r="3" fill="#ffba69"/><text x="899" y="80" class="tiny" fill="#ffba69">RECOVERING</text></g>
+<g class="scene s3"><circle cx="887" cy="76" r="3" fill="#b6ff77"/><text x="899" y="80" class="tiny mint">VERIFIED</text></g>
+
+<g fill="none" stroke="#284347" stroke-width="1">
+  <path d="M457 409L727 274L1005 413M485 423L755 288M540 450L810 315M595 476L865 342M457 382L701 504M457 355L755 504M457 328L809 504" opacity=".45"/>
+  <ellipse cx="730" cy="300" rx="146" ry="72"/>
+</g>
+<ellipse cx="730" cy="300" rx="146" ry="72" fill="none" stroke="#62c5ba" stroke-opacity=".4" class="orbit"/>
+<g class="moving traffic" fill="none" stroke="#b6ff77" stroke-width="1"><ellipse cx="730" cy="300" rx="90" ry="43" class="signal-ring"/><ellipse cx="730" cy="300" rx="90" ry="43" class="signal-ring" style="animation-delay:-1.3s"/></g>
+<ellipse cx="730" cy="360" rx="94" ry="30" fill="#b6ff77" opacity=".045" class="halo"/>
+<path d="M676 151H784L812 260L730 300L648 260Z" fill="url(#beam)" opacity=".22" class="beam"/>
+
+<path d="M574 376C622 376 606 302 649 289" fill="none" stroke="#203c41" stroke-width="4"/>
+<path d="M574 376C622 376 606 302 649 289" fill="none" stroke="#9ccf88" stroke-width="1.4" class="wire"/>
+<path d="M812 290C861 300 851 376 900 376" fill="none" stroke="#203c41" stroke-width="4"/>
+<path d="M812 290C861 300 851 376 900 376" fill="none" stroke="#9ccf88" stroke-width="1.4" class="wire"/>
+<path d="M779 239C829 239 817 168 871 168" fill="none" stroke="#203c41" stroke-width="4"/>
+<path d="M779 239C829 239 817 168 871 168" fill="none" stroke="#74b6b3" stroke-width="1.4" class="wire"/>
+<path d="M681 239C631 239 655 168 615 168" fill="none" stroke="#203c41" stroke-width="4"/>
+<path d="M681 239C631 239 655 168 615 168" fill="none" stroke="#74b6b3" stroke-width="1.4" class="wire"/>
+
+<!-- Cache and event stream. -->
+<g>
+  <rect x="487" y="140" width="128" height="56" rx="9" fill="#101f25" stroke="#36545b"/>
+  <g fill="none" stroke="#68e6ed" stroke-width="1.6"><circle cx="506" cy="157" r="3"/><circle cx="506" cy="179" r="3"/><circle cx="520" cy="168" r="3"/><path d="M508 159l10 7m-10 11 10-7"/></g>
+  <text x="536" y="165" font-size="13" font-weight="700">KAFKA</text><text x="536" y="182" font-size="10.5" class="muted">event stream</text>
+  <rect x="871" y="140" width="132" height="56" rx="9" fill="#101f25" stroke="#36545b"/>
+  <path d="m891 154-9 5 9 5 9-5Zm-9 11 9 5 9-5m-18 6 9 5 9-5" fill="none" stroke="#68e6ed" stroke-width="1.5"/>
+  <text x="911" y="165" font-size="13" font-weight="700">REDIS</text><text x="911" y="182" font-size="10.5" class="muted">cache lookup</text>
+</g>
+
+<!-- The core assembles in three independently moving isometric layers. -->
+<g class="bottom-tier">
+  <path d="M648 304L730 344L812 304V318L730 358L648 318Z" fill="#10282c" stroke="#37615c"/>
+  <path d="M648 304L730 264L812 304L730 344Z" fill="#132c30" stroke="#4c8c7b"/>
+  <path d="M664 316L720 343M740 343L796 316" stroke="#68e6ed" stroke-width="2" opacity=".55"/>
+</g>
+<g class="mid-tier">
+  <path d="M648 282L730 322L812 282V296L730 336L648 296Z" fill="#14342f" stroke="#497c60"/>
+  <path d="M648 282L730 242L812 282L730 322Z" fill="#1a3935" stroke="#79b77c"/>
+  <path d="M665 296L718 322M742 322L796 296" stroke="#b6ff77" stroke-width="2" opacity=".65"/>
+</g>
+<g class="top-tier">
+  <path d="M648 260L730 300L812 260V274L730 314L648 274Z" fill="#163b34" stroke="#638d6c"/>
+  <path d="M648 260L730 220L812 260L730 300Z" fill="url(#tile)" stroke="url(#edge)" stroke-width="1.8"/>
+  <path d="m711 246-16 12 16 9m38-21 16 12-16 9m-15-26-9 35" stroke="#b6ff77" stroke-width="3" fill="none" stroke-linejoin="round"/>
+  <circle cx="730" cy="300" r="2.5" fill="#b6ff77" filter="url(#glow)"/>
+</g>
+<text x="730" y="395" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.3">SPRING BOOT</text>
+<text x="730" y="413" text-anchor="middle" font-size="10.5" class="muted">transaction boundary</text>
+
+<!-- API input and durable storage. -->
+<rect x="469" y="347" width="105" height="58" rx="9" fill="#132622" stroke="#3b6651"/>
+<path d="m485 363 6 6-6 6m10 0h8" stroke="#b6ff77" stroke-width="1.7" fill="none"/>
+<text x="515" y="370" font-size="12" font-weight="700">API</text><text x="484" y="391" font-size="10.5" class="muted">request + key</text>
+<rect x="900" y="347" width="103" height="58" rx="9" fill="#142523" stroke="#345a52" class="db-frame"/>
+<g stroke="#8dbea7" stroke-width="1.4" fill="none"><ellipse cx="919" cy="361" rx="7" ry="3"/><path d="M912 361v11c0 4 14 4 14 0v-11m-14 5c0 4 14 4 14 0"/></g>
+<text x="936" y="369" font-size="12" font-weight="700">SQL</text><circle cx="986" cy="361" r="3" class="db-light"/>
+<text x="914" y="391" font-size="10.5" class="muted">logical write</text>
+
+<!-- A transient failure is demonstrated, then recovered with bounded retry. -->
+<g class="scene s2">
+  <rect x="893" y="340" width="117" height="72" rx="13" stroke="#ffba69" fill="none" stroke-opacity=".6"/>
+  <circle cx="986" cy="361" r="9" stroke="#ffba69" fill="none" class="recovery-pulse"/>
+  <path d="M902 411C870 447 808 446 784 418" fill="none" stroke="#ffba69" stroke-opacity=".65" stroke-dasharray="4 5"/>
+  <text x="909" y="436" font-size="10" fill="#ffba69">BACKOFF</text>
+</g>
+<g class="scene s3">
+  <circle cx="954" cy="434" r="10" fill="#1b3526" stroke="#6b9c59"/>
+  <path d="m949 434 4 4 7-9" stroke="#b6ff77" stroke-width="1.8" fill="none" class="check-draw"/>
+  <text x="928" y="459" font-size="10.5" class="mint">COMMITTED</text>
+</g>
+
+<g class="moving traffic" filter="url(#glow)">
+<circle r="3.8" fill="#b6ff77"><animateMotion path="M574 376C622 376 606 302 649 289" dur="2.4s" begin="0.0s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#b6ff77"><animateMotion path="M574 376C622 376 606 302 649 289" dur="2.4s" begin="0.12s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#b6ff77"><animateMotion path="M574 376C622 376 606 302 649 289" dur="2.4s" begin="-1.2s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#b6ff77"><animateMotion path="M574 376C622 376 606 302 649 289" dur="2.4s" begin="-1.08s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#b6ff77"><animateMotion path="M812 290C861 300 851 376 900 376" dur="2.4s" begin="-0.3s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#b6ff77"><animateMotion path="M812 290C861 300 851 376 900 376" dur="2.4s" begin="-0.18s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#b6ff77"><animateMotion path="M812 290C861 300 851 376 900 376" dur="2.4s" begin="-1.5s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#b6ff77"><animateMotion path="M812 290C861 300 851 376 900 376" dur="2.4s" begin="-1.38s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#68e6ed"><animateMotion path="M779 239C829 239 817 168 871 168" dur="2.4s" begin="-0.6s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#68e6ed"><animateMotion path="M779 239C829 239 817 168 871 168" dur="2.4s" begin="-0.48s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#68e6ed"><animateMotion path="M779 239C829 239 817 168 871 168" dur="2.4s" begin="-1.7999999999999998s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#68e6ed"><animateMotion path="M779 239C829 239 817 168 871 168" dur="2.4s" begin="-1.6799999999999997s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#68e6ed"><animateMotion path="M681 239C631 239 655 168 615 168" dur="2.4s" begin="-0.8999999999999999s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#68e6ed"><animateMotion path="M681 239C631 239 655 168 615 168" dur="2.4s" begin="-0.7799999999999999s" repeatCount="indefinite"/></circle>
+<circle r="3.8" fill="#68e6ed"><animateMotion path="M681 239C631 239 655 168 615 168" dur="2.4s" begin="-2.0999999999999996s" repeatCount="indefinite"/></circle>
+<circle r="2.2" opacity=".4" fill="#68e6ed"><animateMotion path="M681 239C631 239 655 168 615 168" dur="2.4s" begin="-1.9799999999999995s" repeatCount="indefinite"/></circle>
+</g>
+<g class="scene s2 moving"><circle r="3" fill="#ffba69" filter="url(#glow)"><animateMotion path="M902 411C870 447 808 446 784 418" dur="1.8s" repeatCount="indefinite"/></circle></g>
+
+<!-- Four rotating terminal scenes give the loop a narrative. -->
+<path d="M36 478H1004" stroke="#294047"/>
+<rect x="36" y="487" width="968" height="68" rx="8" fill="#091216" stroke="#243a3f"/>
+<g clip-path="url(#console)"><rect x="0" y="487" width="80" height="1" fill="url(#sweep)" class="status-sweep"/></g>
+
+<g class="scene s0">
+  <text x="55" y="512" fill="#68e6ed">$</text><text x="78" y="512" font-size="14">boot --profile=pranay</text>
+  <rect x="258.4" y="501" width="7" height="14" fill="#68e6ed" class="cursor"/>
+  <text x="55" y="536" font-size="12" class="muted">Assemble the graph. Make ownership explicit.</text>
+  <rect x="875" y="506" width="110" height="28" rx="14" fill="#13252a" stroke="#68e6ed" stroke-opacity=".4"/>
+  <text x="930" y="524" text-anchor="middle" class="small" fill="#68e6ed" letter-spacing="1.3">BUILD</text>
+</g>
+<g class="scene s1">
+  <text x="55" y="512" fill="#b6ff77">$</text><text x="78" y="512" font-size="14">trace --request=one</text>
+  <rect x="241.6" y="501" width="7" height="14" fill="#b6ff77" class="cursor"/>
+  <text x="55" y="536" font-size="12" class="muted">API → service → persistence → event.</text>
+  <rect x="875" y="506" width="110" height="28" rx="14" fill="#13252a" stroke="#b6ff77" stroke-opacity=".4"/>
+  <text x="930" y="524" text-anchor="middle" class="small" fill="#b6ff77" letter-spacing="1.3">FLOW</text>
+</g>
+<g class="scene s2">
+  <text x="55" y="512" fill="#ffba69">$</text><text x="78" y="512" font-size="14">recover --retry=bounded</text>
+  <rect x="275.20000000000005" y="501" width="7" height="14" fill="#ffba69" class="cursor"/>
+  <text x="55" y="536" font-size="12" class="muted">Transient failure. Keep the idempotency key.</text>
+  <rect x="875" y="506" width="110" height="28" rx="14" fill="#13252a" stroke="#ffba69" stroke-opacity=".4"/>
+  <text x="930" y="524" text-anchor="middle" class="small" fill="#ffba69" letter-spacing="1.3">RECOVER</text>
+</g>
+<g class="scene s3">
+  <text x="55" y="512" fill="#b6ff77">$</text><text x="78" y="512" font-size="14">verify --invariant=one-write</text>
+  <rect x="317.20000000000005" y="501" width="7" height="14" fill="#b6ff77" class="cursor"/>
+  <text x="55" y="536" font-size="12" class="muted">Same key. One logical write. Invariant preserved.</text>
+  <rect x="875" y="506" width="110" height="28" rx="14" fill="#13252a" stroke="#b6ff77" stroke-opacity=".4"/>
+  <text x="930" y="524" text-anchor="middle" class="small" fill="#b6ff77" letter-spacing="1.3">VERIFY</text>
+</g>
+<text x="36" y="588" class="tiny muted">01 / BUILD</text>
+<g class="scene s0"><text x="36" y="588" class="tiny" fill="#68e6ed">01 / BUILD</text></g>
+<rect x="36" y="601" width="230" height="3" rx="1.5" fill="#23383d"/>
+<rect x="36" y="601" width="230" height="3" rx="1.5" fill="#68e6ed" class="progress0"/>
+<text x="282" y="588" class="tiny muted">02 / FLOW</text>
+<g class="scene s1"><text x="282" y="588" class="tiny" fill="#b6ff77">02 / FLOW</text></g>
+<rect x="282" y="601" width="230" height="3" rx="1.5" fill="#23383d"/>
+<rect x="282" y="601" width="230" height="3" rx="1.5" fill="#b6ff77" class="progress1"/>
+<text x="528" y="588" class="tiny muted">03 / RECOVER</text>
+<g class="scene s2"><text x="528" y="588" class="tiny" fill="#ffba69">03 / RECOVER</text></g>
+<rect x="528" y="601" width="230" height="3" rx="1.5" fill="#23383d"/>
+<rect x="528" y="601" width="230" height="3" rx="1.5" fill="#ffba69" class="progress2"/>
+<text x="774" y="588" class="tiny muted">04 / VERIFY</text>
+<g class="scene s3"><text x="774" y="588" class="tiny" fill="#b6ff77">04 / VERIFY</text></g>
+<rect x="774" y="601" width="230" height="3" rx="1.5" fill="#23383d"/>
+<rect x="774" y="601" width="230" height="3" rx="1.5" fill="#b6ff77" class="progress3"/>
+
+<text x="36" y="625" font-size="10" class="muted" letter-spacing="1">CORRECTNESS · CONCURRENCY · PERFORMANCE · RECOVERY</text>
+<text x="1004" y="625" text-anchor="end" font-size="10" class="muted">illustrative system · continuous loop</text>
+<rect y="36" width="1040" height="604" fill="url(#scan)" pointer-events="none"/>
+</g>
+<rect x=".5" y=".5" width="1039" height="639" rx="16" fill="none" stroke="#324b51"/>
+</svg>
