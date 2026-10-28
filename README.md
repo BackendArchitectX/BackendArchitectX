@@ -1,7 +1,7 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<a href="https://backendarchitectx.github.io/">
-  <img src="./assets/terminal-operator.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems and AWS. A graphite and titanium robot with a cyan optical visor reacts to an illustrative request replay: duplicate ignored, committed once. Transparent background with theme-aware text and a reduced-motion still." />
+<a href="https://pranaykadu.is-a.dev/companion.html">
+  <img src="./assets/reference-robot-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. A cute robot with a red tiled cap, green face and amber eyes waves, blinks and hops. Open the linked interactive version for mouse-following head movement. Transparent background with reduced-motion support." />
 </a>
 
 <p align="center">
