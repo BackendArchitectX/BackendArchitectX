@@ -1,7 +1,7 @@
 <!-- GitHub profile · BackendArchitectX -->
 
 <a href="https://backendarchitectx.github.io/">
-  <img src="./assets/systems-in-motion.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. Animated systems lab: service assembly, request flow, bounded retry, and invariant verification." />
+  <img src="./assets/pixel-matrix-arcade.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. Pixel Arcade × Matrix Terminal: an expressive pixel robot builds servers, launches a rocket and celebrates amid falling code, a scanner sweep and brief name echoes." />
 </a>
 
 <p align="center">
