@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="460" viewBox="0 0 1120 460" role="img" aria-labelledby="operator-title operator-description">
+  <title id="operator-title">Pranay Kadu — BackendArchitectX</title>
+  <desc id="operator-description">Backend Software Engineer. Java, Spring Boot, Distributed Systems and AWS. A custom graphite and titanium robot turns toward an illustrative transaction terminal. Its cyan optical aperture follows two requests with the same identifier; the duplicate is ignored and the transaction is committed once. The canvas and terminal background are transparent. Text adapts to the page theme. A complete still illustration is shown when reduced motion is preferred.</desc>
+  <defs>
+    <linearGradient id="shell" x1=".12" y1="0" x2=".82" y2="1">
+      <stop stop-color="#728496"/><stop offset=".21" stop-color="#3d4e60"/><stop offset=".56" stop-color="#202d3b"/><stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <linearGradient id="titanium" x1="0" y1="0" x2=".9" y2="1">
+      <stop stop-color="#e1eaf2"/><stop offset=".18" stop-color="#a8b6c8"/><stop offset=".51" stop-color="#60768c"/><stop offset=".77" stop-color="#8e9fb1"/><stop offset="1" stop-color="#465d73"/>
+    </linearGradient>
+    <linearGradient id="brow" x1="0" y1="0" x2=".55" y2="1">
+      <stop stop-color="#bac9d7"/><stop offset=".2" stop-color="#6d8297"/><stop offset=".26" stop-color="#3b5065"/><stop offset="1" stop-color="#172534"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#35475a"/><stop offset=".4" stop-color="#18212b"/><stop offset="1" stop-color="#0c141d"/>
+    </linearGradient>
+    <linearGradient id="glass" x1=".3" y1="0" x2=".6" y2="1">
+      <stop stop-color="#1f3548"/><stop offset=".34" stop-color="#0a1927"/><stop offset="1" stop-color="#050e17"/>
+    </linearGradient>
+    <linearGradient id="glass-reflection" x1="0" y1="0" x2=".8" y2="1">
+      <stop stop-color="#d2eeff" stop-opacity=".23"/><stop offset=".6" stop-color="#79c6e7" stop-opacity=".045"/><stop offset="1" stop-color="#79c6e7" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="1" y2=".3">
+      <stop stop-color="#111b27"/><stop offset=".37" stop-color="#6b7f93"/><stop offset=".53" stop-color="#182735"/><stop offset=".82" stop-color="#40576b"/><stop offset="1" stop-color="#101a24"/>
+    </linearGradient>
+    <linearGradient id="iris" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d4fcff"/><stop offset=".34" stop-color="#48d6ef"/><stop offset="1" stop-color="#1684ad"/>
+    </linearGradient>
+    <linearGradient id="torso-fade" gradientUnits="userSpaceOnUse" x1="0" y1="298" x2="0" y2="345">
+      <stop offset="0" stop-color="white"/><stop offset=".35" stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="bust-fade" maskUnits="userSpaceOnUse" x="0" y="202" width="368" height="154"><rect x="0" y="202" width="368" height="154" fill="url(#torso-fade)"/></mask>
+    <filter id="optic-glow" x="-80%" y="-100%" width="260%" height="300%"><feGaussianBlur stdDeviation="1.8"/></filter>
+    <clipPath id="visor-clip"><path d="M110 94 129 80 215 90 234 112 227 142 195 158 136 147 114 130Z"/></clipPath>
+    <clipPath id="replay-reveal"><rect class="motion replay-reveal" x="76" y="330" width="510" height="27"/></clipPath>
+  </defs>
+  <style>
+    :root { --ink:#edf5fc;--muted:#9eafbf;--edge:#354554;--signal:#48d6ef;--signal-soft:#abeaf4; }
+    text {fill:var(--ink);font-family:'Segoe UI',Arial,sans-serif}
+    .mono {font-family:'DejaVu Sans Mono','Liberation Mono',Consolas,monospace}
+    .brand {font-size:15px;letter-spacing:1px;fill:var(--muted)}
+    .kicker {font-size:13px;letter-spacing:2.7px;fill:var(--signal)}
+    .name {font-size:67px;letter-spacing:-2.6px;font-weight:600}
+    .role {font-size:23px;font-weight:400}
+    .stack {font-size:18px;fill:var(--muted)}
+    .terminal-label {font-size:13px;fill:var(--muted)}
+    .illustration-label {font-size:10px;letter-spacing:1.4px;fill:var(--muted)}
+    .terminal-line {font-size:18px}
+    .terminal-note {font-size:16px;fill:var(--muted)}
+    .signal {fill:var(--signal)}
+    .terminal-final {fill:var(--signal-soft)}
+    .footer {font-size:15px;fill:var(--muted)}
+    .mobile-stack,.mobile-terminal,.mobile-footer {display:none}
+    .robot-head {transform-origin:187px 151px;animation:head-attend 6.8s cubic-bezier(.4,0,.2,1) infinite}
+    .optical-aperture {animation:optic-track 6.8s cubic-bezier(.4,0,.2,1) infinite}
+    .lens-glow {animation:optic-energy 6.8s ease-in-out infinite}
+    .scan-sweep {opacity:0;animation:visor-scan 6.8s linear infinite}
+    .request-first {opacity:0;animation:request-first 6.8s linear infinite}
+    .request-replay {opacity:0;animation:request-replay 6.8s linear infinite}
+    .response {opacity:0;animation:response 6.8s linear infinite}
+    .replay-line {opacity:0;animation:replay-line 6.8s steps(1,end) infinite}
+    .replay-reveal {animation:replay-reveal 6.8s linear infinite}
+    .commit-line {opacity:0;animation:commit-line 6.8s ease-out infinite}
+    .commit-indicator {opacity:.12;animation:commit-indicator 6.8s ease-out infinite}
+    .cursor {animation:cursor 1s steps(1,end) infinite}
+    @keyframes head-attend {
+      0%,4%,90%,100% {transform:translate(0,0) rotate(1.2deg)}
+      12%,29% {transform:translate(-2px,1px) rotate(-2.2deg)}
+      35%,53% {transform:translate(-3px,0) rotate(-3.4deg)}
+      63%,77% {transform:translate(-1px,2px) rotate(-.5deg)}
+    }
+    @keyframes optic-track {
+      0%,4%,90%,100% {transform:translate(7px,0)}
+      11%,27% {transform:translate(-4px,1px)}
+      34%,44% {transform:translate(1px,-1px)}
+      49%,76% {transform:translate(-3px,1px)}
+    }
+    @keyframes optic-energy {0%,4%,85%,100% {opacity:.5} 13%,24%,38%,44%,61%,72% {opacity:1} 30%,51% {opacity:.65}}
+    @keyframes visor-scan {
+      0%,15% {opacity:0;transform:translateX(0)}
+      16% {opacity:.65} 26% {opacity:.65;transform:translateX(116px)} 27% {opacity:0;transform:translateX(116px)}
+      32% {opacity:0;transform:translateX(0)} 33% {opacity:.8} 43% {opacity:.8;transform:translateX(116px)}
+      44%,100% {opacity:0;transform:translateX(116px)}
+    }
+    @keyframes request-first {0%,4% {opacity:0;stroke-dashoffset:100} 5% {opacity:1;stroke-dashoffset:100} 17% {opacity:1;stroke-dashoffset:0} 18%,100% {opacity:0;stroke-dashoffset:0}}
+    @keyframes request-replay {0%,28% {opacity:0;stroke-dashoffset:100} 29% {opacity:1;stroke-dashoffset:100} 41% {opacity:1;stroke-dashoffset:0} 42%,100% {opacity:0;stroke-dashoffset:0}}
+    @keyframes response {0%,52% {opacity:0;stroke-dashoffset:0} 53% {opacity:1;stroke-dashoffset:0} 64% {opacity:1;stroke-dashoffset:100} 65%,100% {opacity:0;stroke-dashoffset:100}}
+    @keyframes replay-line {0%,28.9% {opacity:0} 29%,100% {opacity:1}}
+    @keyframes replay-reveal {0%,28% {width:0} 43%,100% {width:510px}}
+    @keyframes commit-line {0%,62% {opacity:0;transform:translateY(2px)} 66%,100% {opacity:1;transform:translateY(0)}}
+    @keyframes commit-indicator {0%,52% {opacity:.12} 56%,64% {opacity:1} 76%,100% {opacity:.12}}
+    @keyframes cursor {0%,49% {opacity:.9} 50%,100% {opacity:0}}
+    @media (prefers-color-scheme:light) {
+      :root {--ink:#1c2733;--muted:#526477;--edge:#c2cdd8;--signal:#087b91;--signal-soft:#066b80}
+    }
+    @media (max-width:600px) {
+      .brand,.kicker,.stack,.engineering-terminal,.request-link,.footer,.top-rule {display:none}
+      .name {font-size:84px;letter-spacing:-3px;transform:translateY(-19px)}
+      .role {font-size:40px;transform:translateY(-12px)}
+      .mobile-stack {display:inline;font-size:40px;fill:var(--muted)}
+      .mobile-terminal {display:inline;font-size:40px}
+      .mobile-footer {display:inline;font-size:40px;fill:var(--muted)}
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .motion {animation:none!important}
+      .replay-line,.commit-line {opacity:1;transform:none}
+      .replay-reveal {width:510px}
+      .request-first,.request-replay,.response,.scan-sweep,.cursor {display:none}
+      .commit-indicator {opacity:.75}
+      .robot-head {transform:none}
+    }
+  </style>
+
+  <text class="mono brand" x="32" y="29">BackendArchitectX</text>
+  <path class="top-rule" d="M32 49H1088" fill="none" stroke="var(--edge)"/>
+  <text class="mono kicker" x="32" y="93">BACKEND ENGINEERING</text>
+  <text class="name" x="29" y="157">Pranay Kadu<tspan fill="var(--signal)">.</tspan></text>
+  <text class="role" x="32" y="201">Backend Software Engineer</text>
+  <text class="mono stack" x="32" y="238">Java · Spring Boot · Distributed Systems · AWS</text>
+  <text class="mono mobile-stack" x="32" y="241">Java · Spring Boot</text>
+  <text class="mono mobile-stack" x="32" y="289">Distributed Systems · AWS</text>
+
+  <g class="request-link" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M636 320H668Q688 320 688 300V218Q688 196 710 196H826" stroke="var(--edge)" stroke-width="1" stroke-opacity=".65"/>
+    <g stroke="var(--signal)" stroke-width="2.6" stroke-dasharray="5 95">
+      <path class="motion request-first" pathLength="100" d="M636 320H668Q688 320 688 300V218Q688 196 710 196H826"/>
+      <path class="motion request-replay" pathLength="100" d="M636 320H668Q688 320 688 300V218Q688 196 710 196H826"/>
+      <path class="motion response" pathLength="100" d="M636 320H668Q688 320 688 300V218Q688 196 710 196H826"/>
+    </g>
+  </g>
+
+  <g class="engineering-terminal">
+    <rect x="32" y="270" width="604" height="136" rx="7" fill="none" stroke="var(--edge)"/>
+    <path d="M32 297H636" stroke="var(--edge)" stroke-opacity=".7"/>
+    <circle cx="49" cy="284" r="2.5" fill="var(--signal)"/>
+    <text class="mono terminal-label" x="62" y="289">transaction replay</text>
+    <text class="mono illustration-label" x="617" y="288" text-anchor="end">ILLUSTRATION</text>
+    <text class="mono terminal-line" x="51" y="323"><tspan class="signal">&gt;</tspan><tspan x="76">request  tx_041</tspan></text>
+    <g class="motion replay-line">
+      <text class="mono terminal-line signal" x="51" y="349">&gt;</text>
+      <text class="mono terminal-line" x="76" y="349" clip-path="url(#replay-reveal)">replay   tx_041<tspan class="terminal-note"> · duplicate ignored</tspan></text>
+    </g>
+    <g class="motion commit-line">
+      <path d="m52 375 4 4 8-9" fill="none" stroke="var(--signal-soft)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text class="mono terminal-line terminal-final" x="76" y="380">committed once</text>
+      <rect class="motion cursor" x="244" y="367" width="7" height="15" fill="var(--signal-soft)"/>
+    </g>
+  </g>
+  <g class="mono mobile-terminal">
+    <text x="32" y="351" class="signal">&gt; replay tx_041 × 2</text>
+    <text x="32" y="399" class="motion commit-line terminal-final">committed once</text>
+  </g>
+
+  <g id="robot-portrait" transform="translate(702 35) scale(1.1)">
+    <g mask="url(#bust-fade)">
+      <path d="M105 230 150 214 205 220 248 238 286 266 313 306 317 349H25L30 305 60 264Z" fill="url(#deep)"/>
+      <path d="m31 306 31-42 43-34 46-14 10 29-43 38-62 42H27Z" fill="url(#shell)"/>
+      <path d="m105 231 37-11 14 25-44 26-52 29-17-3 20-31Z" fill="url(#titanium)"/>
+      <path d="m104 236 34-9 7 13-37 22-44 25-11 2 16-18Z" fill="url(#deep)"/>
+      <path d="m205 221 43 17 39 28 26 40-26 20-44-44-34-27Z" fill="url(#shell)"/>
+      <path d="m213 228 34 15 35 25 26 37-12 4-27-32-34-24-28-12Z" fill="url(#titanium)"/>
+      <path d="m151 242 50 4 48 29-18 44-40 34-50-23-32-45Z" fill="url(#shell)"/>
+      <path d="m155 246 45 6 35 22-14 19-64-8-30-13Z" fill="#263b4c"/>
+      <path d="m157 286 64 8-10 36-21 18-40-21-21-41Z" fill="url(#deep)"/>
+      <path d="m151 243 50 5 47 28M109 285l32 45 49 23M232 318l17-42M62 265l-20 31M286 267l26 39" fill="none" stroke="#b3c4d3" stroke-opacity=".37" stroke-width="1.1"/>
+      <path d="m168 266 31 4" stroke="#060d15" stroke-width="7" stroke-linecap="round"/>
+      <path class="motion commit-indicator" d="m171 266 24 3" stroke="#48d6ef" stroke-width="2" stroke-linecap="round"/>
+      <g fill="none" stroke="#0a1420" stroke-width="3" stroke-linecap="round">
+        <path d="m74 285 32-18M69 295l32-18M65 305l31-18"/>
+        <path d="m272 291 16 20M267 299l15 19M262 307l14 18"/>
+      </g>
+      <path d="m113 297 12 4-6 15-13-5Z" fill="#91a6b9" fill-opacity=".45"/>
+      <path d="m115 302 4 1-3 7-4-1Z" fill="#1a2b3a"/>
+      <path d="m238 305 12-8 9 11-10 10Z" fill="#1b2b39" stroke="#526c81" stroke-width=".8"/>
+    </g>
+    <path d="m158 197 45 7 12 29-15 16-46-14-12-20Z" fill="url(#neck)"/>
+    <path d="m150 213 51 15M152 220l53 15M156 228l44 13" stroke="#080f18" stroke-width="3"/>
+    <path d="m154 214 21 6M158 223l17 5" stroke="#acbdca" stroke-width="1" stroke-opacity=".65"/>
+
+    <g class="motion robot-head" id="robot-head">
+      <path d="m98 70 33-34 92 6 42 29 12 63-17 54-40 35-60-10-47-40-18-51Z" fill="url(#shell)" stroke="#5a7085" stroke-width="1.1"/>
+      <path d="m132 36 90 6 43 29-16 5-37-22-76-5-30 30-8-9Z" fill="url(#titanium)"/>
+      <path d="m134 41 84 7 28 18-35-13-73-6-22 19Z" fill="#e0eaf2" fill-opacity=".23"/>
+      <path d="m103 74 27-28 48 3-5 31-56 19-17-9Z" fill="url(#brow)"/>
+      <path d="m186 49 36 3 39 26-12 25-32-18-36-4Z" fill="url(#brow)"/>
+      <path d="m180 49-5 28 9 4 4-29Z" fill="#080f18"/>
+      <path d="m105 75 26-26 44 3M190 53l30 3 35 23" fill="none" stroke="#c1d1df" stroke-opacity=".53" stroke-width="1.2"/>
+      <path d="m101 92 28-18 90 12 21 25-8 37-35 18-63-12-25-21Z" fill="#07101b" stroke="#6e869b" stroke-width="1.2"/>
+      <path d="m110 94 19-14 86 10 19 22-7 30-32 16-59-11-22-17Z" fill="url(#glass)"/>
+      <g clip-path="url(#visor-clip)">
+        <path d="m108 94 20-10 88 11 9 13-88 11-23-7Z" fill="url(#glass-reflection)"/>
+        <path d="m128 132 62 10 24-8" fill="none" stroke="#22495f" stroke-width="1"/>
+        <path d="m126 118 40 7 48-4" fill="none" stroke="#48d6ef" stroke-width="1.6" stroke-opacity=".54"/>
+        <g class="motion optical-aperture">
+          <ellipse class="motion lens-glow" cx="145" cy="122" rx="17" ry="10" transform="rotate(8 145 122)" fill="#48d6ef" fill-opacity=".22" filter="url(#optic-glow)"/>
+          <ellipse cx="145" cy="122" rx="15" ry="9" transform="rotate(8 145 122)" fill="#06121d" stroke="#41647b" stroke-width="1.6"/>
+          <ellipse cx="145" cy="122" rx="10" ry="6.5" transform="rotate(8 145 122)" fill="none" stroke="url(#iris)" stroke-width="2.4"/>
+          <ellipse cx="145" cy="122" rx="5.2" ry="4" fill="#48d6ef" fill-opacity=".23"/>
+          <circle cx="145" cy="122" r="2.3" fill="#e0fcff"/>
+          <path d="m134 116 4 1m13 12 4 1" stroke="#d4fcff" stroke-width="1.1"/>
+        </g>
+        <rect class="motion scan-sweep" x="110" y="88" width="1.7" height="67" fill="#48d6ef"/>
+        <path d="m198 106 10 1m-8 4 8 1" stroke="#85cfdf" stroke-opacity=".38" stroke-width="1"/>
+      </g>
+      <path d="m106 135 25 18 13 24 31 11 2 20-30-13-30-27Z" fill="url(#titanium)"/>
+      <path d="m112 143 18 14 11 23 29 13" fill="none" stroke="#dee8f1" stroke-opacity=".42" stroke-width="1.1"/>
+      <path d="m139 157 56 12 36-18-6 36-40 24-8-25-29-11Z" fill="url(#deep)"/>
+      <path d="m181 186 42-22-3 23-32 19Z" fill="#354c60"/>
+      <path d="m177 187 9 24 34-20M145 161l49 11 26-12" fill="none" stroke="#6b859a" stroke-opacity=".57" stroke-width="1.1"/>
+      <path d="m238 105 18-22 10 43-12 44-23 21 4-34Z" fill="url(#brow)"/>
+      <path d="m254 91 14 14 7 31-12 24-13-7-1-34Z" fill="url(#titanium)" stroke="#385167" stroke-width=".8"/>
+      <ellipse cx="262" cy="128" rx="10" ry="17" transform="rotate(-9 262 128)" fill="url(#deep)" stroke="#8ca2b5" stroke-width="1"/>
+      <ellipse cx="262" cy="128" rx="5" ry="10" transform="rotate(-9 262 128)" fill="#101d2a" stroke="#516b81" stroke-width="1"/>
+      <path d="m260 119 3 17" stroke="#93a9bb" stroke-width="1.5"/>
+      <path d="m245 162-5 17-12 11" fill="none" stroke="#b9cbd9" stroke-opacity=".5" stroke-width="1.1"/>
+      <path d="m219 198-10 6m7-13-10 6" stroke="#07121c" stroke-width="2" stroke-linecap="round"/>
+      <path d="m99 96-3 15 5 10" fill="none" stroke="#c6d8e6" stroke-opacity=".66" stroke-width="1.2"/>
+    </g>
+  </g>
+
+  <path class="top-rule" d="M32 422H1088" stroke="var(--edge)" fill="none"/>
+  <text class="mono footer" x="32" y="448">Build for failure. Preserve the invariant.</text>
+  <text class="mono footer" x="1088" y="448" text-anchor="end">backendarchitectx.github.io</text>
+  <text class="mono mobile-footer" x="32" y="455">Build for failure.</text>
+</svg>

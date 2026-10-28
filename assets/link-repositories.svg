@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="149" height="32" viewBox="0 0 149 32" role="img" aria-label="Repositories">
-  <style>:root { --ink:#e6edf3; --edge:#444c56; --accent:#e8ba8c; } @media (prefers-color-scheme:light) { :root { --ink:#24292f; --edge:#c5cbd2; --accent:#8e531c; } }</style>
+  <style>:root { --ink:#edf5fc; --edge:#354554; --accent:#48d6ef; } @media (prefers-color-scheme:light) { :root { --ink:#1c2733; --edge:#c2cdd8; --accent:#087b91; } }</style>
   <rect x=".5" y=".5" width="148" height="31" rx="5" fill="none" stroke="var(--edge)"/>
   <g transform="translate(10 7)" fill="none" stroke="var(--accent)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.5H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h3m-1-12.5h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5Zm0 0V15M8 6h5M8 9h5"/></g>
   <text x="36" y="20" fill="var(--ink)" font-family="'DejaVu Sans Mono','Liberation Mono',Consolas,monospace" font-size="10" font-weight="600" letter-spacing=".55">REPOSITORIES</text>
