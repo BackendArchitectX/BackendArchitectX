@@ -1,7 +1,7 @@
 <!-- GitHub profile · BackendArchitectX -->
 
 <a href="https://backendarchitectx.github.io/">
-  <img src="./assets/friday-interface.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. FRIDAY-inspired interface: copper and amber waveforms breathe around a bright central line, with a soft traveling light." />
+  <img src="./assets/friday-robot-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. FRIDAY robot terminal: a fast animated robot types, bobs its head and shuffles its feet beside cycling Maven, Docker and Git commands on a pure black background, with an amber waveform." />
 </a>
 
 <p align="center">
