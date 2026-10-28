@@ -4,6 +4,8 @@
   <img src="./assets/reference-robot-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. A cute robot with a red tiled cap, green face and amber eyes waves, blinks and hops. Open the linked interactive version for mouse-following head movement. Transparent background with reduced-motion support." />
 </a>
 
+<p align="center"><a href="https://pranaykadu.is-a.dev/companion.html"><strong>Open the live 3D robot — move your mouse ↗</strong></a></p>
+
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
   <a href="https://www.linkedin.com/in/pranaykadu"><img src="./assets/link-linkedin.svg" width="112" height="32" alt="LinkedIn" /></a>
