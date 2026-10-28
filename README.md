@@ -1,7 +1,7 @@
 <!-- GitHub profile · BackendArchitectX -->
 
 <a href="https://backendarchitectx.github.io/">
-  <img src="./assets/pixel-matrix-refined.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. Pixel Arcade × Matrix Terminal: an expressive pixel robot builds servers, launches a rocket and celebrates amid falling code, a scanner sweep and brief name echoes." />
+  <img src="./assets/friday-interface.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Build reliable backends, measure performance, preserve correctness, and contribute upstream. FRIDAY-inspired interface: copper and amber waveforms breathe around a bright central line, with a soft traveling light." />
 </a>
 
 <p align="center">

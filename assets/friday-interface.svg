@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="friday-title friday-description">
+  <title id="friday-title">Pranay Kadu — FRIDAY-inspired engineering profile</title>
+  <desc id="friday-description">BackendArchitectX. Backend Software Engineer working with Java, Spring Boot, Distributed Systems and AWS. A copper and amber waveform gently changes amplitude while light travels across its central line. This is a visual animation, not a microphone or live system monitor. Build for failure. Preserve the invariant.</desc>
+  <defs>
+    <radialGradient id="friday-background" cx="50%" cy="72%" r="75%"><stop stop-color="#302219"/><stop offset="1" stop-color="#151110"/></radialGradient>
+    <clipPath id="friday-frame"><rect x=".5" y=".5" width="1119" height="649" rx="18"/></clipPath>
+  </defs>
+  <style>
+  text { font-family: 'Segoe UI', Arial, sans-serif; fill: #f1e8df; }
+  .mono { font-family: 'DejaVu Sans Mono', 'Liberation Mono', Consolas, monospace; }
+  .brand, .edition { font-size: 18px; fill: #c0ae9d; }
+  .edition { letter-spacing: 1.5px; }
+  .kicker { font-size: 18px; fill: #e8ba8c; letter-spacing: 2px; }
+  .name { font-size: 68px; font-weight: 500; letter-spacing: -2.4px; }
+  .role { font-size: 24px; }
+  .stack { font-size: 20px; fill: #c0ae9d; }
+  .stack-mobile { display: none; }
+  .footer { font-size: 18px; fill: #c0ae9d; }
+  .fri-bars path {
+    transform-origin: 330px 75px;
+    animation: fri-amplitude 3.7s ease-in-out infinite;
+    animation-delay: var(--fri-delay);
+  }
+  .fri-wave-front { transform-origin: 330px 75px; animation: fri-front 5s ease-in-out infinite; }
+  .fri-wave-back { transform-origin: 330px 75px; animation: fri-back 7s ease-in-out infinite; }
+  .fri-travel { animation: fri-travel 6s linear infinite; }
+  @keyframes fri-amplitude {
+    0%, 100% { transform: scaleY(var(--fri-scale)); opacity: .3; }
+    50% { transform: scaleY(.9); opacity: .8; }
+  }
+  @keyframes fri-front { 0%, 100% { transform: scaleY(.45); } 50% { transform: scaleY(.95); } }
+  @keyframes fri-back { 0%, 100% { transform: scaleY(-.8); } 50% { transform: scaleY(-.4); } }
+  @keyframes fri-travel { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  @media (max-width: 600px) {
+    .brand { font-size: 40px; }
+    .edition, .kicker, .stack-desktop, .portfolio { display: none; }
+    .name { font-size: 92px; letter-spacing: -3px; }
+    .role { font-size: 40px; }
+    .stack-mobile { display: inline; font-size: 40px; }
+    .footer { font-size: 40px; }
+    .wave-position { transform: translate(38px, 402px) scale(1.58, 1.2); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fri-motion { animation: none !important; }
+    .fri-bars path { transform: scaleY(.6); opacity: .55; }
+    .fri-wave-front { transform: scaleY(.65); }
+    .fri-wave-back { transform: scaleY(-.55); }
+    .fri-travel { opacity: 0; }
+  }
+</style>
+  <g clip-path="url(#friday-frame)">
+    <rect width="1120" height="650" fill="url(#friday-background)"/>
+    <path d="M42 81H1078M42 598H1078" fill="none" stroke="#44362c" stroke-width="1.4"/>
+    <text class="mono brand" x="42" y="49">BackendArchitectX</text>
+    <text class="mono edition" x="1078" y="49" text-anchor="end">F.R.I.D.A.Y. / WAVE INTERFACE</text>
+    <text class="mono kicker" x="42" y="154">THOUGHTFUL CODE. RELIABLE SYSTEMS.</text>
+    <text class="name" x="42" y="236">Pranay Kadu<tspan fill="#e8ba8c">.</tspan></text>
+    <text class="role" x="42" y="285">Backend Software Engineer</text>
+    <text class="mono stack stack-desktop" x="42" y="324">Java · Spring Boot · Distributed Systems · AWS</text>
+    <text class="mono stack stack-mobile" x="42" y="344">Java · Spring Boot</text>
+    <text class="mono stack stack-mobile" x="42" y="394">Distributed Systems · AWS</text>
+    <g class="wave-position" transform="translate(38 350) scale(1.58)">
+              <defs><linearGradient id="fri-wave"><stop stop-color="#db8c60" stop-opacity="0"/><stop offset=".25" stop-color="#e4ab7c" stop-opacity=".5"/><stop offset=".5" stop-color="#ffe0af"/><stop offset=".75" stop-color="#e4ab7c" stop-opacity=".5"/><stop offset="1" stop-color="#db8c60" stop-opacity="0"/></linearGradient><radialGradient id="fri-aura"><stop stop-color="#dc9861" stop-opacity=".14"/><stop offset="1" stop-color="#dc9861" stop-opacity="0"/></radialGradient><filter id="fri-glow" x="-10%" y="-100%" width="120%" height="300%"><feGaussianBlur stdDeviation="3"/></filter></defs>
+              <ellipse cx="330" cy="75" rx="300" ry="74" fill="url(#fri-aura)"/>
+              <g stroke="#967561" stroke-opacity=".22" stroke-width=".7"><path d="M20 75H640M20 35H640M20 115H640"/><path d="M90 20V130M210 20V130M330 10V140M450 20V130M570 20V130"/></g>
+              <g fill="none" stroke="url(#fri-wave)" stroke-linecap="round">
+                <path class="fri-motion fri-wave-back" d="M10 75C60 75 65 65 95 75S130 101 153 75S181 28 205 75S233 130 254 75S282 8 303 75S331 146 352 75S381 13 402 75S430 120 452 75S480 46 503 75S537 92 562 75S608 75 650 75" stroke-width="1" stroke-opacity=".5"/>
+                <path class="fri-motion fri-wave-front" d="M10 75C60 75 65 65 95 75S130 101 153 75S181 28 205 75S233 130 254 75S282 8 303 75S331 146 352 75S381 13 402 75S430 120 452 75S480 46 503 75S537 92 562 75S608 75 650 75" stroke-width="1.7"/>
+                <path d="M20 75H640" stroke-width="1"/>
+              </g>
+              <g class="fri-bars" stroke="#edbd8d" stroke-width="2" stroke-linecap="round">
+                <path class="fri-motion" style="--fri-delay:-.2s;--fri-scale:.3" d="M198 66V84"/><path class="fri-motion" style="--fri-delay:-.5s;--fri-scale:.6" d="M210 59V91"/><path class="fri-motion" style="--fri-delay:-.8s;--fri-scale:.2" d="M222 48V102"/><path class="fri-motion" style="--fri-delay:-1.1s;--fri-scale:.5" d="M234 55V95"/><path class="fri-motion" style="--fri-delay:-1.4s;--fri-scale:.3" d="M246 35V115"/><path class="fri-motion" style="--fri-delay:-1.7s;--fri-scale:.5" d="M258 44V106"/><path class="fri-motion" style="--fri-delay:-2s;--fri-scale:.2" d="M270 21V129"/><path class="fri-motion" style="--fri-delay:-2.3s;--fri-scale:.4" d="M282 38V112"/><path class="fri-motion" style="--fri-delay:-2.6s;--fri-scale:.25" d="M294 13V137"/><path class="fri-motion" style="--fri-delay:-2.9s;--fri-scale:.5" d="M306 30V120"/><path class="fri-motion" style="--fri-delay:-3.2s;--fri-scale:.3" d="M318 9V141"/><path class="fri-motion" style="--fri-delay:-3.5s;--fri-scale:.45" d="M330 24V126"/><path class="fri-motion" style="--fri-delay:-3.8s;--fri-scale:.2" d="M342 14V136"/><path class="fri-motion" style="--fri-delay:-.3s;--fri-scale:.5" d="M354 31V119"/><path class="fri-motion" style="--fri-delay:-.6s;--fri-scale:.3" d="M366 25V125"/><path class="fri-motion" style="--fri-delay:-.9s;--fri-scale:.6" d="M378 42V108"/><path class="fri-motion" style="--fri-delay:-1.2s;--fri-scale:.2" d="M390 33V117"/><path class="fri-motion" style="--fri-delay:-1.5s;--fri-scale:.45" d="M402 50V100"/><path class="fri-motion" style="--fri-delay:-1.8s;--fri-scale:.3" d="M414 48V102"/><path class="fri-motion" style="--fri-delay:-2.1s;--fri-scale:.6" d="M426 62V88"/><path class="fri-motion" style="--fri-delay:-2.4s;--fri-scale:.25" d="M438 64V86"/>
+              </g>
+              <path class="fri-motion fri-travel" d="M20 75H640" pathLength="100" stroke="#fff0d7" stroke-width="3" stroke-dasharray="1 99" filter="url(#fri-glow)"/>
+            
+    </g>
+    <text class="mono footer" x="42" y="630">Build for failure. Preserve the invariant.</text>
+    <text class="mono footer portfolio" x="1078" y="630" text-anchor="end">backendarchitectx.github.io</text>
+  </g>
+  <rect x=".7" y=".7" width="1118.6" height="648.6" rx="18" fill="none" stroke="#44362c" stroke-width="1.4"/>
+</svg>
