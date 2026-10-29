@@ -1,10 +1,10 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<a href="https://pranaykadu.is-a.dev/companion.html">
-  <img src="./assets/reference-robot-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. A cute robot with a red tiled cap, green face and amber eyes waves, blinks and hops. Open the linked interactive version for mouse-following head movement. Transparent background with reduced-motion support." />
+<a href="https://pranaykadu.is-a.dev/companion.html?v=applied-pawny-5">
+  <img src="./assets/pawny-profile-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. A rendered loop of the live 3D character with larger amber eyes and relaxed textured hands. Open the live companion for independent eye tracking, blinking and friendly gestures." />
 </a>
 
-<p align="center"><a href="https://pranaykadu.is-a.dev/companion.html"><strong>Open the live 3D robot — move your mouse ↗</strong></a></p>
+<p align="center"><a href="https://pranaykadu.is-a.dev/companion.html?v=applied-pawny-5"><strong>Open the live 3D companion — move your mouse ↗</strong></a></p>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
@@ -83,4 +83,5 @@ I favor explicit ownership, simple designs, reproducible tests, and performance 
 **Open to backend engineering opportunities and thoughtful open-source collaboration.**
 
 [GitHub contribution activity](https://github.com/BackendArchitectX) · [Portfolio](https://backendarchitectx.github.io/) · [LinkedIn](https://www.linkedin.com/in/pranaykadu) · [Contact](mailto:pranaykadu.softwareengineer@gmail.com)
+
 
