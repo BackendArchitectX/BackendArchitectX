@@ -1,10 +1,10 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<a href="https://pranaykadu.is-a.dev/companion.html?v=applied-pawny-5">
-  <img src="./assets/pawny-profile-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. A rendered loop of the live 3D character with larger amber eyes and relaxed textured hands. Open the live companion for independent eye tracking, blinking and friendly gestures." />
+<a href="https://pranaykadu.is-a.dev/companion.html?v=guardian-1">
+  <img src="./assets/pawny-profile-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Pawny performs sword practice and a blaster burst with coordinated body movement. Open the live companion for cursor proximity warnings and interactive actions." />
 </a>
 
-<p align="center"><a href="https://pranaykadu.is-a.dev/companion.html?v=applied-pawny-5"><strong>Open the live 3D companion — move your mouse ↗</strong></a></p>
+<p align="center"><a href="https://pranaykadu.is-a.dev/companion.html?v=guardian-1"><strong>Meet Pawny — swordmaster and blaster actions ↗</strong></a></p>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
