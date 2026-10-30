@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Transparent background; fully opaque Spawny. GitHub displays a recorded animation here. -->
+<!-- Transparent background; fully opaque Spawny. Recorded greetings rotate automatically in 25 languages. GitHub README images cannot react to scrolling. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v12-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v12-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v12-dark.gif" />
-  <img src="./assets/spawny-readme-v12-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Ivory-and-charcoal Spawny stands in place on a transparent background, smiles, waves hello and points down toward Pranay’s projects, skills and contributions in an automatic animation." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v13-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v13-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v13-dark.gif" />
+  <img src="./assets/spawny-readme-v13-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Ivory Spawny stands still, smiles, waves hello and points down toward the README. Native-script greetings rotate through all 22 requested Indian languages plus English, Mandarin Chinese and Malay, with language labels and Roman readings. Transparent background. Automatic silent animation." />
 </picture>
 
 <p align="center">
