@@ -1,10 +1,10 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site">
-  <img src="./assets/spawny-pod-preview-v4.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. A glowing copper box hides Spawny, an interactive 3D guardian. Click to open his pod transformation, swordmaster moves and cursor reactions." />
+<a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site" title="Spawny · Interactive 3D">
+  <img src="./assets/spawny-pod-preview-v5.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Meet Spawny, a smiling copper guardian. In the linked 3D scene, hovering over the box area starts his transformation and swordmaster demonstration." />
 </a>
 
-<p align="center"><a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site"><strong>Click the copper box to awaken Spawny in 3D ↗</strong></a><br /><sub>Hover or tap the box on the companion page · Swordmaster moves · Eye tracking · Energy shield</sub></p>
+<p align="center"><a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site"><strong>Meet Spawny · Interactive 3D ↗</strong></a></p>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
