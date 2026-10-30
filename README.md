@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- The background is transparent. Spawny remains fully opaque. GitHub displays a recorded animation here. -->
+<!-- Transparent background; fully opaque Spawny. GitHub displays a recorded animation here. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v11-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v11-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v11-dark.gif" />
-  <img src="./assets/spawny-readme-v11-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Teal-and-mint Spawny on a transparent background unfolds from a box, waves, wanders, smiles, reacts with surprise, giggles, turns around and curls back into his pod in an automatic animation." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v12-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v12-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v12-dark.gif" />
+  <img src="./assets/spawny-readme-v12-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Ivory-and-charcoal Spawny stands in place on a transparent background, smiles, waves hello and points down toward Pranay’s projects, skills and contributions in an automatic animation." />
 </picture>
 
 <p align="center">
