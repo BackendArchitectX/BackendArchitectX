@@ -1,10 +1,10 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site" title="Spawny · Interactive 3D">
-  <img src="./assets/spawny-profile-v9.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Meet Spawny, a small 3D copper companion in an acorn cap. Open his world and hover over the box to wake him. Gentle wandering, changing expressions and a wave hello." />
-</a>
-
-<p align="center"><a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site"><strong>Meet Spawny · His little 3D world ↗</strong></a></p>
+<!-- GitHub supports animated images here. Live 3D, audio and cursor/touch events cannot run in a README. -->
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v10-still.png" />
+  <img src="./assets/spawny-readme-v10.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny unfolds from a copper box, waves, wanders, smiles, reacts with surprise, giggles, glows, turns around and curls back into his pod in an automatic animation." />
+</picture>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
