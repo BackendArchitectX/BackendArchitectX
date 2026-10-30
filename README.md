@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Transparent background; fully opaque Spawny. Recorded greetings rotate automatically in 25 languages. GitHub README images cannot react to scrolling. -->
+<!-- Transparent background; opaque Spawny. English starts each automatic loop. Every language completes its greeting and downward gesture before the next appears. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v13-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v13-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v13-dark.gif" />
-  <img src="./assets/spawny-readme-v13-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Ivory Spawny stands still, smiles, waves hello and points down toward the README. Native-script greetings rotate through all 22 requested Indian languages plus English, Mandarin Chinese and Malay, with language labels and Roman readings. Transparent background. Automatic silent animation." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v14-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v14-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v14-dark.gif" />
+  <img src="./assets/spawny-readme-v14-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny wears a red-and-purple hero suit with a white face and hands. English Hello comes first: he smiles, waves, points down to the README and returns to rest. The same complete sequence then repeats for each of the other 24 languages, including Mandarin Chinese. Native scripts, language labels and Roman readings. Transparent background; automatic silent animation." />
 </picture>
 
 <p align="center">
