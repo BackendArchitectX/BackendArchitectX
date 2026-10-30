@@ -1,10 +1,10 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<a href="https://pranaykadu.is-a.dev/companion.html?v=guardian-1">
-  <img src="./assets/pawny-profile-terminal.svg" width="100%" alt="Pranay Kadu · BackendArchitectX — Backend Software Engineer. Java, Spring Boot, Distributed Systems, AWS, Kafka, SQL and Redis. Pawny performs sword practice and a blaster burst with coordinated body movement. Open the live companion for cursor proximity warnings and interactive actions." />
+<a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site">
+  <img src="./assets/spawny-pod-preview.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. A glowing copper box hides Spawny, an interactive 3D guardian. Click to open his pod transformation, swordmaster moves and cursor reactions." />
 </a>
 
-<p align="center"><a href="https://pranaykadu.is-a.dev/companion.html?v=guardian-1"><strong>Meet Pawny — swordmaster and blaster actions ↗</strong></a></p>
+<p align="center"><a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site"><strong>Click the copper box to awaken Spawny in 3D ↗</strong></a><br /><sub>Hover or tap the box on the companion page · Swordmaster moves · Eye tracking · Energy shield</sub></p>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
