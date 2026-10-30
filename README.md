@@ -1,7 +1,7 @@
 <!-- GitHub profile · BackendArchitectX -->
 
 <a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site" title="Spawny · Interactive 3D">
-  <img src="./assets/spawny-pod-preview-v5.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Meet Spawny, a smiling copper guardian. In the linked 3D scene, hovering over the box area starts his transformation and swordmaster demonstration." />
+  <img src="./assets/spawny-pod-preview-v6.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Meet Spawny, a cheerful copper companion with a big smile. In the linked 3D scene, hover over the box to unfold him. He walks left and right, and pauses to greet you when approached." />
 </a>
 
 <p align="center"><a href="https://spawny-copper-guardian.rahuldaaws.chatgpt.site"><strong>Meet Spawny · Interactive 3D ↗</strong></a></p>
