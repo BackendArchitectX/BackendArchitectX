@@ -1,9 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- GitHub supports animated images here. Live 3D, audio and cursor/touch events cannot run in a README. -->
+<!-- The background is transparent. Spawny remains fully opaque. GitHub displays a recorded animation here. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v10-still.png" />
-  <img src="./assets/spawny-readme-v10.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny unfolds from a copper box, waves, wanders, smiles, reacts with surprise, giggles, glows, turns around and curls back into his pod in an automatic animation." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v11-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v11-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v11-dark.gif" />
+  <img src="./assets/spawny-readme-v11-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Teal-and-mint Spawny on a transparent background unfolds from a box, waves, wanders, smiles, reacts with surprise, giggles, turns around and curls back into his pod in an automatic animation." />
 </picture>
 
 <p align="center">
