@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Transparent background; opaque Spawny. English starts each automatic loop. Every language completes its greeting and downward gesture before the next appears. -->
+<!-- Transparent background; opaque Spawny. English starts the loop. Each greeting completes its downward gesture before the next language appears. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v14-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v14-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v14-dark.gif" />
-  <img src="./assets/spawny-readme-v14-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny wears a red-and-purple hero suit with a white face and hands. English Hello comes first: he smiles, waves, points down to the README and returns to rest. The same complete sequence then repeats for each of the other 24 languages, including Mandarin Chinese. Native scripts, language labels and Roman readings. Transparent background; automatic silent animation." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v15-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v15-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v15-dark.gif" />
+  <img src="./assets/spawny-readme-v15-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny has round cheeks, soft sparkling eyes, a curved smile, a smooth red helmet, rounded white hands and a small heart on his red-and-purple suit. English Hello comes first, followed by a wave, a downward gesture toward the README and a return to rest. This complete sequence repeats for all 25 languages, including Mandarin Chinese. Transparent background; automatic silent animation." />
 </picture>
 
 <p align="center">
