@@ -47,22 +47,35 @@ Selected backend engineering case studies from my [portfolio](https://backendarc
 
 I make focused, testable changes around **lifecycle correctness, concurrency, RPC behavior, and CI reliability**.
 
-### Merged upstream
+**8 externally merged PRs** across 5 upstream repositories: **5 engineering changes** and **3 developer-domain configuration changes**. Only pull requests authored by [BackendArchitectX](https://github.com/BackendArchitectX) and verified as merged into repositories outside my account are included in this count.
 
-- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented metrics reporting from starting on controller-only nodes.
-- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback ownership and removed redundant cleanup logic.
+### Merged upstream — engineering (5)
 
-### Open proposals
+- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Made RPC connection caching endpoint-aware to handle server address changes safely during rolling upgrades.
+- **[Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)** — Indexed topic-watcher notifications by namespace to avoid unnecessary checks of unrelated listeners.
+- **[Apache Druid #20633](https://github.com/apache/druid/pull/20633)** — Preserved user-input error classification when errors propagate from data servers.
+- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback ownership and removed redundant topic-cleanup traversal.
+- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented AutoBalancer metrics reporting from starting on controller-only nodes.
 
-- **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Coordinating query failure with autocommit transaction-commit ownership.
-- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Endpoint-aware RPC connection caching during server address changes.
+### Other merged external PRs — developer-domain setup (3)
+
+- **[is-a-dev/register #57221](https://github.com/is-a-dev/register/pull/57221)** — Registered `pranaykadu.is-a.dev`.
+- **[is-a-dev/register #57294](https://github.com/is-a-dev/register/pull/57294)** — Added GitHub Pages TXT verification for the domain.
+- **[is-a-dev/register #57318](https://github.com/is-a-dev/register/pull/57318)** — Corrected the domain contact email.
+
+### Open upstream proposals
+
+- **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Coordinate query failure with autocommit transaction-commit ownership.
+- **[Apache Pinot #19915](https://github.com/apache/pinot/pull/19915)** — Improve hash distribution in replica-group instance lookups.
 - **[AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579)** — Optional Basic authentication for the Prometheus metrics endpoint.
+- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Prevent in-flight block restoration after a stream reader closes.
+- **[Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343)** — Fix Windows queue-write failure reporting.
 
-Also open: [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555) (reader-close lifecycle) · [Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343) (Windows queue-write reporting). *PR statuses checked October 28, 2026; individual links show their latest status.*
+*GitHub PR status verified on November 2, 2026. Internal/fork-only merges are excluded from the external contribution count.*
 
 ### Documented investigation
 
-**[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search and [identified a PR CI test-discovery gap](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336). The maintainer independently applied [search](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) and [workflow](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) updates. **My PR was closed without merging.**
+**[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search and [identified a PR CI test-discovery gap](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336). The maintainer independently applied [search](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) and [workflow](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) updates. **My PR was closed without merging and is not counted above.**
 
 ## Technical expertise
 
