@@ -39,6 +39,32 @@ def brighten(frame):
     px[x,y]=(min(255,int(r*1.13)),min(255,int(g*1.08)),min(255,int(b*1.06)),a)
  return frame
 
+def soften_pawny_reflections(frame):
+ # Reduce white/pink specular highlights on RED ARMOR only.
+ # Coordinates belong to the source 298x341 crop, prior to resizing.
+ # The face, gloves, pupils, and the heart emblem are deliberately excluded.
+ frame=frame.convert("RGBA")
+ pixels=frame.load()
+ for y in range(18,min(203,frame.height)):
+  for x in range(68,min(210,frame.width)):
+   helmet=(18<=y<=64 and 68<=x<=209)
+   chest=(162<=y<=202 and 102<=x<=173
+          and not (119<=x<=145 and 160<=y<=187))
+   if not (helmet or chest):
+    continue
+   r,g,b,a=pixels[x,y]
+   if a<100 or r<155 or g<65 or b<58:
+    continue
+   strength=min(1.0,max(0.0,(max(g,b)-55)/120))
+   if strength<=0:
+    continue
+   pixels[x,y]=(
+    min(248,max(210,int(r*.98))),
+    round(g*(1-strength)+min(68,30+g*.14)*strength),
+    round(b*(1-strength)+min(75,40+b*.14)*strength),
+    a)
+ return frame
+
 def read_motions(path):
  out=[]
  with Image.open(path) as im:
@@ -54,6 +80,7 @@ def read_motions(path):
    # Clear only that non-character region; the large single arrow is drawn later.
    ImageDraw.Draw(frame).rectangle((166,259,194,308),fill=(0,0,0,0))
    frame=brighten(frame)
+   frame=soften_pawny_reflections(frame)
    frame=frame.resize((int(frame.width*1.08),int(frame.height*1.08)),Image.Resampling.LANCZOS)
    out.append((elapsed,frame))
    elapsed+=max(20,int(im.info.get("duration") or 100))
@@ -106,11 +133,12 @@ def render(theme,sprite,language,step):
  _,greeting,kind=LANG[language]
  multiline_text(d,greeting,kind,fg)
  out.alpha_composite(sprite,(704,28))
- # Exactly one large down arrow at the far right of the hero.
- ax=1061
- top=327+int(5*math.sin((step/FPS)*math.tau/2.8))
- d.line([(ax,top),(ax,top+58)],fill=accent,width=9,joint="curve")
- d.line([(ax-20,top+41),(ax,top+61),(ax+20,top+41)],fill=accent,width=9,joint="curve")
+ # The single arrow is next to Pawny and matches his vivid red armor.
+ pawny_red=(231,38,48)
+ ax=999
+ top=317+int(5*math.sin((step/FPS)*math.tau/2.8))
+ d.line([(ax,top),(ax,top+58)],fill=pawny_red,width=9,joint="curve")
+ d.line([(ax-20,top+41),(ax,top+61),(ax+20,top+41)],fill=pawny_red,width=9,joint="curve")
  # A shared bottom rail centers the footer across both columns, clear of Pawny.
  d.line([(42,475),(1078,475)],fill=(50,62,76) if dark else (210,218,229),width=1)
  d.text((560,514),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",19),fill=muted,anchor="mm")
@@ -120,11 +148,11 @@ def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v22-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v23-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v22-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v23-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
