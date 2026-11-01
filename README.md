@@ -2,10 +2,10 @@
 
 <!-- Transparent background; opaque Spawny. English starts the loop. Each greeting completes its downward gesture before the next language appears. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v15-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v15-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v15-dark.gif" />
-  <img src="./assets/spawny-readme-v15-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny has round cheeks, soft sparkling eyes, a curved smile, a smooth red helmet, rounded white hands and a small heart on his red-and-purple suit. English Hello comes first, followed by a wave, a downward gesture toward the README and a return to rest. This complete sequence repeats for all 25 languages, including Mandarin Chinese. Transparent background; automatic silent animation." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v16-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark.gif" />
+  <img src="./assets/spawny-readme-v16-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny wears bright hero-red armor with violet suit details and a soft white face. He introduces himself with Hello, I’m Spawny, waves with subtle talking expressions, then glances down and points toward the README with a relaxed arm and clearly extended finger. English starts the complete 25-language greeting-and-point sequence, including Mandarin Chinese. Transparent background with an opaque robot. Automatic silent animation." />
 </picture>
 
 <p align="center">
