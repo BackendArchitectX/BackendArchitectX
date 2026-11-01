@@ -45,32 +45,23 @@ Selected backend engineering case studies from my [portfolio](https://backendarc
 
 ## Open-source contributions
 
-I make focused, testable changes around **lifecycle correctness, concurrency, RPC behavior, and CI reliability**.
+**5 merged engineering PRs across 4 external upstream projects** — Apache Fluss, Apache Pulsar, Apache Druid, and AutoMQ. I focus on correctness, concurrency, performance-sensitive dispatch, and failure recovery. Only merged code contributions authored by [BackendArchitectX](https://github.com/BackendArchitectX) are included here; repository-local and domain-registration PRs are excluded.
 
-**5 merged upstream engineering PRs across 4 projects.** These are verified code contributions authored by [BackendArchitectX](https://github.com/BackendArchitectX) and merged into repositories outside my account. Domain setup, internal merges, and fork-only merges are excluded from this featured engineering portfolio.
+### Merged upstream engineering
 
-### Merged upstream — engineering (5)
+- **[Apache Fluss · RPC endpoint correctness (#4263)](https://github.com/apache/fluss/pull/4263)** — *Problem:* caching connections by server UID alone could reuse an outdated endpoint after a host/port change. *Change:* keyed connections by UID, host, and port; made readiness and disconnect operations endpoint-aware. Added regression tests for rolling-upgrade and connection-lifecycle behavior.
+- **[Apache Pulsar · Namespace-indexed topic watchers (#26969)](https://github.com/apache/pulsar/pull/26969)** — *Problem:* topic notifications scanned listeners registered for unrelated namespaces. *Change:* indexed persistent-topic watchers by namespace and dispatched callbacks outside the registration lock. Added concurrency and listener-lifecycle tests plus a JMH comparison with the original linear scan.
+- **[Apache Druid · Preserve user error classifications (#20633)](https://github.com/apache/druid/pull/20633)** — *Problem:* errors from data servers could lose their `INVALID_INPUT` / user-error classification. *Change:* preserved exception causes in multithreaded groupBy execution and reconstructed structured `DruidException` responses while retaining legacy compatibility. Added regression tests across both paths.
+- **[AutoMQ · Remove redundant topic cleanup (#3542)](https://github.com/AutoMQ/automq/pull/3542)** — *Problem:* duplicate deleted-topic traversal produced redundant coordinator cleanup notifications. *Change:* removed the extra traversal, retaining callbacks for actual partition deletion and state transitions.
+- **[AutoMQ · Controller-only metrics startup (#3493)](https://github.com/AutoMQ/automq/pull/3493)** — *Problem:* metrics-reporter initialization could run on controller-only processes. *Change:* skipped broker-only configuration, producers, and reporter threads when the broker role is absent; covered broker, controller, and combined-role cases.
 
-- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Made RPC connection caching endpoint-aware to handle server address changes safely during rolling upgrades.
-- **[Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)** — Indexed topic-watcher notifications by namespace to avoid unnecessary checks of unrelated listeners.
-- **[Apache Druid #20633](https://github.com/apache/druid/pull/20633)** — Preserved user-input error classification when errors propagate from data servers.
-- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback ownership and removed redundant topic-cleanup traversal.
-- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented AutoBalancer metrics reporting from starting on controller-only nodes.
+### Active upstream reviews
 
-### Open upstream proposals
+**Distributed systems:** [Trino #30973](https://github.com/trinodb/trino/pull/30973) (transaction-commit race) · [Apache Pinot #19915](https://github.com/apache/pinot/pull/19915) (replica-group lookup hashing) · [Apache Fluss #4230](https://github.com/apache/fluss/pull/4230) (custom Paimon lake-table paths).
 
-- **[Apache Fluss #4230](https://github.com/apache/fluss/pull/4230)** — Support custom Paimon lake-table paths for Spark reads while preserving Fluss table paths and lake predicate pushdown.
-- **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Coordinate query failure with autocommit transaction-commit ownership.
-- **[Apache Pinot #19915](https://github.com/apache/pinot/pull/19915)** — Improve hash distribution in replica-group instance lookups.
-- **[AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579)** — Optional Basic authentication for the Prometheus metrics endpoint.
-- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Prevent in-flight block restoration after a stream reader closes.
-- **[Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343)** — Fix Windows queue-write failure reporting.
+**Reliability and security:** [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) (Prometheus Basic authentication) · [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555) (reader-close lifecycle) · [Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343) (Windows queue writes).
 
-*PR states verified on November 2, 2026. Counts represent featured externally merged engineering changes only; non-engineering external merges are deliberately omitted.*
-
-### Documented investigation
-
-**[DJV #919](https://github.com/grizzlypeak3d/DJV/pull/919)** — Investigated Information-panel search and [identified a PR CI test-discovery gap](https://github.com/grizzlypeak3d/DJV/pull/919#issuecomment-6128335336). The maintainer independently applied [search](https://github.com/grizzlypeak3d/DJV/commit/2e67a2401d2704ac7005f8c4685c3f1d9f2c7a5b) and [workflow](https://github.com/grizzlypeak3d/DJV/commit/d249d10cb9832779cc8e3ea30e5cf8fca3c77bdb) updates. **My PR was closed without merging and is not counted above.**
+*PR statuses verified November 2, 2026. Open proposals are not counted as merged contributions.*
 
 ## Technical expertise
 
@@ -89,6 +80,8 @@ I make focused, testable changes around **lifecycle correctness, concurrency, RP
 > **Build for failure. Measure before optimizing. Preserve the invariant.**
 
 I favor explicit ownership, simple designs, reproducible tests, and performance claims supported by workload-specific evidence.
+
+[Engineering investigation notes](docs/engineering-notes.md) — CI test discovery and search semantics, documented separately from merged upstream contributions.
 
 **Open to backend engineering opportunities and thoughtful open-source collaboration.**
 
