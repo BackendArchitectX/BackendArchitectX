@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/"assets"
-W,H=1120,640
+W,H=1120,545
 FPS=6
 SLOT=6
 LANG=[
@@ -68,26 +68,28 @@ def read_motions(path):
  return chosen
 
 def multiline_text(d, greeting, kind, fg):
- # All writing uses the same baseline; no extra red language label is shown.
- # The greeting sits under Pawny, with clearance above the footer.
- cx=860
- baseline=479
- max_width=454
+ # The rotating greeting lives entirely in the LEFT column, below the identity.
+ # One row, one language, no secondary language labels. Never overlap Pawny.
+ left=42
+ baseline=351
+ max_width=520
  if kind=="hindi":
   parts=re.split(r"([A-Za-z]+)",greeting)
-  for size in range(60,30,-1):
+  for size in range(64,32,-1):
    runs=[(part,font("latin" if re.fullmatch(r"[A-Za-z]+",part) else "hindi",size)) for part in parts if part]
-   total=sum(f.getlength(part) for part,f in runs)
-   if total<=max_width:break
-  x=cx-total/2
+   width=sum(f.getlength(part) for part,f in runs)
+   if width<=max_width:break
+  if width>max_width:raise ValueError("Hindi greeting exceeds left column")
+  x=left
   for part,f in runs:
    d.text((round(x),baseline),part,font=f,fill=fg,anchor="ls")
    x+=f.getlength(part)
  else:
-  for size in range(60,30,-1):
+  for size in range(64,32,-1):
    f=font(kind,size)
    if f.getlength(greeting)<=max_width:break
-  d.text((cx,baseline),greeting,font=f,anchor="ms",fill=fg)
+  if f.getlength(greeting)>max_width:raise ValueError("Greeting exceeds left column")
+  d.text((left,baseline),greeting,font=f,anchor="ls",fill=fg)
 
 def render(theme,sprite,language,step):
  dark=theme=="dark"
@@ -101,27 +103,28 @@ def render(theme,sprite,language,step):
  d.text((38,111),"Backend Software Engineer",font=font("latin",27),fill=muted,anchor="ls")
  d.text((38,149),"Java · Spring Boot · Distributed Systems · AWS",font=font("latin",17),fill=muted,anchor="ls")
  d.line([(38,174),(570,174)],fill=accent,width=3)
- d.text((40,470),"FIVE LANGUAGES · ONE FRIENDLY GUIDE",font=font("latin",16),fill=muted,anchor="ls")
  _,greeting,kind=LANG[language]
  multiline_text(d,greeting,kind,fg)
  out.alpha_composite(sprite,(704,28))
  # Exactly one large down arrow at the far right of the hero.
  ax=1061
- top=295+int(5*math.sin((step/FPS)*math.tau/2.8))
+ top=327+int(5*math.sin((step/FPS)*math.tau/2.8))
  d.line([(ax,top),(ax,top+58)],fill=accent,width=9,joint="curve")
  d.line([(ax-20,top+41),(ax,top+61),(ax+20,top+41)],fill=accent,width=9,joint="curve")
- d.text((858,610),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",18),fill=muted,anchor="mm")
+ # A shared bottom rail centers the footer across both columns, clear of Pawny.
+ d.line([(42,475),(1078,475)],fill=(50,62,76) if dark else (210,218,229),width=1)
+ d.text((560,514),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",19),fill=muted,anchor="mm")
  return out.convert("RGB")
 
 def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v21-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v22-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v21-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v22-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
