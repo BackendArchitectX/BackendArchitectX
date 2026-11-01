@@ -14,6 +14,7 @@ ASSETS=Path(__file__).resolve().parents[1]/"assets"
 ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=4
+SECONDS=6
 LANG=[
  ("Hey, I am EVE.","latin"),
  ("你好，我是 EVE。","chinese"),
