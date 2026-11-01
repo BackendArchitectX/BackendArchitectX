@@ -143,22 +143,22 @@ class EVE:
   return v*v*(3-2*v)
 
  def frame(self,t):
-  # Each six-second greeting: right fin waves hello; once it is lowered,
-  # the left fin presents Pranay's work. Never wave both fins.
-  wave=self.ease(t,.12,.50)*(1-self.ease(t,1.72,2.10))
-  point=self.ease(t,2.32,2.92)*(1-self.ease(t,4.92,5.75))
-  self.root.SetPosition(0,0,.055*math.sin(2*math.pi*t/3.2))
-  self.root.SetOrientation(0,0,1.0*math.sin(2*math.pi*t/6.0))
-  self.head.SetOrientation(0,0,-5.5*point+.8*math.sin(2*math.pi*t/4.5))
+  # Only ONE fin is ever animated: the screen-left fin (side=-1).
+  # It waves hello and later points left toward Pranay's profile details.
+  # Screen-right fin (side=+1) and the root assembly remain absolutely
+  # stationary throughout the 30-second looping GIF. This avoids the
+  # appearance that both hands are waving or moving.
+  wave=self.ease(t,.12,.55)*(1-self.ease(t,1.75,2.18))
+  point=self.ease(t,2.45,2.98)*(1-self.ease(t,4.95,5.82))
+  self.root.SetPosition(0,0,0)
+  self.root.SetOrientation(0,0,0)
+  self.head.SetOrientation(0,0,-4.5*point+.6*math.sin(2*math.pi*t/4.5))
 
-  # The right fin (screen right) is the ONLY waving fin. Gentle oscillation
-  # while raised; it returns to the resting pose before the next gesture.
-  phase=math.sin(2*math.pi*1.08*t)
-  self.arms[1].SetOrientation(0,-6-112*wave+24*wave*phase,6*wave*phase)
-
-  # The left fin stays completely still during hello. It then makes one slow,
-  # deliberate leftward presentation gesture and holds without oscillating.
-  self.arms[-1].SetOrientation(0,4+102*point,0)
+  # One fin handles both actions; the other fin is never transformed.
+  # A slow 1 Hz wobble remains readable when exported at 4 fps.
+  waving_angle=98+17*math.sin(2*math.pi*1.05*t)
+  single_fin_angle=(wave*waving_angle)+(point*104)
+  self.arms[-1].SetOrientation(0,4+single_fin_angle,0)
 
   for eye in self.eyes:
    eye.SetVisibility(not abs(t%5-3.85)<.13)
@@ -216,23 +216,31 @@ def build(theme):
  print("Rendering EVE",theme,flush=True)
  scene=EVE(theme)
  # Render all 24 motion samples once; replay the same gesture with each language.
+ # Capture the non-gesturing fin's transform and verify it never changes.
+ stationary_fin=scene.arms[1]
+ initial_orientation=stationary_fin.GetOrientation()
+ initial_position=stationary_fin.GetPosition()
+ initial_root=scene.root.GetPosition()
  sprites=[scene.frame(i/FPS) for i in range(SECONDS*FPS)]
- # Sanity check: selected waving and pointing frames must not be identical.
+ assert tuple(stationary_fin.GetOrientation())==tuple(initial_orientation), "Other fin must not rotate"
+ assert tuple(stationary_fin.GetPosition())==tuple(initial_position), "Other fin must not move"
+ assert tuple(scene.root.GetPosition())==tuple(initial_root), "Root hover must not move both fins"
+ # Both gestures must have visible motion from their own resting pose.
  from PIL import ImageChops
- assert ImageChops.difference(sprites[4],sprites[14]).getbbox() is not None
  assert ImageChops.difference(sprites[0],sprites[4]).getbbox() is not None
+ assert ImageChops.difference(sprites[8],sprites[14]).getbbox() is not None
  frames=[composite(theme,sprites[i],language,i/FPS) for language in range(5) for i in range(SECONDS*FPS)]
  # Static accessibility fallback shows a welcoming raised fin in English.
- frames[3].save(ASSETS/f"eve-readme-v3-{theme}-still.png",optimize=True)
+ frames[3].save(ASSETS/f"eve-readme-v4-{theme}-still.png",optimize=True)
  if theme=="dark":
   # Exact animation poses for reviewer-visible quality assurance.
-  frames[4].save(ASSETS/"eve-readme-v3-wave.png",optimize=True)
-  frames[14].save(ASSETS/"eve-readme-v3-point.png",optimize=True)
+  frames[4].save(ASSETS/"eve-readme-v4-wave.png",optimize=True)
+  frames[14].save(ASSETS/"eve-readme-v4-point.png",optimize=True)
  montage=Image.new("RGB",(WIDTH,HEIGHT*5))
  for k in range(5):montage.paste(frames[k*SECONDS*FPS],(0,k*HEIGHT))
  pal=montage.quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- out=ASSETS/f"eve-readme-v3-{theme}.gif"
+ out=ASSETS/f"eve-readme-v4-{theme}.gif"
  indexed[0].save(out,save_all=True,append_images=indexed[1:],loop=0,duration=250,optimize=True,disposal=2)
  with Image.open(out) as result:
   total=0
