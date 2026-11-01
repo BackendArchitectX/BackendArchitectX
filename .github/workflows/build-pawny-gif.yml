@@ -1,9 +1,9 @@
-name: Render Pawny five-language GIF
+name: Render animated 3D EVE README
 on:
   push:
     paths:
-      - 'scripts/render_pawny_gif.py'
-      - '.github/workflows/build-pawny-gif.yml'
+      - "scripts/render_eve_readme.py"
+      - ".github/workflows/build-pawny-gif.yml"
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,39 +15,37 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Install fonts for readable Hindi and Mandarin
+      - name: Install multilingual fonts
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y fonts-noto-core fonts-noto-cjk
-      - name: Install image library
-        run: python -m pip install 'Pillow==11.3.0'
-      - name: Render GIFs preserving original 3D character
-        run: python scripts/render_pawny_gif.py
-      - name: Update README to use the new GIFs
+          sudo apt-get install -y fonts-noto-core fonts-noto-cjk fonts-dejavu-core libgl1 libegl1
+      - name: Install 3D renderer and GIF dependencies
+        run: python -m pip install 'vtk==9.6.2' 'numpy==2.2.6' 'Pillow==11.3.0'
+      - name: Render animated 3D EVE in dark and light themes
+        run: python scripts/render_eve_readme.py
+      - name: Replace Pawny hero with EVE without altering the rest of README
         run: |
           python - <<'PY'
           from pathlib import Path
-          p=Path('README.md')
-          source=p.read_text()
-          mapping={
-            'pawny-readme-v24-dark-still.png':'pawny-readme-v25-dark-still.png',
-            'pawny-readme-v24-light-still.png':'pawny-readme-v25-light-still.png',
-            'pawny-readme-v24-dark.gif':'pawny-readme-v25-dark.gif',
-            'pawny-readme-v24-light.gif':'pawny-readme-v25-light.gif',
-          }
-          for old,new in mapping.items():
-            if old in source:
-              source=source.replace(old,new)
-            assert new in source,(old,new)
-          source=source.replace(
-            '3D-rendered Pawny GIF v24: arrow matches Pawny red and sits close; armor glare reduced without affecting face.',
-            '3D-rendered Pawny GIF v25: red arrow close to Pawny, softly corrected armor reflections.')
-          p.write_text(source)
+          import re
+          p=Path("README.md")
+          body=p.read_text(encoding="utf-8")
+          new="""<!-- Animated 3D EVE: five greetings, one language at a time, dark/light support -->
+          <picture>
+            <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark-still.png" />
+            <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v1-light-still.png" />
+            <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark.gif" />
+            <img src="./assets/eve-readme-v1-light.gif" width="100%" alt="Pranay Kadu with animated 3D EVE-style floating white robot, cyan eyes, and one rotating greeting in English, Mandarin Chinese, Hindi, Spanish, or French." />
+          </picture>"""
+          expr=r"<!-- 3D-rendered Pawny GIF.*?-->\s*<picture>.*?</picture>"
+          updated,n=re.subn(expr,new,body,count=1,flags=re.DOTALL)
+          assert n==1,"Existing Pawny hero missing or changed; not modifying README"
+          p.write_text(updated,encoding="utf-8")
           PY
-      - name: Commit the regenerated GIFs and README
+      - name: Commit README and new EVE assets
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/pawny-readme-v25-dark.gif assets/pawny-readme-v25-light.gif assets/pawny-readme-v25-dark-still.png assets/pawny-readme-v25-light-still.png
-          git diff --cached --quiet || git commit -m "style(profile): feather Pawny armor highlights"
+          git add README.md assets/eve-readme-v1-dark.gif assets/eve-readme-v1-light.gif assets/eve-readme-v1-dark-still.png assets/eve-readme-v1-light-still.png
+          git diff --cached --quiet || git commit -m "feat(profile): replace Pawny with animated 3D EVE"
           git push origin HEAD:main
