@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Original 3D-rendered Pawny GIF restored. Dark/light animations and reduced-motion still images. -->
+<!-- 3D-rendered Pawny GIF v18: five languages, one at a time, large readable greeting and arrow. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v16-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark.gif" />
-  <img src="./assets/spawny-readme-v16-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. An animated GIF for GitHub README compatibility." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v18-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/pawny-readme-v18-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v18-dark.gif" />
+  <img src="./assets/pawny-readme-v18-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Bigger text, brighter glossy red armor, and a large downward arrow. Animated GIF for GitHub README compatibility." />
 </picture>
 
 <p align="center">
