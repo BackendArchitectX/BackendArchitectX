@@ -30,13 +30,14 @@ FONTS={
 def font(kind,size):
  return ImageFont.truetype(FONTS[kind],size,layout_engine=ImageFont.Layout.RAQM)
 
-def mesh_actor(mapper,color,spec=.5,ambient=.16):
+def mesh_actor(mapper,color,spec=.28,ambient=.20):
+ # Softer satin-polymer finish rather than hard plastic hotspots.
  actor=vtk.vtkActor()
  actor.SetMapper(mapper)
  prop=actor.GetProperty()
  prop.SetColor(*color)
- prop.SetDiffuse(.8);prop.SetAmbient(ambient)
- prop.SetSpecular(spec);prop.SetSpecularPower(38)
+ prop.SetDiffuse(.82);prop.SetAmbient(ambient)
+ prop.SetSpecular(spec);prop.SetSpecularPower(22)
  prop.SetInterpolationToPhong()
  return actor
 
@@ -75,7 +76,7 @@ def teardrop():
  normals.AutoOrientNormalsOn();normals.SplittingOff()
  mapper=vtk.vtkPolyDataMapper()
  mapper.SetInputConnection(normals.GetOutputPort())
- return mesh_actor(mapper,(.94,.965,1),.46)
+ return mesh_actor(mapper,(.965,.975,1),.24)
 
 def glowing_eye(cx):
  pts=vtk.vtkPoints();lines=vtk.vtkCellArray()
@@ -90,7 +91,7 @@ def glowing_eye(cx):
  tube.SetInputData(poly);tube.SetRadius(.028)
  tube.SetNumberOfSides(14);tube.CappingOn()
  mapper=vtk.vtkPolyDataMapper();mapper.SetInputConnection(tube.GetOutputPort())
- return mesh_actor(mapper,(.06,.71,1),.14,.82)
+ return mesh_actor(mapper,(.10,.82,1),.08,.92)
 
 class EVE:
  def __init__(self,theme):
@@ -104,7 +105,7 @@ class EVE:
   self.root=vtk.vtkAssembly()
   self.renderer.AddActor(self.root)
   self.root.AddPart(teardrop())
-  self.head=ellipsoid((0,0,2.93),(.9,.66,.63),(.94,.962,1),.45)
+  self.head=ellipsoid((0,0,2.93),(.9,.66,.63),(.972,.98,1),.24)
   self.root.AddPart(self.head)
   self.root.AddPart(ellipsoid((0,-.568,2.965),(.725,.155,.385),(.012,.021,.038),.37))
   self.eyes=[glowing_eye(-.28),glowing_eye(.28)]
@@ -112,15 +113,16 @@ class EVE:
   self.arms={}
   for side in (-1,1):
    assembly=vtk.vtkAssembly()
-   arm=ellipsoid((side*.20,0,-.59),(.205,.265,.83),(.94,.955,.99),.38)
+   arm=ellipsoid((side*.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
    arm.SetOrientation(0,-6*side,-15*side)
    assembly.SetPosition(.79*side,0,1.90)
    assembly.AddPart(arm);self.root.AddPart(assembly)
    self.arms[side]=assembly
   for position,intensity,color in [
-   ((4,-6,8),1.12,(1,1,1)),
-   ((-4,-3,4),.56,(.67,.78,1)),
-   ((1,4,6),.52,(.69,.81,1)),
+   ((4,-6,8),.92,(1,1,1)),
+   ((-4,-3,4),.42,(.78,.86,1)),
+   ((1,4,6),.36,(.78,.90,1)),
+   ((0,-2,10),.24,(.92,.96,1)),
   ]:
    light=vtk.vtkLight()
    light.SetPosition(*position);light.SetFocalPoint(0,0,1.8)
@@ -141,23 +143,25 @@ class EVE:
   return v*v*(3-2*v)
 
  def frame(self,t):
-  # Every six-second language slot: wave hello, gesture left toward the
-  # Pranay Kadu heading and engineering work, then return to idle.
-  # EVE's fin-like arms function as her hands in these greeting gestures.
-  wave=self.ease(t,.12,.48)*(1-self.ease(t,1.85,2.25))
-  point=self.ease(t,2.15,2.7)*(1-self.ease(t,4.85,5.65))
-  self.root.SetPosition(0,0,.065*math.sin(2*math.pi*t/3))
-  self.root.SetOrientation(0,0,1.3*math.sin(2*math.pi*t/5.5))
-  self.head.SetOrientation(0,0,-6*point+1.1*math.sin(2*math.pi*t/4))
-  # Right-side fin: 1.15 Hz is deliberately below the 4 FPS Nyquist
-  # limit; a 2 Hz wave would alias to almost no visible motion.
-  phase=math.sin(2*math.pi*1.15*t)
-  self.arms[1].SetOrientation(
-   0,-4-115*wave+26*wave*phase,8*wave*phase)
-  # Left-side fin: hold a clear outward-and-upward point at the profile.
-  self.arms[-1].SetOrientation(
-   0,4+111*point,4*point*math.sin(2*math.pi*(t-2.6)/2))
-  for eye in self.eyes:eye.SetVisibility(not abs(t%5-3.85)<.13)
+  # Each six-second greeting: right fin waves hello; once it is lowered,
+  # the left fin presents Pranay's work. Never wave both fins.
+  wave=self.ease(t,.12,.50)*(1-self.ease(t,1.72,2.10))
+  point=self.ease(t,2.32,2.92)*(1-self.ease(t,4.92,5.75))
+  self.root.SetPosition(0,0,.055*math.sin(2*math.pi*t/3.2))
+  self.root.SetOrientation(0,0,1.0*math.sin(2*math.pi*t/6.0))
+  self.head.SetOrientation(0,0,-5.5*point+.8*math.sin(2*math.pi*t/4.5))
+
+  # The right fin (screen right) is the ONLY waving fin. Gentle oscillation
+  # while raised; it returns to the resting pose before the next gesture.
+  phase=math.sin(2*math.pi*1.08*t)
+  self.arms[1].SetOrientation(0,-6-112*wave+24*wave*phase,6*wave*phase)
+
+  # The left fin stays completely still during hello. It then makes one slow,
+  # deliberate leftward presentation gesture and holds without oscillating.
+  self.arms[-1].SetOrientation(0,4+102*point,0)
+
+  for eye in self.eyes:
+   eye.SetVisibility(not abs(t%5-3.85)<.13)
   self.window.Render()
   self.filter.Modified();self.filter.Update()
   data=self.filter.GetOutput()
@@ -198,10 +202,10 @@ def composite(theme,sprite,language,t):
  d.text((38,149),"Java · Spring Boot · Distributed Systems · AWS",font=font("latin",17),fill=muted,anchor="ls")
  d.line([(38,174),(568,174)],fill=blue,width=3)
  greeting(d,*LANG[language],fg)
- output.paste(sprite,(651,14))
+ output.paste(sprite,(646,10))
  d=ImageDraw.Draw(output)
  # Exactly one arrow, close to EVE, matching the blue eyes.
- ax=1028;top=311+int(5*math.sin(2*math.pi*t/3))
+ ax=1008;top=309+int(4*math.sin(2*math.pi*t/3.2))
  d.line([(ax,top),(ax,top+57)],fill=blue,width=8,joint="curve")
  d.line([(ax-18,top+39),(ax,top+58),(ax+18,top+39)],fill=blue,width=8,joint="curve")
  d.line([(42,474),(1078,474)],fill=(52,63,79) if dark else (210,219,228),width=1)
@@ -219,16 +223,16 @@ def build(theme):
  assert ImageChops.difference(sprites[0],sprites[4]).getbbox() is not None
  frames=[composite(theme,sprites[i],language,i/FPS) for language in range(5) for i in range(SECONDS*FPS)]
  # Static accessibility fallback shows a welcoming raised fin in English.
- frames[3].save(ASSETS/f"eve-readme-v2-{theme}-still.png",optimize=True)
+ frames[3].save(ASSETS/f"eve-readme-v3-{theme}-still.png",optimize=True)
  if theme=="dark":
   # Exact animation poses for reviewer-visible quality assurance.
-  frames[4].save(ASSETS/"eve-readme-v2-wave.png",optimize=True)
-  frames[14].save(ASSETS/"eve-readme-v2-point.png",optimize=True)
+  frames[4].save(ASSETS/"eve-readme-v3-wave.png",optimize=True)
+  frames[14].save(ASSETS/"eve-readme-v3-point.png",optimize=True)
  montage=Image.new("RGB",(WIDTH,HEIGHT*5))
  for k in range(5):montage.paste(frames[k*SECONDS*FPS],(0,k*HEIGHT))
  pal=montage.quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- out=ASSETS/f"eve-readme-v2-{theme}.gif"
+ out=ASSETS/f"eve-readme-v3-{theme}.gif"
  indexed[0].save(out,save_all=True,append_images=indexed[1:],loop=0,duration=250,optimize=True,disposal=2)
  with Image.open(out) as result:
   total=0

@@ -29,18 +29,21 @@ jobs:
           from pathlib import Path
           p=Path("README.md")
           before=p.read_text(encoding="utf-8")
-          updated=before.replace("eve-readme-v1-","eve-readme-v2-")
+          updated=before.replace("eve-readme-v2-","eve-readme-v3-")
           updated=updated.replace(
-            "Animated 3D EVE: five greetings, one language at a time, dark/light support",
-            "Animated 3D EVE: waves hello then points to Pranay Kadu and work; five languages, dark/light support")
-          assert updated!=before and updated.count("eve-readme-v2-dark.gif")==1
-          assert "eve-readme-v1-" not in updated[:1200]
+            "Animated 3D EVE: waves hello then points to Pranay Kadu and work; five languages, dark/light support",
+            "Animated 3D EVE: one-fin wave, then separate pointing gesture; softer 3D finish; five languages")
+          updated=updated.replace(
+            "waves hello with her right fin, points left toward Pranay Kadu and his engineering work",
+            "waves hello with only her right fin, then uses her left fin to point toward Pranay Kadu and his engineering work")
+          assert updated!=before and updated.count("eve-readme-v3-dark.gif")==1
+          assert "eve-readme-v2-" not in updated[:1200]
           p.write_text(updated,encoding="utf-8")
           PY
       - name: Commit README and new EVE assets
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/eve-readme-v2-dark.gif assets/eve-readme-v2-light.gif assets/eve-readme-v2-dark-still.png assets/eve-readme-v2-light-still.png assets/eve-readme-v2-wave.png assets/eve-readme-v2-point.png
-          git diff --cached --quiet || git commit -m "feat(profile): animate EVE waving and pointing at Pranay work"
+          git add README.md assets/eve-readme-v3-dark.gif assets/eve-readme-v3-light.gif assets/eve-readme-v3-dark-still.png assets/eve-readme-v3-light-still.png assets/eve-readme-v3-wave.png assets/eve-readme-v3-point.png
+          git diff --cached --quiet || git commit -m "feat(profile): single-fin greeting and polished 3D EVE"
           git push origin HEAD:main
