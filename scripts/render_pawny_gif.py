@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/"assets"
-W,H=1120,510
+W,H=1120,640
 FPS=6
 SLOT=6
 LANG=[
@@ -64,23 +64,27 @@ def read_motions(path):
   chosen.append(out[j][1])
  return chosen
 
-def multiline_text(d,greeting,kind,fg):
+def multiline_text(d, greeting, kind, fg):
+ # All writing uses the same baseline; no extra red language label is shown.
+ # Fit the complete greeting inside the independent 470px-wide banner header.
  cx=860
+ baseline=121
+ max_width=454
  if kind=="hindi":
   parts=re.split(r"([A-Za-z]+)",greeting)
-  for size in range(51,30,-1):
-   chunks=[(p,font("latin" if re.fullmatch("[A-Za-z]+",p) else "hindi",size)) for p in parts]
-   widths=[f.getlength(p) for p,f in chunks]
-   if sum(widths)<=470:break
-  x=cx-sum(widths)/2
-  for (text,f),width in zip(chunks,widths):
-   if text:d.text((x,106),text,font=f,fill=fg,anchor="ls")
-   x+=width
+  for size in range(60,30,-1):
+   runs=[(part,font("latin" if re.fullmatch(r"[A-Za-z]+",part) else "hindi",size)) for part in parts if part]
+   total=sum(f.getlength(part) for part,f in runs)
+   if total<=max_width:break
+  x=cx-total/2
+  for part,f in runs:
+   d.text((round(x),baseline),part,font=f,fill=fg,anchor="ls")
+   x+=f.getlength(part)
  else:
-  for sz in range(51,30,-1):
-   f=font(kind,sz)
-   if f.getlength(greeting)<=475:break
-  d.text((cx,61),greeting,font=f,anchor="ma",fill=fg)
+  for size in range(60,30,-1):
+   f=font(kind,size)
+   if f.getlength(greeting)<=max_width:break
+  d.text((cx,baseline),greeting,font=f,anchor="ms",fill=fg)
 
 def render(theme,sprite,language,step):
  dark=theme=="dark"
@@ -97,36 +101,35 @@ def render(theme,sprite,language,step):
  d.text((38,269),"A friendly hello.",font=font("latin",31),fill=accent,anchor="ls")
  d.text((38,312),"Then, explore my work.",font=font("latin",31),fill=fg,anchor="ls")
  d.text((40,470),"FIVE LANGUAGES · ONE FRIENDLY GUIDE",font=font("latin",16),fill=muted,anchor="ls")
- label,greeting,kind=LANG[language]
+ _,greeting,kind=LANG[language]
  multiline_text(d,greeting,kind,fg)
- d.text((860,112),label+" · HELLO",font=font("latin",18),anchor="ma",fill=accent)
- out.alpha_composite(sprite,(704,130))
+ out.alpha_composite(sprite,(704,184))
  # Large 60px down arrow, with a subtle secondary chevron.
  ax=1061
- top=344+int(5*math.sin((step/FPS)*math.tau/2.8))
+ top=432+int(5*math.sin((step/FPS)*math.tau/2.8))
  d.line([(ax,top),(ax,top+58)],fill=accent,width=9,joint="curve")
  d.line([(ax-20,top+41),(ax,top+61),(ax+20,top+41)],fill=accent,width=9,joint="curve")
  d.line([(ax-14,top+83),(ax,top+96),(ax+14,top+83)],fill=accent,width=5)
- d.text((865,484),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",15),fill=muted,anchor="mm")
+ d.text((858,610),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",18),fill=muted,anchor="mm")
  return out.convert("RGB")
 
 def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v18-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v19-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
  dest=ASSETS/("pawny-readme-v18-"+theme+".gif")
- indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=170,loop=0,optimize=True,disposal=2)
+ indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
   total=0
   for i in range(result.n_frames):
    result.seek(i)
    total+=result.info.get("duration",0)
-  assert total>=29500,(theme,total)
+  assert abs(total-30000)<=50,(theme,total)
  print("Generated",dest,dest.stat().st_size,"bytes",total,"ms")
 
 if __name__=="__main__":

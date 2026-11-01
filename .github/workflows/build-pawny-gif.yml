@@ -30,26 +30,27 @@ jobs:
           p=Path('README.md')
           source=p.read_text()
           mapping={
-            'spawny-readme-v16-dark-still.png':'pawny-readme-v18-dark-still.png',
-            'spawny-readme-v16-light-still.png':'pawny-readme-v18-light-still.png',
-            'spawny-readme-v16-dark.gif':'pawny-readme-v18-dark.gif',
-            'spawny-readme-v16-light.gif':'pawny-readme-v18-light.gif',
+            'pawny-readme-v18-dark-still.png':'pawny-readme-v19-dark-still.png',
+            'pawny-readme-v18-light-still.png':'pawny-readme-v19-light-still.png',
+            'pawny-readme-v18-dark.gif':'pawny-readme-v19-dark.gif',
+            'pawny-readme-v18-light.gif':'pawny-readme-v19-light.gif',
           }
           for old,new in mapping.items():
-            assert old in source, old
-            source=source.replace(old,new)
+            if old in source:
+              source=source.replace(old,new)
+            assert new in source,(old,new)
           source=source.replace(
-            'Original 3D-rendered Pawny GIF restored. Dark/light animations and reduced-motion still images.',
-            '3D-rendered Pawny GIF v18: five languages, one at a time, large readable greeting and arrow.')
+            '3D-rendered Pawny GIF v18: five languages, one at a time, large readable greeting and arrow.',
+            '3D-rendered Pawny GIF v19: five languages, one at a time, without overlapping text.')
           source=source.replace(
-            'An animated GIF for GitHub README compatibility.',
-            'Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Bigger text, brighter glossy red armor, and a large downward arrow. Animated GIF for GitHub README compatibility.')
+            'Bigger text, brighter glossy red armor, and a large downward arrow.',
+            'Large clear greetings without language labels, a separate footer, bright glossy red armor, and a large downward arrow.')
           p.write_text(source)
           PY
       - name: Commit the regenerated GIFs and README
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/pawny-readme-v18-dark.gif assets/pawny-readme-v18-light.gif assets/pawny-readme-v18-dark-still.png assets/pawny-readme-v18-light-still.png
-          git commit -m "feat(profile): ship readable five-language 3D Pawny GIF"
+          git add README.md assets/pawny-readme-v19-dark.gif assets/pawny-readme-v19-light.gif assets/pawny-readme-v19-dark-still.png assets/pawny-readme-v19-light-still.png
+          git diff --cached --quiet || git commit -m "fix(profile): eliminate Pawny greeting and footer overlaps"
           git push origin HEAD:main
