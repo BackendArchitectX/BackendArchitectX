@@ -71,11 +71,21 @@ def soften_pawny_reflections(frame):
     continue
    helmet=(x in helmet_base and 5<=y<=helmet_base[x])
    # The central white heart and both white gloves are outside this mask.
-   torso=(y in torso_rows and 106<=x<=162
-          and not (116<=x<=146))
+   torso=(y in torso_rows and 103<=x<=166
+          and not (118<=x<=145))
    if not (helmet or torso):
     continue
    weight=min(1.0,max(0.0,(max(g,b)-55)/120))
+   if torso and not helmet:
+    # Feather the correction near the heart and torso borders.
+    # This avoids hard vertical retouch edges in the animated chest.
+    taper=(min(1.0,(x-103)/7,(118-x)/7) if x<118
+           else min(1.0,(x-145)/7,(166-x)/7))
+    if torso_rows:
+     lower=min(torso_rows)
+     upper=max(torso_rows)
+     taper*=max(0.0,min(1.0,(y-lower)/11,(upper-y)/11))
+    weight*=max(0.0,taper)*0.85
    dest[x,y]=(
     min(248,max(210,int(r*.98))),
     round(g*(1-weight)+min(68,30+g*.14)*weight),
@@ -166,11 +176,11 @@ def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v24-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v25-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v24-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v25-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
