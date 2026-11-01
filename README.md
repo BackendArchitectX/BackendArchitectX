@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Animated 3D EVE: five greetings, one language at a time, dark/light support -->
+<!-- Animated 3D EVE: waves hello then points to Pranay Kadu and work; five languages, dark/light support -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v1-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark.gif" />
-  <img src="./assets/eve-readme-v1-light.gif" width="100%" alt="Pranay Kadu with animated 3D EVE-style floating white robot, cyan eyes, and one rotating greeting in English, Mandarin Chinese, Hindi, Spanish, or French." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v2-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v2-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v2-dark.gif" />
+  <img src="./assets/eve-readme-v2-light.gif" width="100%" alt="Pranay Kadu with animated 3D EVE-style floating white robot, cyan eyes, and one rotating greeting in English, Mandarin Chinese, Hindi, Spanish, or French." />
 </picture>
 
 <p align="center">
