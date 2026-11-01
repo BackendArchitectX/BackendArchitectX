@@ -47,7 +47,7 @@ Selected backend engineering case studies from my [portfolio](https://backendarc
 
 I make focused, testable changes around **lifecycle correctness, concurrency, RPC behavior, and CI reliability**.
 
-**8 externally merged PRs** across 5 upstream repositories: **5 engineering changes** and **3 developer-domain configuration changes**. Only pull requests authored by [BackendArchitectX](https://github.com/BackendArchitectX) and verified as merged into repositories outside my account are included in this count.
+**5 merged upstream engineering PRs across 4 projects.** These are verified code contributions authored by [BackendArchitectX](https://github.com/BackendArchitectX) and merged into repositories outside my account. Domain setup, internal merges, and fork-only merges are excluded from this featured engineering portfolio.
 
 ### Merged upstream — engineering (5)
 
@@ -57,21 +57,16 @@ I make focused, testable changes around **lifecycle correctness, concurrency, RP
 - **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Clarified callback ownership and removed redundant topic-cleanup traversal.
 - **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented AutoBalancer metrics reporting from starting on controller-only nodes.
 
-### Other merged external PRs — developer-domain setup (3)
-
-- **[is-a-dev/register #57221](https://github.com/is-a-dev/register/pull/57221)** — Registered `pranaykadu.is-a.dev`.
-- **[is-a-dev/register #57294](https://github.com/is-a-dev/register/pull/57294)** — Added GitHub Pages TXT verification for the domain.
-- **[is-a-dev/register #57318](https://github.com/is-a-dev/register/pull/57318)** — Corrected the domain contact email.
-
 ### Open upstream proposals
 
+- **[Apache Fluss #4230](https://github.com/apache/fluss/pull/4230)** — Support custom Paimon lake-table paths for Spark reads while preserving Fluss table paths and lake predicate pushdown.
 - **[Trino #30973](https://github.com/trinodb/trino/pull/30973)** — Coordinate query failure with autocommit transaction-commit ownership.
 - **[Apache Pinot #19915](https://github.com/apache/pinot/pull/19915)** — Improve hash distribution in replica-group instance lookups.
 - **[AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579)** — Optional Basic authentication for the Prometheus metrics endpoint.
 - **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Prevent in-flight block restoration after a stream reader closes.
 - **[Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343)** — Fix Windows queue-write failure reporting.
 
-*GitHub PR status verified on November 2, 2026. Internal/fork-only merges are excluded from the external contribution count.*
+*PR states verified on November 2, 2026. Counts represent featured externally merged engineering changes only; non-engineering external merges are deliberately omitted.*
 
 ### Documented investigation
 
