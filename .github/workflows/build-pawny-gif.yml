@@ -30,27 +30,24 @@ jobs:
           p=Path('README.md')
           source=p.read_text()
           mapping={
-            'pawny-readme-v22-dark-still.png':'pawny-readme-v23-dark-still.png',
-            'pawny-readme-v22-light-still.png':'pawny-readme-v23-light-still.png',
-            'pawny-readme-v22-dark.gif':'pawny-readme-v23-dark.gif',
-            'pawny-readme-v22-light.gif':'pawny-readme-v23-light.gif',
+            'pawny-readme-v23-dark-still.png':'pawny-readme-v24-dark-still.png',
+            'pawny-readme-v23-light-still.png':'pawny-readme-v24-light-still.png',
+            'pawny-readme-v23-dark.gif':'pawny-readme-v24-dark.gif',
+            'pawny-readme-v23-light.gif':'pawny-readme-v24-light.gif',
           }
           for old,new in mapping.items():
             if old in source:
               source=source.replace(old,new)
             assert new in source,(old,new)
           source=source.replace(
-            '3D-rendered Pawny GIF v22: balanced two-column layout, greeting left and Pawny right, centered footer.',
-            '3D-rendered Pawny GIF v23: suit-red arrow closer to Pawny, white armor reflections softened.')
-          source=source.replace(
-            'a large downward arrow. Animated GIF for GitHub README compatibility.',
-            'one suit-red arrow next to Pawny, with softer armor highlights. Animated GIF for GitHub README compatibility.')
+            '3D-rendered Pawny GIF v23: suit-red arrow closer to Pawny, white armor reflections softened.',
+            '3D-rendered Pawny GIF v24: arrow matches Pawny red and sits close; armor glare reduced without affecting face.')
           p.write_text(source)
           PY
       - name: Commit the regenerated GIFs and README
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/pawny-readme-v23-dark.gif assets/pawny-readme-v23-light.gif assets/pawny-readme-v23-dark-still.png assets/pawny-readme-v23-light-still.png
-          git diff --cached --quiet || git commit -m "style(profile): reposition suit-red arrow and remove armor glare"
+          git add README.md assets/pawny-readme-v24-dark.gif assets/pawny-readme-v24-light.gif assets/pawny-readme-v24-dark-still.png assets/pawny-readme-v24-light-still.png
+          git diff --cached --quiet || git commit -m "fix(profile): protect Pawny face from reflection processing"
           git push origin HEAD:main

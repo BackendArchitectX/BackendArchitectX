@@ -40,30 +40,48 @@ def brighten(frame):
  return frame
 
 def soften_pawny_reflections(frame):
- # Reduce white/pink specular highlights on RED ARMOR only.
- # Coordinates belong to the source 298x341 crop, prior to resizing.
- # The face, gloves, pupils, and the heart emblem are deliberately excluded.
- frame=frame.convert("RGBA")
- pixels=frame.load()
- for y in range(18,min(203,frame.height)):
-  for x in range(68,min(210,frame.width)):
-   helmet=(18<=y<=64 and 68<=x<=209)
-   chest=(162<=y<=202 and 102<=x<=173
-          and not (119<=x<=145 and 160<=y<=187))
-   if not (helmet or chest):
+ # Locate red helmet and torso regions independently in each source frame.
+ # A fixed rectangular paint mask can hit Pawny's WHITE FACE when he moves.
+ # Detect actual red armor at this frame, then recolor only its pale highlights.
+ source=frame.convert("RGBA")
+ out=source.copy()
+ px=source.load()
+ dest=out.load()
+ width,height=source.size
+ def is_red(x,y):
+  if x<0 or y<0 or x>=width or y>=height:
+   return False
+  r,g,b,a=px[x,y]
+  return a>120 and r>145 and r>g*1.55 and r>b*1.43
+ # Per-column helmet base; guarantees no paint below the red dome.
+ helmet_base={}
+ for x in range(89,min(width,191)):
+  rows=[y for y in range(min(90,height)) if is_red(x,y)]
+  if len(rows)>=10:
+   helmet_base[x]=max(rows)-4
+ # Per-row torso support; the face alone does not contain enough red pixels.
+ torso_rows=set()
+ for y in range(145,min(240,height)):
+  if sum(is_red(x,y) for x in range(90,min(186,width)))>=27:
+   torso_rows.add(y)
+ for y in range(min(240,height)):
+  for x in range(89,min(width,191)):
+   r,g,b,a=px[x,y]
+   if a<120 or r<155 or g<65 or b<58:
     continue
-   r,g,b,a=pixels[x,y]
-   if a<100 or r<155 or g<65 or b<58:
+   helmet=(x in helmet_base and 5<=y<=helmet_base[x])
+   # The central white heart and both white gloves are outside this mask.
+   torso=(y in torso_rows and 106<=x<=162
+          and not (116<=x<=146))
+   if not (helmet or torso):
     continue
-   strength=min(1.0,max(0.0,(max(g,b)-55)/120))
-   if strength<=0:
-    continue
-   pixels[x,y]=(
+   weight=min(1.0,max(0.0,(max(g,b)-55)/120))
+   dest[x,y]=(
     min(248,max(210,int(r*.98))),
-    round(g*(1-strength)+min(68,30+g*.14)*strength),
-    round(b*(1-strength)+min(75,40+b*.14)*strength),
+    round(g*(1-weight)+min(68,30+g*.14)*weight),
+    round(b*(1-weight)+min(75,40+b*.14)*weight),
     a)
- return frame
+ return out
 
 def read_motions(path):
  out=[]
@@ -148,11 +166,11 @@ def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v23-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v24-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v23-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v24-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
