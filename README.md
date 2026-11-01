@@ -1,9 +1,12 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Pawny v17: six languages, one at a time; English first. Theme-aware animated SVG with reduced-motion support. -->
-<p align="center">
-  <img src="./assets/pawny-readme-v17.svg" width="100%" alt="Pranay Kadu, Backend Software Engineer, and Pawny, a friendly glossy red-and-white robot greeting visitors in six languages, one at a time: English, Mandarin Chinese, Malay, Hindi, Spanish, and French. Each greeting is displayed for six seconds. Pawny smiles and waves. Reduced-motion visitors see the English greeting." />
-</p>
+<!-- Original 3D-rendered Pawny GIF restored. Dark/light animations and reduced-motion still images. -->
+<picture>
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v16-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark.gif" />
+  <img src="./assets/spawny-readme-v16-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. An animated GIF for GitHub README compatibility." />
+</picture>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
