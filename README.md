@@ -1,12 +1,9 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Transparent background; opaque Spawny. English starts the loop. Each greeting completes its downward gesture before the next language appears. -->
-<picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/spawny-readme-v16-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/spawny-readme-v16-dark.gif" />
-  <img src="./assets/spawny-readme-v16-light.gif" width="100%" alt="Pranay Kadu · Backend Software Engineer. Spawny wears bright hero-red armor with violet suit details and a soft white face. He introduces himself with Hello, I’m Spawny, waves with subtle talking expressions, then glances down and points toward the README with a relaxed arm and clearly extended finger. English starts the complete 25-language greeting-and-point sequence, including Mandarin Chinese. Transparent background with an opaque robot. Automatic silent animation." />
-</picture>
+<!-- Pawny v17: six languages, one at a time; English first. Theme-aware animated SVG with reduced-motion support. -->
+<p align="center">
+  <img src="./assets/pawny-readme-v17.svg" width="100%" alt="Pranay Kadu, Backend Software Engineer, and Pawny, a friendly glossy red-and-white robot greeting visitors in six languages, one at a time: English, Mandarin Chinese, Malay, Hindi, Spanish, and French. Each greeting is displayed for six seconds. Pawny smiles and waves. Reduced-motion visitors see the English greeting." />
+</p>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
