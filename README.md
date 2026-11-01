@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- 3D-rendered Pawny GIF v18: five languages, one at a time, large readable greeting and arrow. -->
+<!-- 3D-rendered Pawny GIF v19: five languages, one at a time, without overlapping text. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v18-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/pawny-readme-v18-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v18-dark.gif" />
-  <img src="./assets/pawny-readme-v18-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Bigger text, brighter glossy red armor, and a large downward arrow. Animated GIF for GitHub README compatibility." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v19-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/pawny-readme-v19-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v19-dark.gif" />
+  <img src="./assets/pawny-readme-v19-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Large clear greetings without language labels, a separate footer, bright glossy red armor, and a large downward arrow. Animated GIF for GitHub README compatibility." />
 </picture>
 
 <p align="center">
