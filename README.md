@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- 3D-rendered Pawny GIF v25: red arrow close to Pawny, softly corrected armor reflections. -->
+<!-- Animated 3D EVE: five greetings, one language at a time, dark/light support -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v25-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/pawny-readme-v25-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v25-dark.gif" />
-  <img src="./assets/pawny-readme-v25-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Large clear greetings without language labels, a separate footer, bright glossy red armor, and one suit-red arrow next to Pawny, with softer armor highlights. Animated GIF for GitHub README compatibility." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v1-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark.gif" />
+  <img src="./assets/eve-readme-v1-light.gif" width="100%" alt="Pranay Kadu with animated 3D EVE-style floating white robot, cyan eyes, and one rotating greeting in English, Mandarin Chinese, Hindi, Spanish, or French." />
 </picture>
 
 <p align="center">
