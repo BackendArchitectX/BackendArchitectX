@@ -5,7 +5,7 @@
   <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v2-dark-still.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v2-light-still.png" />
   <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v2-dark.gif" />
-  <img src="./assets/eve-readme-v2-light.gif" width="100%" alt="Pranay Kadu with animated 3D EVE-style floating white robot, cyan eyes, and one rotating greeting in English, Mandarin Chinese, Hindi, Spanish, or French." />
+  <img src="./assets/eve-readme-v2-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that waves hello with her right fin, points left toward Pranay Kadu and his engineering work, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
 </picture>
 
 <p align="center">
