@@ -66,9 +66,9 @@ def read_motions(path):
 
 def multiline_text(d, greeting, kind, fg):
  # All writing uses the same baseline; no extra red language label is shown.
- # Fit the complete greeting inside the independent 470px-wide banner header.
+ # The greeting sits under Pawny, with clearance above the footer.
  cx=860
- baseline=121
+ baseline=479
  max_width=454
  if kind=="hindi":
   parts=re.split(r"([A-Za-z]+)",greeting)
@@ -103,10 +103,10 @@ def render(theme,sprite,language,step):
  d.text((40,470),"FIVE LANGUAGES · ONE FRIENDLY GUIDE",font=font("latin",16),fill=muted,anchor="ls")
  _,greeting,kind=LANG[language]
  multiline_text(d,greeting,kind,fg)
- out.alpha_composite(sprite,(704,184))
+ out.alpha_composite(sprite,(704,28))
  # Large 60px down arrow, with a subtle secondary chevron.
  ax=1061
- top=432+int(5*math.sin((step/FPS)*math.tau/2.8))
+ top=295+int(5*math.sin((step/FPS)*math.tau/2.8))
  d.line([(ax,top),(ax,top+58)],fill=accent,width=9,joint="curve")
  d.line([(ax-20,top+41),(ax,top+61),(ax+20,top+41)],fill=accent,width=9,joint="curve")
  d.line([(ax-14,top+83),(ax,top+96),(ax+14,top+83)],fill=accent,width=5)
@@ -117,11 +117,11 @@ def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v19-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v20-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v19-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v20-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
