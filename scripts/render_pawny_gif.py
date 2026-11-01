@@ -121,7 +121,7 @@ def build(theme):
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v18-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v19-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
