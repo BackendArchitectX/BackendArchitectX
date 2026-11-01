@@ -97,7 +97,7 @@ class EVE:
   self.renderer=vtk.vtkRenderer()
   self.renderer.SetBackground(*((.051,.067,.09) if theme=="dark" else (1,1,1)))
   self.window=vtk.vtkRenderWindow()
-  self.window.SetSize(370,405)
+  self.window.SetSize(400,405)
   self.window.SetOffScreenRendering(True)
   self.window.AddRenderer(self.renderer)
   self.window.SetMultiSamples(4)
@@ -109,14 +109,14 @@ class EVE:
   self.root.AddPart(ellipsoid((0,-.568,2.965),(.725,.155,.385),(.012,.021,.038),.37))
   self.eyes=[glowing_eye(-.28),glowing_eye(.28)]
   for eye in self.eyes:self.root.AddPart(eye)
-  self.arms=[]
+  self.arms={}
   for side in (-1,1):
    assembly=vtk.vtkAssembly()
    arm=ellipsoid((side*.20,0,-.59),(.205,.265,.83),(.94,.955,.99),.38)
    arm.SetOrientation(0,-6*side,-15*side)
    assembly.SetPosition(.79*side,0,1.90)
    assembly.AddPart(arm);self.root.AddPart(assembly)
-   self.arms.append((assembly,side))
+   self.arms[side]=assembly
   for position,intensity,color in [
    ((4,-6,8),1.12,(1,1,1)),
    ((-4,-3,4),.56,(.67,.78,1)),
@@ -129,17 +129,34 @@ class EVE:
   cam=self.renderer.GetActiveCamera()
   cam.SetPosition(0,-11,2.12);cam.SetFocalPoint(0,0,1.96)
   cam.SetViewUp(0,0,1);cam.ParallelProjectionOn()
-  cam.SetParallelScale(2.18)
+  cam.SetParallelScale(2.24)
   self.filter=vtk.vtkWindowToImageFilter()
   self.filter.SetInput(self.window)
   self.filter.SetInputBufferTypeToRGB()
   self.filter.ReadFrontBufferOff()
+ @staticmethod
+ def ease(t,start,end):
+  """Cubic ease with finite ramps: readable in a 4 FPS GIF."""
+  v=min(1.0,max(0.0,(t-start)/(end-start)))
+  return v*v*(3-2*v)
+
  def frame(self,t):
+  # Every six-second language slot: wave hello, gesture left toward the
+  # Pranay Kadu heading and engineering work, then return to idle.
+  # EVE's fin-like arms function as her hands in these greeting gestures.
+  wave=self.ease(t,.12,.48)*(1-self.ease(t,1.85,2.25))
+  point=self.ease(t,2.15,2.7)*(1-self.ease(t,4.85,5.65))
   self.root.SetPosition(0,0,.065*math.sin(2*math.pi*t/3))
-  self.root.SetOrientation(0,0,1.8*math.sin(2*math.pi*t/5.5))
-  self.head.SetOrientation(1.3*math.sin(2*math.pi*t/4),0,2.4*math.sin(2*math.pi*t/6))
-  for arm,side in self.arms:
-   arm.SetOrientation(0,-4*side,side*3.2*math.sin(2*math.pi*t/3.2))
+  self.root.SetOrientation(0,0,1.3*math.sin(2*math.pi*t/5.5))
+  self.head.SetOrientation(0,0,-6*point+1.1*math.sin(2*math.pi*t/4))
+  # Right-side fin: 1.15 Hz is deliberately below the 4 FPS Nyquist
+  # limit; a 2 Hz wave would alias to almost no visible motion.
+  phase=math.sin(2*math.pi*1.15*t)
+  self.arms[1].SetOrientation(
+   0,-4-115*wave+26*wave*phase,8*wave*phase)
+  # Left-side fin: hold a clear outward-and-upward point at the profile.
+  self.arms[-1].SetOrientation(
+   0,4+111*point,4*point*math.sin(2*math.pi*(t-2.6)/2))
   for eye in self.eyes:eye.SetVisibility(not abs(t%5-3.85)<.13)
   self.window.Render()
   self.filter.Modified();self.filter.Update()
@@ -181,7 +198,7 @@ def composite(theme,sprite,language,t):
  d.text((38,149),"Java · Spring Boot · Distributed Systems · AWS",font=font("latin",17),fill=muted,anchor="ls")
  d.line([(38,174),(568,174)],fill=blue,width=3)
  greeting(d,*LANG[language],fg)
- output.paste(sprite,(669,14))
+ output.paste(sprite,(651,14))
  d=ImageDraw.Draw(output)
  # Exactly one arrow, close to EVE, matching the blue eyes.
  ax=1028;top=311+int(5*math.sin(2*math.pi*t/3))
@@ -194,14 +211,24 @@ def composite(theme,sprite,language,t):
 def build(theme):
  print("Rendering EVE",theme,flush=True)
  scene=EVE(theme)
+ # Render all 24 motion samples once; replay the same gesture with each language.
  sprites=[scene.frame(i/FPS) for i in range(SECONDS*FPS)]
+ # Sanity check: selected waving and pointing frames must not be identical.
+ from PIL import ImageChops
+ assert ImageChops.difference(sprites[4],sprites[14]).getbbox() is not None
+ assert ImageChops.difference(sprites[0],sprites[4]).getbbox() is not None
  frames=[composite(theme,sprites[i],language,i/FPS) for language in range(5) for i in range(SECONDS*FPS)]
- frames[0].save(ASSETS/f"eve-readme-v1-{theme}-still.png",optimize=True)
+ # Static accessibility fallback shows a welcoming raised fin in English.
+ frames[3].save(ASSETS/f"eve-readme-v2-{theme}-still.png",optimize=True)
+ if theme=="dark":
+  # Exact animation poses for reviewer-visible quality assurance.
+  frames[4].save(ASSETS/"eve-readme-v2-wave.png",optimize=True)
+  frames[14].save(ASSETS/"eve-readme-v2-point.png",optimize=True)
  montage=Image.new("RGB",(WIDTH,HEIGHT*5))
  for k in range(5):montage.paste(frames[k*SECONDS*FPS],(0,k*HEIGHT))
  pal=montage.quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- out=ASSETS/f"eve-readme-v1-{theme}.gif"
+ out=ASSETS/f"eve-readme-v2-{theme}.gif"
  indexed[0].save(out,save_all=True,append_images=indexed[1:],loop=0,duration=250,optimize=True,disposal=2)
  with Image.open(out) as result:
   total=0

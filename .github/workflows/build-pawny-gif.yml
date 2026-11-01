@@ -23,29 +23,24 @@ jobs:
         run: python -m pip install 'vtk==9.6.2' 'numpy==2.2.6' 'Pillow==11.3.0'
       - name: Render animated 3D EVE in dark and light themes
         run: python scripts/render_eve_readme.py
-      - name: Replace Pawny hero with EVE without altering the rest of README
+      - name: Update only the existing EVE hero image paths
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
           p=Path("README.md")
-          body=p.read_text(encoding="utf-8")
-          new="""<!-- Animated 3D EVE: five greetings, one language at a time, dark/light support -->
-          <picture>
-            <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark-still.png" />
-            <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v1-light-still.png" />
-            <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v1-dark.gif" />
-            <img src="./assets/eve-readme-v1-light.gif" width="100%" alt="Pranay Kadu with animated 3D EVE-style floating white robot, cyan eyes, and one rotating greeting in English, Mandarin Chinese, Hindi, Spanish, or French." />
-          </picture>"""
-          expr=r"<!-- 3D-rendered Pawny GIF.*?-->\s*<picture>.*?</picture>"
-          updated,n=re.subn(expr,new,body,count=1,flags=re.DOTALL)
-          assert n==1,"Existing Pawny hero missing or changed; not modifying README"
+          before=p.read_text(encoding="utf-8")
+          updated=before.replace("eve-readme-v1-","eve-readme-v2-")
+          updated=updated.replace(
+            "Animated 3D EVE: five greetings, one language at a time, dark/light support",
+            "Animated 3D EVE: waves hello then points to Pranay Kadu and work; five languages, dark/light support")
+          assert updated!=before and updated.count("eve-readme-v2-dark.gif")==1
+          assert "eve-readme-v1-" not in updated[:1200]
           p.write_text(updated,encoding="utf-8")
           PY
       - name: Commit README and new EVE assets
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/eve-readme-v1-dark.gif assets/eve-readme-v1-light.gif assets/eve-readme-v1-dark-still.png assets/eve-readme-v1-light-still.png
-          git diff --cached --quiet || git commit -m "feat(profile): replace Pawny with animated 3D EVE"
+          git add README.md assets/eve-readme-v2-dark.gif assets/eve-readme-v2-light.gif assets/eve-readme-v2-dark-still.png assets/eve-readme-v2-light-still.png assets/eve-readme-v2-wave.png assets/eve-readme-v2-point.png
+          git diff --cached --quiet || git commit -m "feat(profile): animate EVE waving and pointing at Pranay work"
           git push origin HEAD:main
