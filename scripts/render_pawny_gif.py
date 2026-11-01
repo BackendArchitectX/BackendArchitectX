@@ -49,7 +49,10 @@ def read_motions(path):
    im.seek(i)
    frame=im.convert("RGBA").crop((770,98,1068,439))
    # Remove the old tiny pointing arrows while preserving 3D character.
-   ImageDraw.Draw(frame).rectangle((195,238,255,311),fill=(0,0,0,0))
+   # The legacy GIF has two tiny chevrons around x=945, y=375.
+   # They sit at x=175..184, y=277..291 in this extracted crop.
+   # Clear only that non-character region; the large single arrow is drawn later.
+   ImageDraw.Draw(frame).rectangle((166,259,194,308),fill=(0,0,0,0))
    frame=brighten(frame)
    frame=frame.resize((int(frame.width*1.08),int(frame.height*1.08)),Image.Resampling.LANCZOS)
    out.append((elapsed,frame))
@@ -98,18 +101,15 @@ def render(theme,sprite,language,step):
  d.text((38,111),"Backend Software Engineer",font=font("latin",27),fill=muted,anchor="ls")
  d.text((38,149),"Java · Spring Boot · Distributed Systems · AWS",font=font("latin",17),fill=muted,anchor="ls")
  d.line([(38,174),(570,174)],fill=accent,width=3)
- d.text((38,269),"A friendly hello.",font=font("latin",31),fill=accent,anchor="ls")
- d.text((38,312),"Then, explore my work.",font=font("latin",31),fill=fg,anchor="ls")
  d.text((40,470),"FIVE LANGUAGES · ONE FRIENDLY GUIDE",font=font("latin",16),fill=muted,anchor="ls")
  _,greeting,kind=LANG[language]
  multiline_text(d,greeting,kind,fg)
  out.alpha_composite(sprite,(704,28))
- # Large 60px down arrow, with a subtle secondary chevron.
+ # Exactly one large down arrow at the far right of the hero.
  ax=1061
  top=295+int(5*math.sin((step/FPS)*math.tau/2.8))
  d.line([(ax,top),(ax,top+58)],fill=accent,width=9,joint="curve")
  d.line([(ax-20,top+41),(ax,top+61),(ax+20,top+41)],fill=accent,width=9,joint="curve")
- d.line([(ax-14,top+83),(ax,top+96),(ax+14,top+83)],fill=accent,width=5)
  d.text((858,610),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",18),fill=muted,anchor="mm")
  return out.convert("RGB")
 
@@ -117,11 +117,11 @@ def build(theme):
  src=ASSETS/("spawny-readme-v16-"+theme+".gif")
  sprites=read_motions(src)
  frames=[render(theme,sprites[i],language,i) for language in range(5) for i in range(SLOT*FPS)]
- still=ASSETS/("pawny-readme-v20-"+theme+"-still.png")
+ still=ASSETS/("pawny-readme-v21-"+theme+"-still.png")
  frames[0].save(still,optimize=True)
  pal=frames[0].quantize(colors=256,method=Image.Quantize.MEDIANCUT)
  indexed=[f.quantize(palette=pal,dither=Image.Dither.NONE) for f in frames]
- dest=ASSETS/("pawny-readme-v20-"+theme+".gif")
+ dest=ASSETS/("pawny-readme-v21-"+theme+".gif")
  indexed[0].save(dest,save_all=True,append_images=indexed[1:],duration=[170 if i%3!=2 else 160 for i in range(len(indexed))],loop=0,optimize=True,disposal=2)
  # Verify animation contains enough frames/time for all five language slots.
  with Image.open(dest) as result:
