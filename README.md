@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- 3D-rendered Pawny GIF v24: arrow matches Pawny red and sits close; armor glare reduced without affecting face. -->
+<!-- 3D-rendered Pawny GIF v25: red arrow close to Pawny, softly corrected armor reflections. -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v24-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/pawny-readme-v24-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v24-dark.gif" />
-  <img src="./assets/pawny-readme-v24-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Large clear greetings without language labels, a separate footer, bright glossy red armor, and one suit-red arrow next to Pawny, with softer armor highlights. Animated GIF for GitHub README compatibility." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v25-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/pawny-readme-v25-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/pawny-readme-v25-dark.gif" />
+  <img src="./assets/pawny-readme-v25-light.gif" width="100%" alt="Pranay Kadu and his original 3D-rendered red-suited robot mascot, Pawny, waving and introducing the profile through animated greetings. Five languages are displayed one at a time: English, Mandarin Chinese, Hindi, Spanish, and French, six seconds each. Large clear greetings without language labels, a separate footer, bright glossy red armor, and one suit-red arrow next to Pawny, with softer armor highlights. Animated GIF for GitHub README compatibility." />
 </picture>
 
 <p align="center">
