@@ -16,7 +16,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v10"
+ASSET_PREFIX="eve-readme-v11"
 WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
@@ -57,10 +57,10 @@ def ellipsoid(center,radii,color,spec=.5):
  return actor
 
 class FinTip:
- def __init__(self):
-  # Use the same shell proportions and pose as the original right arm.
-  arm=ellipsoid((-.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
-  arm.SetOrientation(0,6,15)
+ def __init__(self,side):
+  # Both arms use the same tapered shell with mirrored resting poses.
+  arm=ellipsoid((side*.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
+  arm.SetOrientation(0,-6*side,-15*side)
   mapper=arm.GetMapper()
   sphere=mapper.GetInputAlgorithm()
   sphere.SetThetaResolution(128);sphere.SetPhiResolution(100)
@@ -72,14 +72,14 @@ class FinTip:
   self.rest=vtk_to_numpy(self.points).copy()
   x,y,z=2*self.rest.T
 
-  # The base seam and two lengthwise seams define three panels in the fin.
-  front=np.clip((-y-.12)/.20,0,1)
-  side=np.abs(x)
-  tip=np.clip((-z-.76)/.065,0,1)
-  base_seam=np.exp(-((z+.78-.12*x*x)/.022)**2)*np.clip((.48-side)/.16,0,1)
-  finger_seams=np.exp(-((side-.23)/.061)**2)*tip
-  self.seams=front*np.maximum(base_seam,finger_seams)
-  self.outer_panels=front*tip*np.clip((side-.26)/.16,0,1)
+  # Two rounded seams follow the taper and fade into the continuous shell.
+  front=np.clip((-y-.14)/.22,0,1)
+  across=np.abs(x)
+  tip=np.clip((-z-.76)/.235,0,1)
+  seam_length=(4*tip*(1-tip))**2
+  panel_edge=.25-.09*tip
+  self.seams=front*seam_length*np.exp(-((across-panel_edge)/.060)**2)
+  self.outer_panels=front*seam_length*np.clip((across-panel_edge)/.14,0,1)
   self.color=np.array([247,249,255])
   self.colors=numpy_to_vtk(np.tile(self.color.astype(np.uint8),(len(x),1)),deep=True)
   mesh.GetPointData().SetScalars(self.colors)
@@ -90,14 +90,15 @@ class FinTip:
   mapper.SetColorModeToDirectScalars()
   self.mesh=mesh
   self.actor=arm
+  self.pose(0,0)
 
- def pose(self,reveal,point):
-  groove=reveal*self.seams
+ def pose(self,gesture,point):
+  groove=(.32+.68*gesture)*self.seams
   inset=point*self.outer_panels
   # Contract toward the shell center so every panel stays inside the original fin.
-  depth=.022*groove+.024*inset
+  depth=.005*groove+.007*inset
   vtk_to_numpy(self.points)[:]=self.rest*(1-depth[:,None])
-  vtk_to_numpy(self.colors)[:]=self.color*(1-(.32*groove+.12*inset)[:,None])
+  vtk_to_numpy(self.colors)[:]=self.color*(1-(.33*groove+.055*inset)[:,None])
   self.points.Modified()
   self.colors.Modified()
   self.mesh.Modified()
@@ -177,10 +178,9 @@ class EVE:
    assembly.SetPosition(.79*side,0,1.90)
    self.root.AddPart(assembly)
    self.arms[side]=assembly
-  arm=ellipsoid((.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
-  arm.SetOrientation(0,-6,-15)
-  self.arms[1].AddPart(arm)
-  self.hand=FinTip()
+  self.arms[1].SetOrientation(0,-4,0)
+  self.arms[1].AddPart(FinTip(1).actor)
+  self.hand=FinTip(-1)
   self.arms[-1].AddPart(self.hand.actor)
   lighting=1 if theme=="dark" else .78
   for position,intensity,color in [
@@ -221,7 +221,7 @@ class EVE:
   # The arm points as a whole. The outer finger panels settle inward.
   wave_seams=self.ease(t,.32,.87)*(1-self.ease(t,1.98,2.58))
   point_tip=self.ease(t,2.88,3.43)*(1-self.ease(t,4.91,5.62))
-  self.hand.pose(.55+.45*(wave_seams+point_tip),point_tip)
+  self.hand.pose(wave_seams+point_tip,point_tip)
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
   idle_phase=math.tau*t/SECONDS
