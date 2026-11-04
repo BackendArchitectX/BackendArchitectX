@@ -2,10 +2,10 @@
 
 <!-- Animated 3D EVE: one moving fin waves and points; other fin stationary; five languages -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v4-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v4-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v4-dark.gif" />
-  <img src="./assets/eve-readme-v4-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that uses only her screen-left fin to wave hello and then point at Pranay Kadu and his engineering work, while her other fin stays stationary, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v5-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v5-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v5-dark.gif" />
+  <img src="./assets/eve-readme-v5-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that uses only her screen-left fin to wave hello and then point at Pranay Kadu and his engineering work, while her other fin stays stationary, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
 </picture>
 
 <p align="center">
