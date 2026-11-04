@@ -16,7 +16,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v9"
+ASSET_PREFIX="eve-readme-v10"
 WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
@@ -72,12 +72,14 @@ class FinTip:
   self.rest=vtk_to_numpy(self.points).copy()
   x,y,z=2*self.rest.T
 
-  # Two recessed seams divide the tip into three panels inside the shell.
-  tip=np.clip((-z-.73)/.27,0,1)
-  front=np.clip(-y/.18,0,1)
-  grooves=np.exp(-((x-.24)/.065)**2)+np.exp(-((x+.24)/.065)**2)
-  self.seams=np.clip(4*tip,0,1)*front*grooves
-  self.panel=tip**2*np.exp(-(x/.28)**4)
+  # The base seam and two lengthwise seams define three panels in the fin.
+  front=np.clip((-y-.12)/.20,0,1)
+  side=np.abs(x)
+  tip=np.clip((-z-.76)/.065,0,1)
+  base_seam=np.exp(-((z+.78-.12*x*x)/.022)**2)*np.clip((.48-side)/.16,0,1)
+  finger_seams=np.exp(-((side-.23)/.061)**2)*tip
+  self.seams=front*np.maximum(base_seam,finger_seams)
+  self.outer_panels=front*tip*np.clip((side-.26)/.16,0,1)
   self.color=np.array([247,249,255])
   self.colors=numpy_to_vtk(np.tile(self.color.astype(np.uint8),(len(x),1)),deep=True)
   mesh.GetPointData().SetScalars(self.colors)
@@ -90,13 +92,12 @@ class FinTip:
   self.actor=arm
 
  def pose(self,reveal,point):
-  points=vtk_to_numpy(self.points)
   groove=reveal*self.seams
-  panel=point*self.panel
-  points[:,0]=self.rest[:,0]-.018*panel
-  points[:,1]=self.rest[:,1]+.011*groove
-  points[:,2]=self.rest[:,2]-.042*panel
-  vtk_to_numpy(self.colors)[:]=self.color*(1-.24*groove[:,None])
+  inset=point*self.outer_panels
+  # Contract toward the shell center so every panel stays inside the original fin.
+  depth=.022*groove+.024*inset
+  vtk_to_numpy(self.points)[:]=self.rest*(1-depth[:,None])
+  vtk_to_numpy(self.colors)[:]=self.color*(1-(.32*groove+.12*inset)[:,None])
   self.points.Modified()
   self.colors.Modified()
   self.mesh.Modified()
@@ -217,10 +218,10 @@ class EVE:
   self.arms[-1].SetOrientation(0,4+133*lift+12*sway*math.sin(phase)+(29-10*sweep)*point,
                                6*sway*math.cos(phase))
 
-  # The short center panel points while the rest of the shell stays rigid.
+  # The arm points as a whole. The outer finger panels settle inward.
   wave_seams=self.ease(t,.32,.87)*(1-self.ease(t,1.98,2.58))
   point_tip=self.ease(t,2.88,3.43)*(1-self.ease(t,4.91,5.62))
-  self.hand.pose(wave_seams+point_tip,point_tip)
+  self.hand.pose(.55+.45*(wave_seams+point_tip),point_tip)
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
   idle_phase=math.tau*t/SECONDS
