@@ -34,8 +34,8 @@ jobs:
           updated=before
           for theme in ("dark", "light"):
               for suffix in (".gif", "-still.png"):
-                  old=f"./assets/eve-readme-v10-{theme}{suffix}"
-                  new=f"./assets/eve-readme-v11-{theme}{suffix}"
+                  old=f"./assets/eve-readme-v11-{theme}{suffix}"
+                  new=f"./assets/eve-readme-v12-{theme}{suffix}"
                   assert before.count(old) + before.count(new) == 1, (old, new)
                   assert Path(new).is_file(), new
                   updated=updated.replace(old,new)
@@ -46,6 +46,6 @@ jobs:
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/eve-readme-v11-dark.gif assets/eve-readme-v11-light.gif assets/eve-readme-v11-dark-still.png assets/eve-readme-v11-light-still.png
+          git add README.md assets/eve-readme-v12-dark.gif assets/eve-readme-v12-light.gif assets/eve-readme-v12-dark-still.png assets/eve-readme-v12-light-still.png
           git diff --cached --quiet || git commit -m "Update EVE README animation assets"
           git push origin HEAD:main

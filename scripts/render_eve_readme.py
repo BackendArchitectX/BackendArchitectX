@@ -16,7 +16,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v11"
+ASSET_PREFIX="eve-readme-v12"
 WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
@@ -56,78 +56,42 @@ def ellipsoid(center,radii,color,spec=.5):
  actor.SetPosition(*center)
  return actor
 
-class FinTip:
- def __init__(self,side):
-  # Both arms use the same tapered shell with mirrored resting poses.
-  arm=ellipsoid((side*.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
-  arm.SetOrientation(0,-6*side,-15*side)
-  mapper=arm.GetMapper()
-  sphere=mapper.GetInputAlgorithm()
-  sphere.SetThetaResolution(128);sphere.SetPhiResolution(100)
-  sphere.Update()
-  mesh=vtk.vtkPolyData()
-  mesh.DeepCopy(sphere.GetOutput())
-  mesh.GetPointData().SetNormals(None)
-  self.points=mesh.GetPoints().GetData()
-  self.rest=vtk_to_numpy(self.points).copy()
-  x,y,z=2*self.rest.T
-
-  # Two rounded seams follow the taper and fade into the continuous shell.
-  front=np.clip((-y-.14)/.22,0,1)
-  across=np.abs(x)
-  tip=np.clip((-z-.76)/.235,0,1)
-  seam_length=(4*tip*(1-tip))**2
-  panel_edge=.25-.09*tip
-  self.seams=front*seam_length*np.exp(-((across-panel_edge)/.060)**2)
-  self.outer_panels=front*seam_length*np.clip((across-panel_edge)/.14,0,1)
-  self.color=np.array([247,249,255])
-  self.colors=numpy_to_vtk(np.tile(self.color.astype(np.uint8),(len(x),1)),deep=True)
-  mesh.GetPointData().SetScalars(self.colors)
-
-  normals=vtk.vtkPolyDataNormals()
-  normals.SetInputData(mesh);normals.SplittingOff()
-  mapper.SetInputConnection(normals.GetOutputPort())
-  mapper.SetColorModeToDirectScalars()
-  self.mesh=mesh
-  self.actor=arm
-  self.pose(0,0)
-
- def pose(self,gesture,point):
-  groove=(.32+.68*gesture)*self.seams
-  inset=point*self.outer_panels
-  # Contract toward the shell center so every panel stays inside the original fin.
-  depth=.005*groove+.007*inset
-  vtk_to_numpy(self.points)[:]=self.rest*(1-depth[:,None])
-  vtk_to_numpy(self.colors)[:]=self.color*(1-(.33*groove+.055*inset)[:,None])
-  self.points.Modified()
-  self.colors.Modified()
-  self.mesh.Modified()
-
-def teardrop():
- pts=vtk.vtkPoints();cells=vtk.vtkCellArray()
- rings=65;sides=80
- for i in range(rings):
-  t=(i+.001)/(rings-.999)
-  z=.26+2.02*t
-  envelope=math.sin(math.pi*t)**.64
-  rx=.82*envelope*(.84+.26*t)
-  ry=.56*envelope*(.86+.18*t)
-  for j in range(sides):
-   ang=2*math.pi*j/sides
-   pts.InsertNextPoint(rx*math.cos(ang),ry*math.sin(ang),z)
- for i in range(rings-1):
-  for j in range(sides):
-   ids=[i*sides+j,i*sides+(j+1)%sides,(i+1)*sides+(j+1)%sides,(i+1)*sides+j]
-   quad=vtk.vtkQuad()
-   for k,idx in enumerate(ids):quad.GetPointIds().SetId(k,idx)
-   cells.InsertNextCell(quad)
- poly=vtk.vtkPolyData();poly.SetPoints(pts);poly.SetPolys(cells)
+def loft_shell(profile,color,spec):
+ # Reuse the closed sphere topology and sculpt each ring along the profile.
+ sphere=vtk.vtkSphereSource()
+ sphere.SetThetaResolution(80);sphere.SetPhiResolution(72)
+ sphere.Update()
+ mesh=sphere.GetOutput()
+ coords=vtk_to_numpy(mesh.GetPoints().GetData())
+ t=coords[:,2].astype(float)+.5
+ angle=np.arctan2(coords[:,1],coords[:,0])
+ center,z,rx,ry=profile(t)
+ coords[:,0]=center+rx*np.cos(angle)
+ coords[:,1]=ry*np.sin(angle)
+ coords[:,2]=z
+ mesh.GetPoints().GetData().Modified()
+ mesh.GetPoints().Modified()
+ mesh.GetPointData().SetNormals(None)
  normals=vtk.vtkPolyDataNormals()
- normals.SetInputData(poly);normals.ConsistencyOn()
- normals.AutoOrientNormalsOn();normals.SplittingOff()
+ normals.SetInputData(mesh);normals.SplittingOff()
  mapper=vtk.vtkPolyDataMapper()
  mapper.SetInputConnection(normals.GetOutputPort())
- return mesh_actor(mapper,(.965,.975,1),.24)
+ return mesh_actor(mapper,color,spec)
+
+def teardrop():
+ def profile(t):
+  envelope=np.sin(np.pi*t)**(.96-.30*t)
+  return 0,.19+2.09*t,.82*envelope*(.80+.33*t),.56*envelope*(.84+.20*t)
+ return loft_shell(profile,(.965,.975,1),.24)
+
+def tapered_fin(side):
+ def profile(t):
+  envelope=np.sin(np.pi*t)**(.94-.34*t)
+  center=side*(.13+.09*(1-t)**1.4)
+  return center,-1.54+1.76*t,.209*envelope*(.60+.75*t),.255*envelope*(.65+.65*t)
+ fin=loft_shell(profile,(.968,.976,1),.22)
+ fin.SetOrientation(0,-4*side,-15*side)
+ return fin
 
 def eye_lens():
  sphere=vtk.vtkSphereSource()
@@ -176,12 +140,10 @@ class EVE:
   for side in (-1,1):
    assembly=vtk.vtkAssembly()
    assembly.SetPosition(.79*side,0,1.90)
+   assembly.AddPart(tapered_fin(side))
    self.root.AddPart(assembly)
    self.arms[side]=assembly
   self.arms[1].SetOrientation(0,-4,0)
-  self.arms[1].AddPart(FinTip(1).actor)
-  self.hand=FinTip(-1)
-  self.arms[-1].AddPart(self.hand.actor)
   lighting=1 if theme=="dark" else .78
   for position,intensity,color in [
    ((4,-6,8),.92,(1,1,1)),
@@ -214,14 +176,9 @@ class EVE:
   phase=math.tau*1.4*(t-.82)
   point=self.ease(t,2.63,3.46)*(1-self.ease(t,4.88,5.80))
   sweep=self.ease(t,3.23,5.09)
-  self.arms[-1].SetPosition(-.79-.18*lift,0,1.90)
-  self.arms[-1].SetOrientation(0,4+133*lift+12*sway*math.sin(phase)+(29-10*sweep)*point,
+  self.arms[-1].SetPosition(-.79-.18*lift-.21*point,0,1.90-.08*point)
+  self.arms[-1].SetOrientation(0,4+133*lift+12*sway*math.sin(phase)+(18-5*sweep)*point,
                                6*sway*math.cos(phase))
-
-  # The arm points as a whole. The outer finger panels settle inward.
-  wave_seams=self.ease(t,.32,.87)*(1-self.ease(t,1.98,2.58))
-  point_tip=self.ease(t,2.88,3.43)*(1-self.ease(t,4.91,5.62))
-  self.hand.pose(wave_seams+point_tip,point_tip)
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
   idle_phase=math.tau*t/SECONDS
