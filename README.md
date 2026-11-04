@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Animated 3D EVE: one moving fin waves and points; other fin stationary; five languages -->
+<!-- Animated 3D EVE: one hand waves and points down; five languages -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v6-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v6-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v6-dark.gif" />
-  <img src="./assets/eve-readme-v6-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that uses only her screen-left fin to wave hello and then point at Pranay Kadu and his engineering work, while her other fin stays stationary, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v7-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v7-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v7-dark.gif" />
+  <img src="./assets/eve-readme-v7-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that waves with her right hand and then points down with her index finger as the words ‘Explore Pranay’s work’ appear, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
 </picture>
 
 <p align="center">
