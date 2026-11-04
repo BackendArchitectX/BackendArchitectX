@@ -16,7 +16,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v12"
+ASSET_PREFIX="eve-readme-v13"
 WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
@@ -78,17 +78,23 @@ def loft_shell(profile,color,spec):
  mapper.SetInputConnection(normals.GetOutputPort())
  return mesh_actor(mapper,color,spec)
 
+def rounded_taper(t,tip_power,shoulder_power):
+ # Blend into a round cap at the tip while keeping the upper profile.
+ power=tip_power+(shoulder_power-tip_power)*t
+ power-=(power-.5)*np.exp(-t/.17)
+ return np.sin(np.pi*t)**power
+
 def teardrop():
  def profile(t):
-  envelope=np.sin(np.pi*t)**(.96-.30*t)
+  envelope=rounded_taper(t,.96,.66)
   return 0,.19+2.09*t,.82*envelope*(.80+.33*t),.56*envelope*(.84+.20*t)
  return loft_shell(profile,(.965,.975,1),.24)
 
 def tapered_fin(side):
  def profile(t):
-  envelope=np.sin(np.pi*t)**(.94-.34*t)
+  envelope=rounded_taper(t,.84,.60)
   center=side*(.13+.09*(1-t)**1.4)
-  return center,-1.54+1.76*t,.209*envelope*(.60+.75*t),.255*envelope*(.65+.65*t)
+  return center,-1.54+1.76*t,.209*envelope*(.80+.42*t),.255*envelope*(.79+.43*t)
  fin=loft_shell(profile,(.968,.976,1),.22)
  fin.SetOrientation(0,-4*side,-15*side)
  return fin
