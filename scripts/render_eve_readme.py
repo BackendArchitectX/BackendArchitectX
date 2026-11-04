@@ -3,6 +3,7 @@
 Procedural 3D meshes echo the user-supplied EVE reference; the uploaded 3D-print
 STL collection is not embedded in the repository.
 """
+from functools import cache
 from pathlib import Path
 import math, re
 import vtk
@@ -15,7 +16,8 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v6"
+ASSET_PREFIX="eve-readme-v7"
+WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
  ("你好，我是 EVE。","chinese"),
@@ -28,6 +30,7 @@ FONTS={
  "chinese":"/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
  "hindi":"/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf",
 }
+@cache
 def font(kind,size):
  return ImageFont.truetype(FONTS[kind],size,layout_engine=ImageFont.Layout.RAQM)
 
@@ -52,6 +55,20 @@ def ellipsoid(center,radii,color,spec=.5):
  actor.SetScale(*(r*2 for r in radii))
  actor.SetPosition(*center)
  return actor
+
+def articulated_hand():
+ hand=vtk.vtkAssembly()
+ hand.SetPosition(-.255,-.070,-1.065)
+ shell=(.968,.976,1)
+ hand.AddPart(ellipsoid((0,0,-.155),(.203,.105,.191),shell,.19))
+ fingers=[]
+ for x,z,length in ((-.135,-.284,.235),(0,-.284,.296),(.135,-.284,.313),(.171,-.115,.212)):
+  joint=vtk.vtkAssembly()
+  joint.SetPosition(x,-.030,z)
+  joint.AddPart(ellipsoid((0,0,-.40*length),(.053,.052,.56*length),shell,.18))
+  hand.AddPart(joint)
+  fingers.append(joint)
+ return hand,fingers
 
 def teardrop():
  pts=vtk.vtkPoints();cells=vtk.vtkCellArray()
@@ -101,7 +118,7 @@ class EVE:
   self.renderer=vtk.vtkRenderer()
   self.renderer.SetBackground(*((.051,.067,.09) if theme=="dark" else (1,1,1)))
   self.window=vtk.vtkRenderWindow()
-  self.window.SetSize(424,405)
+  self.window.SetSize(504,405)
   self.window.SetOffScreenRendering(True)
   self.window.AddRenderer(self.renderer)
   self.window.SetMultiSamples(4)
@@ -130,6 +147,11 @@ class EVE:
    assembly.SetPosition(.79*side,0,1.90)
    assembly.AddPart(arm);self.root.AddPart(assembly)
    self.arms[side]=assembly
+   if side==-1:
+    self.active_fin=arm
+  self.hand,self.fingers=articulated_hand()
+  self.arms[-1].AddPart(self.hand)
+  lighting=1 if theme=="dark" else .78
   for position,intensity,color in [
    ((4,-6,8),.92,(1,1,1)),
    ((-4,-3,4),.42,(.78,.86,1)),
@@ -138,7 +160,7 @@ class EVE:
   ]:
    light=vtk.vtkLight()
    light.SetPosition(*position);light.SetFocalPoint(0,0,1.8)
-   light.SetIntensity(intensity);light.SetColor(*color)
+   light.SetIntensity(lighting*intensity);light.SetColor(*color)
    self.renderer.AddLight(light)
   cam=self.renderer.GetActiveCamera()
   cam.SetPosition(0,-11,2.12);cam.SetFocalPoint(0,0,1.96)
@@ -155,21 +177,33 @@ class EVE:
   return v**3*(10+v*(-15+6*v))
 
  def frame(self,t):
-  # EVE's right fin appears on screen left. Keep the root and other fin still.
+  # EVE's right hand appears on screen left. Keep the root and other fin still.
   lift=self.ease(t,.08,.95)*(1-self.ease(t,1.94,2.68))
   sway=self.ease(t,.58,.94)*(1-self.ease(t,1.78,2.10))
   phase=math.tau*1.4*(t-.82)
   point=self.ease(t,2.63,3.46)*(1-self.ease(t,4.88,5.80))
-  # Keep tracing down toward the work while the pointing gesture is extended.
   sweep=self.ease(t,3.23,5.09)
-  point_angle=66-18*sweep
-  self.arms[-1].SetOrientation(0,4+124*lift+15*sway*math.sin(phase)+point_angle*point,
+  self.arms[-1].SetOrientation(0,4+124*lift+15*sway*math.sin(phase)+(29-10*sweep)*point,
                                6*sway*math.cos(phase))
+
+  # The palm slides out of the shell. Only the index finger stays extended to point.
+  open_palm=self.ease(t,.32,.87)*(1-self.ease(t,1.98,2.58))
+  point_palm=self.ease(t,2.88,3.43)*(1-self.ease(t,4.91,5.62))
+  extension=open_palm+point_palm
+  curl=self.ease(t,2.82,3.22)*(1-self.ease(t,5.19,5.64))
+  self.active_fin.SetScale(.410,.530,1.66-.28*extension)
+  self.active_fin.SetPosition(-.20,0,-.59+.04*extension)
+  self.hand.SetVisibility(extension>0)
+  size=max(.001,extension)
+  self.hand.SetScale(size,size,size)
+  self.hand.SetOrientation(0,point*(-3+18*sweep)+4*sway*math.sin(phase),0)
+  for finger,spread,fold in zip(self.fingers,(11,0,-9,-43),(112,105,0,98)):
+   finger.SetOrientation(-fold*curl,spread*(1-curl),0)
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
   idle_phase=math.tau*t/SECONDS
   self.head.SetPosition(0,0,2.93+.037*math.sin(2*idle_phase))
-  self.head.SetOrientation((2.8+2*sweep)*glance,-4*lift-3*glance+.6*math.sin(idle_phase),0)
+  self.head.SetOrientation((4+3*sweep)*glance,-4*lift-4*glance+.6*math.sin(idle_phase),0)
   smile=self.ease(t,.18,.86)*(1-self.ease(t,1.98,2.63))
   blink=self.ease(t,2.30,2.44)*(1-self.ease(t,2.48,2.64))
   openness=1-.94*blink
@@ -181,7 +215,7 @@ class EVE:
   self.eye_points.GetData().Modified()
   self.eye_points.Modified()
   for side,eye in zip((-1,1),self.eyes):
-   eye.SetPosition(side*.268-.065*glance,-.760,.061-(.036+.036*sweep)*glance)
+   eye.SetPosition(side*.268-.070*glance,-.760,.061-(.078+.032*sweep)*glance)
   self.window.Render()
   self.filter.Modified();self.filter.Update()
   data=self.filter.GetOutput()
@@ -222,12 +256,16 @@ def composite(theme,sprite,language,t):
  d.text((38,149),"Java · Spring Boot · Distributed Systems · AWS",font=font("latin",17),fill=muted,anchor="ls")
  d.line([(38,174),(568,174)],fill=blue,width=3)
  greeting(d,*LANG[language],fg)
- output.paste(sprite,(634,10))
+ output.paste(sprite,(594,10))
  d=ImageDraw.Draw(output)
- # Exactly one arrow, close to EVE, matching the blue eyes.
- ax=1008;top=309+round(4*math.sin(math.tau*t/SECONDS))
- d.line([(ax,top),(ax,top+57)],fill=blue,width=8,joint="curve")
- d.line([(ax-18,top+39),(ax,top+58),(ax+18,top+39)],fill=blue,width=8,joint="curve")
+ reveal=EVE.ease(t,3.24,3.67)*(1-EVE.ease(t,4.99,5.42))
+ if reveal>0:
+  prompt=tuple(round(a+(b-a)*reveal) for a,b in zip(bg,fg))
+  arrow=tuple(round(a+(b-a)*reveal) for a,b in zip(bg,blue))
+  d.text((679,434),WORK_PROMPT,font=font("latin",27),fill=prompt,anchor="ls")
+  ax,top=652,406+round(2*math.sin(math.tau*t/SECONDS))
+  d.line([(ax,top),(ax,top+32)],fill=arrow,width=5)
+  d.line([(ax-10,top+22),(ax,top+32),(ax+10,top+22)],fill=arrow,width=5,joint="curve")
  d.line([(42,474),(1078,474)],fill=(52,63,79) if dark else (210,219,228),width=1)
  d.text((560,514),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",19),fill=muted,anchor="mm")
  return output
@@ -248,11 +286,11 @@ def build(theme):
  # Both gestures must have visible motion from their own resting pose.
  from PIL import ImageChops
  wave_frame=round(1.15*FPS)
- point_frame=round(3.60*FPS)
+ point_frame=round(4.12*FPS)
  assert ImageChops.difference(sprites[0],sprites[wave_frame]).getbbox() is not None
  assert ImageChops.difference(sprites[0],sprites[point_frame]).getbbox() is not None
- # Static accessibility fallback shows a welcoming raised fin in English.
- composite(theme,sprites[wave_frame],0,wave_frame/FPS).save(ASSETS/f"{ASSET_PREFIX}-{theme}-still.png",optimize=True)
+ # Show the work prompt in the English reduced-motion fallback.
+ composite(theme,sprites[point_frame],0,point_frame/FPS).save(ASSETS/f"{ASSET_PREFIX}-{theme}-still.png",optimize=True)
  montage=Image.new("RGB",(WIDTH,HEIGHT*len(LANG)))
  for language,i in enumerate((0,wave_frame,point_frame,0,wave_frame)):
   montage.paste(composite(theme,sprites[i],language,i/FPS),(0,language*HEIGHT))
