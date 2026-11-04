@@ -25,7 +25,7 @@ jobs:
         run: python -m pip install 'vtk==9.6.2' 'numpy==2.2.6' 'Pillow==11.3.0'
       - name: Render animated 3D EVE in dark and light themes
         run: python scripts/render_eve_readme.py
-      - name: Update the EVE hero image paths and description
+      - name: Update the EVE hero image paths
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -34,17 +34,11 @@ jobs:
           updated=before
           for theme in ("dark", "light"):
               for suffix in (".gif", "-still.png"):
-                  old=f"./assets/eve-readme-v6-{theme}{suffix}"
-                  new=f"./assets/eve-readme-v7-{theme}{suffix}"
+                  old=f"./assets/eve-readme-v7-{theme}{suffix}"
+                  new=f"./assets/eve-readme-v8-{theme}{suffix}"
                   assert before.count(old) + before.count(new) == 1, (old, new)
                   assert Path(new).is_file(), new
                   updated=updated.replace(old,new)
-          for old, new in (
-              ("one moving fin waves and points; other fin stationary", "one hand waves and points down"),
-              ("uses only her screen-left fin to wave hello and then point at Pranay Kadu and his engineering work, while her other fin stays stationary", "waves with her right hand and then points down with her index finger as the words ‘Explore Pranay’s work’ appear"),
-          ):
-              assert before.count(old) + before.count(new) == 1, (old, new)
-              updated=updated.replace(old,new)
           if updated!=before:
               p.write_text(updated,encoding="utf-8")
           PY
@@ -52,6 +46,6 @@ jobs:
         run: |
           git config user.name "BackendArchitectX"
           git config user.email "96111851+BackendArchitectX@users.noreply.github.com"
-          git add README.md assets/eve-readme-v7-dark.gif assets/eve-readme-v7-light.gif assets/eve-readme-v7-dark-still.png assets/eve-readme-v7-light-still.png
+          git add README.md assets/eve-readme-v8-dark.gif assets/eve-readme-v8-light.gif assets/eve-readme-v8-dark-still.png assets/eve-readme-v8-light-still.png
           git diff --cached --quiet || git commit -m "Update EVE README animation assets"
           git push origin HEAD:main

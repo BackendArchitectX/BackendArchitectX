@@ -16,7 +16,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v7"
+ASSET_PREFIX="eve-readme-v8"
 WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
@@ -56,18 +56,50 @@ def ellipsoid(center,radii,color,spec=.5):
  actor.SetPosition(*center)
  return actor
 
-def articulated_hand():
+def beveled_panel(outline,depth):
+ # Round the silhouette corners, then join inset face loops to its wide edge.
+ rim=np.array(outline,dtype=float)
+ for _ in range(2):
+  next_point=np.roll(rim,-1,axis=0)
+  rim=np.stack((.75*rim+.25*next_point,.25*rim+.75*next_point),axis=1).reshape(-1,2)
+ center=rim.mean(axis=0)
+ points=vtk.vtkPoints();faces=vtk.vtkCellArray()
+ layers=((-1,.82),(-.83,.94),(-.45,1),(.45,1),(.83,.94),(1,.82))
+ n=len(rim)
+ for y,scale in layers:
+  for x,z in center+(rim-center)*scale:
+   points.InsertNextPoint(x,depth*y,z)
+ for layer in range(len(layers)-1):
+  for j in range(n):
+   k=(j+1)%n
+   faces.InsertNextCell(4)
+   for i in (layer*n+j,layer*n+k,(layer+1)*n+k,(layer+1)*n+j):
+    faces.InsertCellPoint(i)
+ for end in (range(n-1,-1,-1),range((len(layers)-1)*n,len(layers)*n)):
+  faces.InsertNextCell(n)
+  for i in end:faces.InsertCellPoint(i)
+ mesh=vtk.vtkPolyData();mesh.SetPoints(points);mesh.SetPolys(faces)
+ normals=vtk.vtkPolyDataNormals()
+ normals.SetInputData(mesh);normals.ConsistencyOn()
+ normals.AutoOrientNormalsOn();normals.SplittingOff()
+ mapper=vtk.vtkPolyDataMapper();mapper.SetInputConnection(normals.GetOutputPort())
+ return mesh_actor(mapper,(.968,.976,1),.15)
+
+def paddle_hand():
  hand=vtk.vtkAssembly()
- hand.SetPosition(-.255,-.070,-1.065)
- shell=(.968,.976,1)
- hand.AddPart(ellipsoid((0,0,-.155),(.203,.105,.191),shell,.19))
+ hand.SetPosition(-.145,0,0)
+ hand.AddPart(beveled_panel(((-.17,.15),(.02,.17),(.14,.08),(.19,-.22),
+   (.29,-.64),(.27,-1.02),(.16,-1.21),(-.13,-1.32),(-.37,-1.27),
+   (-.48,-1.10),(-.46,-.82),(-.36,-.51),(-.26,-.19)),.125))
  fingers=[]
- for x,z,length in ((-.135,-.284,.235),(0,-.284,.296),(.135,-.284,.313),(.171,-.115,.212)):
-  joint=vtk.vtkAssembly()
-  joint.SetPosition(x,-.030,z)
-  joint.AddPart(ellipsoid((0,0,-.40*length),(.053,.052,.56*length),shell,.18))
-  hand.AddPart(joint)
-  fingers.append(joint)
+ blade=((-.50,.04),(.50,.04),(.48,-.36),(.34,-.84),(.19,-1),
+        (-.22,-1),(-.40,-.83),(-.50,-.37))
+ # Little finger, middle finger, index finger, then thumb.
+ for x,z,width,length,spread in ((.148,-1.25,.139,.31,-8),(-.047,-1.35,.180,.40,0),
+                                (-.264,-1.35,.145,.42,7),(-.452,-1.14,.155,.25,36)):
+  finger=beveled_panel(tuple((u*width,v*length) for u,v in blade),.043)
+  hand.AddPart(finger)
+  fingers.append((finger,x,z,spread))
  return hand,fingers
 
 def teardrop():
@@ -142,14 +174,13 @@ class EVE:
   self.arms={}
   for side in (-1,1):
    assembly=vtk.vtkAssembly()
-   arm=ellipsoid((side*.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
-   arm.SetOrientation(0,-6*side,-15*side)
    assembly.SetPosition(.79*side,0,1.90)
-   assembly.AddPart(arm);self.root.AddPart(assembly)
+   self.root.AddPart(assembly)
    self.arms[side]=assembly
-   if side==-1:
-    self.active_fin=arm
-  self.hand,self.fingers=articulated_hand()
+  arm=ellipsoid((.20,0,-.59),(.205,.265,.83),(.968,.976,1),.22)
+  arm.SetOrientation(0,-6,-15)
+  self.arms[1].AddPart(arm)
+  self.hand,self.fingers=paddle_hand()
   self.arms[-1].AddPart(self.hand)
   lighting=1 if theme=="dark" else .78
   for position,intensity,color in [
@@ -183,22 +214,26 @@ class EVE:
   phase=math.tau*1.4*(t-.82)
   point=self.ease(t,2.63,3.46)*(1-self.ease(t,4.88,5.80))
   sweep=self.ease(t,3.23,5.09)
-  self.arms[-1].SetOrientation(0,4+124*lift+15*sway*math.sin(phase)+(29-10*sweep)*point,
+  self.arms[-1].SetPosition(-.79-.18*lift,0,1.90)
+  self.arms[-1].SetOrientation(0,4+133*lift+12*sway*math.sin(phase)+(29-10*sweep)*point,
                                6*sway*math.cos(phase))
 
-  # The palm slides out of the shell. Only the index finger stays extended to point.
+  # The broad paddle is the arm shell. Its finger panels retract into its rim.
   open_palm=self.ease(t,.32,.87)*(1-self.ease(t,1.98,2.58))
   point_palm=self.ease(t,2.88,3.43)*(1-self.ease(t,4.91,5.62))
   extension=open_palm+point_palm
   curl=self.ease(t,2.82,3.22)*(1-self.ease(t,5.19,5.64))
-  self.active_fin.SetScale(.410,.530,1.66-.28*extension)
-  self.active_fin.SetPosition(-.20,0,-.59+.04*extension)
-  self.hand.SetVisibility(extension>0)
-  size=max(.001,extension)
-  self.hand.SetScale(size,size,size)
-  self.hand.SetOrientation(0,point*(-3+18*sweep)+4*sway*math.sin(phase),0)
-  for finger,spread,fold in zip(self.fingers,(11,0,-9,-43),(112,105,0,98)):
-   finger.SetOrientation(-fold*curl,spread*(1-curl),0)
+  self.hand.SetScale(.58+.42*extension,1,1.09-.09*extension)
+  self.hand.SetOrientation(0,0,30*(1-extension))
+  for i,(finger,x,z,spread) in enumerate(self.fingers):
+   pointing_finger=i==2
+   reach=extension if pointing_finger else extension*(1-curl)
+   finger.SetVisibility(reach>.02)
+   joint_offset=.060*curl if pointing_finger else 0
+   finger.SetPosition(x*reach-.09*(1-reach),0,z+.29*(1-reach)+joint_offset)
+   finger.SetScale(1,1,max(.01,reach))
+   aim=(-15+9*sweep)*point if pointing_finger else 0
+   finger.SetOrientation(0,spread*(1-curl)+aim,0)
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
   idle_phase=math.tau*t/SECONDS
