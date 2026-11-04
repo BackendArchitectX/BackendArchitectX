@@ -2,10 +2,10 @@
 
 <!-- Animated 3D EVE: one hand waves and points down; five languages -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v11-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v11-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v11-dark.gif" />
-  <img src="./assets/eve-readme-v11-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that waves and then points down with her right arm as the words ‘Explore Pranay’s work’ appear, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v12-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v12-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v12-dark.gif" />
+  <img src="./assets/eve-readme-v12-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that waves and then points down with her right arm as the words ‘Explore Pranay’s work’ appear, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
 </picture>
 
 <p align="center">
