@@ -15,7 +15,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,545
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v5"
+ASSET_PREFIX="eve-readme-v6"
 LANG=[
  ("Hey, I am EVE.","latin"),
  ("你好，我是 EVE。","chinese"),
@@ -101,7 +101,7 @@ class EVE:
   self.renderer=vtk.vtkRenderer()
   self.renderer.SetBackground(*((.051,.067,.09) if theme=="dark" else (1,1,1)))
   self.window=vtk.vtkRenderWindow()
-  self.window.SetSize(400,405)
+  self.window.SetSize(424,405)
   self.window.SetOffScreenRendering(True)
   self.window.AddRenderer(self.renderer)
   self.window.SetMultiSamples(4)
@@ -160,11 +160,16 @@ class EVE:
   sway=self.ease(t,.58,.94)*(1-self.ease(t,1.78,2.10))
   phase=math.tau*1.4*(t-.82)
   point=self.ease(t,2.63,3.46)*(1-self.ease(t,4.88,5.80))
-  self.arms[-1].SetOrientation(0,4+124*lift+15*sway*math.sin(phase)+58*point,
+  # Keep tracing down toward the work while the pointing gesture is extended.
+  sweep=self.ease(t,3.23,5.09)
+  point_angle=66-18*sweep
+  self.arms[-1].SetOrientation(0,4+124*lift+15*sway*math.sin(phase)+point_angle*point,
                                6*sway*math.cos(phase))
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
-  self.head.SetOrientation(2.8*glance,-4*lift-3*glance+.6*math.sin(math.tau*t/SECONDS),0)
+  idle_phase=math.tau*t/SECONDS
+  self.head.SetPosition(0,0,2.93+.037*math.sin(2*idle_phase))
+  self.head.SetOrientation((2.8+2*sweep)*glance,-4*lift-3*glance+.6*math.sin(idle_phase),0)
   smile=self.ease(t,.18,.86)*(1-self.ease(t,1.98,2.63))
   blink=self.ease(t,2.30,2.44)*(1-self.ease(t,2.48,2.64))
   openness=1-.94*blink
@@ -176,7 +181,7 @@ class EVE:
   self.eye_points.GetData().Modified()
   self.eye_points.Modified()
   for side,eye in zip((-1,1),self.eyes):
-   eye.SetPosition(side*.268-.065*glance,-.760,.061-.054*glance)
+   eye.SetPosition(side*.268-.065*glance,-.760,.061-(.036+.036*sweep)*glance)
   self.window.Render()
   self.filter.Modified();self.filter.Update()
   data=self.filter.GetOutput()
@@ -217,7 +222,7 @@ def composite(theme,sprite,language,t):
  d.text((38,149),"Java · Spring Boot · Distributed Systems · AWS",font=font("latin",17),fill=muted,anchor="ls")
  d.line([(38,174),(568,174)],fill=blue,width=3)
  greeting(d,*LANG[language],fg)
- output.paste(sprite,(646,10))
+ output.paste(sprite,(634,10))
  d=ImageDraw.Draw(output)
  # Exactly one arrow, close to EVE, matching the blue eyes.
  ax=1008;top=309+round(4*math.sin(math.tau*t/SECONDS))
