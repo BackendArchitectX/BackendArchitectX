@@ -45,7 +45,7 @@ Selected backend engineering case studies from my [portfolio](https://backendarc
 
 ## Open-source contributions
 
-**5 merged engineering PRs across 4 external upstream projects** — Apache Fluss, Apache Pulsar, Apache Druid, and AutoMQ. I focus on correctness, concurrency, performance-sensitive dispatch, and failure recovery. Only merged code contributions authored by [BackendArchitectX](https://github.com/BackendArchitectX) are included here; repository-local and domain-registration PRs are excluded.
+**6 merged engineering PRs across 4 external upstream projects** — Apache Fluss, Apache Pulsar, Apache Druid, and AutoMQ. I focus on correctness, concurrency, performance-sensitive dispatch, and failure recovery. Only merged code contributions authored by [BackendArchitectX](https://github.com/BackendArchitectX) are included here; repository-local and domain-registration PRs are excluded.
 
 ### Merged upstream engineering
 
@@ -54,14 +54,15 @@ Selected backend engineering case studies from my [portfolio](https://backendarc
 - **[Apache Druid · Preserve user error classifications (#20633)](https://github.com/apache/druid/pull/20633)** — *Problem:* errors from data servers could lose their `INVALID_INPUT` / user-error classification. *Change:* preserved exception causes in multithreaded groupBy execution and reconstructed structured `DruidException` responses while retaining legacy compatibility. Added regression tests across both paths.
 - **[AutoMQ · Remove redundant topic cleanup (#3542)](https://github.com/AutoMQ/automq/pull/3542)** — *Problem:* duplicate deleted-topic traversal produced redundant coordinator cleanup notifications. *Change:* removed the extra traversal, retaining callbacks for actual partition deletion and state transitions.
 - **[AutoMQ · Controller-only metrics startup (#3493)](https://github.com/AutoMQ/automq/pull/3493)** — *Problem:* metrics-reporter initialization could run on controller-only processes. *Change:* skipped broker-only configuration, producers, and reporter threads when the broker role is absent; covered broker, controller, and combined-role cases.
+- **[AutoMQ · Prevent closed reader from restoring blocks (#3555)](https://github.com/AutoMQ/automq/pull/3555)** — *Problem:* in-flight or queued readahead could restore block state after `StreamReader.close()`. *Change:* invalidated in-flight block-index loads and stopped new loads after closure. Added regression tests for both lifecycle races.
 
 ### Active upstream reviews
 
 **Distributed systems:** [Trino #30973](https://github.com/trinodb/trino/pull/30973) (transaction-commit race) · [Apache Pinot #19915](https://github.com/apache/pinot/pull/19915) (replica-group lookup hashing) · [Apache Fluss #4230](https://github.com/apache/fluss/pull/4230) (custom Paimon lake-table paths).
 
-**Reliability and security:** [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) (Prometheus Basic authentication) · [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555) (reader-close lifecycle) · [Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343) (Windows queue writes).
+**Reliability and security:** [AutoMQ #3579](https://github.com/AutoMQ/automq/pull/3579) (Prometheus Basic authentication) · [Nasiko #343](https://github.com/Nasiko-Labs/nasiko/pull/343) (Windows queue writes).
 
-*PR statuses verified November 2, 2026. Open proposals are not counted as merged contributions.*
+*PR statuses verified November 7, 2026. Open proposals are not counted as merged contributions.*
 
 ## Technical expertise
 
