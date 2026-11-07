@@ -23,103 +23,84 @@
 
 ### I build reliable backend systems focused on transaction correctness, concurrency, performance and failure recovery.
 
-My experience spans production microservices, event-driven architectures, cloud infrastructure and open-source software.
+### My experience spans production microservices, event-driven architectures, cloud infrastructure and open-source software.
 
-*I enjoy solving distributed systems problems. Apparently, one machine failing wasn't challenging enough.*
+### *I enjoy distributed systems problems. Apparently, one machine failing wasn't challenging enough.*
 
-### 10+ merged GitHub PRs · Apache open-source contributor
+## 10+ merged GitHub PRs · Apache open-source contributor
 
 ---
 
 ## Open-Source Engineering
 
-### 6 featured merged contributions across Apache Fluss, Apache Pulsar, Apache Druid and AutoMQ
+### 6 featured merged upstream contributions across Apache Fluss, Pulsar, Druid and AutoMQ
 
-I contribute to distributed systems projects where correctness, concurrency and reliability matter. Especially when a race condition has other plans.
+### Correctness, concurrency and reliability matter. Especially when a race condition has other plans.
 
-### [Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)
-Fixed stale RPC connections through endpoint-aware caching and regression tests.
+### Selected Merged Contributions
 
-### [Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)
-Optimized namespace-indexed topic watcher dispatch with concurrency tests.
+### [Apache Fluss #4263](https://github.com/apache/fluss/pull/4263) — Fixed stale RPC connections through endpoint-aware caching and regression tests.
 
-### [Apache Druid #20633](https://github.com/apache/druid/pull/20633)
-Preserved structured user-error classifications during distributed query execution.
+### [Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969) — Optimized namespace-indexed topic watcher dispatch with concurrency tests.
 
-### [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)
-Resolved asynchronous readahead races after reader closure.
+### [Apache Druid #20633](https://github.com/apache/druid/pull/20633) — Preserved structured user-error classifications during distributed query execution.
 
-### [AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)
-Prevented broker-only metrics initialization on controller-only nodes.
+### [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555) — Resolved asynchronous readahead races after reader closure.
 
-### [AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)
-Eliminated redundant topic cleanup notifications.
+### [AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493) — Prevented broker-only metrics initialization on controller-only nodes.
 
-### Ongoing Contributions
+### [AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542) — Eliminated redundant topic cleanup notifications.
 
-[Explore my open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX)
+### [Explore my open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX)
 
 ---
 
 ## Professional Engineering
 
-### Software Engineer | Linux Socials
-Apr 2025–Present
+### Software Engineer | Linux Socials · Apr 2025–Present
 
-### Associate Software Engineer | Merkle Inspire
-Dec 2021–Apr 2024
+### Associate Software Engineer | Merkle Inspire · Dec 2021–Apr 2024
 
-### Engineering Experience
+### Fraud Screening — Spring Boot, Redis, idempotency, rate limiting and fault tolerance.
 
-**Fraud Screening** — Spring Boot, Redis, idempotency, rate limiting and fault tolerance.
+### Financial Transactions — Transaction isolation, optimistic locking, concurrency control and SQL optimization.
 
-**Financial Transactions** — Transaction isolation, optimistic locking, concurrency control and SQL optimization.
+### API Integrations — Concurrent processing, bounded retries, batch persistence and caching.
 
-**API Integrations** — Concurrent processing, bounded retries, batch persistence and caching.
-
-**Production Reliability** — Observability, incident investigation and making sure "it works on my machine" isn't the final diagnosis.
+### Production Reliability — Observability, incident investigation and making sure "it works on my machine" isn't the final diagnosis.
 
 ---
 
 ## Selected Projects
 
-### [NUMEN](https://github.com/BackendArchitectX/NUMEN)
-Auditable Java-backed data intelligence with provenance tracking and validation.
+### [NUMEN](https://github.com/BackendArchitectX/NUMEN) — Auditable Java-backed data intelligence with provenance tracking and validation.
 
-### [Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)
-Insurance risk simulation with Spring Boot, Angular and audit trails.
+### [Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform) — Insurance risk simulation with Spring Boot, Angular and audit trails.
 
-### [Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)
-GPU vector search using CUDA, C++20, Java JNI and benchmark validation.
+### [Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA) — GPU vector search using CUDA, C++20, Java JNI and benchmark validation.
 
 ---
 
 ## Technical Expertise
 
-### Languages
-Java 8/17 · Python · C++ · JavaScript · TypeScript
+### Languages — Java 8/17 · Python · C++ · JavaScript · TypeScript
 
-### Backend
-Spring Boot · FastAPI · Flask · REST · JPA/Hibernate · Microservices
+### Backend — Spring Boot · FastAPI · Flask · REST · JPA/Hibernate · Microservices
 
-### Distributed Systems
-Kafka · Redis · Concurrency · Idempotency · Caching · Resilience
+### Distributed Systems — Kafka · Redis · Concurrency · Idempotency · Caching · Resilience
 
-### Cloud & DevOps
-AWS · Docker · Kubernetes · Jenkins · CI/CD
+### Cloud & DevOps — AWS · Docker · Kubernetes · Jenkins · CI/CD
 
-### Databases
-PostgreSQL · MySQL · Oracle SQL · Query Optimization
+### Databases — PostgreSQL · MySQL · Oracle SQL · Query Optimization
 
-### Observability & Testing
-Splunk · Grafana · JUnit · Mockito · Integration Testing
+### Observability & Testing — Splunk · Grafana · JUnit · Mockito · Integration Testing
 
 ---
 
 ## Engineering Philosophy
 
-> ### Build for failure. Measure before optimizing. Preserve the invariant.
+### Build for failure. Measure before optimizing. Preserve the invariant.
 
-I value clear architectural decisions, reproducible tests, thoughtful trade-offs and systems that recover gracefully when reality disagrees with the design document.
+### I value clear architecture, reproducible tests and systems that recover gracefully when reality disagrees with the design document.
 
 ### Open to backend engineering opportunities and meaningful open-source collaboration.
