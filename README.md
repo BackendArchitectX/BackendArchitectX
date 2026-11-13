@@ -1,11 +1,11 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Animated 3D EVE: one hand waves and points down; five languages -->
+<!-- Animated 3D EVE header with reduced-motion and color-scheme fallbacks -->
 <picture>
   <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v13-dark-still.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v13-light-still.png" />
   <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v13-dark.gif" />
-  <img src="./assets/eve-readme-v13-light.gif" width="100%" alt="Pranay Kadu with a floating 3D EVE-style robot that waves and then points down with her right arm as the words ‘Explore Pranay’s work’ appear, and displays one greeting at a time in English, Mandarin Chinese, Hindi, Spanish, or French." />
+  <img src="./assets/eve-readme-v13-light.gif" width="100%" alt="Animated EVE-style robot introducing Pranay Kadu's engineering portfolio." />
 </picture>
 
 <p align="center">
@@ -17,90 +17,72 @@
 
 # Pranay Kadu
 
-## Backend Software Engineer
+**Backend Software Engineer** | Java · Spring Boot · Distributed Systems · AWS
 
-### Java · Spring Boot · Distributed Systems · AWS
+I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
-### I build reliable backend systems focused on transaction correctness, concurrency, performance and failure recovery.
-
-### My experience spans production microservices, event-driven architectures, cloud infrastructure and open-source software.
-
-### *I enjoy distributed systems problems. Apparently, one machine failing wasn't challenging enough.*
-
-## 10+ merged GitHub PRs · Apache open-source contributor
+**10+ merged GitHub pull requests** · **Apache and AutoMQ contributor**
 
 ---
 
 ## Open-Source Engineering
 
-### 6 featured merged upstream contributions across Apache Fluss, Pulsar, Druid and AutoMQ
-
-### Correctness, concurrency and reliability matter. Especially when a race condition has other plans.
+I contribute to distributed infrastructure with an emphasis on correctness, concurrency and reliability.
 
 ### Selected Merged Contributions
 
-### [Apache Fluss #4263](https://github.com/apache/fluss/pull/4263) — Fixed stale RPC connections through endpoint-aware caching and regression tests.
+- **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Fixed stale RPC connections with endpoint-aware caching and regression tests.
+- **[Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)** — Improved topic watcher notification dispatch through namespace-based indexing and concurrency tests.
+- **[Apache Druid #20633](https://github.com/apache/druid/pull/20633)** — Preserved structured user-error classifications during distributed query execution.
+- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Fixed asynchronous readahead races after reader closure.
+- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented broker-specific metrics initialization on controller-only nodes.
+- **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Removed redundant topic cleanup notifications.
 
-### [Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969) — Optimized namespace-indexed topic watcher dispatch with concurrency tests.
-
-### [Apache Druid #20633](https://github.com/apache/druid/pull/20633) — Preserved structured user-error classifications during distributed query execution.
-
-### [AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555) — Resolved asynchronous readahead races after reader closure.
-
-### [AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493) — Prevented broker-only metrics initialization on controller-only nodes.
-
-### [AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542) — Eliminated redundant topic cleanup notifications.
-
-### [Explore my open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX)
+[View open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX)
 
 ---
 
-## Professional Engineering
+## Professional Experience
 
-### Software Engineer | Linux Socials · Apr 2025–Present
+**Software Engineer | Linux Socials**  
+*Apr 2025 – Present*
 
-### Associate Software Engineer | Merkle Inspire · Dec 2021–Apr 2024
+- Develop fraud-screening services using Spring Boot, Redis, idempotent APIs, rate limiting and fault-tolerance patterns.
+- Improve service performance, production observability and incident recovery.
 
-### Fraud Screening — Spring Boot, Redis, idempotency, rate limiting and fault tolerance.
+**Associate Software Engineer | Merkle Inspire**  
+*Dec 2021 – Apr 2024*
 
-### Financial Transactions — Transaction isolation, optimistic locking, concurrency control and SQL optimization.
-
-### API Integrations — Concurrent processing, bounded retries, batch persistence and caching.
-
-### Production Reliability — Observability, incident investigation and making sure "it works on my machine" isn't the final diagnosis.
+- Developed financial transaction workflows using Spring MVC, JPA/Hibernate, transaction isolation, optimistic locking and SQL optimization.
+- Built API integrations with concurrent processing, bounded retries, batch persistence and caching.
 
 ---
 
 ## Selected Projects
 
-### [NUMEN](https://github.com/BackendArchitectX/NUMEN) — Auditable Java-backed data intelligence with provenance tracking and validation.
-
-### [Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform) — Insurance risk simulation with Spring Boot, Angular and audit trails.
-
-### [Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA) — GPU vector search using CUDA, C++20, Java JNI and benchmark validation.
+- **[NUMEN](https://github.com/BackendArchitectX/NUMEN)** — Java-based data intelligence with auditability, provenance tracking and validation.
+- **[Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)** — Insurance risk simulation using Spring Boot, Angular and auditable decision workflows.
+- **[Vortex CUDA](https://github.com/BackendArchitectX/Vortex-CUDA)** — GPU-accelerated vector search using CUDA, C++20 and Java JNI with benchmark validation.
 
 ---
 
 ## Technical Expertise
 
-### Languages — Java 8/17 · Python · C++ · JavaScript · TypeScript
-
-### Backend — Spring Boot · FastAPI · Flask · REST · JPA/Hibernate · Microservices
-
-### Distributed Systems — Kafka · Redis · Concurrency · Idempotency · Caching · Resilience
-
-### Cloud & DevOps — AWS · Docker · Kubernetes · Jenkins · CI/CD
-
-### Databases — PostgreSQL · MySQL · Oracle SQL · Query Optimization
-
-### Observability & Testing — Splunk · Grafana · JUnit · Mockito · Integration Testing
+| Area | Technologies |
+| --- | --- |
+| **Languages** | Java 8/17, Python, C++, JavaScript, TypeScript |
+| **Backend** | Spring Boot, Spring MVC, REST APIs, JPA/Hibernate, FastAPI, Flask |
+| **Distributed Systems** | Kafka, Redis, concurrency, idempotency, caching, resilience patterns |
+| **Cloud & DevOps** | AWS, Docker, Kubernetes, Jenkins, CI/CD |
+| **Databases** | PostgreSQL, MySQL, Oracle SQL, query optimization |
+| **Observability & Testing** | Splunk, Grafana, JUnit, Mockito, integration testing |
 
 ---
 
-## Engineering Philosophy
+## Engineering Principles
 
-### Build for failure. Measure before optimizing. Preserve the invariant.
+**Design for failure. Measure before optimizing. Preserve correctness.**
 
-### I value clear architecture, reproducible tests and systems that recover gracefully when reality disagrees with the design document.
+I prioritize clear architecture, reproducible tests and systems that remain reliable under real-world operating conditions.
 
-### Open to backend engineering opportunities and meaningful open-source collaboration.
+**Open to backend engineering opportunities and meaningful open-source collaboration.**
