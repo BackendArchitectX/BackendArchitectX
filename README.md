@@ -15,17 +15,19 @@
   <a href="https://github.com/BackendArchitectX?tab=repositories"><img src="./assets/link-repositories.svg" width="149" height="32" alt="All repositories" /></a>
 </p>
 
-# Pranay Kadu
+<h1><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-name-dark.svg" /><img src="./assets/readme-text-v1-name-light.svg" alt="Pranay Kadu" height="54" /></picture></h1>
 
-**Backend Software Engineer** | Java · Spring Boot · Distributed Systems · AWS
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-role-dark.svg" /><img src="./assets/readme-text-v1-role-light.svg" alt="Backend Software Engineer" height="31" /></picture></p>
+
+**Java · Spring Boot · Distributed Systems · AWS**
 
 I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
-**10+ merged GitHub pull requests** · **Apache and AutoMQ contributor**
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-summary-dark.svg" /><img src="./assets/readme-text-v1-summary-light.svg" alt="10+ merged GitHub pull requests · Apache and AutoMQ contributor" height="26" /></picture></p>
 
 ---
 
-## Open-Source Engineering
+<h2 id="open-source-engineering"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-open-source-engineering-dark.svg" /><img src="./assets/readme-text-v1-open-source-engineering-light.svg" alt="Open-Source Engineering" height="37" /></picture></h2>
 
 I contribute to distributed infrastructure with an emphasis on correctness, concurrency and reliability.
 
@@ -42,7 +44,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-## Professional Experience
+<h2 id="professional-experience"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-professional-experience-dark.svg" /><img src="./assets/readme-text-v1-professional-experience-light.svg" alt="Professional Experience" height="37" /></picture></h2>
 
 **Software Engineer | Linux Socials**  
 *Apr 2025 – Present*
@@ -58,7 +60,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-## Selected Projects
+<h2 id="selected-projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-selected-projects-dark.svg" /><img src="./assets/readme-text-v1-selected-projects-light.svg" alt="Selected Projects" height="37" /></picture></h2>
 
 - **[NUMEN](https://github.com/BackendArchitectX/NUMEN)** — Java-based data intelligence with auditability, provenance tracking and validation.
 - **[Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)** — Insurance risk simulation using Spring Boot, Angular and auditable decision workflows.
@@ -66,7 +68,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-## Technical Expertise
+<h2 id="technical-expertise"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-technical-expertise-dark.svg" /><img src="./assets/readme-text-v1-technical-expertise-light.svg" alt="Technical Expertise" height="37" /></picture></h2>
 
 | Area | Technologies |
 | --- | --- |
@@ -79,7 +81,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-## Engineering Principles
+<h2 id="engineering-principles"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-engineering-principles-dark.svg" /><img src="./assets/readme-text-v1-engineering-principles-light.svg" alt="Engineering Principles" height="37" /></picture></h2>
 
 **Design for failure. Measure before optimizing. Preserve correctness.**
 
