@@ -40,7 +40,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 - **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented broker-specific metrics initialization on controller-only nodes.
 - **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Removed redundant topic cleanup notifications.
 
-[View open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX)
+[View open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX) · [View merged pull requests](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3ABackendArchitectX)
 
 ---
 
