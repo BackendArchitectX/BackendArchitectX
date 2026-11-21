@@ -33,6 +33,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ### Selected Merged Contributions
 
+- **[Kestra AWS Plugin #889](https://github.com/kestra-io/plugin-aws/pull/889)** — Preserved DynamoDB binary attributes on reads with regression tests.
 - **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Fixed stale RPC connections with endpoint-aware caching and regression tests.
 - **[Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)** — Improved topic watcher notification dispatch through namespace-based indexing and concurrency tests.
 - **[Apache Druid #20633](https://github.com/apache/druid/pull/20633)** — Preserved structured user-error classifications during distributed query execution.
