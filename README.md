@@ -88,4 +88,6 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 I prioritize clear architecture, reproducible tests and systems that remain reliable under real-world operating conditions.
 
+I favor focused, reviewable patches backed by regression tests and explicit failure-mode analysis.
+
 **Open to backend engineering opportunities and meaningful open-source collaboration.**
