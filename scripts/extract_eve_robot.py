@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Restore the original multilingual greeting above the standalone red EVE."""
+"""Preserve multilingual EVE and restore the original synchronized downward cue."""
 from pathlib import Path
 from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 SOURCE = "eve-readme-v17-crimson-titanium"
-CURRENT = "eve-robot-v19-upper-red"
-NEW = "eve-robot-v20-multilingual-red"
+CURRENT = "eve-robot-v20-multilingual-red"
+NEW = "eve-robot-v22-pointing-red"
 SIZE = (1120, 480)
 ROBOT = (594, 0, 1098, 392)
+CUE = (594, 392, 1098, 439)
 GREETING = (28, 210, 576, 330)
 WIDTH = 504
 TEXT_HEIGHT = 76
@@ -37,10 +38,19 @@ def compose(frame, theme, top):
     glyph = greeting.crop(rect)
     ratio = min(1.0, (WIDTH-24)/glyph.width, (TEXT_HEIGHT-16)/glyph.height)
     glyph = glyph.resize((max(1,round(glyph.width*ratio)),max(1,round(glyph.height*ratio))), Image.Resampling.LANCZOS)
-    canvas = Image.new("RGB", (WIDTH, TEXT_HEIGHT + robot.height - top), bg)
+    cue = frame.convert("RGB").crop(CUE)
+    canvas = Image.new("RGB", (WIDTH, TEXT_HEIGHT + robot.height - top + cue.height), bg)
     canvas.paste(glyph, ((WIDTH-glyph.width)//2, (TEXT_HEIGHT-glyph.height)//2))
     canvas.paste(robot.crop((0,top,robot.width,robot.height)),(0,TEXT_HEIGHT))
+    canvas.paste(cue, (0, TEXT_HEIGHT + robot.height - top))
     return canvas
+
+def arrow_pixels(frame, theme):
+    # The original arrow is centered at x=652; relative to the crop it is x=58.
+    region = frame.convert("RGB").crop((45, frame.height-47, 72, frame.height))
+    bg = background(theme)
+    return sum(max(abs(r-bg[0]),abs(g-bg[1]),abs(b-bg[2]))>55
+               for r,g,b in region.getdata())
 
 def signature(frame, theme):
     cropped = frame.convert("RGB").crop((0,0,WIDTH,TEXT_HEIGHT))
@@ -82,6 +92,7 @@ def render(theme):
         assert result.size == still_frame.size and result.n_frames > 1
         assert result.info.get("loop",0) == loop
         total, signatures, changed = 0,set(),False
+        pointing_cycles, quiet_cycles = set(), set()
         first_robot = result.convert("RGB").crop((0,TEXT_HEIGHT,WIDTH,result.height))
         assert sum(r>65 and r>1.5*g and r>1.25*b for r,g,b in first_robot.getdata())>2000
         for i in range(result.n_frames):
@@ -91,10 +102,18 @@ def render(theme):
             if not changed:
                 current = result.convert("RGB").crop((0,TEXT_HEIGHT,WIDTH,result.height))
                 changed = ImageChops.difference(first_robot,current).getbbox() is not None
+            cycle, phase = divmod(total,6000)
+            visible = arrow_pixels(result,theme)
+            if 3800 <= phase <= 4700 and visible > 20:
+                pointing_cycles.add(cycle)
+            if 0 <= phase <= 2200 and visible < 10:
+                quiet_cycles.add(cycle)
             total += duration
         assert total == sum(durations) == 30000 and changed
         assert len(signatures) >= 5, ("Missing multilingual changes",len(signatures))
-    print(f"{theme}: validated {total}ms loop with animated robot and multilingual greetings",flush=True)
+        assert pointing_cycles == quiet_cycles == set(range(5)), (pointing_cycles,quiet_cycles)
+        assert arrow_pixels(still_frame,theme)>20, "Still fallback missing downward cue"
+    print(f"{theme}: validated {total}ms loop, multilingual greetings and synchronized downward arrows in all five cycles",flush=True)
 
 def update_readme():
     path = ROOT / "README.md"
