@@ -2,10 +2,10 @@
 
 <!-- Native profile identity beside independent red EVE animation -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v18-red-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark.gif" />
-  <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v19-upper-red-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v19-upper-red-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v19-upper-red-dark.gif" />
+  <img align="right" src="./assets/eve-robot-v19-upper-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
 </picture>
 
 <h3>Pranay Kadu</h3>
