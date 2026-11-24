@@ -9,8 +9,8 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/readme-identity-v21-dark.svg" />
-  <img src="./assets/readme-identity-v21-light.svg" width="470" height="154" alt="Pranay Kadu — Backend Software Engineer — Java · Spring Boot · Distributed Systems · AWS" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/readme-identity-v23-spacing-dark.svg" />
+  <img src="./assets/readme-identity-v23-spacing-light.svg" width="470" height="170" alt="Pranay Kadu — Backend Software Engineer — Java · Spring Boot · Distributed Systems · AWS" />
 </picture>
 
 <br clear="all" />
