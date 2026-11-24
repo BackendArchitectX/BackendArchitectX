@@ -1,11 +1,13 @@
 <!-- GitHub profile · BackendArchitectX -->
 
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/eve-identity-v1-dark.svg" /><img src="./assets/eve-identity-v1-light.svg" width="100%" alt="Pranay Kadu — Backend Software Engineer — Java · Spring Boot · Distributed Systems · AWS" /></picture></p>
+
 <!-- Animated 3D EVE header with reduced-motion and color-scheme fallbacks -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v13-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v13-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v13-dark.gif" />
-  <img src="./assets/eve-readme-v13-light.gif" width="100%" alt="Animated EVE-style robot introducing Pranay Kadu's engineering portfolio." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v14-separated-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v14-separated-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v14-separated-dark.gif" />
+  <img src="./assets/eve-readme-v14-separated-light.gif" width="100%" alt="Animated EVE-style robot introducing Pranay Kadu's engineering portfolio." />
 </picture>
 
 <p align="center">
