@@ -1,110 +1,118 @@
 #!/usr/bin/env python3
-"""Trim empty upper padding from the independent EVE animation, preserving all motion."""
+"""Restore the original multilingual greeting above the standalone red EVE."""
 from pathlib import Path
 from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
-OLD = "eve-robot-v18-red"
-NEW = "eve-robot-v19-upper-red"
-SIZE = (504, 392)
+SOURCE = "eve-readme-v17-crimson-titanium"
+CURRENT = "eve-robot-v19-upper-red"
+NEW = "eve-robot-v20-multilingual-red"
+SIZE = (1120, 480)
+ROBOT = (594, 0, 1098, 392)
+GREETING = (28, 210, 576, 330)
+WIDTH = 504
+TEXT_HEIGHT = 76
+BOUNDARY = '<p align="center"><strong>PROJECTS · SKILLS · CONTRIBUTIONS</strong></p>'
 
-def find_top(frame, theme):
+def background(theme):
+    return (13, 17, 23) if theme == "dark" else (255, 255, 255)
+
+def bounds(image, bg):
+    diff = ImageChops.difference(image, Image.new("RGB", image.size, bg))
+    r, g, b = diff.split()
+    return ImageChops.lighter(ImageChops.lighter(r,g),b).point(
+        lambda v: 255 if v > 35 else 0).getbbox()
+
+def parts(frame):
+    assert frame.size == SIZE, frame.size
     rgb = frame.convert("RGB")
-    bg = Image.new("RGB", rgb.size, (13,17,23) if theme == "dark" else (255,255,255))
-    diff = ImageChops.difference(rgb, bg)
-    r,g,b = diff.split()
-    mask = ImageChops.lighter(ImageChops.lighter(r,g),b).point(lambda x: 255 if x > 20 else 0)
-    bounds = mask.getbbox()
-    return bounds[1] if bounds else rgb.height
+    return rgb.crop(ROBOT), rgb.crop(GREETING)
 
-def validate_shell(frame):
-    assert sum(r > 65 and r > 1.5*g and r > 1.25*b for r,g,b in frame.convert("RGB").getdata()) > 2000
+def compose(frame, theme, top):
+    robot, greeting = parts(frame)
+    bg = background(theme)
+    rect = bounds(greeting, bg)
+    assert rect, "Original multilingual greeting missing"
+    glyph = greeting.crop(rect)
+    ratio = min(1.0, (WIDTH-24)/glyph.width, (TEXT_HEIGHT-16)/glyph.height)
+    glyph = glyph.resize((max(1,round(glyph.width*ratio)),max(1,round(glyph.height*ratio))), Image.Resampling.LANCZOS)
+    canvas = Image.new("RGB", (WIDTH, TEXT_HEIGHT + robot.height - top), bg)
+    canvas.paste(glyph, ((WIDTH-glyph.width)//2, (TEXT_HEIGHT-glyph.height)//2))
+    canvas.paste(robot.crop((0,top,robot.width,robot.height)),(0,TEXT_HEIGHT))
+    return canvas
+
+def signature(frame, theme):
+    cropped = frame.convert("RGB").crop((0,0,WIDTH,TEXT_HEIGHT))
+    box = bounds(cropped,background(theme))
+    assert box, "Greeting disappeared"
+    return cropped.crop(box).resize((64,16)).tobytes()
 
 def render(theme):
-    with Image.open(ASSETS / f"{OLD}-{theme}-still.png") as still:
-        top = find_top(still, theme)
-    with Image.open(ASSETS / f"{OLD}-{theme}.gif") as source:
-        assert source.size == SIZE and source.n_frames > 1
-        loop = source.info.get("loop",0)
-        for i in range(source.n_frames):
-            source.seek(i)
-            top = min(top, find_top(source, theme))
-        top = max(0, min(80, top - 10))
-        crop = (0, top, SIZE[0], SIZE[1])
-        source.seek(0)
-        palette = source.copy()
+    bg = background(theme)
+    dest = ASSETS / f"{NEW}-{theme}.gif"
+    with Image.open(ASSETS / f"{SOURCE}-{theme}.gif") as original:
+        assert original.n_frames > 1
+        loop = original.info.get("loop",0)
+        top = 80
+        for i in range(original.n_frames):
+            original.seek(i)
+            robot,_ = parts(original)
+            box = bounds(robot,bg)
+            assert box
+            top = min(top,max(0,box[1]-10))
+        with Image.open(ASSETS / f"{SOURCE}-{theme}-still.png") as still:
+            robot,_ = parts(still)
+            box = bounds(robot,bg)
+            assert box
+            top = min(top,max(0,box[1]-10))
+            still_frame = compose(still,theme,top)
+            still_frame.save(ASSETS / f"{NEW}-{theme}-still.png",optimize=True)
+        original.seek(0)
+        palette = original.copy()
         assert palette.mode == "P"
         frames, durations = [], []
-        for i in range(source.n_frames):
-            source.seek(i)
-            durations.append(source.info.get("duration",40))
-            frames.append(source.convert("RGB").crop(crop).quantize(palette=palette, dither=Image.Dither.NONE))
-        dest = ASSETS / f"{NEW}-{theme}.gif"
-        frames[0].save(dest, save_all=True, append_images=frames[1:], duration=durations, loop=loop, optimize=True, disposal=1)
+        for i in range(original.n_frames):
+            original.seek(i)
+            durations.append(original.info.get("duration",40))
+            frames.append(compose(original,theme,top).quantize(palette=palette,dither=Image.Dither.NONE))
+        frames[0].save(dest,save_all=True,append_images=frames[1:],duration=durations,
+                       loop=loop,optimize=True,disposal=1)
     with Image.open(dest) as result:
-        assert result.size == (SIZE[0],SIZE[1]-top) and result.n_frames > 1
+        assert result.size == still_frame.size and result.n_frames > 1
         assert result.info.get("loop",0) == loop
-        first = result.convert("RGB")
-        validate_shell(first)
-        total, changed = 0, False
+        total, signatures, changed = 0,set(),False
+        first_robot = result.convert("RGB").crop((0,TEXT_HEIGHT,WIDTH,result.height))
+        assert sum(r>65 and r>1.5*g and r>1.25*b for r,g,b in first_robot.getdata())>2000
         for i in range(result.n_frames):
             result.seek(i)
-            total += result.info.get("duration",0)
+            duration = result.info.get("duration",0)
+            signatures.add(signature(result,theme))
             if not changed:
-                changed = ImageChops.difference(first,result.convert("RGB")).getbbox() is not None
-        assert total == sum(durations) and changed
-    with Image.open(ASSETS / f"{OLD}-{theme}-still.png") as still:
-        image = still.convert("RGB").crop(crop)
-        validate_shell(image)
-        image.save(ASSETS / f"{NEW}-{theme}-still.png",optimize=True)
-    print(f"{theme}: removed {top}px of upper padding; validated {total}ms animation",flush=True)
-
-CURRENT = """<!-- Native profile identity beside independent red EVE animation -->
-<picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v18-red-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark.gif" />
-  <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
-</picture>
-
-<div id="user-content-toc">
-  <ul align="left">
-    <summary><h1>Pranay Kadu</h1></summary>
-    <summary><h2>Backend Software Engineer</h2></summary>
-    <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
-    <summary><h2>Hey, I am EVE.</h2></summary>
-  </ul>
-</div>
-
-<br clear="all" />"""
-HEADER = """<!-- Native profile identity beside independent red EVE animation -->
-<picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v19-upper-red-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v19-upper-red-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v19-upper-red-dark.gif" />
-  <img align="right" src="./assets/eve-robot-v19-upper-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
-</picture>
-
-<div id="user-content-toc">
-  <ul align="left">
-    <summary><h1>Pranay Kadu</h1></summary>
-    <summary><h2>Backend Software Engineer</h2></summary>
-    <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
-    <summary><h2>Hey, I am EVE.</h2></summary>
-  </ul>
-</div>
-
-<br clear="all" />"""
-BOUNDARY = '<p align="center"><strong>PROJECTS · SKILLS · CONTRIBUTIONS</strong></p>'
+                current = result.convert("RGB").crop((0,TEXT_HEIGHT,WIDTH,result.height))
+                changed = ImageChops.difference(first_robot,current).getbbox() is not None
+            total += duration
+        assert total == sum(durations) == 30000 and changed
+        assert len(signatures) >= 5, ("Missing multilingual changes",len(signatures))
+    print(f"{theme}: validated {total}ms loop with animated robot and multilingual greetings",flush=True)
 
 def update_readme():
     path = ROOT / "README.md"
     before = path.read_text(encoding="utf-8")
-    if HEADER in before:
-        return
-    assert before.count(CURRENT) == 1
-    updated = before.replace(CURRENT,HEADER,1)
+    start = before.index("<!-- Native profile identity")
+    end = before.index(BOUNDARY,start)
+    header = before[start:end]
+    assert "Hey, I am EVE.</h2>" not in header
+    for theme in ("dark","light"):
+        for suffix in (".gif","-still.png"):
+            old = f"{CURRENT}-{theme}{suffix}"
+            new = f"{NEW}-{theme}{suffix}"
+            assert (ASSETS/new).is_file()
+            assert header.count(old)+header.count(new)==1
+            header = header.replace(old,new)
+    header = header.replace('alt="Red EVE robot waving and pointing."',
+        'alt="Red EVE robot waving and greeting in English, Chinese, Hindi, Spanish and French."')
+    updated = before[:start]+header+before[end:]
     assert before.split(BOUNDARY,1)[1] == updated.split(BOUNDARY,1)[1]
     path.write_text(updated,encoding="utf-8")
 

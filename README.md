@@ -13,7 +13,6 @@
     <summary><h1>Pranay Kadu</h1></summary>
     <summary><h2>Backend Software Engineer</h2></summary>
     <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
-    <summary><h2>Hey, I am EVE.</h2></summary>
   </ul>
 </div>
 
