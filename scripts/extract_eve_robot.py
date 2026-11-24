@@ -68,10 +68,14 @@ CURRENT = """<!-- Native profile identity beside independent red EVE animation -
   <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
 </picture>
 
-<h3>Pranay Kadu</h3>
-<h4>Backend Software Engineer</h4>
-<p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
-<h3>Hey, I am EVE.</h3>
+<div id="user-content-toc">
+  <ul align="left">
+    <summary><h1>Pranay Kadu</h1></summary>
+    <summary><h2>Backend Software Engineer</h2></summary>
+    <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
+    <summary><h2>Hey, I am EVE.</h2></summary>
+  </ul>
+</div>
 
 <br clear="all" />"""
 HEADER = """<!-- Native profile identity beside independent red EVE animation -->
@@ -82,10 +86,14 @@ HEADER = """<!-- Native profile identity beside independent red EVE animation --
   <img align="right" src="./assets/eve-robot-v19-upper-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
 </picture>
 
-<h3>Pranay Kadu</h3>
-<h4>Backend Software Engineer</h4>
-<p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
-<h3>Hey, I am EVE.</h3>
+<div id="user-content-toc">
+  <ul align="left">
+    <summary><h1>Pranay Kadu</h1></summary>
+    <summary><h2>Backend Software Engineer</h2></summary>
+    <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
+    <summary><h2>Hey, I am EVE.</h2></summary>
+  </ul>
+</div>
 
 <br clear="all" />"""
 BOUNDARY = '<p align="center"><strong>PROJECTS · SKILLS · CONTRIBUTIONS</strong></p>'
