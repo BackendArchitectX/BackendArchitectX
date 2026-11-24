@@ -14,6 +14,7 @@
 </picture>
 
 <br clear="all" />
+<br />
 
 <p align="center"><strong>PROJECTS · SKILLS · CONTRIBUTIONS</strong></p>
 
