@@ -9,10 +9,10 @@
 </picture>
 
 <p align="center">
-  <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio.svg" width="118" height="32" alt="Engineering portfolio" /></a>
-  <a href="https://www.linkedin.com/in/pranaykadu"><img src="./assets/link-linkedin.svg" width="112" height="32" alt="LinkedIn" /></a>
-  <a href="mailto:pranaykadu.softwareengineer@gmail.com"><img src="./assets/link-email.svg" width="91" height="32" alt="Email Pranay Kadu" /></a>
-  <a href="https://github.com/BackendArchitectX?tab=repositories"><img src="./assets/link-repositories.svg" width="149" height="32" alt="All repositories" /></a>
+  <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio-v2.svg" width="118" height="32" alt="Engineering portfolio" /></a>
+  <a href="https://www.linkedin.com/in/pranaykadu"><img src="./assets/link-linkedin-v2.svg" width="112" height="32" alt="LinkedIn" /></a>
+  <a href="mailto:pranaykadu.softwareengineer@gmail.com"><img src="./assets/link-email-v2.svg" width="91" height="32" alt="Email Pranay Kadu" /></a>
+  <a href="https://github.com/BackendArchitectX?tab=repositories"><img src="./assets/link-repositories-v2.svg" width="149" height="32" alt="All repositories" /></a>
 </p>
 
 <h1><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-name-dark.svg" /><img src="./assets/readme-text-v1-name-light.svg" alt="Pranay Kadu" height="54" /></picture></h1>
