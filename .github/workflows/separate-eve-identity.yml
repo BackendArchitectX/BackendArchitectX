@@ -1,11 +1,10 @@
-name: Compact highlighted EVE header
+name: Render compact red EVE header
 on:
   push:
     branches: [main]
     paths:
-      - 'scripts/separate_eve_identity.py'
+      - 'scripts/render_eve_red.py'
       - '.github/workflows/separate-eve-identity.yml'
-      - 'assets/eve-identity-v2-*.svg'
   workflow_dispatch:
 permissions:
   contents: write
@@ -16,21 +15,42 @@ jobs:
   build:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Install SVG and GIF dependencies
+      - name: Install multilingual fonts and renderer libraries
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y fonts-dejavu-core libcairo2
-          python -m pip install Pillow==11.3.0 CairoSVG==2.7.1
-      - name: Compose compact header and validate animation
-        run: python scripts/separate_eve_identity.py
-      - name: Publish verified assets and README together
+          sudo apt-get install -y fonts-noto-core fonts-noto-cjk fonts-dejavu-core libgl1 libegl1
+          python -m pip install 'vtk==9.6.2' 'numpy==2.2.6' 'Pillow==11.3.0'
+      - name: Render and validate the red 3D animation
+        run: |
+          python -m py_compile scripts/render_eve_red.py
+          python scripts/render_eve_red.py
+      - name: Switch README to the compact verified assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path("README.md")
+          before = p.read_text(encoding="utf-8")
+          updated = re.sub(r'(?m)^<p><picture><source media="\(prefers-color-scheme: dark\)" srcset="\./assets/eve-identity-v1-dark\.svg"[^\n]*</picture></p>\n\n', '', before)
+          assert "eve-identity-v1-dark.svg" not in updated
+          for theme in ("dark", "light"):
+              for suffix in (".gif", "-still.png"):
+                  new = f"./assets/eve-readme-v16-red-{theme}{suffix}"
+                  old = [f"./assets/eve-readme-{version}-{theme}{suffix}" for version in ("v13", "v14-separated", "v15-compact")]
+                  assert sum(updated.count(x) for x in old+[new]) == 1
+                  assert Path(new).is_file()
+                  for x in old:
+                      updated = updated.replace(x,new)
+          p.write_text(updated,encoding="utf-8")
+          PY
+      - name: Publish validated animation and README atomically
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/eve-readme-v15-compact-dark.gif assets/eve-readme-v15-compact-light.gif assets/eve-readme-v15-compact-dark-still.png assets/eve-readme-v15-compact-light-still.png
+          git add README.md assets/eve-readme-v16-red-dark.gif assets/eve-readme-v16-red-light.gif assets/eve-readme-v16-red-dark-still.png assets/eve-readme-v16-red-light-still.png
           git diff --cached --quiet && exit 0
-          git commit -m "docs: restore compact EVE header with navy highlights"
+          git commit -m "docs: publish compact red EVE profile header"
           git push origin HEAD:main

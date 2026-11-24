@@ -1,0 +1,319 @@
+#!/usr/bin/env python3
+"""Render a real, animated 3D floating EVE-style robot into GitHub-friendly GIFs.
+Procedural 3D meshes echo the user-supplied EVE reference; the uploaded 3D-print
+STL collection is not embedded in the repository.
+"""
+from functools import cache
+from pathlib import Path
+import math, re
+import vtk
+import numpy as np
+from vtk.util.numpy_support import numpy_to_vtk, vtk_to_numpy
+from PIL import Image, ImageDraw, ImageFont
+
+ASSETS=Path(__file__).resolve().parents[1]/"assets"
+ASSETS.mkdir(exist_ok=True)
+WIDTH,HEIGHT=1120,480
+FPS=25
+SECONDS=6
+ASSET_PREFIX="eve-readme-v16-red"
+WORK_PROMPT="Explore Pranay’s work"
+LANG=[
+ ("Hey, I am EVE.","latin"),
+ ("你好，我是 EVE。","chinese"),
+ ("नमस्ते, मैं EVE हूँ।","hindi"),
+ ("¡Hola! Soy EVE.","latin"),
+ ("Salut, je suis EVE.","latin"),
+]
+FONTS={
+ "latin":"/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+ "chinese":"/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+ "hindi":"/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf",
+}
+@cache
+def font(kind,size):
+ return ImageFont.truetype(FONTS[kind],size,layout_engine=ImageFont.Layout.RAQM)
+
+def mesh_actor(mapper,color,spec=.28,ambient=.20):
+ # Softer satin-polymer finish rather than hard plastic hotspots.
+ actor=vtk.vtkActor()
+ actor.SetMapper(mapper)
+ prop=actor.GetProperty()
+ prop.SetColor(*color)
+ prop.SetDiffuse(.82);prop.SetAmbient(ambient)
+ prop.SetSpecular(spec);prop.SetSpecularPower(22)
+ prop.SetInterpolationToPhong()
+ return actor
+
+def ellipsoid(center,radii,color,spec=.5):
+ sphere=vtk.vtkSphereSource()
+ sphere.SetThetaResolution(92);sphere.SetPhiResolution(70)
+ mapper=vtk.vtkPolyDataMapper()
+ mapper.SetInputConnection(sphere.GetOutputPort())
+ actor=mesh_actor(mapper,color,spec)
+ # The VTK sphere primitive has radius 0.5.
+ actor.SetScale(*(r*2 for r in radii))
+ actor.SetPosition(*center)
+ return actor
+
+def loft_shell(profile,color,spec):
+ # Reuse the closed sphere topology and sculpt each ring along the profile.
+ sphere=vtk.vtkSphereSource()
+ sphere.SetThetaResolution(80);sphere.SetPhiResolution(72)
+ sphere.Update()
+ mesh=sphere.GetOutput()
+ coords=vtk_to_numpy(mesh.GetPoints().GetData())
+ t=coords[:,2].astype(float)+.5
+ angle=np.arctan2(coords[:,1],coords[:,0])
+ center,z,rx,ry=profile(t)
+ coords[:,0]=center+rx*np.cos(angle)
+ coords[:,1]=ry*np.sin(angle)
+ coords[:,2]=z
+ mesh.GetPoints().GetData().Modified()
+ mesh.GetPoints().Modified()
+ mesh.GetPointData().SetNormals(None)
+ normals=vtk.vtkPolyDataNormals()
+ normals.SetInputData(mesh);normals.SplittingOff()
+ mapper=vtk.vtkPolyDataMapper()
+ mapper.SetInputConnection(normals.GetOutputPort())
+ return mesh_actor(mapper,color,spec)
+
+def rounded_taper(t,tip_power,shoulder_power):
+ # Blend into a round cap at the tip while keeping the upper profile.
+ power=tip_power+(shoulder_power-tip_power)*t
+ power-=(power-.5)*np.exp(-t/.17)
+ return np.sin(np.pi*t)**power
+
+def teardrop():
+ def profile(t):
+  envelope=rounded_taper(t,.96,.66)
+  return 0,.19+2.09*t,.82*envelope*(.80+.33*t),.56*envelope*(.84+.20*t)
+ return loft_shell(profile,(.82,.035,.075),.24)
+
+def tapered_fin(side):
+ def profile(t):
+  envelope=rounded_taper(t,.84,.60)
+  center=side*(.13+.09*(1-t)**1.4)
+  return center,-1.54+1.76*t,.209*envelope*(.80+.42*t),.255*envelope*(.79+.43*t)
+ fin=loft_shell(profile,(.82,.035,.075),.22)
+ fin.SetOrientation(0,-4*side,-15*side)
+ return fin
+
+def eye_lens():
+ sphere=vtk.vtkSphereSource()
+ sphere.SetRadius(1)
+ sphere.SetThetaResolution(48);sphere.SetPhiResolution(32)
+ sphere.Update()
+ mesh=sphere.GetOutput()
+ unit=vtk_to_numpy(mesh.GetPoints().GetData()).copy()
+ # A dim cyan rim and a brighter center are built into the lens, without glare.
+ facing=np.maximum(0,-unit[:,1:2])
+ rim=np.array([8,126,174])
+ center=np.array([44,235,255])
+ mesh.GetPointData().SetScalars(numpy_to_vtk((rim+facing*(center-rim)).astype(np.uint8),deep=True))
+ mapper=vtk.vtkPolyDataMapper()
+ mapper.SetInputData(mesh)
+ mapper.SetColorModeToDirectScalars()
+ return mesh.GetPoints(),unit,mapper
+
+class EVE:
+ def __init__(self,theme):
+  self.renderer=vtk.vtkRenderer()
+  self.renderer.SetBackground(*((.051,.067,.09) if theme=="dark" else (1,1,1)))
+  self.window=vtk.vtkRenderWindow()
+  self.window.SetSize(504,405)
+  self.window.SetOffScreenRendering(True)
+  self.window.AddRenderer(self.renderer)
+  self.window.SetMultiSamples(4)
+  self.root=vtk.vtkAssembly()
+  self.renderer.AddActor(self.root)
+  self.root.AddPart(teardrop())
+  self.head=vtk.vtkAssembly()
+  self.head.SetPosition(0,0,2.93)
+  self.head.AddPart(ellipsoid((0,0,0),(.9,.66,.63),(.82,.035,.075),.24))
+  self.head.AddPart(ellipsoid((0,-.568,.035),(.725,.155,.385),(.012,.021,.038),.37))
+  self.root.AddPart(self.head)
+  self.eye_points,self.eye_shape,eye_mapper=eye_lens()
+  self.eyes=[]
+  for side in (-1,1):
+   eye=vtk.vtkActor()
+   eye.SetMapper(eye_mapper)
+   eye.GetProperty().LightingOff()
+   eye.SetOrientation(0,-6*side,0)
+   self.head.AddPart(eye)
+   self.eyes.append(eye)
+  self.arms={}
+  for side in (-1,1):
+   assembly=vtk.vtkAssembly()
+   assembly.SetPosition(.79*side,0,1.90)
+   assembly.AddPart(tapered_fin(side))
+   self.root.AddPart(assembly)
+   self.arms[side]=assembly
+  self.arms[1].SetOrientation(0,-4,0)
+  lighting=1 if theme=="dark" else .78
+  for position,intensity,color in [
+   ((4,-6,8),.92,(1,1,1)),
+   ((-4,-3,4),.42,(.78,.86,1)),
+   ((1,4,6),.36,(.78,.90,1)),
+   ((0,-2,10),.24,(.92,.96,1)),
+  ]:
+   light=vtk.vtkLight()
+   light.SetPosition(*position);light.SetFocalPoint(0,0,1.8)
+   light.SetIntensity(lighting*intensity);light.SetColor(*color)
+   self.renderer.AddLight(light)
+  cam=self.renderer.GetActiveCamera()
+  cam.SetPosition(0,-11,2.12);cam.SetFocalPoint(0,0,1.96)
+  cam.SetViewUp(0,0,1);cam.ParallelProjectionOn()
+  cam.SetParallelScale(2.24)
+  self.filter=vtk.vtkWindowToImageFilter()
+  self.filter.SetInput(self.window)
+  self.filter.SetInputBufferTypeToRGB()
+  self.filter.ReadFrontBufferOff()
+ @staticmethod
+ def ease(t,start,end):
+  """Ease in and out with zero velocity and acceleration at both ends."""
+  v=min(1.0,max(0.0,(t-start)/(end-start)))
+  return v**3*(10+v*(-15+6*v))
+
+ def frame(self,t):
+  # EVE's right hand appears on screen left. Keep the root and other fin still.
+  lift=self.ease(t,.08,.95)*(1-self.ease(t,1.94,2.68))
+  sway=self.ease(t,.58,.94)*(1-self.ease(t,1.78,2.10))
+  phase=math.tau*1.4*(t-.82)
+  point=self.ease(t,2.63,3.46)*(1-self.ease(t,4.88,5.80))
+  sweep=self.ease(t,3.23,5.09)
+  self.arms[-1].SetPosition(-.79-.18*lift-.21*point,0,1.90-.08*point)
+  self.arms[-1].SetOrientation(0,4+133*lift+12*sway*math.sin(phase)+(18-5*sweep)*point,
+                               6*sway*math.cos(phase))
+
+  glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
+  idle_phase=math.tau*t/SECONDS
+  self.head.SetPosition(0,0,2.93+.037*math.sin(2*idle_phase))
+  self.head.SetOrientation((4+3*sweep)*glance,-4*lift-4*glance+.6*math.sin(idle_phase),0)
+  smile=self.ease(t,.18,.86)*(1-self.ease(t,1.98,2.63))
+  blink=self.ease(t,2.30,2.44)*(1-self.ease(t,2.48,2.64))
+  openness=1-.94*blink
+  x,y,z=self.eye_shape.T
+  lens=vtk_to_numpy(self.eye_points.GetData())
+  lens[:,0]=(.124+.043*smile)*x
+  lens[:,1]=.020*y+.025*x*x
+  lens[:,2]=openness*((.094-.066*smile)*z+.068*smile*(1-x*x))
+  self.eye_points.GetData().Modified()
+  self.eye_points.Modified()
+  for side,eye in zip((-1,1),self.eyes):
+   eye.SetPosition(side*.268-.070*glance,-.760,.061-(.078+.032*sweep)*glance)
+  self.window.Render()
+  self.filter.Modified();self.filter.Update()
+  data=self.filter.GetOutput()
+  w,h,_=data.GetDimensions()
+  pixels=vtk_to_numpy(data.GetPointData().GetScalars()).reshape(h,w,3)
+  return Image.fromarray(np.flipud(pixels).copy(),"RGB")
+
+def greeting(draw,text,kind,fill):
+ left=42;baseline=296;max_width=520
+ if kind=="hindi":
+  parts=re.split(r"([A-Za-z]+)",text)
+  for size in range(62,29,-1):
+   runs=[(p,font("latin" if re.fullmatch("[A-Za-z]+",p) else "hindi",size)) for p in parts if p]
+   width=sum(f.getlength(p) for p,f in runs)
+   if width<=max_width:break
+  if width>max_width:raise ValueError("Hindi text too wide")
+  x=left
+  for p,f in runs:
+   draw.text((round(x),baseline),p,font=f,fill=fill,anchor="ls")
+   x+=f.getlength(p)
+ else:
+  for size in range(62,29,-1):
+   f=font(kind,size)
+   if f.getlength(text)<=max_width:break
+  if f.getlength(text)>max_width:raise ValueError("Greeting too wide")
+  draw.text((left,baseline),text,font=f,fill=fill,anchor="ls")
+
+def highlighted(draw, text, size, baseline, highlight, max_width=530):
+ f=font("latin",size)
+ while f.getlength(text)+24>max_width and size>12:
+  size-=1
+  f=font("latin",size)
+ x=50
+ l,top,r,bottom=draw.textbbox((x,baseline),text,font=f,anchor="ls")
+ draw.rounded_rectangle((l-9,top-5,r+9,bottom+5),radius=5,fill=highlight)
+ draw.text((x,baseline),text,font=f,fill=(20,43,96),anchor="ls")
+
+def composite(theme,sprite,language,t):
+ dark=theme=="dark"
+ bg=(13,17,23) if dark else (255,255,255)
+ fg=(246,248,252) if dark else (26,31,41)
+ muted=(185,196,211) if dark else (76,88,105)
+ blue=(21,189,255) if dark else (10,117,205)
+ highlight=(199,216,245) if dark else (224,233,250)
+ output=Image.new("RGB",(WIDTH,HEIGHT),bg)
+ d=ImageDraw.Draw(output)
+ highlighted(d,"Pranay Kadu",60,71,highlight)
+ highlighted(d,"Backend Software Engineer",27,112,highlight)
+ highlighted(d,"Java · Spring Boot · Distributed Systems · AWS",19,145,highlight)
+ d.line([(41,174),(566,174)],fill=blue,width=2)
+ greeting(d,*LANG[language],fg)
+ output.paste(sprite,(594,0))
+ d=ImageDraw.Draw(output)
+ reveal=EVE.ease(t,3.24,3.67)*(1-EVE.ease(t,4.99,5.42))
+ if reveal>0:
+  prompt=tuple(round(a+(b-a)*reveal) for a,b in zip(bg,fg))
+  arrow=tuple(round(a+(b-a)*reveal) for a,b in zip(bg,blue))
+  d.text((679,422),WORK_PROMPT,font=font("latin",25),fill=prompt,anchor="ls")
+  ax,top=652,397+round(2*math.sin(math.tau*t/SECONDS))
+  d.line([(ax,top),(ax,top+26)],fill=arrow,width=4)
+  d.line([(ax-8,top+18),(ax,top+26),(ax+8,top+18)],fill=arrow,width=4,joint="curve")
+ d.line([(42,443),(1078,443)],fill=(52,63,79) if dark else (210,219,228),width=1)
+ d.text((560,464),"PROJECTS · SKILLS · CONTRIBUTIONS",font=font("latin",19),fill=muted,anchor="mm")
+ return output
+
+def validate_visual(frame,theme):
+ rgb=np.asarray(frame.convert("RGB"),dtype=np.int16)
+ highlight=np.array((199,216,245) if theme=="dark" else (224,233,250))
+ header=rgb[:174,:594]
+ assert np.count_nonzero(np.max(np.abs(header-highlight),axis=2)<=24)>1000, "Missing identity highlights"
+ assert np.count_nonzero(np.max(np.abs(header-np.array((20,43,96))),axis=2)<=28)>100, "Missing navy text"
+ robot=rgb[:395,594:1098]
+ red,green,blue=robot.transpose(2,0,1)
+ assert np.count_nonzero((red>65)&(red>green*1.5)&(red>blue*1.25))>2000, "Red shell missing"
+
+def build(theme):
+ print("Rendering EVE",theme,flush=True)
+ scene=EVE(theme)
+ # Render one six-second cycle, then replay it with each greeting.
+ # Capture the non-gesturing fin's transform and verify it never changes.
+ stationary_fin=scene.arms[1]
+ initial_orientation=stationary_fin.GetOrientation()
+ initial_position=stationary_fin.GetPosition()
+ initial_root=scene.root.GetPosition()
+ sprites=[scene.frame(i/FPS) for i in range(SECONDS*FPS)]
+ assert tuple(stationary_fin.GetOrientation())==tuple(initial_orientation), "Other fin must not rotate"
+ assert tuple(stationary_fin.GetPosition())==tuple(initial_position), "Other fin must not move"
+ assert tuple(scene.root.GetPosition())==tuple(initial_root), "Root hover must not move both fins"
+ # Both gestures must have visible motion from their own resting pose.
+ from PIL import ImageChops
+ wave_frame=round(1.15*FPS)
+ point_frame=round(4.12*FPS)
+ assert ImageChops.difference(sprites[0],sprites[wave_frame]).getbbox() is not None
+ assert ImageChops.difference(sprites[0],sprites[point_frame]).getbbox() is not None
+ # Show the work prompt in the English reduced-motion fallback.
+ composite(theme,sprites[point_frame],0,point_frame/FPS).save(ASSETS/f"{ASSET_PREFIX}-{theme}-still.png",optimize=True)
+ montage=Image.new("RGB",(WIDTH,HEIGHT*len(LANG)))
+ for language,i in enumerate((0,wave_frame,point_frame,0,wave_frame)):
+  montage.paste(composite(theme,sprites[i],language,i/FPS),(0,language*HEIGHT))
+ pal=montage.quantize(colors=256,method=Image.Quantize.MEDIANCUT)
+ indexed=(composite(theme,sprite,language,i/FPS).quantize(palette=pal,dither=Image.Dither.NONE)
+          for language in range(len(LANG)) for i,sprite in enumerate(sprites))
+ out=ASSETS/f"{ASSET_PREFIX}-{theme}.gif"
+ next(indexed).save(out,save_all=True,append_images=indexed,loop=0,duration=1000//FPS,optimize=True,disposal=1)
+ with Image.open(out) as result:
+  assert result.size==(WIDTH,HEIGHT) and result.n_frames>1
+  validate_visual(result,theme)
+  total=0
+  for i in range(result.n_frames):
+   result.seek(i);total+=result.info.get("duration",0)
+  assert total==1000*SECONDS*len(LANG),(total,theme)
+ print("Wrote",out,out.stat().st_size,flush=True)
+
+if __name__=="__main__":
+ for mode in ("dark","light"):build(mode)
