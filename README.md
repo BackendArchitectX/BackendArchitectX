@@ -8,10 +8,10 @@
   <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="340" alt="Red EVE robot waving and pointing." />
 </picture>
 
-<h1>Pranay Kadu</h1>
-<h3>Backend Software Engineer</h3>
+<p><strong>Pranay Kadu</strong></p>
+<p><strong>Backend Software Engineer</strong></p>
 <p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
-<h2>Hey, I am EVE.</h2>
+<p><strong>Hey, I am EVE.</strong></p>
 
 <br clear="all" />
 
