@@ -23,7 +23,7 @@
 
 I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
-**8 merged external engineering pull requests · Apache, AutoMQ and Kestra contributor**
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-summary-dark.svg" /><img src="./assets/readme-text-v1-summary-light.svg" alt="25+ total merged GitHub PRs · Apache and AutoMQ contributor" height="26" /></picture></p>
 
 ---
 
