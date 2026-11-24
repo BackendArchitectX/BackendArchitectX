@@ -10,7 +10,7 @@
 
 <div id="user-content-toc">
   <ul align="left">
-    <summary><h1>Pranay Kadu</h1></summary>
+    <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-name-48-dark.svg" /><img src="./assets/readme-name-48-light.svg" width="350" height="62" alt="Pranay Kadu" /></picture></summary>
     <summary><h2>Backend Software Engineer</h2></summary>
     <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
   </ul>
