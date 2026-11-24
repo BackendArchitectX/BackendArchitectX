@@ -1,12 +1,26 @@
 <!-- GitHub profile · BackendArchitectX -->
 
-<!-- Animated 3D EVE header with reduced-motion and color-scheme fallbacks -->
-<picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v17-crimson-titanium-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v17-crimson-titanium-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v17-crimson-titanium-dark.gif" />
-  <img src="./assets/eve-readme-v17-crimson-titanium-light.gif" width="100%" alt="Animated EVE-style robot introducing Pranay Kadu's engineering portfolio." />
-</picture>
+<!-- Native profile identity beside independent red EVE animation -->
+<table>
+  <tr>
+    <td valign="middle" width="60%">
+      <h1>Pranay Kadu</h1>
+      <h3>Backend Software Engineer</h3>
+      <p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
+      <h2>Hey, I am EVE.</h2>
+    </td>
+    <td valign="middle" align="center" width="40%">
+      <picture>
+        <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark-still.png" />
+        <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v18-red-light-still.png" />
+        <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark.gif" />
+        <img src="./assets/eve-robot-v18-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
+      </picture>
+    </td>
+  </tr>
+</table>
+
+<p align="center"><strong>PROJECTS · SKILLS · CONTRIBUTIONS</strong></p>
 
 <p align="center">
   <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio-crimson-titanium.svg" width="122" height="38" alt="Engineering portfolio" /></a>
@@ -14,12 +28,6 @@
   <a href="mailto:pranaykadu.softwareengineer@gmail.com"><img src="./assets/link-email-crimson-titanium.svg" width="88" height="38" alt="Email Pranay Kadu" /></a>
   <a href="https://github.com/BackendArchitectX?tab=repositories"><img src="./assets/link-repositories-crimson-titanium.svg" width="153" height="38" alt="All repositories" /></a>
 </p>
-
-<h1><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-name-dark.svg" /><img src="./assets/readme-text-crimson-titanium-name-light.svg" alt="Pranay Kadu" height="54" /></picture></h1>
-
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-role-dark.svg" /><img src="./assets/readme-text-crimson-titanium-role-light.svg" alt="Backend Software Engineer" height="31" /></picture></p>
-
-**Java · Spring Boot · Distributed Systems · AWS**
 
 I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
