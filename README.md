@@ -31,9 +31,10 @@ I build and maintain reliable backend systems with a focus on **transaction corr
 
 I contribute to distributed infrastructure with an emphasis on correctness, concurrency and reliability.
 
-### Selected Merged Contributions
+### Merged Engineering Contributions
 
 - **[Kestra AWS Plugin #889](https://github.com/kestra-io/plugin-aws/pull/889)** — Preserved DynamoDB binary attributes on reads with regression tests.
+- **[Apache Pinot #19915](https://github.com/apache/pinot/pull/19915)** — Reduced hash collisions and unnecessary key allocations in replica-group instance lookups using a custom hash strategy.
 - **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Fixed stale RPC connections with endpoint-aware caching and regression tests.
 - **[Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)** — Improved topic watcher notification dispatch through namespace-based indexing and concurrency tests.
 - **[Apache Druid #20633](https://github.com/apache/druid/pull/20633)** — Preserved structured user-error classifications during distributed query execution.
@@ -41,7 +42,13 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 - **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented broker-specific metrics initialization on controller-only nodes.
 - **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Removed redundant topic cleanup notifications.
 
-[View open pull requests](https://github.com/pulls?q=is%3Apr+is%3Aopen+author%3ABackendArchitectX) · [View merged pull requests](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3ABackendArchitectX)
+### Other Merged External Contributions
+
+- **[is-a.dev #57318](https://github.com/is-a-dev/register/pull/57318)** — Corrected personal-domain contact metadata.
+- **[is-a.dev #57294](https://github.com/is-a-dev/register/pull/57294)** — Added a GitHub Pages TXT verification record.
+- **[is-a.dev #57221](https://github.com/is-a-dev/register/pull/57221)** — Registered a personal developer domain.
+
+[View all merged external pull requests](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3ABackendArchitectX+-user%3ABackendArchitectX)
 
 ---
 
