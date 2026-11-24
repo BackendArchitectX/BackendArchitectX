@@ -5,13 +5,13 @@
   <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark-still.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v18-red-light-still.png" />
   <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark.gif" />
-  <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="340" alt="Red EVE robot waving and pointing." />
+  <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
 </picture>
 
-<p><strong>Pranay Kadu</strong></p>
-<p><strong>Backend Software Engineer</strong></p>
+<h3>Pranay Kadu</h3>
+<h4>Backend Software Engineer</h4>
 <p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
-<p><strong>Hey, I am EVE.</strong></p>
+<h3>Hey, I am EVE.</h3>
 
 <br clear="all" />
 
