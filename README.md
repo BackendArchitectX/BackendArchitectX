@@ -2,10 +2,10 @@
 
 <!-- Animated 3D EVE header with reduced-motion and color-scheme fallbacks -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v16-red-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v16-red-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v16-red-dark.gif" />
-  <img src="./assets/eve-readme-v16-red-light.gif" width="100%" alt="Animated EVE-style robot introducing Pranay Kadu's engineering portfolio." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-readme-v17-crimson-titanium-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-readme-v17-crimson-titanium-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-readme-v17-crimson-titanium-dark.gif" />
+  <img src="./assets/eve-readme-v17-crimson-titanium-light.gif" width="100%" alt="Animated EVE-style robot introducing Pranay Kadu's engineering portfolio." />
 </picture>
 
 <p align="center">
