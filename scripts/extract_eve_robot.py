@@ -63,24 +63,19 @@ def render(theme):
     print(f"Verified {theme} robot-only animation: {SIZE}, {expected}ms", flush=True)
 
 HEADER = """<!-- Native profile identity beside independent red EVE animation -->
-<table>
-  <tr>
-    <td valign="middle" width="60%">
-      <h1>Pranay Kadu</h1>
-      <h3>Backend Software Engineer</h3>
-      <p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
-      <h2>Hey, I am EVE.</h2>
-    </td>
-    <td valign="middle" align="center" width="40%">
-      <picture>
-        <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark-still.png" />
-        <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v18-red-light-still.png" />
-        <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark.gif" />
-        <img src="./assets/eve-robot-v18-red-light.gif" width="300" alt="Red EVE robot waving and pointing." />
-      </picture>
-    </td>
-  </tr>
-</table>
+<picture>
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v18-red-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v18-red-dark.gif" />
+  <img align="right" src="./assets/eve-robot-v18-red-light.gif" width="340" alt="Red EVE robot waving and pointing." />
+</picture>
+
+<h1>Pranay Kadu</h1>
+<h3>Backend Software Engineer</h3>
+<p><strong>Java · Spring Boot · Distributed Systems · AWS</strong></p>
+<h2>Hey, I am EVE.</h2>
+
+<br clear="all" />
 
 <p align="center"><strong>PROJECTS · SKILLS · CONTRIBUTIONS</strong></p>"""
 
