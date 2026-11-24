@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="166" viewBox="0 0 1120 166" role="img" aria-label="Pranay Kadu — Backend Software Engineer — Java · Spring Boot · Distributed Systems · AWS">
+  <title>Pranay Kadu — Backend Software Engineer</title>
+  <g fill="#E0E9FA">
+    <rect x="35" y="5" width="510" height="70" rx="6"/>
+    <rect x="35" y="83" width="450" height="36" rx="5"/>
+    <rect x="35" y="127" width="550" height="30" rx="4"/>
+  </g>
+  <g fill="#142B60" font-family="DejaVu Sans,Segoe UI,Arial,sans-serif" font-weight="700">
+    <text x="47" y="61" font-size="60">Pranay Kadu</text>
+    <text x="47" y="109" font-size="25">Backend Software Engineer</text>
+    <text x="47" y="148" font-size="18">Java · Spring Boot · Distributed Systems · AWS</text>
+  </g>
+</svg>
