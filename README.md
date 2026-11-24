@@ -23,7 +23,7 @@
 
 I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-summary-dark.svg" /><img src="./assets/readme-text-v1-summary-light.svg" alt="10+ merged GitHub pull requests · Apache and AutoMQ contributor" height="26" /></picture></p>
+**8 merged external engineering pull requests · Apache, AutoMQ and Kestra contributor**
 
 ---
 
@@ -42,13 +42,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 - **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented broker-specific metrics initialization on controller-only nodes.
 - **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Removed redundant topic cleanup notifications.
 
-### Other Merged External Contributions
-
-- **[is-a.dev #57318](https://github.com/is-a-dev/register/pull/57318)** — Corrected personal-domain contact metadata.
-- **[is-a.dev #57294](https://github.com/is-a-dev/register/pull/57294)** — Added a GitHub Pages TXT verification record.
-- **[is-a.dev #57221](https://github.com/is-a-dev/register/pull/57221)** — Registered a personal developer domain.
-
-[View all merged external pull requests](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3ABackendArchitectX+-user%3ABackendArchitectX)
+[View merged external engineering pull requests](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3ABackendArchitectX+-user%3ABackendArchitectX+-repo%3Ais-a-dev%2Fregister)
 
 ---
 
