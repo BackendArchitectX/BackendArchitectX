@@ -16,7 +16,7 @@ ASSETS.mkdir(exist_ok=True)
 WIDTH,HEIGHT=1120,480
 FPS=25
 SECONDS=6
-ASSET_PREFIX="eve-readme-v16-red"
+ASSET_PREFIX="eve-readme-v17-crimson-titanium"
 WORK_PROMPT="Explore Pranay’s work"
 LANG=[
  ("Hey, I am EVE.","latin"),
@@ -237,15 +237,15 @@ def highlighted(draw, text, size, baseline, highlight, max_width=530):
  x=50
  l,top,r,bottom=draw.textbbox((x,baseline),text,font=f,anchor="ls")
  draw.rounded_rectangle((l-9,top-5,r+9,bottom+5),radius=5,fill=highlight)
- draw.text((x,baseline),text,font=f,fill=(20,43,96),anchor="ls")
+ draw.text((x,baseline),text,font=f,fill=(136,19,55),anchor="ls")
 
 def composite(theme,sprite,language,t):
  dark=theme=="dark"
  bg=(13,17,23) if dark else (255,255,255)
  fg=(246,248,252) if dark else (26,31,41)
  muted=(185,196,211) if dark else (76,88,105)
- blue=(21,189,255) if dark else (10,117,205)
- highlight=(199,216,245) if dark else (224,233,250)
+ blue=(251,113,133) if dark else (136,19,55)
+ highlight=(220,227,237)
  output=Image.new("RGB",(WIDTH,HEIGHT),bg)
  d=ImageDraw.Draw(output)
  highlighted(d,"Pranay Kadu",60,71,highlight)
@@ -269,10 +269,10 @@ def composite(theme,sprite,language,t):
 
 def validate_visual(frame,theme):
  rgb=np.asarray(frame.convert("RGB"),dtype=np.int16)
- highlight=np.array((199,216,245) if theme=="dark" else (224,233,250))
+ highlight=np.array((220,227,237))
  header=rgb[:174,:594]
  assert np.count_nonzero(np.max(np.abs(header-highlight),axis=2)<=24)>1000, "Missing identity highlights"
- assert np.count_nonzero(np.max(np.abs(header-np.array((20,43,96))),axis=2)<=28)>100, "Missing navy text"
+ assert np.count_nonzero(np.max(np.abs(header-np.array((136,19,55))),axis=2)<=28)>100, "Missing crimson text"
  robot=rgb[:395,594:1098]
  red,green,blue=robot.transpose(2,0,1)
  assert np.count_nonzero((red>65)&(red>green*1.5)&(red>blue*1.25))>2000, "Red shell missing"

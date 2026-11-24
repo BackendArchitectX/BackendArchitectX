@@ -1,4 +1,4 @@
-name: Render compact red EVE header
+name: Render Crimson and Titanium EVE header
 on:
   push:
     branches: [main]
@@ -38,8 +38,8 @@ jobs:
           assert "eve-identity-v1-dark.svg" not in updated
           for theme in ("dark", "light"):
               for suffix in (".gif", "-still.png"):
-                  new = f"./assets/eve-readme-v16-red-{theme}{suffix}"
-                  old = [f"./assets/eve-readme-{version}-{theme}{suffix}" for version in ("v13", "v14-separated", "v15-compact")]
+                  new = f"./assets/eve-readme-v17-crimson-titanium-{theme}{suffix}"
+                  old = [f"./assets/eve-readme-{version}-{theme}{suffix}" for version in ("v13", "v14-separated", "v15-compact", "v16-red")]
                   assert sum(updated.count(x) for x in old+[new]) == 1
                   assert Path(new).is_file()
                   for x in old:
@@ -50,7 +50,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/eve-readme-v16-red-dark.gif assets/eve-readme-v16-red-light.gif assets/eve-readme-v16-red-dark-still.png assets/eve-readme-v16-red-light-still.png
+          git add README.md assets/eve-readme-v17-crimson-titanium-dark.gif assets/eve-readme-v17-crimson-titanium-light.gif assets/eve-readme-v17-crimson-titanium-dark-still.png assets/eve-readme-v17-crimson-titanium-light-still.png
           git diff --cached --quiet && exit 0
-          git commit -m "docs: publish compact red EVE profile header"
+          git commit -m "docs: publish crimson and titanium EVE header"
           git push origin HEAD:main

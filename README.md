@@ -9,25 +9,25 @@
 </picture>
 
 <p align="center">
-  <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio-v3.svg" width="122" height="38" alt="Engineering portfolio" /></a>
-  <a href="https://www.linkedin.com/in/pranaykadu"><img src="./assets/link-linkedin-v3.svg" width="116" height="38" alt="LinkedIn" /></a>
-  <a href="mailto:pranaykadu.softwareengineer@gmail.com"><img src="./assets/link-email-v3.svg" width="88" height="38" alt="Email Pranay Kadu" /></a>
-  <a href="https://github.com/BackendArchitectX?tab=repositories"><img src="./assets/link-repositories-v3.svg" width="153" height="38" alt="All repositories" /></a>
+  <a href="https://backendarchitectx.github.io/"><img src="./assets/link-portfolio-crimson-titanium.svg" width="122" height="38" alt="Engineering portfolio" /></a>
+  <a href="https://www.linkedin.com/in/pranaykadu"><img src="./assets/link-linkedin-crimson-titanium.svg" width="116" height="38" alt="LinkedIn" /></a>
+  <a href="mailto:pranaykadu.softwareengineer@gmail.com"><img src="./assets/link-email-crimson-titanium.svg" width="88" height="38" alt="Email Pranay Kadu" /></a>
+  <a href="https://github.com/BackendArchitectX?tab=repositories"><img src="./assets/link-repositories-crimson-titanium.svg" width="153" height="38" alt="All repositories" /></a>
 </p>
 
-<h1><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-name-dark.svg" /><img src="./assets/readme-text-v1-name-light.svg" alt="Pranay Kadu" height="54" /></picture></h1>
+<h1><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-name-dark.svg" /><img src="./assets/readme-text-crimson-titanium-name-light.svg" alt="Pranay Kadu" height="54" /></picture></h1>
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v2-role-dark.svg" /><img src="./assets/readme-text-v2-role-light.svg" alt="Backend Software Engineer" height="31" /></picture></p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-role-dark.svg" /><img src="./assets/readme-text-crimson-titanium-role-light.svg" alt="Backend Software Engineer" height="31" /></picture></p>
 
 **Java · Spring Boot · Distributed Systems · AWS**
 
 I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v2-summary-dark.svg" /><img src="./assets/readme-text-v2-summary-light.svg" alt="25+ total merged GitHub PRs · Apache and AutoMQ contributor" height="26" /></picture></p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-summary-dark.svg" /><img src="./assets/readme-text-crimson-titanium-summary-light.svg" alt="25+ total merged GitHub PRs · Apache and AutoMQ contributor" height="26" /></picture></p>
 
 ---
 
-<h2 id="open-source-engineering"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-open-source-engineering-dark.svg" /><img src="./assets/readme-text-v1-open-source-engineering-light.svg" alt="Open-Source Engineering" height="37" /></picture></h2>
+<h2 id="open-source-engineering"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-open-source-engineering-dark.svg" /><img src="./assets/readme-text-crimson-titanium-open-source-engineering-light.svg" alt="Open-Source Engineering" height="37" /></picture></h2>
 
 I contribute to distributed infrastructure with an emphasis on correctness, concurrency and reliability.
 
@@ -46,7 +46,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-<h2 id="professional-experience"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-professional-experience-dark.svg" /><img src="./assets/readme-text-v1-professional-experience-light.svg" alt="Professional Experience" height="37" /></picture></h2>
+<h2 id="professional-experience"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-professional-experience-dark.svg" /><img src="./assets/readme-text-crimson-titanium-professional-experience-light.svg" alt="Professional Experience" height="37" /></picture></h2>
 
 **Software Engineer | Linux Socials**  
 *Apr 2025 – Present*
@@ -62,7 +62,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-<h2 id="selected-projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-selected-projects-dark.svg" /><img src="./assets/readme-text-v1-selected-projects-light.svg" alt="Selected Projects" height="37" /></picture></h2>
+<h2 id="selected-projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-selected-projects-dark.svg" /><img src="./assets/readme-text-crimson-titanium-selected-projects-light.svg" alt="Selected Projects" height="37" /></picture></h2>
 
 - **[NUMEN](https://github.com/BackendArchitectX/NUMEN)** — Java-based data intelligence with auditability, provenance tracking and validation.
 - **[Aegis Insurance Decisioning](https://github.com/BackendArchitectX/Aegis-Insurance-Decision-Platform)** — Insurance risk simulation using Spring Boot, Angular and auditable decision workflows.
@@ -70,7 +70,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-<h2 id="technical-expertise"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-technical-expertise-dark.svg" /><img src="./assets/readme-text-v1-technical-expertise-light.svg" alt="Technical Expertise" height="37" /></picture></h2>
+<h2 id="technical-expertise"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-technical-expertise-dark.svg" /><img src="./assets/readme-text-crimson-titanium-technical-expertise-light.svg" alt="Technical Expertise" height="37" /></picture></h2>
 
 | Area | Technologies |
 | --- | --- |
@@ -83,7 +83,7 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ---
 
-<h2 id="engineering-principles"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-engineering-principles-dark.svg" /><img src="./assets/readme-text-v1-engineering-principles-light.svg" alt="Engineering Principles" height="37" /></picture></h2>
+<h2 id="engineering-principles"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-crimson-titanium-engineering-principles-dark.svg" /><img src="./assets/readme-text-crimson-titanium-engineering-principles-light.svg" alt="Engineering Principles" height="37" /></picture></h2>
 
 **Design for failure. Measure before optimizing. Preserve correctness.**
 
