@@ -17,13 +17,13 @@
 
 <h1><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-name-dark.svg" /><img src="./assets/readme-text-v1-name-light.svg" alt="Pranay Kadu" height="54" /></picture></h1>
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-role-dark.svg" /><img src="./assets/readme-text-v1-role-light.svg" alt="Backend Software Engineer" height="31" /></picture></p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v2-role-dark.svg" /><img src="./assets/readme-text-v2-role-light.svg" alt="Backend Software Engineer" height="31" /></picture></p>
 
 **Java · Spring Boot · Distributed Systems · AWS**
 
 I build and maintain reliable backend systems with a focus on **transaction correctness, concurrency, performance and fault recovery**. My experience covers production microservices, event-driven architectures, cloud infrastructure and open-source engineering.
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v1-summary-dark.svg" /><img src="./assets/readme-text-v1-summary-light.svg" alt="25+ total merged GitHub PRs · Apache and AutoMQ contributor" height="26" /></picture></p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-text-v2-summary-dark.svg" /><img src="./assets/readme-text-v2-summary-light.svg" alt="25+ total merged GitHub PRs · Apache and AutoMQ contributor" height="26" /></picture></p>
 
 ---
 
