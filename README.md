@@ -37,14 +37,14 @@ I contribute to distributed infrastructure with an emphasis on correctness, conc
 
 ### Merged Engineering Contributions
 
-- **[Kestra AWS Plugin #889](https://github.com/kestra-io/plugin-aws/pull/889)** — Preserved DynamoDB binary attributes on reads with regression tests.
 - **[Apache Pinot #19915](https://github.com/apache/pinot/pull/19915)** — Reduced hash collisions and unnecessary key allocations in replica-group instance lookups using a custom hash strategy.
+- **[Kestra AWS Plugin #889](https://github.com/kestra-io/plugin-aws/pull/889)** — Preserved DynamoDB binary attributes on reads with regression tests.
+- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Fixed asynchronous readahead races after reader closure.
 - **[Apache Fluss #4263](https://github.com/apache/fluss/pull/4263)** — Fixed stale RPC connections with endpoint-aware caching and regression tests.
 - **[Apache Pulsar #26969](https://github.com/apache/pulsar/pull/26969)** — Improved topic watcher notification dispatch through namespace-based indexing and concurrency tests.
 - **[Apache Druid #20633](https://github.com/apache/druid/pull/20633)** — Preserved structured user-error classifications during distributed query execution.
-- **[AutoMQ #3555](https://github.com/AutoMQ/automq/pull/3555)** — Fixed asynchronous readahead races after reader closure.
-- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented broker-specific metrics initialization on controller-only nodes.
 - **[AutoMQ #3542](https://github.com/AutoMQ/automq/pull/3542)** — Removed redundant topic cleanup notifications.
+- **[AutoMQ #3493](https://github.com/AutoMQ/automq/pull/3493)** — Prevented broker-specific metrics initialization on controller-only nodes.
 
 [View merged external engineering pull requests](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3ABackendArchitectX+-user%3ABackendArchitectX+-repo%3Ais-a-dev%2Fregister)
 
