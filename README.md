@@ -8,13 +8,10 @@
   <img align="right" src="./assets/eve-robot-v20-multilingual-red-light.gif" width="300" alt="Red EVE robot waving and greeting in English, Chinese, Hindi, Spanish and French." />
 </picture>
 
-<div id="user-content-toc">
-  <ul align="left">
-    <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-name-48-dark.svg" /><img src="./assets/readme-name-48-light.svg" width="350" height="62" alt="Pranay Kadu" /></picture></summary>
-    <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-header-role-30-dark.svg" /><img src="./assets/readme-header-role-30-light.svg" width="430" height="40" alt="Backend Software Engineer" /></picture></summary>
-    <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-header-stack-24-dark.svg" /><img src="./assets/readme-header-stack-24-light.svg" width="455" height="34" alt="Java · Spring Boot · Distributed Systems · AWS" /></picture></summary>
-  </ul>
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/readme-identity-v21-dark.svg" />
+  <img src="./assets/readme-identity-v21-light.svg" width="470" height="154" alt="Pranay Kadu — Backend Software Engineer — Java · Spring Boot · Distributed Systems · AWS" />
+</picture>
 
 <br clear="all" />
 
