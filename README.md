@@ -2,10 +2,10 @@
 
 <!-- Native profile identity beside independent red EVE animation -->
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v20-multilingual-red-dark-still.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v20-multilingual-red-light-still.png" />
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v20-multilingual-red-dark.gif" />
-  <img align="right" src="./assets/eve-robot-v20-multilingual-red-light.gif" width="300" alt="Red EVE robot waving and greeting in English, Chinese, Hindi, Spanish and French." />
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/eve-robot-v22-pointing-red-dark-still.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/eve-robot-v22-pointing-red-light-still.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/eve-robot-v22-pointing-red-dark.gif" />
+  <img align="right" src="./assets/eve-robot-v22-pointing-red-light.gif" width="300" alt="Red EVE robot waving and greeting in English, Chinese, Hindi, Spanish and French." />
 </picture>
 
 <picture>
