@@ -11,8 +11,8 @@
 <div id="user-content-toc">
   <ul align="left">
     <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-name-48-dark.svg" /><img src="./assets/readme-name-48-light.svg" width="350" height="62" alt="Pranay Kadu" /></picture></summary>
-    <summary><h2>Backend Software Engineer</h2></summary>
-    <summary><h3>Java · Spring Boot · Distributed Systems · AWS</h3></summary>
+    <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-header-role-30-dark.svg" /><img src="./assets/readme-header-role-30-light.svg" width="430" height="40" alt="Backend Software Engineer" /></picture></summary>
+    <summary><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/readme-header-stack-24-dark.svg" /><img src="./assets/readme-header-stack-24-light.svg" width="455" height="34" alt="Java · Spring Boot · Distributed Systems · AWS" /></picture></summary>
   </ul>
 </div>
 
