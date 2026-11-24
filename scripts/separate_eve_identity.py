@@ -1,69 +1,89 @@
 #!/usr/bin/env python3
-"""Separate the static identity from the original EVE animation, without re-rendering EVE."""
+"""Compose the editable SVG identity into the original compact EVE header."""
+from io import BytesIO
 from pathlib import Path
-from PIL import Image, ImageDraw
+import re
+import cairosvg
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 OLD = "eve-readme-v13"
-NEW = "eve-readme-v14-separated"
+PREVIOUS = "eve-readme-v14-separated"
+NEW = "eve-readme-v15-compact"
 SIZE = (1120, 545)
+NAVY = (20, 43, 96)
 
-def separate(frame, theme):
+def identity(theme):
+    source = ASSETS / f"eve-identity-v2-{theme}.svg"
+    bg = (13, 17, 23) if theme == "dark" else (255, 255, 255)
+    raw = cairosvg.svg2png(url=str(source))
+    with Image.open(BytesIO(raw)) as overlay:
+        assert overlay.size == (594, 173)
+        patch = Image.new("RGB", overlay.size, bg)
+        patch.paste(overlay, (0, 0), overlay.getchannel("A"))
+    return patch
+
+def compose(frame, patch):
     assert frame.size == SIZE, frame.size
     result = frame.convert("RGB")
-    greeting = result.crop((0, 245, 594, 405))
-    bg = (13, 17, 23) if theme == "dark" else (255, 255, 255)
-    ImageDraw.Draw(result).rectangle((0, 0, 593, 404), fill=bg)
-    result.paste(greeting, (0, 135))
-    # The right-hand robot, work prompt, lower divider and navigation caption
-    # are untouched. The original multilingual greeting remains animated.
+    result.paste(patch, (0, 0))
     return result
 
 def render(theme):
-    source = ASSETS / f"{OLD}-{theme}.gif"
+    patch = identity(theme)
+    highlight = (199, 216, 245) if theme == "dark" else (224, 233, 250)
     dest = ASSETS / f"{NEW}-{theme}.gif"
-    with Image.open(source) as original:
-        palette = original.copy()
-        assert palette.mode == "P"
+    with Image.open(ASSETS / f"{OLD}-{theme}.gif") as original:
+        assert original.n_frames > 1
+        loop = original.info.get("loop", 0)
+        sample_indices = sorted({0, original.n_frames//10, original.n_frames//3,
+                                 original.n_frames//2, original.n_frames-1})
+        montage = Image.new("RGB", (SIZE[0], SIZE[1]*len(sample_indices)))
+        for index, frame_index in enumerate(sample_indices):
+            original.seek(frame_index)
+            montage.paste(compose(original, patch), (0, index*SIZE[1]))
+        palette = montage.quantize(colors=254, method=Image.Quantize.MEDIANCUT)
+        colors = palette.getpalette()[:254*3] + list(NAVY) + list(highlight)
+        palette.putpalette(colors)
         durations = []
         frames = []
-        loop = original.info.get("loop", 0)
         for i in range(original.n_frames):
             original.seek(i)
             durations.append(original.info.get("duration", 40))
-            frames.append(separate(original, theme).quantize(
+            frames.append(compose(original, patch).quantize(
                 palette=palette, dither=Image.Dither.NONE))
         frames[0].save(dest, save_all=True, append_images=frames[1:],
                        duration=durations, loop=loop, optimize=True, disposal=1)
         expected = sum(durations)
     with Image.open(dest) as generated:
+        assert generated.size == SIZE
+        assert generated.n_frames > 1
+        assert generated.info.get("loop", 0) == loop
+        rgb = generated.convert("RGB")
+        assert rgb.getpixel((40, 30)) == highlight
+        assert NAVY in set(rgb.crop((35, 8, 524, 85)).getdata())
         actual = 0
         for i in range(generated.n_frames):
             generated.seek(i)
             actual += generated.info.get("duration", 0)
         assert actual == expected, (theme, actual, expected)
-        assert generated.size == SIZE
     with Image.open(ASSETS / f"{OLD}-{theme}-still.png") as still:
-        separate(still, theme).save(ASSETS / f"{NEW}-{theme}-still.png", optimize=True)
+        compose(still, patch).save(ASSETS / f"{NEW}-{theme}-still.png", optimize=True)
+    print(f"Verified {theme}: {expected}ms, {SIZE}, highlighted identity", flush=True)
 
 def update_readme():
     path = ROOT / "README.md"
     before = path.read_text(encoding="utf-8")
-    marker = "<!-- Animated 3D EVE header with reduced-motion and color-scheme fallbacks -->"
-    identity = '<p><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/eve-identity-v1-dark.svg" /><img src="./assets/eve-identity-v1-light.svg" width="100%" alt="Pranay Kadu — Backend Software Engineer — Java · Spring Boot · Distributed Systems · AWS" /></picture></p>'
-    assert before.count(marker) == 1
-    updated = before
+    updated = re.sub(r'(?m)^<p><picture><source media="\(prefers-color-scheme: dark\)" srcset="\./assets/eve-identity-v1-dark\.svg"[^\n]*</picture></p>\n\n', '', before)
+    assert "eve-identity-v1-dark.svg" not in updated
     for theme in ("dark", "light"):
-        assert (ASSETS / f"eve-identity-v1-{theme}.svg").is_file()
         for suffix in (".gif", "-still.png"):
-            old = f"./assets/{OLD}-{theme}{suffix}"
+            old = f"./assets/{PREVIOUS}-{theme}{suffix}"
             new = f"./assets/{NEW}-{theme}{suffix}"
             assert updated.count(old) + updated.count(new) == 1, (old, new)
-            assert (ROOT / new).is_file()
+            assert (ROOT / new).is_file(), new
             updated = updated.replace(old, new)
-    if identity not in updated:
-        updated = updated.replace(marker, identity + "\n\n" + marker)
     path.write_text(updated, encoding="utf-8")
 
 if __name__ == "__main__":
