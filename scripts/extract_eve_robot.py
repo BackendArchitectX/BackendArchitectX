@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Preserve multilingual EVE and restore the original synchronized downward cue."""
+"""Render full-color lossless EVE animation without GIF palette banding."""
 from pathlib import Path
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, features
+from render_eve_red import EVE, FPS, SECONDS, LANG, composite as full_composite
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
-SOURCE = "eve-readme-v17-crimson-titanium"
-CURRENT = "eve-robot-v20-multilingual-red"
-NEW = "eve-robot-v22-pointing-red"
+CURRENT = "eve-robot-v22-pointing-red"
+NEW = "eve-robot-v23-smooth-red"
 SIZE = (1120, 480)
 ROBOT = (594, 0, 1098, 392)
 CUE = (594, 392, 1098, 439)
@@ -60,36 +60,26 @@ def signature(frame, theme):
 
 def render(theme):
     bg = background(theme)
-    dest = ASSETS / f"{NEW}-{theme}.gif"
-    with Image.open(ASSETS / f"{SOURCE}-{theme}.gif") as original:
-        assert original.n_frames > 1
-        loop = original.info.get("loop",0)
-        top = 80
-        for i in range(original.n_frames):
-            original.seek(i)
-            robot,_ = parts(original)
-            box = bounds(robot,bg)
-            assert box
-            top = min(top,max(0,box[1]-10))
-        with Image.open(ASSETS / f"{SOURCE}-{theme}-still.png") as still:
-            robot,_ = parts(still)
-            box = bounds(robot,bg)
-            assert box
-            top = min(top,max(0,box[1]-10))
-            still_frame = compose(still,theme,top)
-            still_frame.save(ASSETS / f"{NEW}-{theme}-still.png",optimize=True)
-        original.seek(0)
-        palette = original.copy()
-        assert palette.mode == "P"
-        frames, durations = [], []
-        for i in range(original.n_frames):
-            original.seek(i)
-            durations.append(original.info.get("duration",40))
-            frames.append(compose(original,theme,top).quantize(palette=palette,dither=Image.Dither.NONE))
-        frames[0].save(dest,save_all=True,append_images=frames[1:],duration=durations,
-                       loop=loop,optimize=True,disposal=1)
+    assert features.check("webp"), "Pillow must support WebP"
+    dest = ASSETS / f"{NEW}-{theme}.webp"
+    scene = EVE(theme)
+    sprites = [scene.frame(i/FPS) for i in range(SECONDS*FPS)]
+    # Preserve the exact compact crop used by the currently published GIF.
+    # Reading only its dimensions does not reuse any quantized pixel data.
+    with Image.open(ASSETS / f"{CURRENT}-{theme}-still.png") as previous:
+        top = TEXT_HEIGHT + (ROBOT[3]-ROBOT[1]) + (CUE[3]-CUE[1]) - previous.height
+        assert previous.width == WIDTH and 0 <= top <= 80
+    point_frame = round(4.12*FPS)
+    still_frame = compose(full_composite(theme,sprites[point_frame],0,point_frame/FPS),theme,top)
+    still_frame.save(ASSETS / f"{NEW}-{theme}-still.png",optimize=True)
+    frames = [compose(full_composite(theme,sprite,language,i/FPS),theme,top)
+              for language in range(len(LANG)) for i,sprite in enumerate(sprites)]
+    durations = [1000//FPS] * len(frames)
+    loop = 0
+    frames[0].save(dest,format="WEBP",save_all=True,append_images=frames[1:],
+                   duration=durations,loop=loop,lossless=True,quality=85,method=4)
     with Image.open(dest) as result:
-        assert result.size == still_frame.size and result.n_frames > 1
+        assert result.size == still_frame.size and result.n_frames == len(frames)
         assert result.info.get("loop",0) == loop
         total, signatures, changed = 0,set(),False
         pointing_cycles, quiet_cycles = set(), set()
@@ -97,7 +87,9 @@ def render(theme):
         assert sum(r>65 and r>1.5*g and r>1.25*b for r,g,b in first_robot.getdata())>2000
         for i in range(result.n_frames):
             result.seek(i)
+            result.load()  # WebP exposes duration after decoding the frame.
             duration = result.info.get("duration",0)
+            assert ImageChops.difference(result.convert("RGB"),frames[i]).getbbox() is None, ("Lossless frame mismatch",i)
             signatures.add(signature(result,theme))
             if not changed:
                 current = result.convert("RGB").crop((0,TEXT_HEIGHT,WIDTH,result.height))
@@ -123,9 +115,9 @@ def update_readme():
     header = before[start:end]
     assert "Hey, I am EVE.</h2>" not in header
     for theme in ("dark","light"):
-        for suffix in (".gif","-still.png"):
-            old = f"{CURRENT}-{theme}{suffix}"
-            new = f"{NEW}-{theme}{suffix}"
+        for old_suffix,new_suffix in ((".gif",".webp"),("-still.png","-still.png")):
+            old = f"{CURRENT}-{theme}{old_suffix}"
+            new = f"{NEW}-{theme}{new_suffix}"
             assert (ASSETS/new).is_file()
             assert header.count(old)+header.count(new)==1
             header = header.replace(old,new)
