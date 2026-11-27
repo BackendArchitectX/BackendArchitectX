@@ -176,15 +176,18 @@ class EVE:
   return v**3*(10+v*(-15+6*v))
 
  def frame(self,t):
-  # EVE's right hand appears on screen left. Keep the root and other fin still.
+  # Both fins use the same gesture envelope, mirrored across the body.
   lift=self.ease(t,.08,.95)*(1-self.ease(t,1.94,2.68))
   sway=self.ease(t,.58,.94)*(1-self.ease(t,1.78,2.10))
   phase=math.tau*1.4*(t-.82)
   point=self.ease(t,2.63,3.46)*(1-self.ease(t,4.88,5.80))
   sweep=self.ease(t,3.23,5.09)
-  self.arms[-1].SetPosition(-.79-.18*lift-.21*point,0,1.90-.08*point)
-  self.arms[-1].SetOrientation(0,4+133*lift+12*sway*math.sin(phase)+(18-5*sweep)*point,
-                               6*sway*math.cos(phase))
+  reach=.79+.18*lift+.21*point
+  pitch=4+133*lift+12*sway*math.sin(phase)+(18-5*sweep)*point
+  yaw=6*sway*math.cos(phase)
+  for side,arm in self.arms.items():
+   arm.SetPosition(side*reach,0,1.90-.08*point)
+   arm.SetOrientation(0,-side*pitch,-side*yaw)
 
   glance=self.ease(t,2.50,3.23)*(1-self.ease(t,4.82,5.66))
   idle_phase=math.tau*t/SECONDS
@@ -281,15 +284,20 @@ def build(theme):
  print("Rendering EVE",theme,flush=True)
  scene=EVE(theme)
  # Render one six-second cycle, then replay it with each greeting.
- # Capture the non-gesturing fin's transform and verify it never changes.
- stationary_fin=scene.arms[1]
- initial_orientation=stationary_fin.GetOrientation()
- initial_position=stationary_fin.GetPosition()
+ # Check that both fins change pose at the same times, without moving the root.
  initial_root=scene.root.GetPosition()
- sprites=[scene.frame(i/FPS) for i in range(SECONDS*FPS)]
- assert tuple(stationary_fin.GetOrientation())==tuple(initial_orientation), "Other fin must not rotate"
- assert tuple(stationary_fin.GetPosition())==tuple(initial_position), "Other fin must not move"
- assert tuple(scene.root.GetPosition())==tuple(initial_root), "Root hover must not move both fins"
+ sprites=[]
+ rest={}
+ for i in range(SECONDS*FPS):
+  sprites.append(scene.frame(i/FPS))
+  poses={side:(arm.GetPosition(),arm.GetOrientation()) for side,arm in scene.arms.items()}
+  if i==0:
+   rest=poses
+  else:
+   assert (poses[-1]!=rest[-1])==(poses[1]!=rest[1]), "Fins must move in sync"
+  if i in (round(1.15*FPS),round(4.12*FPS)):
+   assert all(poses[side]!=rest[side] for side in (-1,1)), "Both fins must gesture"
+ assert tuple(scene.root.GetPosition())==tuple(initial_root), "Root must remain stationary"
  # Both gestures must have visible motion from their own resting pose.
  from PIL import ImageChops
  wave_frame=round(1.15*FPS)
