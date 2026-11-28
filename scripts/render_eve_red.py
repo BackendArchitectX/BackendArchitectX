@@ -193,7 +193,10 @@ class EVE:
   idle_phase=math.tau*t/SECONDS
   self.head.SetPosition(0,0,2.93+.037*math.sin(2*idle_phase))
   self.head.SetOrientation((4+3*sweep)*glance,-4*lift-4*glance+.6*math.sin(idle_phase),0)
-  smile=self.ease(t,.18,.86)*(1-self.ease(t,1.98,2.63))
+  # Reuse the greeting's cheerful crescent eyes throughout the work cue.
+  greeting_smile=self.ease(t,.18,.86)*(1-self.ease(t,1.98,2.63))
+  work_smile=self.ease(t,2.68,3.24)*(1-self.ease(t,5.42,5.86))
+  smile=max(greeting_smile,work_smile)
   blink=self.ease(t,2.30,2.44)*(1-self.ease(t,2.48,2.64))
   openness=1-.94*blink
   x,y,z=self.eye_shape.T
